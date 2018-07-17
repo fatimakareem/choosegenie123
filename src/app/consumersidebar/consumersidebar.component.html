@@ -1,0 +1,47 @@
+<section id="body" class="width">
+    <aside id="sidebar sticky" class="column-left">
+
+        <header>
+
+            <div class="super-sidebar-profile-img">
+
+                <a href="/superdashboard">
+                    <img src="../../assets/img/Choice_genie_logo.png" alt="ChoiceGenie" />
+                    <!-- <img src="../assets/img/faces/avatar.jpg" /> -->
+                </a>
+            </div>
+
+        </header>
+
+        <nav id="mainnav">
+            <ul>
+                <li>
+                    <input type="text" [value]="user" readonly>
+                </li>
+                <li>
+                    <a href="/">
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="/userprofile">
+                        My Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="/ChangePassword">
+                      Change Password
+                    </a>
+                  </li>
+                <li>
+                    <a (click)="logout()">
+                        Logout
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+    </aside>
+</section>
+
+

@@ -1,0 +1,21 @@
+
+<div class="navbar-fixed"> 
+    <app-navbar-cmp></app-navbar-cmp>
+  <!-- <app-usernavbar></app-usernavbar> -->
+</div>
+<div class="wrapper" style="overflow: hidden ; padding-top: 70px;">
+  <div class="container-fluid" >
+    <div class="row">
+      <div  style="background-color:#2f2f2f; position: fixed; width:20%; height: 100%">
+        <app-consumersidebar></app-consumersidebar>
+      </div>
+
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+  <div class="dashboard-footer" style="float: right; width:79%">
+
+    <app-footer-cmp></app-footer-cmp>
+
+  </div>
