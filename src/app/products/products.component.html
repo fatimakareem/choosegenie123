@@ -423,11 +423,7 @@
                       <i class="fa fa-angle-right"></i>
                     </a>
                   </li>
-                  <!-- <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-    <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">
-    <i class="fa fa-angle-double-right"></i>
-    </a>
-    </li> -->
+
                 </ul>
 
                 <div class="col-md-2 col-sm-4 col-xs-12 prod-select-list sec-list">
@@ -453,7 +449,7 @@
                   <button class="Compare" (click)="Comapreproduct()">Compare</button>
 
 
-                  <!-- <button id="cmd">Generate PDF</button> -->
+
                 </div>
                 <!-- <a target="_blank"   onclick="window.print();" class="print-grid-temp" title="Print plan results">
     <img alt="print" src="/Content/images/printer.png" width="16" height="16"></a> -->
@@ -873,28 +869,28 @@
 
 
                                 <div class="rating-starts">
-                                <fieldset class="ratingq move-to-center">
-                                  <input type="radio" id="star5q" name="rating" value="5" (click)="get(5)" />
-                                  <label class="full" for="star5q" title="Awesome - 5 stars"></label>
-                                  <input type="radio" id="star4halfq" name="rating" value="4.5" (click)="get(4.5)" />
-                                  <label class="half" for="star4halfq" title="Pretty good - 4.5 stars"></label>
-                                  <input type="radio" id="starq" name="rating" value="4" (click)="get(4)" />
-                                  <label class="full" for="starq" title="Pretty good - 4 stars"></label>
-                                  <input type="radio" id="star3halfq" name="rating" value="3.5" (click)="get(3.5)" />
-                                  <label class="half" for="star3halfq" title="Meh - 3.5 stars"></label>
-                                  <input type="radio" id="star3q" name="rating" value="3" (click)="get(3)" />
-                                  <label class="full" for="star3q" title="Meh - 3 stars"></label>
-                                  <input type="radio" id="star2halfq" name="rating" value="2.5" (click)="get(2.5)" />
-                                  <label class="half" for="star2halfq" title="Kinda bad - 2.5 stars"></label>
-                                  <input type="radio" id="star2q" name="rating" value="2" (click)="get(2)" />
-                                  <label class="full" for="star2q" title="Kinda bad - 2 stars"></label>
-                                  <input type="radio" id="star1halfq" name="rating" value="1.5" (click)="get(1.5)" />
-                                  <label class="half" for="star1halfq" title="Meh - 1.5 stars"></label>
-                                  <input type="radio" id="star1q" name="rating" value="1" (click)="get(1)" />
-                                  <label class="full" for="star1q" title="Sucks big time - 1 star"></label>
-                                  <input type="radio" id="starhalfq" name="rating" value="0.5" (click)="get(0.5)" />
-                                  <label class="half" for="starhalfq" title="Sucks big time - 0.5 stars"></label>
-                                </fieldset>
+                                  <fieldset class="ratingq move-to-center">
+                                    <input type="radio" id="star5q" name="rating" value="5" (click)="get(5)" />
+                                    <label class="full" for="star5q" title="Awesome - 5 stars"></label>
+                                    <input type="radio" id="star4halfq" name="rating" value="4.5" (click)="get(4.5)" />
+                                    <label class="half" for="star4halfq" title="Pretty good - 4.5 stars"></label>
+                                    <input type="radio" id="starq" name="rating" value="4" (click)="get(4)" />
+                                    <label class="full" for="starq" title="Pretty good - 4 stars"></label>
+                                    <input type="radio" id="star3halfq" name="rating" value="3.5" (click)="get(3.5)" />
+                                    <label class="half" for="star3halfq" title="Meh - 3.5 stars"></label>
+                                    <input type="radio" id="star3q" name="rating" value="3" (click)="get(3)" />
+                                    <label class="full" for="star3q" title="Meh - 3 stars"></label>
+                                    <input type="radio" id="star2halfq" name="rating" value="2.5" (click)="get(2.5)" />
+                                    <label class="half" for="star2halfq" title="Kinda bad - 2.5 stars"></label>
+                                    <input type="radio" id="star2q" name="rating" value="2" (click)="get(2)" />
+                                    <label class="full" for="star2q" title="Kinda bad - 2 stars"></label>
+                                    <input type="radio" id="star1halfq" name="rating" value="1.5" (click)="get(1.5)" />
+                                    <label class="half" for="star1halfq" title="Meh - 1.5 stars"></label>
+                                    <input type="radio" id="star1q" name="rating" value="1" (click)="get(1)" />
+                                    <label class="full" for="star1q" title="Sucks big time - 1 star"></label>
+                                    <input type="radio" id="starhalfq" name="rating" value="0.5" (click)="get(0.5)" />
+                                    <label class="half" for="starhalfq" title="Sucks big time - 0.5 stars"></label>
+                                  </fieldset>
                                 </div>
 
                               </div>
@@ -1157,154 +1153,88 @@
       </div>
 
 
-      <div _ngcontent-c0="" class="custom card" style=" margin-top: 16px;">
-        <div _ngcontent-c0="" class="product-page-bar">
-          <div _ngcontent-c0="" class=" col-lg-5 col-md-6 col-sm-5 col-xs-12 align padding">
-            <label _ngcontent-c0="" class="product-label ">SORT BY:</label>
-            <button _ngcontent-c0="" class="sort-btn ng-untouched ng-pristine ng-valid" name="sort" type="button" value="sort">
+      <div class="custom card" style=" margin-top: 16px;">
+        <div class="product-page-bar">
+          <div class=" col-lg-5 col-md-6 col-sm-5 col-xs-12 align padding">
+            <label class="product-label ">SORT BY:</label>
+            <button class="sort-btn " [(ngModel)]=sort name="sort" value="sort" type="button" (click)="checked20($event,i)">
               RENEWABLE
-              <i _ngcontent-c0="" class="fa fa-sort-down down-icon"></i>
+              <i class="fa fa-sort-down down-icon"></i>
 
             </button>
-            <button _ngcontent-c0="" class="sort-btn ng-untouched ng-pristine ng-valid" name="sort" type="button" value="sort">
+            <button class="sort-btn " [(ngModel)]=sort name="sort" value="sort" type="button" (click)="checked20($event,i)">
               Price KW/h
-              <i _ngcontent-c0="" class="fa fa-sort-down down-icon"></i>
+              <i class="fa fa-sort-down down-icon"></i>
 
             </button>
-            <button _ngcontent-c0="" class="sort-btn ng-untouched ng-pristine ng-valid" name="sort" type="button" value="sort">
+            <button class="sort-btn " [(ngModel)]=sort name="sort" value="sort" type="button" (click)="checked20($event,i)">
               Company
-              <i _ngcontent-c0="" class="fa fa-sort-down down-icon"></i>
+              <i class="fa fa-sort-down down-icon"></i>
 
             </button>
           </div>
 
 
 
-          <!--bindings={
-      "ng-reflect-ng-if": "3"
-    }-->
-          <ul _ngcontent-c0="" class="col-lg-3 col-md-3 col-sm-12 pagination ng-star-inserted">
-
-            <li _ngcontent-c0="" class="hide" ng-reflect-ng-class="[object Object]">
-              <a _ngcontent-c0="" class="btn btn-rose">
-                <i _ngcontent-c0="" class="fa fa-angle-left"></i>
+          
+          <ul class="col-lg-3 col-md-3 col-sm-12 pagination" *ngIf="pager.pages && pager.pages.length">
+            <!-- <li [ngClass]="{hide:pager.currentPage === 1}">
+<a (click)="setPage(1)" class="view-plan-details">
+<i class="fa fa-angle-double-left"></i>
+</a>
+</li> -->
+            <li [ngClass]="{hide:pager.currentPage === 1}">
+              <a (click)="setPage(pager.currentPage - 1)" class="view-plan-details" class="btn btn-rose">
+                <i class="fa fa-angle-left"></i>
               </a>
             </li>
 
 
-            <!--bindings={
-      "ng-reflect-ng-for-of": "1,2,3"
-    }-->
-            <li _ngcontent-c0="" class="active ng-star-inserted" ng-reflect-ng-class="[object Object]">
-              <a _ngcontent-c0="" class="view-plan-details">1</a>
-            </li>
-            <li _ngcontent-c0="" ng-reflect-ng-class="[object Object]" class="ng-star-inserted">
-              <a _ngcontent-c0="" class="view-plan-details">2</a>
-            </li>
-            <li _ngcontent-c0="" ng-reflect-ng-class="[object Object]" class="ng-star-inserted">
-              <a _ngcontent-c0="" class="view-plan-details">3</a>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+              <a (click)="setPage(page)" class="view-plan-details">{{page}}</a>
             </li>
 
-
-
-
-
-
-
-            <!--bindings={
-      "ng-reflect-ng-if": "true"
-    }-->
-            <li _ngcontent-c0="" class="ng-star-inserted">
-              <a _ngcontent-c0="">...</a>
+            <!--<li *ngIf="(pager.startPage  + 5) <= pager.totalPages">-->
+            <!--    <a (click)="setPage(pager.currentPage + 5)">...</a>-->
+            <!--</li>-->
+            <!-- <li *ngIf="(pager.startPage  + 5) <= pager.totalPages" >-->
+            <!--    <a (click)="setPage(pager.totalPages)">{{pager.totalPages}}</a>-->
+            <!--</li>-->
+            <li *ngIf="(pager.totalPages - pager.startPage) > 3 ">
+              <a (click)="setPage(pager.startPage + 3)">...</a>
             </li>
-
-            <li _ngcontent-c0="" ng-reflect-ng-class="[object Object]">
-              <a _ngcontent-c0="" class="btn btn-rose" type="Next">
-                <i _ngcontent-c0="" class="fa fa-angle-right"></i>
+            <!-- <li *ngIf="(pager.totalPages - pager.startPage) > 3" >
+<a (click)="setPage(pager.totalPages)" class="view-plan-details">{{pager.totalPages}}</a>
+</li> -->
+            <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+              <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn btn-rose" type="Next">
+                <i class="fa fa-angle-right"></i>
               </a>
             </li>
 
           </ul>
 
-          <div _ngcontent-c0="" class="col-md-2 col-sm-4 col-xs-12 prod-select-list sec-list">
-            <label _ngcontent-c0="" class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
-            <mat-form-field _ngcontent-c0="" class="mat-input-container mat-form-field ng-tns-c1-7 mat-form-field-type-mat-select mat-form-field-can-float mat-primary ng-untouched ng-pristine ng-invalid">
-              <div class="mat-input-wrapper mat-form-field-wrapper">
-                <div class="mat-input-flex mat-form-field-flex">
-                  <!--bindings={
-      "ng-reflect-ng-if": "0"
-    }-->
-                  <div class="mat-input-infix mat-form-field-infix" style="padding: 0px;">
+          <div class="col-md-2 col-sm-4 col-xs-12 prod-select-list sec-list">
+            <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
+            <mat-form-field>
 
-                    <mat-select _ngcontent-c0="" class="width-sec mat-select ng-tns-c2-8 ng-star-inserted ng-untouched ng-pristine ng-invalid mat-select-required"
-                      name="items" placeholder="" required="" role="listbox" selected="10" value="item" ng-reflect-required=""
-                      ng-reflect-name="items" ng-reflect-placeholder="" ng-reflect-value="item" id="mat-select-4" tabindex="0"
-                      aria-label="" aria-required="true" aria-disabled="false" aria-invalid="false" aria-owns="mat-option-13 mat-option-14 mat-option-15 mat-option-16"
-                      aria-multiselectable="false">
-                      <div class="mat-select-trigger" aria-hidden="true" cdk-overlay-origin="">
-                        <div class="mat-select-value">
-                          <!--bindings={
-      "ng-reflect-ng-if": "true"
-    }-->
-                          <!---->&nbsp;
-                          <!--bindings={
-      "ng-reflect-ng-if": "false"
-    }-->
-                        </div>
-                        <div class="mat-select-arrow-wrapper">
-                          <div class="mat-select-arrow"></div>
-                        </div>
-                      </div>
-                      <!--bindings={
-      "ng-reflect-_deprecated-origin": "[object Object]",
-      "ng-reflect-_deprecated-positions": "[object Object],[object Object",
-      "ng-reflect-_deprecated-offset-y": "0",
-      "ng-reflect-_deprecated-min-width": null,
-      "ng-reflect-_deprecated-backdrop-class": "cdk-overlay-transparent-backdr",
-      "ng-reflect-_deprecated-scroll-strategy": "[object Object]",
-      "ng-reflect-_deprecated-open": "false",
-      "ng-reflect-_deprecated-has-backdrop": ""
-    }-->
-                    </mat-select>
-                    <span class="mat-input-placeholder-wrapper mat-form-field-placeholder-wrapper">
-                      <!--bindings={
-      "ng-reflect-ng-if": "false"
-    }-->
-                    </span>
-                  </div>
-                  <!--bindings={
-      "ng-reflect-ng-if": "0"
-    }-->
-                </div>
-                <div class="mat-input-underline mat-form-field-underline">
-                  <span class="mat-input-ripple mat-form-field-ripple"></span>
-                </div>
-                <div class="mat-input-subscript-wrapper mat-form-field-subscript-wrapper" ng-reflect-ng-switch="hint">
-                  <!--bindings={
-      "ng-reflect-ng-switch-case": "error"
-    }-->
-                  <!--bindings={
-      "ng-reflect-ng-switch-case": "hint"
-    }-->
-                  <div class="mat-input-hint-wrapper mat-form-field-hint-wrapper ng-tns-c1-7 ng-trigger ng-trigger-transitionMessages ng-star-inserted"
-                    style="opacity: 1; transform: translateY(0%);">
-                    <!--bindings={
-      "ng-reflect-ng-if": ""
-    }-->
-                    <div class="mat-input-hint-spacer mat-form-field-hint-spacer"></div>
-                  </div>
-                </div>
-              </div>
+              <mat-select class="width-sec" placeholder="" selected="10" (change)="checked18($event,i,items)" value="item" required [(ngModel)]="items"
+                name="items">
+                <mat-option value="10" selected="true">10 PER PAGE</mat-option>
+                <mat-option value="20">20 PER PAGE</mat-option>
+                <mat-option value="40">40 PER PAGE</mat-option>
+                <mat-option value="556">SEE ALL</mat-option>
+              </mat-select>
             </mat-form-field>
 
 
 
           </div>
-          <div _ngcontent-c0="" class="col-lg-2 col-md-3 col-sm-2 col-xs-12 compare-print">
-            <button _ngcontent-c0="" class="print">
-              <i _ngcontent-c0="" class="fa fa-print"></i>
+          <div class="col-lg-2 col-md-3 col-sm-2 col-xs-12 compare-print">
+            <button class="print">
+              <i class="fa fa-print"></i>
             </button>
-            <button _ngcontent-c0="" class="Compare" style="padding: 5px 12px;">Compare</button>
+            <button class="Compare" (click)="Comapreproduct()">Compare</button>
 
 
 
