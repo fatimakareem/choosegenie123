@@ -172,13 +172,14 @@
         </li>
         <li class="vanders" *ngIf="check_login()">
           <a>
-            <i class="material-icons">account_circle</i>My ChoiceGenie
+            <i class="material-icons">account_circle</i>{{username}}
+            <!-- <input style="cursor: pointer;font-size: 20px; margin-left: 5px;" type="text" [value]="username" readonly> -->
           </a>
           <div class="drop-downs">
             <ul class="nav-vanders  why-choiegenie-sublist">
               <li>
                 <a (click)="moving()" style="cursor: pointer;">
-                  <input style="cursor: pointer;font-size: 20px; margin-left: 5px;" type="text" [value]="username" readonly>
+                  Dashboard
                 </a>
               </li>
  <li>
@@ -191,13 +192,14 @@
         </li>
         <li class="vanders" *ngIf="checked_login()">
           <a>
-            <i class="material-icons">account_circle</i>My ChoiceGenie
+            <i class="material-icons">account_circle</i>{{customer}}
+            <!-- <input style="cursor: pointer;font-size: 20px; margin-left: 5px;" type="text" [value]="customer" readonly> -->
           </a>
           <div class="drop-downs">
             <ul class="nav-vanders  why-choiegenie-sublist">
               <li>
                 <a (click)="move()" style="cursor: pointer;">
-                  <input style="cursor: pointer;font-size: 20px; margin-left: 5px;" type="text" [value]="customer" readonly>
+                  Dashboard
                 </a>
               </li>
 

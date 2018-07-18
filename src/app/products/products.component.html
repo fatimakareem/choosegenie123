@@ -37,12 +37,12 @@
     </a>
     </div>
     <div class="form-group label-floating">
-    
+
     <b>
     <input type="text" class="form-control" [(ngModel)]="zip_code" name="zipcode" style="font-size: 20px">
     </b>
     </div>
-    
+
     </li> -->
 
 
@@ -551,7 +551,7 @@
                               <div>
 
                                 <h4 class="modal-title" style="text-align: center;
-                                         
+
                                             font-size: 30px;">Based on what you've seen so far, how would you rate this Product?</h4>
                                 <fieldset class="ratingq move-to-center" style="padding-left:3.5in">
                                   <input type="radio" id="star5q" name="rating" value="5" (click)="get(5)" />
@@ -579,7 +579,7 @@
                               </div>
                               <div class="modal-title" style="text-align: center;padding-left:3in">
                                 <h3 style="
-                                         
+
                           font-size: 30px;">Why Did You Leaving This Review?</h3>
                               </div>
                               <br>
@@ -600,13 +600,13 @@
 
                             <button type="button" class="btn btn-rose" data-dismiss="modal" style="
                                         color: white;
-                
+
                                         width: 20%;
                                         height: 45px;
                                         font-size: 18px;">Cancel</button>
                             <button type="button" style="
                                         color: white;
-                
+
                                         width: 20%;
                                         height: 45px;
                                         font-size: 18px;" class="btn btn-rose" (click)="reviews(rating,comt,id)" data-dismiss="modal">Done</button>
@@ -844,8 +844,8 @@
                         <!-- Modal content-->
                         <div class="modal-content popupmodel">
                           <!-- <div class="modal-header">
-    
-    
+
+
     </div> -->
                           <div class="modal-body" style="font-size: 18px;
     background: #ffffff;
@@ -868,9 +868,12 @@
                               <div>
 
                                 <h4 class="modal-title" style="text-align: center;
-    
+
     font-size: 30px;">Based on what you've seen so far, how would you rate this Product?</h4>
-                                <fieldset class="ratingq move-to-center" style="padding-left:3.5in">
+
+
+                                <div class="rating-starts">
+                                <fieldset class="ratingq move-to-center">
                                   <input type="radio" id="star5q" name="rating" value="5" (click)="get(5)" />
                                   <label class="full" for="star5q" title="Awesome - 5 stars"></label>
                                   <input type="radio" id="star4halfq" name="rating" value="4.5" (click)="get(4.5)" />
@@ -892,11 +895,12 @@
                                   <input type="radio" id="starhalfq" name="rating" value="0.5" (click)="get(0.5)" />
                                   <label class="half" for="starhalfq" title="Sucks big time - 0.5 stars"></label>
                                 </fieldset>
+                                </div>
 
                               </div>
-                              <div class="modal-title" style="text-align: center;padding-left:3in">
+                              <div class="modal-title" style="text-align: center;margin: 0 auto;">
                                 <h3 style="
-    
+
     font-size: 30px;">Why Did You Leaving This Review?</h3>
                               </div>
                               <br>
@@ -904,7 +908,7 @@
                               <mat-form-field>
                                 <textarea matInput placeholder="Share your Opinion about the quality of this product." matAutosizeMinRows="10" matAutosizeMaxRows="5"
                                   style="height: 40px !important;width:920px !important;" name="comt" [(ngModel)]="comt">
-    
+
     </textarea>
 
                               </mat-form-field>
@@ -917,18 +921,18 @@
 
                           <div class="modal-footer">
 
-                            <button type="button" class="btn btn-rose" data-dismiss="modal" style="
+                            <button type="button" class="btn btn-fill" data-dismiss="modal" style="
     color: white;
-    
+
     width: 20%;
     height: 45px;
     font-size: 18px;">Cancel</button>
                             <button type="button" style="
     color: white;
-    
+
     width: 20%;
     height: 45px;
-    font-size: 18px;" class="btn btn-rose" (click)="reviews(rating,comt,id,date.value)" data-dismiss="modal">Done</button>
+    font-size: 18px;" class="btn btn-fill" (click)="reviews(rating,comt,id,date.value)" data-dismiss="modal">Done</button>
 
                           </div>
                         </div>
@@ -1011,9 +1015,9 @@
                   </div>
                   <!-- <div class="col-md-3 col-sm-3 col-xs-7 term top-margin-25">
     (click)="signUp(data.product_id)"
-    
-    
-    
+
+
+
     </div> -->
                   <div class="col-sm-12">
                     <!-- <a href="#p-pane-{{i}}" class="view-more collapsed" data-toggle="collapse">

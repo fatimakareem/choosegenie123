@@ -167,7 +167,7 @@
     font-size: 14px;
     font-weight: 300;
     letter-spacing: 1px;
-    padding: 5px 0 20px;
+    padding: 5px 0px 0px;
 }
 .customwidget, .customwidget:before {
     border-color: #fff;
@@ -225,7 +225,7 @@
     padding: 1px;
 }
 .course-meta{
-    margin-top: 30px;
+    margin-top: 10px;
 }
 .course-meta p{
     font-size: 15px;
@@ -255,8 +255,8 @@
     width: 33% !important;
 }
 .reviews-animation{
-    width: 550px; 
-    height: 400px;
+    width: 50%;
+    //height: 400px;
 }
 
 

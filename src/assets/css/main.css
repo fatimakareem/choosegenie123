@@ -4254,7 +4254,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 .popupmodel {
   /* margin-top: 25%; */
   width: 800px !important;
-  right: 40%;
+  right: 19%;
   background: #ebebeb !important;
 }
 .popup__heading{
@@ -4591,7 +4591,7 @@ canvas {
   margin-top:20px;
   }
   .rating-main h1{
-  color: #828282;
+  color: #444;
   font-family: sans-serif;
   font-size: 45px;
   }
@@ -4752,6 +4752,20 @@ canvas {
 .rating-desc .col-md-3 {padding-right: 0px;}
 .sr-only { margin-left: 5px;overflow: visible;clip: auto; }
 .progress .progress-bar:after{display: none;}
+
+.date-box{
+  color: #444;
+  text-align: left;
+}
+.date-box label{
+  color: #c00;
+  font-size: 20px;
+  text-align: left;
+  font-weight: bold;
+  margin: 5px 0px 0px 0px;
+}
+
+
 
 /*Dashboard front page*/
 
@@ -5204,6 +5218,19 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 .compare-print{
   margin-top: 3px;
 }
+
+.rating-starts{
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
+.rating-starts fieldset{
+  margin: 0 auto;
+  float: none;
+}
+.rating-starts fieldset label{
+  font-size: 12px;
+}
 /* End Products */
 
 /* Start user Sidebar */
@@ -5571,6 +5598,19 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 .bg th{
   background: #c00;
 }
+.reviews-img{
+  text-align: center;
+}
+.reviews-box{
+  padding: 0px;
+  text-align:center;
+}
+.reviews-box h1{
+  margin: 0px;
+}
+.r-comments{
+
+}
 /*End Reviews Dashboard */
 
 
@@ -5587,7 +5627,31 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 /*end Blog3*/
 
+/*Start Search bar*/
+.search-bar{
+  margin: 0 auto;
+  display: flex;
+  margin-bottom: 10px;
+}
+.search-bar .search-field{
+  font-size: 24px;
+  border: 1px solid;
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 30px 0px 0px 30px;
+  box-shadow: 0px 0px 9px 0px #ccc !important;
+}
+.search-bar .search-btn{
+  border-radius: 0px 30px 30px 0px;
+  border: none;
+  background: #c00;
+  font-size: 24px;
+  color: #fff;
+  box-shadow: 0px 0px 9px 0px #ccc !important;
+}
 
+
+/*End Search bar*/
 
 /*Start features-comparison*/
 .custom-padding tr td {
