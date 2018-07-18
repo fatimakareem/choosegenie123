@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Config } from '../../Config';
+import {Observable} from "rxjs/Observable";
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
 import { ErrorStateMatcher, MatStepper } from '@angular/material';
 
@@ -41,7 +42,9 @@ declare interface User {
 })
 
 export class LoginComponent implements OnInit {
-  @ViewChild('username') el: ElementRef; captcha: RecaptchaComponent
+  // @ViewChild('username') el: ElementRef : RecaptchaComponent;
+  @ViewChild(RecaptchaComponent) captcha: RecaptchaComponent;
+  isCaptcha=false;
   statuslogin: any;
   returnUrl: string;
   hide = true;
@@ -56,6 +59,11 @@ export class LoginComponent implements OnInit {
   public username;
   public title;
   Email;
+  status;
+  islogin = true;
+  isequal;
+  // returnUrl: string;
+
 
   password;
 
@@ -70,6 +78,7 @@ export class LoginComponent implements OnInit {
     }
 
   }
+    
   isFieldValid(form: FormGroup, field: string) {
     return !form.get(field).valid && form.get(field).touched;
   }
@@ -84,7 +93,11 @@ export class LoginComponent implements OnInit {
   result: any = [];
   onLogin() {
   
-    if (this.login.valid) {
+    if (this.captcha.getResponse()) {
+      console.log('equ ok');
+      // alert("login");
+      this.isequal=true;
+    if (this.username!='' || this.password!='') {
       this._serv.login_authenticate(this.login.value.username, this.login.value.password).subscribe(
         data => {
         
@@ -127,11 +140,8 @@ export class LoginComponent implements OnInit {
       this.validateAllFormFields(this.login);
     }
   }
-  recaptcha;
-  resolved(captchaResponse: string) {
-    console.log(`Resolved captcha with response ${captchaResponse}:`);
-    this.recaptcha = captchaResponse;
-    }
+  }
+   
   model: any = {};
   forgetpass(Email) {
     console.log("CHOICE GENIE", this.username);
@@ -173,7 +183,13 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-
+  // recaptcha;
+  // resolved(captcha: string) {
+  //   console.log(`Resolved captcha with response ${captcha}:`);
+  //   let status = this.captcha.getResponse();
+  //   status=this.recaptcha();
+  //   // this.recaptcha = captchaResponse;
+  //   }
   ngOnInit() {
     this.login = this.fb.group({
       username: ['', Validators.compose([Validators.required])],
@@ -182,8 +198,11 @@ export class LoginComponent implements OnInit {
       // title: ['', Validators.compose([Validators.required])],
       Email: ['', Validators.compose([])],
     });
+    
     var navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
+    this.captcha.reset();
+    Observable.interval(90000).takeWhile(() => true).subscribe(() => this.captcha.reset());
 
     setTimeout(function () {
       // after 1000 ms we add the class animated to the login/register card
