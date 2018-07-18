@@ -1,6 +1,13 @@
 <div class="products-area" *ngIf="prod_loaded">
-    <input type="text" [(ngModel)]=name name="name">
-    <button (click)="setPage(title,1)">Search</button>
+
+
+  <div class="row">
+    <div class="search-bar col-lg-8">
+    <input class="col-lg-9 search-field" type="text" [(ngModel)]=name name="name">
+    <button class="col-lg-3 search-btn" (click)="setPage(title,1)">Search</button>
+    </div>
+  </div>
+
   <div class="card" *ngFor="let data of allItems; let i = index">
     <div class="row">
       <div class="col-sm-12">
@@ -35,16 +42,16 @@
                           </a>
                         </div>
                       </div>
-                      <div>
+                      <div style="width: 100%">
                           <!-- <mat-form-field>
                               <input matInput [matDatepicker]="startPicker" [(ngModel)]="date" placeholder="Choose a start date"/>
                               <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>               <mat-datepicker #startPicker></mat-datepicker>
                             </mat-form-field> -->
-                             
+
                              <md-input-container class="block" hidden=true>
                                     <input mdInput placeholder="Title" [ngModel]="date | date:'yyyy-MM-dd'" >
                                 </md-input-container>
-                               
+
                                 <md-input-container class="block" hidden=true>
                                     <input mdInput placeholder="Title" [ngModel]="nowdate | date:'yyyy-MM-dd'" >
                                 </md-input-container>
@@ -53,18 +60,17 @@
                                                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                                     <mat-datepicker #picker></mat-datepicker>
                                                   </mat-form-field> -->
-                                                  <label>From Date</label>
-                                                  <input type="date" required name="nowdate" [(ngModel)]="nowdate" style="    padding: 10px 0px; font-size: 20px;">
-                                                 <label>To Date</label> 
-                                                 <input type="date" required name="date" [(ngModel)]="date" style="    padding: 10px 0px; font-size: 20px;">
+                        <div class="col-lg-6 date-box">
+                          <label>From Date</label>
+                          <input type="date" required name="nowdate" [(ngModel)]="nowdate" style="    padding: 10px 0px; font-size: 20px;">
+                        </div>
+                        <div class="col-lg-6 date-box">
+                          <label>To Date</label>
+                          <input type="date" required name="date" [(ngModel)]="date" style="    padding: 10px 0px; font-size: 20px;">
+                        </div>
 
-                                                  
-                                              
-
-
-
-                        <p>Do you want to Inactive this Product till this date?</p>
                       </div>
+                      <p style="margin: 12px auto -12px;">Do you want to Inactive this Product till this date?</p>
 
                     </div>
                   </div>
@@ -72,7 +78,7 @@
                     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
                         <!-- <input matInput placeholder="date" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate"> -->
-                  
+
                       <input matInput placeholder="Title" readonly name="title" value="{{title}}" [hidden]="true" required #updatedtitle/>
 
                       <input matInput placeholder="Profile url" readonly name="profileurl" value="{{profileurl}}" [hidden]="true" #updatedprofileurl/>
@@ -116,10 +122,10 @@
                       <input matInput placeholder="Sign Up" name="sign_up" readonly [hidden]="true" value="{{sign_up}}" #updatedsign_up />
 
                       <div class=" text-center">
-                        <button type="submit" class="btn btn-rose" (click)="activeClick(nowdate,date,updatedtitle.value,updatedsign_up.value,updatedphone.value,updatedterms_of_service.value,updatedfact_sheet.value,updatedcancelation_fee.value,updatedprice500kwh.value,updatedprice1000kwh.value,updatedprice2000kwh.value,updatedplan_information.value,updatedrating_logo.value,updatedprofile_logo.value,updatedprofileurl.value,upactive.value)"
+                        <button type="submit" class="btn btn-fill" (click)="activeClick(nowdate,date,updatedtitle.value,updatedsign_up.value,updatedphone.value,updatedterms_of_service.value,updatedfact_sheet.value,updatedcancelation_fee.value,updatedprice500kwh.value,updatedprice1000kwh.value,updatedprice2000kwh.value,updatedplan_information.value,updatedrating_logo.value,updatedprofile_logo.value,updatedprofileurl.value,upactive.value)"
                           data-dismiss="modal">Inactive</button>
 
-                        <button type="button" class="btn btn-rose" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-fill" data-dismiss="modal">Cancel</button>
 
                       </div>
                     </form>
@@ -201,7 +207,7 @@
 <input type="date" required name="date" [(ngModel)]="date" hidden="true">
                     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
                         <!-- <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate"> -->
-                       
+
 <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate">
 
                        <div class="col-md-6 col-sm-6">
@@ -330,9 +336,9 @@
                       </div>
 
 
-                      
+
                       <div class="col-md-12 col-sm-12">
-                        
+
                       <div class=" text-center">
                         <button type="submit" class="btn btn-rose" (click)="editClick(mydate.value,date,updatedtitle.value,updatedsign_up.value,updatedphone.value,updatedterms_of_service.value,updatedfact_sheet.value,updatedcancelation_fee.value,updatedprice500kwh.value,updatedprice1000kwh.value,updatedprice2000kwh.value,updatedplan_information.value,updatedrating_logo.value,updatedprofile_logo.value,updatedprofileurl.value)"
                           data-dismiss="modal">Update</button>
@@ -348,7 +354,7 @@
                 </div>
                 <div style="display:inline-block; text-align:center;">
                   <a href="{{data.sign_up}}" target="_blank">
-                    <button class="btn btn-rose">Order Online</button>
+                    <button class="btn btn-fill">Order Online</button>
                   </a>
                   <div style="display:inline-block; padding:24px;">
                     <span style="font-size:24px; font-weight:600px">OR CALL
@@ -362,7 +368,7 @@
 
           <br>
           <div class="col-md-3 col-sm-3 col-xs-7 term text-center">
-            
+
             <h3 class="text-center">
               <b> Call now</b>
             </h3>
@@ -381,7 +387,7 @@
               <button class="fa fa-edit edit-del-btn" type="submit" value="Edit" type="submit" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl,data.active)"
                 data-toggle="modal" data-target="#myModal2" style="margin-right: 20px;"><span style="font-size: 19px;"> Edit </span>
               </button>
-              
+
               <button class="fa fa-check edit-del-btn"  type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                 data-toggle="modal" data-target="#myModal3"><span style="font-size: 19px;"> Inactive </span>
               </button>
@@ -391,7 +397,7 @@
               <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;">Reviews</label>
             </a> -->
           </div>
-          
+
         </div>
       </div>
     </div>
@@ -489,7 +495,7 @@
 
           <div style="display:inline-block; text-align:center;">
             <a href="{{sign_up}}" target="_blank">
-              <button class="btn btn-rose">Order Online</button>
+              <button class="btn btn-fill">Order Online</button>
             </a>
             <div style="display:inline-block; padding:24px;">
               <span style="font-size:24px; font-weight:600px">OR CALL

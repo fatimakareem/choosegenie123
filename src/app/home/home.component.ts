@@ -133,7 +133,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-status;
+
   Checkzipcode(zipcode1) {
     console.log("CHOICE GENIE", this.model.zipcode1);
     let headers = new HttpHeaders();
@@ -142,9 +142,7 @@ status;
       .subscribe(data => {
         console.log(data);
         console.log(data['message'], 'hhhhhhhhhhhhhhh')
-this.status=data['state'];
-console.log(this.status);
-localStorage.setItem('state', this.status);
+
         this.zipcodeexist = data['message']
         if (this.zipcodeexist == "InValid Zipcode") {
           swal({
@@ -161,7 +159,9 @@ localStorage.setItem('state', this.status);
           this.router.navigate(['/products/' + this.zipCode]);
           localStorage.setItem('zip', this.zipCode);
         }
-      
+        else {
+          this.router.navigate(['/product/' + this.zipCode]);
+        }
       },
         error => {
           console.log(error);
