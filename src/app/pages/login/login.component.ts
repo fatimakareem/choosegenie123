@@ -62,6 +62,7 @@ export class LoginComponent implements OnInit {
   status;
   islogin = true;
   isequal;
+  staySignedIn=true;
   // returnUrl: string;
 
 
@@ -112,33 +113,42 @@ export class LoginComponent implements OnInit {
                 showConfirmButton: false,
                 timer: 1500
               });
+              // this.islogin = true;
               this._nav.navigate(['/dashboard/' + this.username]);
               localStorage.setItem('change', this.username);
 
 
             },
             error => {
+              //  this.captcha.reset();
+              // this.islogin = false;
               swal(
                 'Invalid',
                 'Username OR Password',
                 'error'
               )
 
-            });
+            }
+          );
 
         },
-        error => {
-           swal(
-            'Error',
-            'User does not exist',
-            'error'
-          )
-        }
+        // error => {
+        //    swal(
+        //     'Error',
+        //     'User does not exist',
+        //     'error'
+        //   )
+        // }
       );
     }
     else {
       this.validateAllFormFields(this.login);
     }
+  }
+  else {
+    this.captcha.reset();
+    this.isequal = false;
+    // this.islogin = true;
   }
   }
    

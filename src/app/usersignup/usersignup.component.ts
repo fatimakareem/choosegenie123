@@ -156,18 +156,18 @@ export class UsersignupComponent implements OnInit {
 
     headers.append('Content-Type', 'application/json');
     // this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),http://192.168.30.237:9000/choice/
-    this.http.get(Config.api+'zipcodewithstatecity/' + zip, { headers: headers })
+    this.http.get(Config.api+'zipcodewith_country_city/' + zip, { headers: headers })
 
       .subscribe(data => {
         console.log(data);
         // this.next = Res[0].next;
         console.log(data['zipcode'], 'hhhhhhhhhhhhhhh')
-        console.log(data['state'], 'hhhhhhhhhhhhhhh')
+        console.log(data['country'], 'hhhhhhhhhhhhhhh')
         console.log(data['city'], 'hhhhhhhhhhhhhhh')
         // if ( this.usernameexist=false){
        // this.model['zip'] = data['zipcode']
-        this.model['service_state'] = data['state']
-        this.model['service_city'] = data['city']
+        this.model['service_state'] = data[0]['country']
+        this.model['service_city'] = data[0]['city']
         // }
         //  console.log(this.usernameexist);
 
@@ -230,6 +230,9 @@ export class UsersignupComponent implements OnInit {
     });
   }
 
+  clear(){
+    this.model['service_state'].clear();
+  }
   signupuserdata() {
      
     //console.log("main form",this.signupForm.value)
@@ -237,7 +240,7 @@ export class UsersignupComponent implements OnInit {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     // http://192.168.30.237:9000/choice/
-    this.http.post(Config.api+ 'usersignup/', this.model, { headers: headers })
+    this.http.post(Config.api+ 'Usersignup/', this.model, { headers: headers })
       .subscribe(Res => {
         console.log(Res);
         alert('hello');

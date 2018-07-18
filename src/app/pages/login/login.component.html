@@ -16,20 +16,25 @@
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
            
             </mat-form-field>
-
+            <!-- <div *ngIf="!islogin">
+              <p class="errormessage">Incorrect Password or Username</p>
+            </div> -->
             <mat-checkbox>
+              
               Stay signed in
             </mat-checkbox>
             <br/>
             <!-- || !recaptcha -->
+            <!-- <div class="row" style="margin: 25px 0 0 0;"> -->
             <blackgeeks-recaptcha  ></blackgeeks-recaptcha>
+            <!-- </div> -->
             <div class="row" *ngIf="isequal==false">
               <p class="col-lg-12 errormessage">Invalid Answer</p>
             </div>
             <!-- <re-captcha (resolved)="resolved($event)" siteKey="6Lc4418UAAAAAPxDwXhjAF3a2sdRn2RIoMQxF9D9
             " style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;"></re-captcha>
      -->
-            <button type="submit" (click)="onLogin()">Login</button>
+            <button type="submit" (click)="onLogin();">Login</button>
 
             <a  value="Delete" data-toggle="modal" data-target="#myModal3">Forgot Password?</a>
             <div class="modal fade" id="myModal3" role="dialog">
