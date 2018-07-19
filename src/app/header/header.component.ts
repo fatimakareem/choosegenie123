@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
   search;
   zipcode;
   record: any = []
+  zipCode;
   constructor(private router: Router, private _serv: HeaderService, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
   checked_login() {
     if (localStorage.getItem('custum')) {
@@ -84,6 +85,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/']);
 
   }
+
+
   searchuserdata(query) {
     console.log(query)
     this._serv.searchrecord(query).subscribe(data => {
@@ -95,8 +98,19 @@ export class HeaderComponent implements OnInit {
   }
   
   singlerfp(zipcode){
+    console.log(zipcode)
     let sth = 'products/'+zipcode;
     this.router.navigate([sth]);
     localStorage.setItem('zip', zipcode);
+  }
+  onKeydown(event) {
+  
+    if (event.key === "Enter") {
+      this.singlerfp(this.zipcode)
+      // this.router.navigate(['/products/' + this.zipCode]);
+      // localStorage.setItem('zip', this.zipCode);
+      console.log(event);
+
+    }
   }
 }
