@@ -14,7 +14,7 @@
           <div class="form-group label-floating custom-style">
 
             <b>
-              <input type="text" class="form-control zip-input" [(ngModel)]="zip_code" name="zipcode" (change)="Checkzipcode()">
+              <input type="text" class="form-control zip-input" [(ngModel)]="zip_code" name="zipcode" (keypress)="keyPress($event)" (change)="Checkzipcode()">
             </b>
           </div>
 
@@ -754,15 +754,15 @@
                         <table>
                           <tbody>
                             <tr class="plan-information__row">
-                              <td class="plan-information__cell">price 1000 kwh</td>
+                              <td class="plan-information__cell">Price 1000 kwh</td>
                               <td class="plan-information__cell plan-information__cell--last ">{{price_1000_kwh}}¢</td>
                             </tr>
                             <tr class="plan-information__row">
-                              <td class="plan-information__cell">price 500 kwh</td>
+                              <td class="plan-information__cell">Price 500 kwh</td>
                               <td class="plan-information__cell plan-information__cell--last ">{{price_500_kwh}}¢</td>
                             </tr>
                             <tr class="plan-information__row">
-                              <td class="plan-information__cell">price 2000 kwh</td>
+                              <td class="plan-information__cell">Price 2000 kwh</td>
                               <td class="plan-information__cell plan-information__cell--last ">{{price_2000_kwh}}¢</td>
                             </tr>
                           </tbody>

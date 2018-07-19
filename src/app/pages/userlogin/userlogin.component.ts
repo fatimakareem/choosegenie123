@@ -75,7 +75,7 @@ export class UserloginComponent implements OnInit {
   onLogin() {
     if (this.captcha.getResponse()) {
       console.log('equ ok');
-      alert("login");
+      // alert("login");
       this.isequal=true;
     if (this.username!='' || this.password!='') {
      
