@@ -142,7 +142,7 @@ export class HomeComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         console.log(data['message'], 'hhhhhhhhhhhhhhh')
-
+this.state=data['state'];
         this.zipcodeexist = data['message']
         if (this.zipcodeexist == "InValid Zipcode") {
           swal({
@@ -155,12 +155,13 @@ export class HomeComponent implements OnInit {
 
           })
         }
-        else if (this.zipcodeexist == "Valid Zipcode") {
-          this.router.navigate(['/products/' + this.zipCode]);
+        else if (this.state == "deregulatedstate") {
+          this.router.navigate(['/product/' + this.zipCode]);
           localStorage.setItem('zip', this.zipCode);
         }
-        else {
-          this.router.navigate(['/product/' + this.zipCode]);
+        else if(this.state == "notderegulatedstate"){
+          this.router.navigate(['/products/' + this.zipCode]);
+          localStorage.setItem('zip', this.zipCode);
         }
       },
         error => {

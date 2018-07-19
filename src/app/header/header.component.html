@@ -3,7 +3,7 @@
   <div class="search-holder">
     <div class="container">
       <div class="form-search animated">
-        <input  ngAutoFocus type="text" placeholder="Search with a Zip Code" class="search-input" name="search" [(ngModel)]="search" #query (ngModelChange)="searchuserdata(query.value)" (keydown)="onKeydown($event)">
+        <input  ngAutoFocus type="text" placeholder="Search with a Zip Code" class="search-input" name="search" [(ngModel)]="search" #query (ngModelChange)="searchuserdata(query.value)" (keydown)="submit($event,query.value)">
         <button (click)="searchuserdata(query.value)" style="display: none;">hi</button>
       </div>
       <div class="hint-box" *ngIf="record">
