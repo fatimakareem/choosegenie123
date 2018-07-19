@@ -86,10 +86,10 @@ export class HeaderComponent implements OnInit {
   }
   submit(event,query){
     if (event.key == "Enter") {
-     
+      localStorage.setItem('zip',query);
     let sth = 'products/'+query;
     this.router.navigate([sth]);
-    localStorage.setItem('zip',query);
+    window.location.reload()
   }}
   searchuserdata(query) {
     console.log(query)

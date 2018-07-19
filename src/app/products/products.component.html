@@ -346,7 +346,7 @@
 
 
 
-  <div class="main-content custom col-sm-10" style="padding-top: 5px; padding-left: 12px; padding-bottom: 10px;">
+  <div class="main-content custom col-sm-10" style="padding-top: 5px; padding-left: 12px; padding-bottom: 10px;" >
     <!-- <div class="container-fluid"> -->
     <div class="row"></div>
 
@@ -357,8 +357,15 @@
 
 
 
+    <ng-template #no_data_temp2>
 
-    <div class="col-sm-12 product-main" style="padding:0px;     margin-left: 14px;">
+      <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
+      <h1 style="height:1000px;width:1000px;padding:200px">
+
+        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Record Found</b>
+      </h1>
+    </ng-template>
+    <div class="col-sm-12 product-main" style="padding:0px;     margin-left: 14px;" *ngIf="noresult != '0';else no_data_temp2">
 
 
 
@@ -461,7 +468,7 @@
 
 
         </div>
-        <div style="padding: 0px; text-align:center;">
+        <div style="padding: 0px; text-align:center;" >
           <h1 style="margin: 11px; font-size: 45px;">Most Popular Plans</h1>
         </div>
         <div class="autoplay" *ngIf="sg['plan']">
