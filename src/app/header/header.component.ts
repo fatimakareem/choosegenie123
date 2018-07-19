@@ -95,6 +95,8 @@ export class HeaderComponent implements OnInit {
     let sth = 'products/'+query;
     this.router.navigate([sth]);
   //  window.location.reload()
+ 
+
   }}
   searchuserdata(query) {
     console.log(query)

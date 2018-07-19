@@ -1,7 +1,14 @@
 <div class="products-area">
-  <div class="page-title">
+    <div class="row">
+        <div class="search-bar col-lg-8">
+        <input class="col-lg-9 search-field" type="text" [(ngModel)]=name name="name">
+        <button class="col-lg-3 search-btn" (click)="search(name)">Search</button>
+        </div>
+      </div>
+    
+  <!-- <div class="page-title">
     <span>Product Search</span>
-  </div>
+  </div> -->
   <div class="products-area-products" *ngIf="prod_loaded">
      <div class="custom card" *ngFor="let data of allItems; let i = index">
       <div class="row">
