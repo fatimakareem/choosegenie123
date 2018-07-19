@@ -90,14 +90,10 @@ export class HeaderComponent implements OnInit {
   }
   submit(event,query){
     if (event.key == "Enter") {
-<<<<<<< HEAD
-      localStorage.setItem('zip',query);
-=======
      this.data.zipcodeInfo(query)
->>>>>>> 0cac15246c179eda81a750807a6fbe3fec8d0a5c
     let sth = 'products/'+query;
     this.router.navigate([sth]);
-    window.location.reload()
+
   }}
   searchuserdata(query) {
     console.log(query)
