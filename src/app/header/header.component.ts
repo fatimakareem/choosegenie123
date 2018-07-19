@@ -84,6 +84,13 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/']);
 
   }
+  submit(event,query){
+    if (event.key == "Enter") {
+     
+    let sth = 'products/'+query;
+    this.router.navigate([sth]);
+    localStorage.setItem('zip',query);
+  }}
   searchuserdata(query) {
     console.log(query)
     this._serv.searchrecord(query).subscribe(data => {
@@ -92,11 +99,14 @@ export class HeaderComponent implements OnInit {
     }, error => {
 
     })
+   
   }
   
   singlerfp(zipcode){
+    console.log(localStorage.setItem('zip',zipcode))
     let sth = 'products/'+zipcode;
     this.router.navigate([sth]);
-    localStorage.setItem('zip', zipcode);
+    localStorage.setItem('zip',zipcode);
+    console.log(zipcode)
   }
 }

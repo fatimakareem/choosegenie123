@@ -90,13 +90,37 @@ export class ProductComponent implements OnInit {
 
 
   }
-  btnDeleteClick(id, title, profileurl, profile_logo) {
-      this.id = id;
-      this.title = title;
-      this.profileurl = profileurl;
-      this.profile_logo = profile_logo;
-      console.log('id : ' + this.id);
-  }
+  comtitle='';
+  servicearea="";
+  cancelation="";
+  btnratingClick(id, title, profileurl, profile_logo,servicearea) {
+    this.id = id;
+    this.comtitle = title;
+    this.profileurl = profileurl;
+    this.profile_logo = profile_logo;
+    this.servicearea=servicearea;
+    console.log('id : ' + this.id, this.title);
+}
+btnderagulateClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_rate, plan_information, rating_logo, profile_logo, profileurl) {
+    this.catagoryId = id;
+
+    console.log(this.plan_information)
+    this.comtitle = title;
+    this.sign_up = sign_up;
+    this.phone = phone;
+    this.terms_of_service = terms_of_service;
+    this.fact_sheet = fact_sheet;
+    this.cancelation = cancelation_fee;
+    this.price_rate = price_rate
+    this.plan_information = plan_information;
+    this.rating_logo = rating_logo;
+
+    this.profile_logo = profile_logo;
+    this.profileurl = profileurl;
+
+    console.log(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, plan_information, rating_logo, profile_logo, profileurl)
+    console.log('id : ' + this.catagoryId);
+}
   user;
 
   checked_login() {
@@ -353,8 +377,41 @@ export class ProductComponent implements OnInit {
 
           });
   }
+state;
+zipcodeexist;
+  Checkzipcode() {
 
-
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.http.get(Config.api + 'zipcodecheck/' + this.zip_code, { headers: headers })
+        .subscribe(data => {
+            console.log(data);
+            this.state = data.json()['state'];
+            console.log(this.state);
+            localStorage.setItem('state', this.state);
+            this.zipcodeexist = data.json()['message']
+            if (this.zipcodeexist == "InValid Zipcode") {
+                swal({
+                  text: "InValid Zipcode",
+                  title: "Choice Genie",
+                  type: "error",
+                  showConfirmButton: false,
+                  timer: 1200,
+                  confirmButtonText: "OK",
+      
+                })
+              }
+              else if (this.state == "deregulatedstate") {
+                this.router.navigate(['/product/' + this.zip_code]);
+                localStorage.setItem('zip', this.zip_code);
+              }
+              else if(this.state == "notderegulatedstate"){
+                this.router.navigate(['/products/' + this.zip_code]);
+                localStorage.setItem('zip', this.zip_code);
+              }
+     
+        });
+    }
 
   
   setPage(page: number) {
@@ -363,7 +420,7 @@ export class ProductComponent implements OnInit {
       }
       const Results = {}
 
-      this.obj.searchProducts1(this.zip, page).subscribe(response => {
+      this.obj.searchProducts1(this.zip_code, page).subscribe(response => {
        
           this.sg['products'] = response['Results'];
 

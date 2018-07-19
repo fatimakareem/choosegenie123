@@ -79,6 +79,41 @@ export class DialogOverviewExampleDialog {
     // onNoClick(): void {
     //     this.dialogRef.close();
     // }
+    // Checkzipcode() {
+
+    //     let headers = new Headers();
+    //     headers.append('Content-Type', 'application/json');
+    //     this.http.get(Config.api + 'zipcodecheck/' + this.zip_code, { headers: headers })
+    //         .subscribe(data => {
+    //             console.log(data);
+    //             this.state = data.json()['state'];
+    //             console.log(this.state);
+    //             localStorage.setItem('state', this.state);
+    //             this.zipcodeexist = data.json()['message']
+    //             if (this.zipcodeexist == "InValid Zipcode") {
+    //                 swal({
+    //                   text: "InValid Zipcode",
+    //                   title: "Choice Genie",
+    //                   type: "error",
+    //                   showConfirmButton: false,
+    //                   timer: 1200,
+    //                   confirmButtonText: "OK",
+          
+    //                 })
+    //               }
+    //               else if (this.state == "deregulatedstate") {
+    //                 this.router.navigate(['/product/' + this.zip_code]);
+    //                 localStorage.setItem('zip', this.zip_code)
+    //                 window.location.reload();
+    //               }
+    //               else if(this.state == "notderegulatedstate"){
+    //                 this.router.navigate(['/products/' + this.zip_code]);
+    //                 localStorage.setItem('zip', this.zip_code);
+    //                 window.location.reload()
+    //               }
+         
+    //         });
+    //     }
     onSubmit() {
         this.router.navigate(['/products/' + this.zipCode]);
         this.dialogRef.close();
