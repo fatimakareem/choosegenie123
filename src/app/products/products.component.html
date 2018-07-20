@@ -265,7 +265,7 @@
               </h5>
             </a>
           </div>
-          <mat-select placeholder="Renewable" (change)="checked16($event,i,energy)" value="renewable" required [(ngModel)]="energy"
+          <mat-select (change)="checked16($event,i,energy)" value="renewable" required [(ngModel)]="energy"
             name="energy">
             <mat-option value="100">100% RENEWABLE</mat-option>
             <mat-option value="76,99">76% To 99%</mat-option>
@@ -291,7 +291,7 @@
           <!-- <span class="left"></span> -->
           <mat-form-field class="margin-up">
 
-            <mat-select placeholder="Company" (change)="checked17($event,i,name)" value="name" required [(ngModel)]="name" name="name">
+            <mat-select  (change)="checked17($event,i,name)" value="names" required [(ngModel)]="name" name="name">
 
               <mat-option *ngFor="let data of title" [value]="data.title">
                 {{data.title}}
