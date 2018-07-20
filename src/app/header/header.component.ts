@@ -90,9 +90,12 @@ export class HeaderComponent implements OnInit {
   }
   submit(event,query){
     if (event.key == "Enter") {
+      localStorage.setItem('zip',query);
      this.data.zipcodeInfo(query)
     let sth = 'products/'+query;
     this.router.navigate([sth]);
+  //  window.location.reload()
+ 
 
   }}
   searchuserdata(query) {
