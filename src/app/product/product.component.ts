@@ -58,8 +58,52 @@ export class ProductComponent implements OnInit {
   public zip_code;
   public username;
   public customer;
-
-
+  i;
+  nottime;
+  price;
+  min;
+  max;
+  months1;
+  months2;
+  months3;
+  months4;
+  months5;
+  months6;
+  months7;
+  planmin;
+  fixed;
+  vari;
+  market;
+  prepaid;
+  notprepaid;
+  time;
+  energy;
+  name;
+  sort;
+  checked1;
+  checked3;
+  checked4;
+  checked2;
+  checked9;
+  checked8;
+  checked10;
+  checkedpre;
+  checked12;
+  checked11;
+  checked14;
+  checked15;
+  checked16;
+  checked17;
+  checkedtime;
+  pricerate;
+  checked7;
+  checked6;
+  checked5;
+  checked13;
+  checkedall;
+  checked18;
+  checked20;
+ 
   val;
   ngOnInit() {
       this.username = localStorage.getItem('username');

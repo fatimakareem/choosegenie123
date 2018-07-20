@@ -54,6 +54,7 @@ export class InactiveProductComponent implements OnInit {
     public zip_code;
     public username;
     public customer;
+    name;
 
 
     val;
