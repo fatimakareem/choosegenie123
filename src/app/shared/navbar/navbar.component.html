@@ -130,8 +130,8 @@
 
         <!-- </li> -->
         <li class="vanders" *ngIf="!check_login()">
-          <a>
-            <i class="material-icons">account_circle</i> My ChoiceGenie
+          <a (click)="movein()">
+            <i class="material-icons">account_circle</i> {{customer}}
           </a>
           <div class="drop-downs">
             <ul class="nav-vanders  why-choiegenie-sublist">
@@ -145,11 +145,11 @@
                        <input style="font-size: 20px; margin-left: 5px;" type="text" [value]="user" readonly>
                       </a>
                     </li> -->
-              <li>
+              <!-- <li>
                 <a>
-                  <input style="cursor: pointer;font-size: 20px; margin-left: 5px;" type="text" [value]="customer" readonly>
+                  Dashboard
                 </a>
-              </li>
+              </li> -->
               <!-- <li>
                       <a routerLink="/ChangePassword">
                         <i class=" fa fa-group"></i>Change Password
@@ -171,8 +171,8 @@
         </li>
 
         <li class="vanders" *ngIf="!checked_login()">
-          <a>
-            <i class="material-icons">account_circle</i> My ChoiceGenie
+          <a (click)="moving()">
+            <i class="material-icons">account_circle</i> {{username}}
           </a>
           <div class="drop-downs">
             <ul class="nav-vanders  why-choiegenie-sublist">
@@ -181,12 +181,12 @@
                           <i class="material-icons">unarchive</i> My Profile
                         </a>
                       </li> -->
-              <li>
+              <!-- <li>
                 <a style="display: flex;">
                   <i class="material-icons" style="margin-top: 3px">account_circle</i>
-                  <input style="cursor: pointer;font-size: 20px; margin-left: 0px; border-bottom: none;" type="text" [value]="username" readonly>
+                
                 </a>
-              </li>
+              </li> -->
 
               <!-- <li>
                         <a routerLink="/ChangePassword">

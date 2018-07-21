@@ -144,5 +144,26 @@ public username;
     }
  
   }
+  deregulatedfilter(page,zip_code,months1,months2,months3,months5,months6,items,dsc) {
+    // console.log(price)
+      
+         console.log(page,zip_code,months1,months2,months3,months5,months6,items,dsc)
+         const headers = new Headers();
+         headers.append('Content-Type', 'application/json');
+         return this.http.post(Config.api+'deregulated_genericfilter/'+zip_code +'?page='+page, JSON.stringify({
+          
+          "plan_information5": months1,
+           "plan_information1": months2,
+           "plan_information2": months3,
+          
+           "plan_information3": months5,
+           "plan_information4": months6,
+
+           "itemsperpage":items,
+           "dsc":dsc
+          }), 
+         {headers: headers}).map((response: Response) => response.json());
+         }
+     
 }
  

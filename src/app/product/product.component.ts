@@ -80,10 +80,10 @@ export class ProductComponent implements OnInit {
   energy;
   name;
   sort;
-  checked1;
-  checked3;
+ 
+
   checked4;
-  checked2;
+
   checked9;
   checked8;
   checked10;
@@ -97,12 +97,10 @@ export class ProductComponent implements OnInit {
   checkedtime;
   pricerate;
   checked7;
-  checked6;
-  checked5;
+ 
+  
   checked13;
   checkedall;
-  checked18;
-  checked20;
  
   val;
   ngOnInit() {
@@ -377,47 +375,32 @@ btnderagulateClick(id, title, sign_up, phone, terms_of_service, fact_sheet, canc
 
   }
   comp = '';
-  checked(val, i) {
-      this.searchRecord(val);
-      let value = {}
-      value = { val };
-      console.log(value)
-      this.comp = val;
-  }
-  searchRecord(val) {
-      this.record.push(val)
-      console.log(this.record)
-  }
-  Comapreproduct() {
+  checked(event, val, i) {
+    if (event.target.checked == true) {
+        console.log(event.target.checked)
+        this.record.push(val)
+    }
+    else if (event.target.checked == false) {
+        console.log(event.target.checked)
+        this.record.pop(val)
+    }
+    console.log(this.record)
+}
+  Comapreproduct(page:number) {
 
-      console.log(this.comp, this.record)
-      for (let val in this.record) {
-          let value;
-          value += val
-          console.log(value)
-      }
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      // this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
-      this.http.post(Config.api + 'comparisonproducts/', JSON.stringify({
+    console.log(this.record.toString())
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.http.post(Config.api + 'deregulated_compareproducts/', JSON.stringify({
 
-          "productid": this.record
-      }
-      ), { headers: headers })
-
-          // this.http.post(Config.api + 'monthly/' + this.zip_code + '/' + this.months + '',{"month": this.months+" Month","custom":"['2','8']"},{ headers: headers })
+        "productid": this.record.toString()
+    }
+    ), { headers: headers })
           .subscribe(Res => {
               console.log(Res)
-              //console.log(selectedvalue)
-              // console.log(plan_information)
-              this.sg['products'] = Res.json()['Results'];
-              this.data.changeProducts(this.sg['products']);
-              for (let prod of this.sg['products']) {
-                  // console.log(prod["plan_information"])
-                  // console.log(prod["price_rate"])
-                  prod["plan_information"] = prod["plan_information"].split(',,', 3000);
-                  prod["price_rate"] = prod["price_rate"].split('..', 3000);
-              }
+             
+              this.deproduct = Res.json()['Results'];
+              this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
 
           });
   }
@@ -456,21 +439,127 @@ zipcodeexist;
      
         });
     }
-
+    names;
+   
+    index;
   
+    renewablerate;
+    renewable;
+    com;
+    item="10";
+   
+    min_price_500;
+    max_price_500;
+    min_price_1000;
+    max_price_1000;
+    min_price_2000;
+    max_price_2000;
+ 
+    checked1(event, i) {
+        if (event.target.checked == true) {
+            console.log(event.target.checked)
+            this.months1 = "36 Months";
+        }
+        else if (event.target.checked == false) {
+            console.log(event.target.checked)
+            delete this.months1;
+        }
+        console.log(this.months1)
+    }
+    checked2(event, i) {
+        if (event.target.checked == true) {
+            console.log(event.target.checked)
+            this.months2 = "24 Months";
+        }
+        else if (event.target.checked == false) {
+            console.log(event.target.checked)
+            delete this.months2;
+        }
+        console.log(this.months2)
+    }
+    checked3(event, i) {
+        if (event.target.checked == true) {
+            console.log(event.target.checked)
+            this.months3 = "18 Months";
+        }
+        else if (event.target.checked == false) {
+            console.log(event.target.checked)
+            delete this.months3;
+        }
+        console.log(this.months3)
+    }
+  
+    checked5(event, i) {
+        if (event.target.checked == true) {
+            console.log(event.target.checked)
+            this.months5 = "12 Months";
+        }
+        else if (event.target.checked == false) {
+            console.log(event.target.checked)
+            delete this.months5;
+        }
+        console.log(this.months5)
+    }
+    checked6(event, i) {
+        if (event.target.checked == true) {
+            console.log(event.target.checked)
+            this.months6 = "6 Months";
+        }
+        else if (event.target.checked == false) {
+            console.log(event.target.checked)
+            delete this.months6;
+        }
+        console.log(this.months6)
+    }
+    checked18(event, i, item) {
+        if (item) {
+            console.log(item);
+            this.item = item;
+
+        }
+        else {
+            console.log()
+            this.item = "10";
+
+            console.log(this.item)
+        }
+    }
+    checked20(event, i) {
+        this.sort = "true";
+    }
+    checked21(event, i) {
+        this.sort = "true";
+    }
+    checked22(event, i) {
+        this.sort = "true";
+    }
+  deproduct;
+  noresult;
   setPage(page: number) {
-      if (page < 1 || page > this.pager.totalPages) {
-          return;
-      }
+
+    
       const Results = {}
+if(this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months5 == "12 Months" || this.months6 == "6 Months"|| this.item ||  this.sort){
+    this.obj.deregulatedfilter(page, this.zip_code,this.months1,this.months2, this.months3,this.months5, this.months6,this.item,this.sort).subscribe(response => {
 
-      this.obj.searchProducts1(this.zip_code, page).subscribe(response => {
+        this.deproduct = response['Results'];
+this.noresult=response['Total Result'];
+    
+        this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
+
+    }
+
+
+    );
+
+
+}
+    else{  this.obj.searchProducts1(this.zip_code, page).subscribe(response => {
        
-          this.sg['products'] = response['Results'];
+          this.deproduct = response['Results'];
 
-       this.data.changeProducts(this.sg['products']);
-          this.prod_loaded = true;
-          this.prods_loaded = true;
+      // this.data.changeProducts(this.sg['products']);
+       
        
           this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
 
@@ -481,6 +570,6 @@ zipcodeexist;
 
 
   
-
+    }
   }
 }
