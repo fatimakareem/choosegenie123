@@ -80,10 +80,10 @@ export class ProductComponent implements OnInit {
   energy;
   name;
   sort;
-  checked1;
-  checked3;
+ 
+
   checked4;
-  checked2;
+
   checked9;
   checked8;
   checked10;
@@ -97,12 +97,10 @@ export class ProductComponent implements OnInit {
   checkedtime;
   pricerate;
   checked7;
-  checked6;
-  checked5;
+ 
+  
   checked13;
   checkedall;
-  checked18;
-  checked20;
  
   val;
   ngOnInit() {
@@ -442,35 +440,21 @@ zipcodeexist;
         });
     }
     names;
-    months1;
-    months2;
-    months3;
-    months4;
-    months5;
-    months7;
-    months6;
-    fixed;
-    vari;
+   
     index;
-    notprepaid;
-    prepaid;
-    planmin;
-    time;
-    nottime;
+  
     renewablerate;
     renewable;
     com;
     item="10";
-    price;
-    min;
-    max;
+   
     min_price_500;
     max_price_500;
     min_price_1000;
     max_price_1000;
     min_price_2000;
     max_price_2000;
-    sort;
+ 
     checked1(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
@@ -504,17 +488,7 @@ zipcodeexist;
         }
         console.log(this.months3)
     }
-    // checked4(event, i) {
-    //     if (event.target.checked == true) {
-    //         console.log(event.target.checked)
-    //         this.months4 = "14 Months";
-    //     }
-    //     else if (event.target.checked == false) {
-    //         console.log(event.target.checked)
-    //         delete this.months4;
-    //     }
-    //     console.log(this.months4)
-    // }
+  
     checked5(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
