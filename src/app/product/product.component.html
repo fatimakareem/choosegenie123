@@ -123,12 +123,12 @@
 
           </div>
           <!-- end ngRepeat: term in filters.terms -->
-          <div class="checkbox">
+          <!-- <div class="checkbox">
             <label class="checkbox-font">
               <input type="checkbox" name="months4" [(ngModel)]=months4 value="months4" (change)="checked4($event,i)">14 Months
             </label>
 
-          </div>
+          </div> -->
 
           <div class="checkbox">
             <label class="checkbox-font">
@@ -144,13 +144,13 @@
 
           </div>
           <!-- end ngRepeat: term in filters.terms -->
-          <div class="checkbox">
+          <!-- <div class="checkbox">
             <label class="checkbox-font">
               <input type="checkbox" name="months7" [(ngModel)]=months7 value="months7" (change)="checked7($event,i)">5 Months
             </label>
 
 
-          </div>
+          </div> -->
 
           <hr style="background: #000000">
         </li>
@@ -353,12 +353,19 @@
 
 
 
+    <ng-template #no_data_temp2>
+
+        <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
+        <h1 style="height:1000px;width:1000px;padding:200px">
+  
+          <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Record Found</b>
+        </h1>
+      </ng-template>
 
 
 
 
-
-    <div class="col-sm-12 product-main" style="padding:0px;     margin-left: 14px;">
+    <div class="col-sm-12 product-main" style="padding:0px;     margin-left: 14px;" *ngIf="noresult != '0';else no_data_temp2">
 
 
 
@@ -446,7 +453,7 @@
                   <button class="print">
                     <i class="fa fa-print"></i>
                   </button>
-                  <button class="Compare" (click)="Comapreproduct()">Compare</button>
+                  <button class="Compare" (click)="Comapreproduct(1)">Compare</button>
 
 
 
@@ -491,7 +498,7 @@
         </div>
        
         <div>
-          <div class="custom card up-margin" *ngFor="let data of sg['products']; let i = index">
+          <div class="custom card up-margin" *ngFor="let data of deproduct; let i = index">
             <div class="row">
 
               <div class="col-sm-12" style="padding: 0px 10px 11px 10px;">
@@ -505,7 +512,7 @@
 
                   <div class="col-md-3  col-sm-6 col-xs-12 plan-detail text-center logo-div">
                     <div class="check-box">
-                      <input type="checkbox" name="comp" #comp (change)="checked(data.id,i)">
+                        <input type="checkbox" (change)="checked($event,data.id,i)">
                     </div>
                     <!-- <input type="checkbox" value="{{data.id}}" name="comp"  > -->
                     <a href="{{data.profileurl}}" target="_blank" class="display-b margin-top">
@@ -892,7 +899,7 @@
             <button class="print">
               <i class="fa fa-print"></i>
             </button>
-            <button class="Compare" (click)="Comapreproduct()">Compare</button>
+            <button class="Compare" (click)="Comapreproduct(1)">Compare</button>
 
 
 

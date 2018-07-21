@@ -453,7 +453,7 @@
                   <button class="print">
                     <i class="fa fa-print"></i>
                   </button>
-                  <button class="Compare" (click)="Comapreproduct()">Compare</button>
+                  <button class="Compare" (click)="Comapreproduct(1)">Compare</button>
 
 
 
@@ -468,6 +468,7 @@
 
 
         </div>
+        <div *ngIf="sg['plan']">
         <div style="padding: 0px; text-align:center;" >
           <h1 style="margin: 11px; font-size: 45px;">Most Popular Plans</h1>
         </div>
@@ -487,7 +488,7 @@
 
           </div>
         </div>
-
+      </div>
 
 
 
@@ -935,7 +936,7 @@
             <button class="print">
               <i class="fa fa-print"></i>
             </button>
-            <button class="Compare" (click)="Comapreproduct()">Compare</button>
+            <button class="Compare" (click)="Comapreproduct(1)">Compare</button>
 
 
 

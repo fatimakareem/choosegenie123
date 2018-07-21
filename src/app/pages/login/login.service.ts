@@ -33,7 +33,7 @@ export class LoginService {
                 this.word = this.tit.title;
                 console.log(this.word);
                 localStorage.setItem('user', this.word);
-                localStorage.setItem('username', this.word.split(' ', 3000)[0]);
+                localStorage.setItem('username', this.word.trim());
 
                 let user = { username: username, token: response.json().token };
 

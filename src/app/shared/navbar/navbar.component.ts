@@ -76,6 +76,12 @@ export class NavbarComponent implements OnInit {
           else {
           return false;    }
       }
+      movein() {
+        this.router.navigate(['/consumerdashboard/']);
+      }
+      moving() {
+        this.router.navigate(['/dashboard/' + this.username]);
+      }
       move(){
         this.router.navigate(['/userprofile/']);
         // this.router.navigate(['/company-profile/']);
