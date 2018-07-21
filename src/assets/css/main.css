@@ -29,6 +29,9 @@
 .mat-step-header .mat-step-icon{
   background-color: #000 !important;
 }
+.bd-color{
+  background: #c00 !important;
+}
 .margin{
   margin-top: -9px !important;
 }
@@ -3643,7 +3646,14 @@ h1, .entry-title-2 {
   color: #000 !important;
   margin: 23px 0 23px !important;
 }
-
+.title-04{
+  font-weight: 700 !important;
+  text-shadow: 0px 6px 10px #aeaeae;
+  color: #414142;
+  margin-top: 10px !important;
+  font-size: 3.8rem !important;
+  margin-bottom: 0px !important;
+}
 .choiecegenie-offers{
   font-size: 54px !important;
   line-height: 32px;
@@ -3711,7 +3721,7 @@ h1, .entry-title-2 {
 
 .slick-slide img{
   border-radius: 10px;
-  border: 1px solid #000000;
+  /* border: 1px solid #000000; */
   width: 96%;
   padding: 10px;
 }
@@ -4992,7 +5002,9 @@ text-align: center;
 .text-red{
   color: #C00;
 }
-
+.container-padding{
+  padding: 0px 90px !important;
+}
 
 .play-store-icons-wrapper{
   background: #ededed; /* Old browsers */

@@ -1,3 +1,6 @@
+.bd-color{
+  background: #c00 !important;
+}
 #navbar {
   background-color: #333;
   position: fixed;

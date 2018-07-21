@@ -403,7 +403,7 @@
     </a>
     </li> -->
                   <li [ngClass]="{hide:pager.currentPage === 1}">
-                    <a (click)="setPage(pager.currentPage - 1)" class="view-plan-details" class="btn btn-rose">
+                    <a (click)="setPage(pager.currentPage - 1)" class="view-plan-details" class="btn bd-color">
                       <i class="fa fa-angle-left"></i>
                     </a>
                   </li>
@@ -426,7 +426,7 @@
     <a (click)="setPage(pager.totalPages)" class="view-plan-details">{{pager.totalPages}}</a>
     </li> -->
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn btn-rose" type="Next">
+                    <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
                       <i class="fa fa-angle-right"></i>
                     </a>
                   </li>
@@ -886,7 +886,7 @@
 </a>
 </li> -->
             <li [ngClass]="{hide:pager.currentPage === 1}">
-              <a (click)="setPage(pager.currentPage - 1)" class="view-plan-details" class="btn btn-rose">
+              <a (click)="setPage(pager.currentPage - 1)" class="view-plan-details" class="btn bd-color">
                 <i class="fa fa-angle-left"></i>
               </a>
             </li>
@@ -909,7 +909,7 @@
 <a (click)="setPage(pager.totalPages)" class="view-plan-details">{{pager.totalPages}}</a>
 </li> -->
             <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-              <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn btn-rose" type="Next">
+              <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
                 <i class="fa fa-angle-right"></i>
               </a>
             </li>
