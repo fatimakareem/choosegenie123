@@ -488,15 +488,31 @@
           </div>
         </div>
 
-
-
-
-
-
-        <div class="col-md-12" style="padding: 0px; text-align:center;">
+            <div class="col-md-12" style="padding: 0px; text-align:center;">
           <h1 style="margin:-7px 0px; font-size: 45px;">Search Plans</h1>
         </div>
-       
+
+        <div class="found-div">
+            We found <strong >{{noresult}}</strong> residential plans for “<strong>{{zipdet}}</strong>”
+    
+            <a href="#change-location" class="change-location js-change-location">
+    
+    
+            <img src="/webshared/energy/assets/grid-v3/images/icons/icon-map.png" alt="">
+    
+            Change Location</a>
+    
+            <!-- <form class="form-change-location ng-pristine ng-valid ng-valid-maxlength" role="form" ng-submit="locationSearch.search()">
+    
+              <input type="text" name="Zip" id="zip-search" class="input-hero ng-pristine ng-untouched ng-valid ng-empty ng-valid-maxlength" maxlength="5" placeholder="ENTER ZIP" ng-model="locationSearch.searchTerm">
+    
+              <input type="hidden" id="type-selector" name="Type" value="Home">
+    
+              <button type="submit" id="get-rates-button" class="button">Go</button>
+    
+            </form> -->
+    
+          </div>
         <div>
           <div class="custom card up-margin" *ngFor="let data of product; let i = index">
             <div class="row">

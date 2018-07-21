@@ -6264,32 +6264,35 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 .com-prof-fixed {
   padding: 50px 0px;
 }
-
-@media (max-width: 1246px) {
-  /* X-Large devices (1200px and down) */
-  .nav-home ul {
-    margin-right: 19px !important;
-  }
-
-  .nav-home ul li {
-    margin: 0 0 0 5px;
-  }
-
-  .navbar-nav > li > a {
-    font-size: 17px;
-  }
+.found-div{
+    background: -webkit-linear-gradient(top ,#354851,#2b3a42 60%);
+    background: -webkit-linear-gradient(top,#354851,#2b3a42 60%);
+    background: linear-gradient(to bottom,#354851,#2b3a42 60%);
+    color: #fff;
+    font-size: 28px;
+    font-weight: 300;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: 50px 0 10px;
+    position: relative;
 }
-  @media only screen and (max-width : 1082px) {
-    .navbar-nav > li > a {
-      font-size: 12px !important;
-    }
-    .search-size {
-      font-size: 15px;
-    }
-    .material-icons{
-      font-size: 15px;
-    }
-  }
+.found-div .change-location {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  position: absolute;
+  right: 20px;
+  text-transform: uppercase;
+  top: 0;
+  will-change: transform;
+}
+
 @media only screen and (max-width : 1367px) {
   .navbar-nav > li > a {
     font-size: 17px;
