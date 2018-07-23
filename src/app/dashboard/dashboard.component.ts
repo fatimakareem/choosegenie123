@@ -51,7 +51,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
             this.title = localStorage.getItem('username');
 
         }
-        date;
+        // date;
         mydate;
         today = Date.now();
 // mydate;
@@ -76,7 +76,12 @@ export class DashboardComponent implements OnInit, AfterViewInit {
      name;
     obj:any=[];
     editdata: any = [];
+<<<<<<< HEAD
     search(name,page: number) {
+=======
+    date = new FormControl(new Date());
+    search(name) {
+>>>>>>> c85048e4e401cf7bcd0f5be5e9ab349b073d2a8d
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         //   this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),

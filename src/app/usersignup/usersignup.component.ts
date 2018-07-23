@@ -243,7 +243,7 @@ export class UsersignupComponent implements OnInit {
     this.http.post(Config.api+ 'Usersignup/', this.model, { headers: headers })
       .subscribe(Res => {
         console.log(Res);
-        alert('hello');
+        // alert('hello');
         console.log(this.model);
         swal({
           text: "Register Successflluy!",
