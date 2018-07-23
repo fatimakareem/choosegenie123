@@ -47,7 +47,9 @@
                   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
                       <!-- id.value,updatedzipcode.value,updatedutilityarea.value,updatedtitle.value,updatedphone.value,updatedstate.value,updatedcountry.value,updatedstatus.value,updateduser.value -->
-                    <input matInput name="item.REP_name" value="{{item.REP_name}}"[hidden]="true" required #updatedrepname/>
+                      <!-- <input matInput name="item.id" value="{{item.id}}"[hidden]="true" required #catagoryId/> -->
+                   
+                      <input matInput name="item.REP_name" value="{{item.REP_name}}"[hidden]="true" required #updatedrepname/>
                     <input matInput  name="item.REP_certificate_id" value="{{item.REP_certificate_id}}"[hidden]="true" required #updaterepcertificateid/>
                     <input matInput  name="item.Contact_Name" value="{{item.Contact_Name}}" required [hidden]="true" #updatedcontactname/>
                     <input matInput  name="item.Contact_Phone" value="{{item.Contact_Phone}}" required [hidden]="true" #updatedcontactphone/>

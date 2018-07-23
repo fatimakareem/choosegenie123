@@ -4,7 +4,19 @@
   <div class="row">
     <div class="search-bar col-lg-8">
     <input class="col-lg-9 search-field" type="text" [(ngModel)]=name name="name">
+     <!-- <mat-form-field>
+        <input class="col-lg-9 search-field"  matInput [matDatepicker]="picker"    placeholder="Choose a date"  [(ngModel)]="name" name="name">
+        <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+       <mat-datepicker #picker></mat-datepicker>
+       </mat-form-field> -->
+    <!-- <mat-form-field>
+      <input matInput (click)="picker.open()" name="enterdate" (focus)="picker.open()" [matDatepicker]="picker" placeholder="Posted date From"  [(ngModel)]="enterdate" >
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    
+  </mat-form-field> -->
     <button class="col-lg-3 search-btn" (click)="search(name)">Search</button>
+    
     </div>
   </div>
 
