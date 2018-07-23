@@ -116,7 +116,7 @@ export class ProductComponent implements OnInit {
       //     console.log(rating);
       // }
       this.profile()
-
+      this.companytitle()
 
       this.data.currentProducts.subscribe(products => this.sg['products'] = products)
       this.data.currentProducts
@@ -191,35 +191,7 @@ btnderagulateClick(id, title, sign_up, phone, terms_of_service, fact_sheet, canc
 
   }
   rev: any = [];
-  getreview(id) {
-
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      this.http.get(Config.api + 'totalreviews/' + id, { headers: headers })
-
-          .subscribe(Res => {
-              this.rev = Res.json()['Total Reviews'];
-
-              console.log(this.rev);
-
-          });
-
-  }
-
-  avrage: any = [];
-  avereview(id) {
-
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      this.http.get(Config.api + 'reviewsperproduct/' + id, { headers: headers })
-
-          .subscribe(Res => {
-              this.avrage = Res.json()['Results'];
-              console.log(this.avrage);
-
-          });
-
-  }
+ 
   rate = '';
   get(rating) {
       this.rate = rating;
@@ -264,6 +236,20 @@ btnderagulateClick(id, title, sign_up, phone, terms_of_service, fact_sheet, canc
           this.router.navigate(['/userlogin/']);
       }
   }
+  companytitle() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.http.get(Config.api + 'deregulated_companies/', { headers: headers })
+
+        .subscribe(Res => {
+
+            this.title = Res.json();
+
+            this.title = this.title;
+            console.log(this.title)
+        });
+
+}
   catagoryId = '';
   title = '';
   cancelation_fee = '';
@@ -301,79 +287,8 @@ btnderagulateClick(id, title, sign_up, phone, terms_of_service, fact_sheet, canc
       console.log('id : ' + this.catagoryId);
   }
   items;
-  fetchitem(items) {
 
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json')
-      this.http.get(Config.api + 'items_perpage/title/asc/' + items, { headers: headers })
-
-          .subscribe(Res => {
-              this.sg['products'] = Res.json()['results'];
-              this.data.changeProducts(this.sg['products']);
-              this.allItems = this.sg['products'];
-              for (let prod of this.sg['products']) {
-                  console.log(prod["plan_information"])
-                  console.log(prod["price_rate"])
-                  prod["plan_information"] = prod["plan_information"].split(',,', 3000);
-                  prod["price_rate"] = prod["price_rate"].split('..', 3000);
-              }
-          });
-
-  }
-  sortby(sort) {
-      if (sort = "Renewable") {
-          let headers = new Headers();
-          headers.append('Content-Type', 'application/json')
-          this.http.get(Config.api + 'sortrenewable/' + this.zip_code, { headers: headers })
-
-              .subscribe(Res => {
-                  this.sg['products'] = Res.json()['Results'];
-                  this.data.changeProducts(this.sg['products']);
-                  this.allItems = this.sg['products'];
-                  for (let prod of this.sg['products']) {
-                      console.log(prod["plan_information"])
-                      console.log(prod["price_rate"])
-                      prod["plan_information"] = prod["plan_information"].split(',,', 3000);
-                      prod["price_rate"] = prod["price_rate"].split('..', 3000);
-                  }
-              });
-      }
-      else if (sort = "Price") {
-          let headers = new Headers();
-          headers.append('Content-Type', 'application/json')
-          this.http.get(Config.api + 'sortprice/' + this.zip_code, { headers: headers })
-
-              .subscribe(Res => {
-                  this.sg['products'] = Res.json()['Results'];
-                  this.data.changeProducts(this.sg['products']);
-                  this.allItems = this.sg['products'];
-                  for (let prod of this.sg['products']) {
-                      console.log(prod["plan_information"])
-                      console.log(prod["price_rate"])
-                      prod["plan_information"] = prod["plan_information"].split(',,', 3000);
-                      prod["price_rate"] = prod["price_rate"].split('..', 3000);
-                  }
-              });
-      }
-      else if (sort = "Company") {
-          let headers = new Headers();
-          headers.append('Content-Type', 'application/json')
-          this.http.get(Config.api + 'sortcompany/' + this.zip_code, { headers: headers })
-
-              .subscribe(Res => {
-                  this.sg['products'] = Res.json()['Results'];
-                  this.data.changeProducts(this.sg['products']);
-                  this.allItems = this.sg['products'];
-                  for (let prod of this.sg['products']) {
-                      console.log(prod["plan_information"])
-                      console.log(prod["price_rate"])
-                      prod["plan_information"] = prod["plan_information"].split(',,', 3000);
-                      prod["price_rate"] = prod["price_rate"].split('..', 3000);
-                  }
-              });
-      }
-
-  }
+ 
   comp = '';
   checked(event, val, i) {
     if (event.target.checked == true) {

@@ -92,6 +92,7 @@ export class LoginComponent implements OnInit {
   }
   
   result: any = [];
+  massage;
   onLogin() {
   
     if (this.captcha.getResponse()) {
@@ -106,7 +107,8 @@ export class LoginComponent implements OnInit {
             data => {
               this.result = data;
               console.log(this.result)
-           
+         
+
               swal({
                 type: 'success',
                 title: 'Successfully Logged in',
@@ -114,9 +116,16 @@ export class LoginComponent implements OnInit {
                 timer: 1500
               });
               // this.islogin = true;
-              this._nav.navigate(['/dashboard/' + this.username]);
-              localStorage.setItem('change', this.username);
-
+              // if(this.massage == "Successfully Login As Not Deregulatedstate vendor"){
+              // this._nav.navigate(['/dashboard/' + this.username]);
+              // localStorage.setItem('change', this.username);
+              // localStorage.setItem('username', this.title.trim());
+              // }
+              // else if(this.massage == "Successfully Login As Deregulatedstate vendor"){
+              //   this._nav.navigate(['/dashboards/' + this.username]);
+              //   localStorage.setItem('change', this.username);
+              //   localStorage.setItem('username', this.title.trim());
+              // }
 
             },
             error => {

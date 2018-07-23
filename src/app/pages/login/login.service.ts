@@ -3,6 +3,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { ActivatedRoute, Router, RouterModule, NavigationExtras } from "@angular/router";
 
 import 'rxjs/add/operator/map';
 import { NgForm } from "@angular/forms";
@@ -11,12 +12,13 @@ import { Config } from '../../Config';
 @Injectable()
 export class LoginService {
 
-    constructor(private _http5: Http) { }
+    constructor( private _nav: Router,private _http5: Http) { }
     hel: any = [];
     tit: any = [];
     word;
     loaded: boolean = false;
     currentUser;
+    massage;
     login(username: string, password: string) {
         const headers = new Headers();
       
@@ -27,14 +29,24 @@ export class LoginService {
             .map((response: Response) => {
                 console.log(response.json()['Results']);
                 this.hel = response.json()['Results'];
-                console.log(this.hel);
+                this.massage=response.json()['Message'];
+                console.log(this.massage);
                 this.tit = this.hel[0];
                 console.log(this.tit);
                 this.word = this.tit.title;
                 console.log(this.word,'fatttttttttttimmmmmmmmmmmmaaaaaaaaaaaaa');
                 localStorage.setItem('user', this.word);
                 localStorage.setItem('username', this.word.trim());
-
+                if(this.massage == "Successfully Login As Not Deregulatedstate vendor"){
+                    this._nav.navigate(['/dashboard/' + username]);
+                    localStorage.setItem('change', username);
+                    localStorage.setItem('username', this.word.trim());
+                    }
+                    else if(this.massage == "Successfully Login As Deregulatedstate vendor"){
+                      this._nav.navigate(['/dashboards/' + username]);
+                      localStorage.setItem('change', username);
+                      localStorage.setItem('username', this.word);
+                    }
                 let user = { username: username, token: response.json().token };
 
                 if (user && user.token) {
