@@ -1,47 +1,47 @@
 <div  id="wrapper">
-  <section  class="partner-holder">
-    <div  class="" style="background: none;">
+    <section  class="partner-holder">
+      <div  class="" style="background: none;">
+        <div  class="container">
+          <div  class="text-right">
+          </div>
+        </div>
+      </div>
       <div  class="container">
-        <div  class="text-right">
-        </div>
-      </div>
-    </div>
-    <div  class="container">
-      <div  class="row">
-        <div  class=" col-md-12 ">
-          <!-- <form  class="form-partnership ng-untouched ng-pristine ng-invalid become" [formGroup]="signupForm" *ngIf="signupForm"> -->
-
-            <div  class="contact_form">
-
-
-              <div  class="col-mat-12" >
-
-                  <form class="form-partnership ng-untouched ng-pristine ng-invalid become" [formGroup]="signupForm" *ngIf="signupForm" >
-                    <h1 style="color: #fff; font-weight: 700; font-size: 55px; text-shadow: none;">Become a Partner</h1>
-                    <p  class="lead" style="color: #fff;">Transform your collaborative dimension to a whole new level.</p>
-                    <mat-form-field>
-                  <input matInput placeholder="Enter Your Name" formControlName="name"   [(ngModel)]="name" >
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput placeholder="Enter Your Email" formControlName="email"   [(ngModel)]="email">
-                </mat-form-field>
-                <mat-form-field>
-                  <input matInput placeholder="Enter Company Name" formControlName="partnername"   [(ngModel)]="partnername">
-                </mat-form-field>
-                <mat-form-field>
-                  <textarea matInput placeholder="How Can We Partner" formControlName="desc"   [(ngModel)]="desc"></textarea>
-                </mat-form-field>
-                    <button class="btn btn-rose" style="float: right;" (click)="becomeapartnerdata(name, email, partnername, desc, date.value)">Send Messege</button>
-                </form>
-                <input matInput placeholder="date" hidden="true" value="{{today | date: 'yyyy-MM-dd'}}" #date name="date">
-
-
+        <div  class="row">
+          <div  class=" col-md-12 ">
+            <!-- <form  class="form-partnership ng-untouched ng-pristine ng-invalid become" [formGroup]="signupForm" *ngIf="signupForm"> -->
+  
+              <div  class="contact_form">
+  
+  
+                <div  class="col-mat-12" >
+  
+                    <form class="form-partnership ng-untouched ng-pristine ng-invalid become" [formGroup]="signupForm" *ngIf="signupForm" >
+                      <h1 style="color: #fff; font-weight: 700; font-size: 55px; text-shadow: none;">Become a Partner</h1>
+                      <p  class="lead" style="color: #fff;">Transform your collaborative dimension to a whole new level.</p>
+                      <mat-form-field>
+                    <input matInput placeholder="Enter Your Name" formControlName="name"   [(ngModel)]="name" >
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="Enter Your Email" formControlName="email"   [(ngModel)]="email">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="Enter Company Name" formControlName="partnername"   [(ngModel)]="partnername">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <textarea matInput placeholder="How Can We Partner" formControlName="desc"   [(ngModel)]="desc"></textarea>
+                  </mat-form-field>
+                      <button class="btn btn-fill" style="float: right;" (click)="becomeapartnerdata(name, email, partnername, desc, date.value)">Send Messege</button>
+                  </form>
+                  <input matInput placeholder="date" hidden="true" value="{{today | date: 'yyyy-MM-dd'}}" #date name="date">
+  
+  
+                </div>
               </div>
-            </div>
-          <!-- </form> -->
+            <!-- </form> -->
+          </div>
         </div>
+        <br ><br >
       </div>
-      <br ><br >
-    </div>
-  </section>
-</div>
+    </section>
+  </div>

@@ -751,7 +751,7 @@ background: goldenrod;
   background: #333 !important; }
 
 .main-content {
-  padding: 40px 0 0;
+  padding: 20px 0 0;
   overflow: hidden;
 }
   .main-content.custom {
@@ -1179,7 +1179,12 @@ background: goldenrod;
       max-width: 110px;
       width: 90%;
       height: auto; }
-
+.residential-main h2{
+  font-weight: 700 !important;
+  text-shadow: 0px 6px 10px #aeaeae;
+  color: #414142;
+  margin: 0px;
+}
 .residential-main ul {
   padding: 20px 0 0; }
   .residential-main ul li {
@@ -1999,7 +2004,7 @@ padding: 7px 0px 7px 10px !important;
 .how-it-works-paragraph{
   text-align: center;
   color: #fff;
-  padding-bottom: 30px;
+  padding-bottom: 12px;
   font-weight:500;
 }
 
@@ -2010,7 +2015,8 @@ section {
 }
 .what h3 {
   color: #fff;
-  padding-bottom: 15px;
+  padding: 0px;
+  margin: 0px !important;
 }
 .wpb_wrapper{
   padding-top: 20px;
@@ -2105,7 +2111,7 @@ section {
 
   .bg-white {
   background: #ffffff;
-  padding: 30px 9999px;
+  padding: 8px 9999px;
   margin: 20px -9999px; }
 
   .required {
@@ -2700,8 +2706,8 @@ section {
   -webkit-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
-  min-height: 75vh;
-  height: 75vh;
+  min-height: 85vh;
+  height: 85vh;
   position: relative;
   background: #000;
   background-image: url(../../assets/img/about-banner.jpg);
@@ -2737,9 +2743,9 @@ section {
 }
 .about-text {
   font-size: 18px;
-  text-align: justify;
+  text-align: left;
   font-weight: 500;
-  padding-left: 20px;
+  /*padding-left: 20px;*/
   width: 100%;
 }
 .about-section >p {
@@ -2787,6 +2793,7 @@ section {
 .login-form-1-header h3{
   text-align: center;
   margin-bottom: 6px !important;
+  padding: 0px;
 }
 
 .logic-from-1-sl{
@@ -3201,11 +3208,14 @@ li.pinterest:hover {
   display: block;
 }
 .faqs{
-  margin-top: 36px;
+  /*margin-top: 36px;*/
+  padding: 0px;
 }
 .faqs h1{
   font-weight: 500 !important;
   font-size: 48px;
+  color: #444444;
+  margin: 0px;
 }
 .float-l{
   float: right;
@@ -4810,7 +4820,7 @@ canvas {
 
 /*choicegenie offers section divs css start*/
   .cg-offers{
-    height: 350px;
+    height: 364px;
   }
 /*choicegenie offers section divs css end*/
 
@@ -4846,7 +4856,7 @@ canvas {
 /*commercial form css start */
 .form-group.label-floating label.control-label, .form-group.label-placeholder label.control-label{
   color: #333333;
-  font-size: 24px !important;
+  font-size: 23px !important;
   font-weight: 500;
   line-height: 0.428571 !important;
 }
@@ -5620,9 +5630,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 .reviews-box h1{
   margin: 0px;
 }
-.r-comments{
 
-}
 /*End Reviews Dashboard */
 
 
@@ -5691,42 +5699,22 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 @media (min-width: 576px) {
   /* Small devices (576px and up) */
 }
-
 @media (min-width: 768px) {
   /* Medium devices (768px and up) */
   /* .how-it-works-box{
     min-height: 366px;
   } */
   .home-columns .home-column-title{
-    font-size: 24px;
+    font-size: 17px;
   }
 }
-
 @media (min-width: 992px) {
   /* Large devices (992px and up) */
 }
-
 @media (min-width: 1200px) {
   /* X-Large devices (1200px and up) */
 }
-
-@media (max-width: 375px) {
-  .appio-center-heading >h2 {
-    font-size: 34px;
-  }
-}
 /* max-width */
-@media (max-width: 320px) {
-  .fixed-width{
-    width: 100%;
-  }
-  .choice-saving  h2{
-    font-size: 32px;
-  }
-  .apple-button {
-    height: 61px;
-  }
-}
 @media (max-width: 425px) {
   /* Small devices (575px and down) */
   .prod-slide{
@@ -5743,8 +5731,13 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .panel-body div {
     font-size: 15px;
   }
+  .left-about-divs p{
+    padding: 0px;
+  }
+  .right-about-divs p{
+    padding: 0px;
+  }
 }
-
 @media (max-width: 768px) {
   /* Medium devices (767px and down) */
   /*.about-title {*/
@@ -5759,7 +5752,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   /*.left-about-divs {*/
     /*margin-top: 0px !important;*/
   /*}*/
-
+  .login-form-1{
+    width: 80%;
+    margin: 0 auto;
+  }
   .terms-container-wrapper{
     padding-left: 20px;
     padding-right: 20px;
@@ -5837,13 +5833,30 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .float-r{
     float: right !important;
   }
-}
-@media (max-width: 425px) {
-  /* Small devices (425px and down) */
-
+  .how-it-works-box{
+    min-height: 364px;
+  }
+  .cg-offers{
+    height: 304px;
+  }
+  .choiecegenie-offers{
+    margin-top: 10px !important;
+  }
 }
 @media (max-width: 426px) {
   /* Small devices (425px and down) */
+  .login-form-1{
+    width: 100%;
+  }
+  .residential-main h2{
+    font-size: 23px;
+  }
+  .title-04{
+    font-size: 1.8rem !important;
+  }
+  .mat-tab-label {
+    min-width: 76% !important;
+  }
   .apple-button{
     height: 68px;
     display: block;
@@ -5912,7 +5925,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     /*display: none !important;*/
   /*}*/
   h1, .entry-title{
-    font-size: 2.8rem;
+    font-size: 1.8rem;
   }
   .intro-subtitle{
     font-size: 2rem;
@@ -5939,7 +5952,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     padding: 0px;
   }
   .faqs h1{
-    font-size: 26px !important;
+    font-size: 23px !important;
   }
   .faqs h3{
     font-size: 17px  !important;
@@ -5996,16 +6009,16 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .plan-detail{
     border-right: none !important;
   }
-  .btn-slider-left {
-    top: 37% !important;
-    left: 6px !important;
-  }
-  .btn-slider-right {
-    top: 37% !important;
-  }
 
-}
-@media (max-width: 426px) {
+
+  .btn-slider-right{
+    top: 37% !important;
+
+  }
+  .btn-slider-left{
+    top: 37% !important;
+
+  }
   .plan-detail{
     height: auto !important;
   }
@@ -6044,6 +6057,18 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 @media (max-width: 1024px) {
   /* Large devices (992px and down) */
+
+  .about-text{
+    font-size: 16px;
+    line-height: 25px;
+  }
+  .choice-saving p{
+    line-height: 25px;
+  }
+
+
+
+
   .height-slider {
     height: auto;
   }
@@ -6084,7 +6109,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     font-size: 42px;
   }
   .nav-home ul li{
-    margin: 0 0 0 5px;
+    margin: 0 0 0 4px;
   }
   /* .navbar-nav > li > a{
 
@@ -6140,16 +6165,18 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .right-about-divs  .display{
     display: none;
   }
-  .right-about-divs  p{
+  .right-about-divs p{
     font-size: 15px;
     font-weight: 500;
+    line-height: 22px;
   }
   .left-about-divs{
-    margin-top: 90px;
+    margin-top: 33px;
   }
   .left-about-divs p{
     font-size: 15px;
     font-weight: 500;
+    line-height: 22px;
   }
   .padding{
     padding: 0 0 0 5px !important;
@@ -6337,11 +6364,46 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
   .btn-slider-left{
     top: 31%;
-    left: -1.5%;
+    left: -7.5%;
   }
   .btn-slider-right{
     top: 31%;
-    right: 1.5% !important;
+    right: -7.5% !important;
+  }
+  .faqs h1{
+    font-size: 34px;
   }
 }
 
+@media (max-width: 375px) {
+  .appio-center-heading >h2 {
+    font-size: 34px;
+  }
+  .play-store-inner h4 {
+    font-size: 19px !important;
+    line-height: 23px;
+  }
+  .mat-tab-label {
+    min-width: 65% !important;
+  }
+  .form-group.label-floating label.control-label, .form-group.label-placeholder label.control-label{
+    font-size: 21px !important;
+  }
+}
+@media (max-width: 320px) {
+  .fixed-width{
+    width: 100%;
+  }
+  .choice-saving  h2{
+    font-size: 32px;
+  }
+  .apple-button {
+    height: 61px;
+  }
+  .mat-tab-label {
+    min-width: 53% !important;
+  }
+  .form-group.label-floating label.control-label, .form-group.label-placeholder label.control-label{
+    font-size: 17px !important;
+  }
+}
