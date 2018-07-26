@@ -115,6 +115,8 @@ export class LoginComponent implements OnInit {
                 showConfirmButton: false,
                 timer: 1500
               });
+              this._nav.navigate(['/dashboard/' + this.username]);
+              localStorage.setItem('change', this.username);
               // this.islogin = true;
               // if(this.massage == "Successfully Login As Not Deregulatedstate vendor"){
               // this._nav.navigate(['/dashboard/' + this.username]);

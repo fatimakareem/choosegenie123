@@ -26,8 +26,9 @@ import { NgForm,FormBuilder, FormGroup, Validators, FormControl, AbstractControl
 
 import swal from 'sweetalert2';
 import {NgControl} from '@angular/forms';
-import { DeleteviewapartnerService } from './deleteviewapartner.service';
-import { UpdatepartnerService } from './updatepartner.service';
+import { DeletegetuserService } from './deletegetuser.service';
+import { UpdategetuserService } from './updategetuser.service';
+import { HttpService } from '../serv/http-service';
  
  
 
@@ -50,18 +51,16 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 }
 
-
-// import { SuperuserService } from './superuser.service';
-
 @Component({
-  selector: 'app-sviewapartner',
-  templateUrl: './sviewapartner.component.html',
-  styleUrls: ['./sviewapartner.component.scss']
+  selector: 'app-supergetusers',
+  templateUrl: './supergetusers.component.html',
+  styleUrls: ['./supergetusers.component.scss']
 })
-export class SviewapartnerComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private https: HttpClient,
+export class SupergetusersComponent implements OnInit {
+
+    constructor(private route: ActivatedRoute, private https: HttpClient,
     private fb: FormBuilder,  private router: Router, private http: Http, private pagerService: PagerService, private homeService: HomeService,
-     private sg: SimpleGlobal, private obj: HomeService, private dialog: MatDialog, private dataa: DataService, private serve: UpdatepartnerService,  private newService: DeleteviewapartnerService) {
+     private sg: SimpleGlobal, private obj: HomeService, private dialog: MatDialog, private dataa: DataService, private serve: UpdategetuserService,  private newService: DeletegetuserService) {
 
 }
 pageSizeOptions;
@@ -184,7 +183,7 @@ premiseIdData(page: number) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     //   this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
-    this.http.get( Config.api + 'partnerfilter/' + '?page=' + page, { headers: headers }).subscribe(Res => {
+    this.http.get( Config.api + 'all_users_list/' + '?page=' + page, { headers: headers }).subscribe(Res => {
         console.log(Res);
         this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
   
@@ -215,3 +214,5 @@ premiseIdData(page: number) {
   //   // this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
   // }
 }
+
+

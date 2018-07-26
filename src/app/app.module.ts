@@ -10,7 +10,7 @@ import { ProfileService } from './com-profile/profile.service';
 import { DeleteBlogService } from './Blogchoicegenie/adminblog/delete-blog.service';
 import { EditBlogService } from './Blogchoicegenie/adminblog/edit-blog.service';
 import { AngularcliStarRatingModule } from 'angularcli-star-rating'
-import { LoaderModule } from '../app/loader/loader.module';
+import { LoaderModule } from './loader/loader.module';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -67,7 +67,7 @@ import { BrowserModule, BrowserTransferStateModule } from "@angular/platform-bro
 import { DataService } from './data.service';
 // import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 // import { RegisteredComponent } from './registered/registered.component';
-import { LoginComponent } from './../app/pages/login/login.component';
+import { LoginComponent } from './pages/login/login.component';
 import { Authgaurd2Service } from './authgaurd2.service';
 import { Authgaurd3Service } from './authgaurd3.service';
 
@@ -127,6 +127,10 @@ import { GetreviewComponent } from './getreview/getreview.component';
 import { SuperreviewsComponent } from './superreviews/superreviews.component';
 import { HeaderService } from './header/header.service';
 import { UnsubscribeService } from './unsubscribe/unsubscribe.service';
+import { SupergetusersComponent } from './supergetusers/supergetusers.component';
+import { DeletegetuserService } from './supergetusers/deletegetuser.service';
+import { UpdategetuserService } from './supergetusers/updategetuser.service';
+
 
 
 
@@ -254,6 +258,8 @@ export class MaterialModule { }
     EditBlogService,
     UpdatepartnerService,
     RandomService,
+    DeletegetuserService,
+    UpdategetuserService,
   ],
   bootstrap: [AppComponent],
   schemas: [

@@ -23,14 +23,11 @@ import { DataService } from '../data.service';
 export class SuperdashboardmainComponent implements OnInit {
 
   results: any = [];
+  deresults: any =[];
   data: any = [];
   name;
   email;
   subject;
-  // <a>{{item.name}}</a>
-                      // </h4>
-                      // <p>{{item.email}}</p>
-                      // <p>{{item.subject}}</p>
   constructor(private https: Http, public router: Router, private fb: FormBuilder, private http: HttpClient,
     private route: ActivatedRoute, private sg: SimpleGlobal,
     private dialog: MatDialog, private dataa: DataService) {
@@ -43,6 +40,7 @@ export class SuperdashboardmainComponent implements OnInit {
    // this.fetchactiveproducts();
    this.fetchpartner();
     this.fetchcontact();
+    this.fetchderuglatestate();
   }
 
 
@@ -54,6 +52,18 @@ export class SuperdashboardmainComponent implements OnInit {
       .subscribe(Res => {
         this.results = Res.json();
         console.log(this.results);
+      });
+
+  }
+   
+  fetchderuglatestate() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.https.get(Config.api+'totalno_deregulated_products_/', { headers: headers })
+
+      .subscribe(Res => {
+        this.deresults = Res.json();
+        console.log(this.deresults);
       });
 
   }
