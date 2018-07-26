@@ -27,8 +27,11 @@ export class HeaderComponent implements OnInit {
   public customer;
   public username;
   model: any = {};
+  public massage;
+  state;
   query;
   search;
+  zipcodeexist;
   zipcode;
   record: any = []
   zipCode;
@@ -55,10 +58,14 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/consumerdashboard/']);
   }
   moving() {
-    this.router.navigate(['/dashboard/' + this.username]);
+    if(localStorage.getItem('massage') == "Successfully Login As Not Deregulatedstate vendor"){
+      this.router.navigate(['/dashboard/' + this.username]);}
+      else if(localStorage.getItem('massage') == "Successfully Login As Deregulatedstate vendor"){
+          this.router.navigate(['/dashboards/' + this.username]);
+      }
   }
   ngOnInit() {
-
+    this.massage = localStorage.getItem('massage')
     const mainSearch = $('.main-search');
     const formSearch = $('.form-search');
 
@@ -90,10 +97,39 @@ export class HeaderComponent implements OnInit {
   }
   submit(event,query){
     if (event.key == "Enter") {
-      localStorage.setItem('zip',query);
-     this.data.zipcodeInfo(query)
-    let sth = 'products/'+query;
-    this.router.navigate([sth]);
+      let headers = new HttpHeaders();
+      headers.append('Content-Type', 'application/json');
+      this.http.get(Config.api + 'zipcodecheck/' + query, { headers: headers })
+        .subscribe(data => {
+          console.log(data);
+          console.log(data['message'], 'hhhhhhhhhhhhhhh')
+  this.state=data['state'];
+          this.zipcodeexist = data['message']
+          if (this.zipcodeexist == "InValid Zipcode") {
+            swal({
+              text: "InValid Zipcode",
+              title: "Choice Genie",
+              type: "error",
+              showConfirmButton: false,
+              timer: 1200,
+              confirmButtonText: "OK",
+  
+            })
+          }
+          else if (this.state == "deregulatedstate") {
+            this.router.navigate(['/product/' + query]);
+            localStorage.setItem('zip', query);
+          }
+          else if(this.state == "notderegulatedstate"){
+            this.router.navigate(['/products/' + query]);
+            localStorage.setItem('zip', query);
+          }
+        },
+          error => {
+            console.log(error);
+  
+  
+          });
   //  window.location.reload()
  
 
@@ -102,6 +138,7 @@ export class HeaderComponent implements OnInit {
     console.log(query)
     this._serv.searchrecord(query).subscribe(data => {
       this.record = data
+    
       // this.sg['zip'] = Res.json()['Results'];
       // this.data.changezip(this.sg['zip']);
       console.log(this.record)
@@ -112,24 +149,40 @@ export class HeaderComponent implements OnInit {
   }
   
   singlerfp(zipcode){
-    console.log(localStorage.setItem('zip',zipcode))
-    // this.sg['zip'] = Res.json()['Results'];
-      this.data.zipcodeInfo(zipcode)
-    let sth = 'products/'+zipcode;
-    this.router.navigate([sth]);
-    // this.data.changezip(this.sg['zip']);
-    localStorage.setItem('zip',zipcode);
-    console.log(zipcode)
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    this.http.get(Config.api + 'zipcodecheck/' + zipcode, { headers: headers })
+      .subscribe(data => {
+        console.log(data);
+        console.log(data['message'], 'hhhhhhhhhhhhhhh')
+this.state=data['state'];
+        this.zipcodeexist = data['message']
+        if (this.zipcodeexist == "InValid Zipcode") {
+          swal({
+            text: "InValid Zipcode",
+            title: "Choice Genie",
+            type: "error",
+            showConfirmButton: false,
+            timer: 1200,
+            confirmButtonText: "OK",
+
+          })
+        }
+        else if (this.state == "deregulatedstate") {
+          this.router.navigate(['/product/' + zipcode]);
+          localStorage.setItem('zip', zipcode);
+        }
+        else if(this.state == "notderegulatedstate"){
+          this.router.navigate(['/products/' + zipcode]);
+          localStorage.setItem('zip', zipcode);
+        }
+      },
+        error => {
+          console.log(error);
+
+
+        });
   }
-  onKeydown(event) {
+ 
   
-    if (event.key === "Enter") {
-
-      this.singlerfp(this.zipcode)
-      // this.router.navigate(['/products/' + this.zipCode]);
-      // localStorage.setItem('zip', this.zipCode);
-      console.log(event);
-
-    }
-  }
 }

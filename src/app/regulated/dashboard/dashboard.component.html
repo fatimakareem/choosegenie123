@@ -1,6 +1,49 @@
 <div class="products-area" *ngIf="prod_loaded">
 
 
+<<<<<<< HEAD:src/app/regulated/dashboard/dashboard.component.html
+    <div class="row">
+        <div class="search-bar1 col-lg-10">
+            <md-input-container class="block" hidden=true>
+                <input mdInput placeholder="Title" [ngModel]="Inactivedate | date:'yyyy-MM-dd'" >
+            </md-input-container>
+  
+  
+            <div class="col-lg-3">
+              <mat-form-field class="cus-font">
+                <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Inactive Date"/>
+                <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle> <mat-datepicker #startPicker></mat-datepicker>
+              </mat-form-field>
+            </div>
+              <md-input-container class="block" hidden=true>
+                  <input mdInput placeholder="Title" [ngModel]="publishdate | date:'yyyy-MM-dd'" >
+              </md-input-container>
+  
+              <div class="col-lg-3">
+                <mat-form-field class="cus-font">
+                  <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publishdate" placeholder="Publish Date"/>
+                  <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
+                </mat-form-field>
+              </div>
+  
+                <div class="col-lg-3">
+                  <mat-form-field class="cus-font">
+  
+                    <mat-select class="search-select" placeholder="Service Area Name" required [(ngModel)]="name" name="name">
+                      <mat-option value="AEP TEXAS NORTH DIVISION" style="font-size: 20px">AEP TEXAS NORTH DIVISION</mat-option>
+                      <mat-option value="CENTERPOINT ENERGY HOUSTON ELECTRIC LLC" style="font-size: 20px">CENTERPOINT ENERGY HOUSTON ELECTRIC LLC</mat-option>
+                      <mat-option value="TEXAS-NEW MEXICO POWER COMPANY" style="font-size: 20px">TEXAS-NEW MEXICO POWER COMPANY</mat-option>
+                      <mat-option value="AEP TEXAS CENTRAL" style="font-size: 20px">AEP TEXAS CENTRAL</mat-option>
+                      <mat-option value="ONCOR ELECTRIC DELIVERY COMPANY" style="font-size: 20px">ONCOR ELECTRIC DELIVERY COMPANY</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+  
+  
+                <button class="col-lg-3 search-btn btn-fill" (click)="search(1)">Search</button>
+        </div>
+      </div>
+=======
   <div class="row">
     <div class="search-bar col-lg-8">
     <input class="col-lg-9 search-field" type="text" [(ngModel)]=name name="name">
@@ -20,6 +63,7 @@
     
     </div>
   </div>
+>>>>>>> efa471822c0e635d0f1cbd2861c9aca8573b0604:src/app/dashboard/dashboard.component.html
 
   <div class="card" *ngFor="let data of allItems; let i = index">
     <div class="row">
@@ -186,7 +230,7 @@
               {{item}}
               </p>
             </div>
-            <a href="Review/{{data.id}}" style="color:white;text-align: center;">
+            <a (click)="submit(data.id,data.title)" style="color:white;text-align: center;">
               <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;">Reviews</label>
             </a>
           </div>

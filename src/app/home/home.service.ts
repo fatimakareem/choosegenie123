@@ -27,6 +27,12 @@ public username;
    return this.http.get(Config.api+'inactive/' + this.username +'?page='+page +'/').map((response: Response) => response);
 
   }
+  deregulatedinactivepro(title,page){
+    console.log(title)
+   
+   return this.http.get(Config.api+'deregulated_inactive_product/' + this.username +'?page='+page +'/').map((response: Response) => response);
+
+  }
   filter(page,id,months1,months2,months3,months4,months5,months6,months7,fixed,vari,market,notprepaid,prepaid,planmin,time,nottime,renewable,name,price,sort,item,min,max) {
  console.log(price)
     if(price == undefined){

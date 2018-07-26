@@ -76,15 +76,15 @@ import { ResidentialService } from './residential/residential-dialog2/residentia
 import { ContactusComponent } from './contactus/contactus.component';
 import { PagerService } from './pager.service';
 import { CompanyService } from './company.service';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './regulated/dashboard/dashboard.component';
 import { StepperOverviewExample } from './signup/stepper-overview-example';
 // import { UsersignupComponent } from './usersignup/usersignup.component';
 // import { UserloginComponent } from './pages/userlogin/userlogin.component';
 import { UserLoginService } from './pages/userlogin/userlogin.service';
 import { SuperloginComponent } from './pages/superlogin/superlogin.component';
 import { SuperLoginService } from './pages/superlogin/superlogin.service';
-import { DeleteService } from './dashboard/delete.service';
-import { EditService } from './dashboard/edit.service';
+import { DeleteService } from './regulated/dashboard/delete.service';
+import { EditService } from './regulated/dashboard/edit.service';
 
 import { OverviewComponent } from './overview/overview.component';
 import { HowItWorksComponent } from './how-it-works/how-it-works.component';

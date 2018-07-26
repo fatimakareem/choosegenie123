@@ -1,12 +1,12 @@
 import { Component, OnInit, AfterViewInit, Inject } from '@angular/core';
-import { Config } from "../Config";
+import { Config } from "../../Config";
 import { Subscription } from 'rxjs/Subscription';
-import { CompanyService } from "../company.service";
+import { CompanyService } from "../../company.service";
 import { ErrorStateMatcher, MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material";
 import { Pipe, PipeTransform } from "@angular/core";
 import { Headers, Http, Response } from '@angular/http';
-import { HomeService } from "../home/home.service";
-import { PagerService } from '../pager.service';
+import { HomeService } from "../../home/home.service";
+import { PagerService } from '../../pager.service';
 import { ResponseContentType } from '@angular/http/src/enums';
 import { Console } from '@angular/core/src/console';
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
@@ -14,9 +14,9 @@ import { jsonpCallbackContext } from '@angular/common/http/src/module';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SimpleGlobal } from 'ng2-simple-global';
 import { PageEvent } from '@angular/material';
-import { DeleteService } from '../dashboard/delete.service';
-import { EditService } from '../dashboard/edit.service';
-import { DataService } from '../data.service';
+import { DeleteService } from '../../regulated/dashboard/delete.service';
+import { EditService } from '../../regulated/dashboard/edit.service';
+import { DataService } from '../../data.service';
 
 import { NgForm, FormBuilder, FormGroup, Validators, FormControl, AbstractControl, FormGroupDirective, RadioControlValueAccessor } from '@angular/forms';
 import swal from 'sweetalert2';
@@ -79,6 +79,12 @@ export class DashboardsComponent implements OnInit {
   obj: any = [];
   editdata: any = [];
   states;
+  submit(id, title) {
+    console.log(title.trim())
+    this.router.navigate(['/Review/' + id]);
+    //userprofile
+    localStorage.setItem('company', title);
+}
   companystates() {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -93,12 +99,12 @@ export class DashboardsComponent implements OnInit {
       });
 
   }
-  search() {
+  search(page:number) {
     this.title = localStorage.getItem('username');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     //   this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
-    this.http.post(Config.api + 'vedor_product_search/' + this.title, JSON.stringify({
+    this.http.post(Config.api + 'vedor_product_search/' + this.title +'?page='+page, JSON.stringify({
       "productinactive": this.Inactivedate,
       "propublish": this.publishdate,
       "state": this.name
@@ -108,6 +114,7 @@ export class DashboardsComponent implements OnInit {
       this.sg['products'] = Res.json()['Results'];
      
       this.allItems = this.sg['products'];
+      this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
     });
     // this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
   }
@@ -207,7 +214,7 @@ export class DashboardsComponent implements OnInit {
     console.log('delete' + id);
 
     //Calling Delete Service
-    this.newService.DeleteTodoList(id).subscribe(data => {
+    this.newService.Deletederegulated(id).subscribe(data => {
       console.log(data);
       swal({
         type: 'success',
@@ -224,7 +231,7 @@ export class DashboardsComponent implements OnInit {
 
 
   }
-  btnEditClick(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11) {
+  btnEditClick(id, val1, val2, val3, val4, val5, val6, val13, val8, val9, val10, val11) {
     this.catagoryId = id;
     console.log(this.plan_information)
     this.title = val1;
@@ -234,24 +241,23 @@ export class DashboardsComponent implements OnInit {
     this.plan_information = val8;
     this.fact_sheet = val5;
     this.cancelation_fee = val6;
-    this.price_1000_kwh = val7;
-    this.price_500_kwh = val12;
-    this.price_2000_kwh = val13;
+   
+    this.price_rate = val13;
     this.rating_logo = val9;
     this.profile_logo = val10;
     this.profileurl = val11;
 
-    console.log(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11)
+    console.log(id, val1, val2, val3, val4, val5, val6, val13, val8, val9, val10, val11)
     console.log('id : ' + this.catagoryId);
   }
 
   //Event Binding of PopUp Delete Modal
 
-  editClick(mydate, updateddate, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive) {
-    console.log('edit' + updateddate, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
-    console.log("TS OBJECT", updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
+  editClick(mydate, updateddate, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive) {
+    console.log('edit' + updateddate, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
+    console.log("TS OBJECT", updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
     //Calling Delete Service
-    this.serve.editTodoList(mydate, updateddate, this.catagoryId, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive).subscribe(data => {
+    this.serve.editderegulated(mydate, updateddate, this.catagoryId, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive).subscribe(data => {
       console.log(data);
       swal({
         type: 'success',
@@ -264,7 +270,7 @@ export class DashboardsComponent implements OnInit {
     }, error => {
     });
   }
-  btnactiveClick(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11) {
+  btnactiveClick(id, val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11) {
 
     this.catagoryId = id;
     console.log(this.plan_information)
@@ -275,26 +281,26 @@ export class DashboardsComponent implements OnInit {
     this.plan_information = val8;
     this.fact_sheet = val5;
     this.cancelation_fee = val6;
-    this.price_1000_kwh = val7;
-    this.price_500_kwh = val12;
+    this.price_rate = val7;
+    // this.price_500_kwh = val12;
     this.status = false;
-    this.price_2000_kwh = val13;
+    // this.price_2000_kwh = val13;
 
     this.rating_logo = val9;
     this.profile_logo = val10;
     this.profileurl = val11;
 
-    console.log(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11)
+    console.log(id, val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11)
     console.log('id : ' + this.catagoryId);
   }
 
   //Event Binding of PopUp Delete Modal
 
-  activeClick(updatedmydate, updateddate, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive) {
-    console.log('edit' + updatedmydate, updateddate, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
-    console.log("TS OBJECT", updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
+  activeClick(updatedmydate, updateddate, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive) {
+    console.log('edit' + updatedmydate, updateddate, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
+    console.log("TS OBJECT", updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
     //Calling Delete Service
-    this.serve.editTodoList(updatedmydate, updateddate, this.catagoryId, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, false).subscribe(data => {
+    this.serve.editderegulated(updatedmydate, updateddate, this.catagoryId, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, false).subscribe(data => {
       console.log(data);
       swal({
         type: 'success',

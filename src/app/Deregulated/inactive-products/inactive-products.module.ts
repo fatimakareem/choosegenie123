@@ -3,20 +3,20 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { MdModule } from '../md/md.module';
-import { MaterialModule } from '../app.module';
+import { MaterialModule } from '../../app.module';
 
-import { DashboardComponent } from './dashboard.component';
-import { DashboardRoutes } from './dashboard.routing';
+import { InactiveProductsComponent } from './inactive-products.component';
+import { InactiveproductsRoutes } from './inactive-products.routing';
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forChild(DashboardRoutes),
+        RouterModule.forChild(InactiveproductsRoutes),
         FormsModule,
         // MdModule,
         MaterialModule
     ],
-    declarations: [DashboardComponent]
+    declarations: [InactiveProductsComponent]
 })
 
-export class DashboardModule {}
+export class InactiveProductsModule {}

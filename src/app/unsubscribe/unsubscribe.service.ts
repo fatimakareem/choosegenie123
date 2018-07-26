@@ -14,6 +14,6 @@ export class UnsubscribeService {
 getunsub(uid) {
   console.log(uid)
   let headers = new Headers();
-  return this.http.get(Config.api + 'choice/unsubscribe/' + uid, { headers: headers }).map((response: Response) => response.json());
+  return this.http.get(Config.api + 'unsubscribe/' + uid, { headers: headers }).map((response: Response) => response.json());
 }
 }

@@ -41,8 +41,8 @@ private Sub: Subscription;
     this. avereview()
      this.route.params.subscribe ( params => {
        
-        this. product(params['id'])
-       
+        this.product(params['id'])
+       this.deregulatedproduct(params['id'])
         this.hitcount(params['id'])
       });
      
@@ -131,8 +131,9 @@ console.log(this.total)
     });
     
     }
-    pro:any=[];
-    plan:any=[];    
+    pro=null;
+    plan:any=[]; 
+    deproduct=null;   
     product(id) {
     
       let headers = new Headers();
@@ -147,6 +148,20 @@ console.log(this.total)
       });
       
       }
+      deregulatedproduct(id) {
+    
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http.get(Config.api + 'deregulated_edit_product/'+ id , { headers: headers })
+        .subscribe(Res => {
+        this.deproduct=Res.json();
+        console.log(this.pro)
+        //this.plan=this.pro.plan_information.split(',,', 3000);
+        console.log(this.plan)
+   
+        });
+        
+        }
       totalrev:any=[];
       totalreview() {
     
