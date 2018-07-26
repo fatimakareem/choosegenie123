@@ -37,6 +37,7 @@ const misc: any = {
 export class NavbarComponent implements OnInit {
     private listTitles: any[];
    // location: Location;
+   public massage;
     private nativeElement: Node;
     private toggleButton: any;
     private sidebarVisible: boolean;
@@ -80,7 +81,11 @@ export class NavbarComponent implements OnInit {
         this.router.navigate(['/consumerdashboard/']);
       }
       moving() {
-        this.router.navigate(['/dashboard/' + this.username]);
+          if(localStorage.getItem('massage') == "Successfully Login As Not Deregulatedstate vendor"){
+        this.router.navigate(['/dashboard/' + this.username]);}
+        else if(localStorage.getItem('massage') == "Successfully Login As Deregulatedstate vendor"){
+            this.router.navigate(['/dashboards/' + this.username]);
+        }
       }
       move(){
         this.router.navigate(['/userprofile/']);
@@ -93,6 +98,7 @@ export class NavbarComponent implements OnInit {
       }
      
     ngOnInit() {
+        this.massage = localStorage.getItem('massage')
         this.username = localStorage.getItem('user')
         console.log(this.username);
 this.customer=localStorage.getItem('custum')

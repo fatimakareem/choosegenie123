@@ -19,9 +19,9 @@ import { SimpleGlobal } from 'ng2-simple-global';
 // import { ValueUnwrapper } from '@angular/core/src/change_detection/change_detection_util';
 //import { Http } from '@angular/http/src/http';
 import { PageEvent } from '@angular/material';
-import { DeleteService } from '../dashboard/delete.service';
+import { DeleteService } from '../regulated/dashboard/delete.service';
 import { DataService } from '../data.service';
-import { EditService } from '../dashboard/edit.service';
+import { EditService } from '../regulated/dashboard/edit.service';
 import { Location } from '@angular/common';
 declare const $: any;
 

@@ -1,0 +1,357 @@
+<div class="products-area">
+  <div class="row">
+    <div class="search-bar1 col-lg-10">
+        <md-input-container class="block" hidden=true>
+            <input mdInput placeholder="Title" [ngModel]="Inactivedate | date:'yyyy-MM-dd'" >
+        </md-input-container>
+
+
+        <div class="col-lg-3">
+          <mat-form-field class="cus-font">
+            <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Inactive Date"/>
+            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle> <mat-datepicker #startPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+          <md-input-container class="block" hidden=true>
+              <input mdInput placeholder="Title" [ngModel]="publishdate | date:'yyyy-MM-dd'" >
+          </md-input-container>
+
+          <div class="col-lg-3">
+            <mat-form-field class="cus-font">
+              <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publishdate" placeholder="Publish Date"/>
+              <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+            <div class="col-lg-3">
+              <mat-form-field class="cus-font">
+
+                <mat-select class="search-select" placeholder="Service Area Name" required [(ngModel)]="name" name="name">
+                    <mat-option *ngFor="let data of states" [value]="data.serviceareaname">
+                        {{data.serviceareaname}}
+  
+                      </mat-option>
+                   
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+
+            <button class="col-lg-3 search-btn btn-fill" (click)="search(1)">Search</button>
+    </div>
+  </div>
+  
+<!-- <div class="page-title">
+  <span>Product Search</span>
+</div> -->
+<div class="products-area-products">
+   <div class="custom card" *ngFor="let data of allItems; let i = index">
+    <div class="row">
+
+      <div class="col-sm-12">
+        <div class="card-header card-header-text position-abs cards-itme" data-background-color="rose">
+          <h4 class="card-title">{{data.title}} </h4>
+
+        </div>
+
+        <div class="card-content" style="padding: 0px;">
+          <div class="col-md-3  col-sm-6 col-xs-12 plan-detail text-center">
+            <a href="{{data.sign_up}}" target="_blank" class="display-b margin-top">
+
+              <img src="{{data.profile_logo}}" alt="{{data.title}}" style="width: 90%;
+                            margin-top: 16%;" />
+            </a>
+   </div>
+
+          <div class="col-md-3  col-sm-6 col-xs-12 plan-detail text-center">
+
+            <h3 style=" text-align: center">
+              <b> Plan Detail</b>
+            </h3>
+
+            <div style="text-align:center; padding-top:10px;">
+
+              <p class="items-detail">
+                {{data.plan_information}}
+              </p>
+
+            </div>
+          </div>
+
+
+          <div class="col-md-3  col-sm-6 col-xs-12 plan-detail text-center margin-up">
+            <h3 style=" text-align: center;">
+              <b> Price Rate</b>
+            </h3>
+
+            <!-- <div class="holder white"> -->
+            <!--class="product-price"-->
+            <div style="text-align:center;  margin-top: 25px;">
+
+              <b class="price-style"> {{data.price_rate}}¢</b>
+
+            </div>
+
+            <a>
+              <label class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_rate,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
+                data-toggle="modal" data-target="#myModal2" style="    padding-bottom: 0px; margin-bottom: 0px;">Plan Information</label>
+            </a>
+          </div>
+          <div class="modal fade" id="myModal3" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content popupmodel">
+                <!-- <div class="modal-header">
+                             
+                             
+                            </div> -->
+                <div class="modal-body" style="font-size: 18px;
+                            background: #ffffff;
+                            padding: 20px;
+                            margin: 15px;
+                            position: relative;">
+                  <div class="popup-close-button" data-dismiss="modal">X</div>
+                  <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="border-bottom: 1px #4f4f4f solid;">
+                      <p class=" modal-v2__main-heading"> {{data.title}}</p>
+
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
+                      <div class="popup-image">
+                        <a href="{{data.profileurl}}" target="_blank" class="display-b margin-top">
+                          <img src="{{data.profile_logo}}" />
+                        </a>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 class="modal-title" style="text-align: center;
+                                  color: red;
+                                  font-size: 30px;">Confirmation Alert</h4>
+                      <p>Do you want to active this Product?</p>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+                      <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate">
+                    <input matInput placeholder="Title" readonly name="title" value="{{title}}" [hidden]="true" required #updatedtitle/>
+
+                    <input matInput placeholder="Profile url" readonly name="profileurl" value="{{profileurl}}" [hidden]="true" #updatedprofileurl/>
+
+
+                    <input matInput placeholder="Status" readonly name="active" [value]="status" [hidden]="true" #upactive/>
+
+
+                    <input matInput placeholder="Profile Logo" readonly name="profile_logo" [hidden]="true" value="{{profile_logo}}" #updatedprofile_logo
+                    />
+
+
+                    <input matInput placeholder="Rating_logo" [hidden]="true" readonly name="rating_logo" value="{{rating_logo}}" #updatedrating_logo
+                    />
+
+
+                    <input matInput placeholder="Plan_Information" name="plan_information" [hidden]="true" value="{{plan_information}}" #updatedplan_information
+                    />
+
+
+                    <input matInput placeholder="Price Rate" name="price_rate" value="{{price_rate}}" [hidden]="true" #updatedpricerate/>
+
+
+                  
+
+
+                    <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" value="{{cancelation_fee}}" #updatedcancelation_fee/>
+
+                    <input matInput placeholder="Fact Sheet" readonly name="fact_sheet" value="{{fact_sheet}}" [hidden]="true" #updatedfact_sheet/>
+
+
+                    <input matInput placeholder="Term of Service" readonly name="terms_of_service" [hidden]="true" value="{{terms_of_service}}"
+                      #updatedterms_of_service />
+
+                    <input matInput placeholder="Phone No" name="phone" readonly [hidden]="true" value="{{phone}}" #updatedphone/>
+
+
+                    <input matInput placeholder="Sign Up" name="sign_up" readonly [hidden]="true" value="{{sign_up}}" #updatedsign_up />
+
+
+                    <!-- <input matInput placeholder="status" [formControl]="signupForm.controls['status']" required [value]="status" [(ngModel)]="model.status" hidden="true"> -->
+                    <div class=" text-center">
+                      <button type="submit" class="btn btn-rose" (click)="activeClick(mydate.value,updatedtitle.value,updatedsign_up.value,updatedphone.value,updatedterms_of_service.value,updatedfact_sheet.value,updatedcancelation_fee.value,updatedpricerate.value,updatedplan_information.value,updatedrating_logo.value,updatedprofile_logo.value,updatedprofileurl.value,upactive.value)"
+                        data-dismiss="modal">active</button>
+
+                      <button type="button" class="btn btn-rose" data-dismiss="modal">Cancel</button>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6 col-xs-12 term">
+            <div class="text-center">
+
+
+
+              <button class="fa fa-check edit-del-btn" type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
+                data-toggle="modal" data-target="#myModal3">
+
+              </button>
+            </div>
+            <h3 class="text-center">
+              <b> Call Now</b>
+            </h3>
+            <p class="text-center">{{data.phone}}</p>
+            <button class="btn btn-rose" style="display:block; margin: 0 auto;">
+              <a style="color:white" href="{{data.profileurl}}" target="_blank">Signup </a>
+            
+            </button>
+
+
+          </div>
+    
+          <div class="col-sm-12">
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="myModal2" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content popupmodel">
+
+          <div class="modal-body" style="font-size: 18px;
+                                      background: #ffffff;
+                                      padding: 20px;
+                                      margin: 15px;
+                                      position: relative;">
+            <div class="popup-close-button" data-dismiss="modal">X</div>
+            <div class="row">
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="border-bottom: 1px #4f4f4f solid;">
+                <p class=" modal-v2__main-heading"> {{title}}</p>
+
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
+                <div class="popup-image">
+                  <a href="{{profileurl}}" target="_blank" class="display-b margin-top">
+                    <img src="{{profile_logo}}" />
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                <div class="plan-information__heading">Price Rate</div>
+                <table>
+                  <tbody>
+                    <tr class="plan-information__row">
+                      <td class="plan-information__cell">Price Rate</td>
+                      <td class="plan-information__cell plan-information__cell--last ">{{price_rate}}</td>
+                    </tr>
+                   
+                  </tbody>
+                </table>
+                <table>
+                  <tbody>
+                    <tr class="plan-information__row plan-information__row--last">
+                      <td class="plan-information__cell">Documents</td>
+                      <td class="plan-information__cell plan-information__cell--last">
+                        <a style="color:rgba(0,0,0, 0.87)" href="{{fact_sheet}}" target="_blank">
+                          <i style="color:#25B7D3" class="material-icons">picture_as_pdf</i>
+                          <a>Fact Sheet</a>
+                          <br>
+                        </a>
+                        <a style="color:rgba(0,0,0, 0.87)" href="{{terms_of_service}}" target="_blank">
+                          <i style="color:#25B7D3" class="material-icons">picture_as_pdf</i>
+                          Terms of service
+                        </a>
+
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="plan-description">
+                  <div class="plan-description__heading">Cancelation Fee</div>
+                  <div class="plan-description__content">
+
+                    <h4 *ngIf="data.cancelation_fee;else no_data_temp2">
+                      &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee}}
+                    </h4>
+
+                    <ng-template #no_data_temp2>
+                      <h4>&nbsp;&nbsp;&nbsp;&nbsp; ---</h4>
+                    </ng-template>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                <div class="plan-description">
+                  <div class="plan-description__heading">Plan Information</div>
+                  <div class="plan-description__content">
+                    <ul>
+                      <li>{{plan_information}}</li>
+                    </ul>
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:inline-block; text-align:center;">
+            <a href="{{sign_up}}" target="_blank">
+              <button class="btn btn-rose">Order Online</button>
+            </a>
+            <div style="display:inline-block; padding:24px;">
+              <span style="font-size:24px; font-weight:600px">OR CALL
+                <b> {{phone}} </b>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span>
+      <ng-template #no_data_templ>
+        <h1 style="height:1000px;width:1000px;padding:200px">
+        </h1>
+      </ng-template>
+    </span>
+
+  </div>
+
+</div>
+
+<div class="text-center">
+
+  <div class="products-area" *ngIf="prod_loaded">
+    <ng-container class="card" *ngFor="let data of sg['products']; let i = index">
+      <!-- items being paged -->
+      <div *ngIf="i<1">
+        <div *ngFor="let item of pagedItems">{{item.name}}</div>
+
+        <!-- pager -->
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+          <li [ngClass]="{hide:pager.currentPage === 1}">
+            <a (click)="setPage(1)" class="btn btn-rose">First</a>
+          </li>
+          <li [ngClass]="{hide:pager.currentPage === 1}">
+            <a (click)="setPage(data.title.trim(),pager.currentPage - 1)" class="btn btn-rose">Previous</a>
+          </li>
+          <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+            <a (click)="setPage(data.title.trim(),page)" class="btn btn-rose">{{page}}</a>
+          </li>
+          <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+            <a (click)="setPage(data.title.trim(),pager.currentPage + 1)" class="btn btn-rose" type="Next">Next</a>
+          </li>
+          <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+            <a (click)="setPage(data.title.trim(),pager.totalPages)" class="btn btn-rose" type="Last">Last</a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+  </div>
+</div>

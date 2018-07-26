@@ -46,11 +46,11 @@ export const AppRoutes: Routes = [
         children: [
           {
               path: 'products/:zipCode',
-              loadChildren: './products/products.module#ProductsModule'
+              loadChildren: './regulated/products/products.module#ProductsModule'
           },
           {
             path: 'product/:zipCode',
-            loadChildren: './product/product.module#ProductModule'
+            loadChildren: './Deregulated/product/product.module#ProductModule'
         },
 
         ]
@@ -273,12 +273,12 @@ export const AppRoutes: Routes = [
         children: [
             {
                 path: 'dashboard/:username',canActivate: [AuthguardService],
-                loadChildren: './dashboard/dashboard.module#DashboardModule',
+                loadChildren: './regulated/dashboard/dashboard.module#DashboardModule',
                // canActivate: [AuthguardService]
             },
             {
                 path: 'dashboards/:username',canActivate: [AuthguardService],
-                loadChildren: './dashboards/dashboards.module#DashboardsModule',
+                loadChildren: './Deregulated/dashboards/dashboards.module#DashboardsModule',
                // canActivate: [AuthguardService]
             },
             {
@@ -287,7 +287,11 @@ export const AppRoutes: Routes = [
             },
             {
                 path: "inactive-product",canActivate: [AuthguardService],
-                loadChildren: './inactive-product/inactive-product.module#InactiveProductModule'
+                loadChildren: './regulated/inactive-product/inactive-product.module#InactiveProductModule'
+            },
+            {
+                path: "inactive-products",canActivate: [AuthguardService],
+                loadChildren: './Deregulated/inactive-products/inactive-products.module#InactiveProductsModule'
             },
             {
                 path: 'company-profile',canActivate: [AuthguardService],

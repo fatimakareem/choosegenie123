@@ -1,14 +1,14 @@
 import { Component, OnInit, AfterViewInit, Inject } from '@angular/core';
-import { Config } from "../Config";
+import { Config } from "../../Config";
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute, Router } from "@angular/router";
-import { HomeService } from "../home/home.service";
+import { HomeService } from "../../home/home.service";
 import { ErrorStateMatcher, MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material";
 import { NgForm, FormControl, Validators, FormGroupDirective } from "@angular/forms";
 import { SimpleGlobal } from 'ng2-simple-global';
-import { DataService } from '../data.service';
+import { DataService } from '../../data.service';
 import * as _ from 'underscore';
-import { PagerService } from '../pager.service';
+import { PagerService } from '../../pager.service';
 import { Pipe, PipeTransform } from "@angular/core";
 // import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Headers, Http, Response } from '@angular/http';
@@ -55,7 +55,8 @@ export class InactiveProductComponent implements OnInit {
     public username;
     public customer;
     name;
-
+    publishdate;
+    Inactivedate;
 
     val;
     user;
@@ -119,21 +120,27 @@ export class InactiveProductComponent implements OnInit {
         //  window.location.reload();
 
     }
-    search(name) {
+    search(page:number) {
+        this.title = localStorage.getItem('username');
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         //   this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
-        this.http.get(Config.api + 'vedor_product_search/'+ name , { headers: headers }).subscribe(Res => {
-            console.log(Res);
-      
-            this.sg['products'] = Res.json();  
-            for (let prod of this.sg['products']) {
-                prod["plan_information"] = prod["plan_information"].split(',,', 3000);
-                prod["price_rate"] = prod["price_rate"].split('..', 3000);
+        this.http.post(Config.api + 'search_by_vendor/' + this.title +'?page='+page, JSON.stringify({
+          "productinactive": this.Inactivedate,
+          "propublish": this.publishdate,
+          "utility": this.name
+        }), { headers: headers }).subscribe(Res => {
+          console.log(Res);
+    
+          this.sg['products'] = Res.json();  
+          for (let prod of this.sg['products']) {
+              prod["plan_information"] = prod["plan_information"].split(',,', 3000);
+              prod["price_rate"] = prod["price_rate"].split('..', 3000);
 
-            }
-            this.allItems = this.sg['products'];
-        });
+          }
+          this.allItems = this.sg['products'];
+          this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
+      });
         // this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
       }
     rate = '';

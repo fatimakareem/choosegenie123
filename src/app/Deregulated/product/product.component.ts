@@ -1,14 +1,14 @@
 import { Component, OnInit, AfterViewInit, Inject } from '@angular/core';
-import { Config } from "../Config";
+import { Config } from "../../Config";
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute, Router } from "@angular/router";
-import { HomeService } from "../home/home.service";
+import { HomeService } from "../../home/home.service";
 import { ErrorStateMatcher, MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material";
 import { NgForm, FormControl, Validators, FormGroupDirective } from "@angular/forms";
 import { SimpleGlobal } from 'ng2-simple-global';
-import { DataService } from '../data.service';
+import { DataService } from '../../data.service';
 import * as _ from 'underscore';
-import { PagerService } from '../pager.service';
+import { PagerService } from '../../pager.service';
 import { Pipe, PipeTransform } from "@angular/core";
 // import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { Headers, Http, Response } from '@angular/http';
@@ -132,6 +132,12 @@ export class ProductComponent implements OnInit {
 
 
   }
+  submit(id, title) {
+    console.log(title.trim())
+    this.router.navigate(['/Review/' + id]);
+    //userprofile
+    localStorage.setItem('company', title);
+}
   comtitle='';
   servicearea="";
   cancelation="";
@@ -181,12 +187,12 @@ btnderagulateClick(id, title, sign_up, phone, terms_of_service, fact_sheet, canc
 
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      this.http.get(Config.api + 'users_profile/' + this.customer + '/', { headers: headers })
+      this.http.get(Config.api + 'user_profile/' + this.customer + '/', { headers: headers })
 
           .subscribe(Res => {
               this.data = Res.json();
               console.log(this.data);
-              this.user = this.data['user']
+              this.user = this.data['user'].id
           });
 
   }
@@ -319,6 +325,27 @@ btnderagulateClick(id, title, sign_up, phone, terms_of_service, fact_sheet, canc
 
           });
   }
+  hits(event) {
+    if (event.target.checked == true) {
+
+        let headers = new HttpHeaders();
+
+
+        headers.append('Content-Type', 'text/html');
+
+        this.http.get(Config.api + 'postcounts_deregulated/' + this.record.toString() + '/')
+
+
+
+            .subscribe(data => {
+                console.log(data);
+
+
+
+
+            });
+    }
+}
 state;
 zipcodeexist;
   Checkzipcode() {

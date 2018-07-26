@@ -20,9 +20,9 @@ import { SimpleGlobal } from 'ng2-simple-global';
 // import { ValueUnwrapper } from '@angular/core/src/change_detection/change_detection_util';
 //import { Http } from '@angular/http/src/http';
 import { PageEvent } from '@angular/material';
-import { DeleteService } from '../dashboard/delete.service';
+import { DeleteService } from '../regulated/dashboard/delete.service';
 import { DataService } from '../data.service';
-import { EditService } from '../dashboard/edit.service';
+import { EditService } from '../regulated/dashboard/edit.service';
 import { Location } from '@angular/common';
 declare const $: any;
 
@@ -183,8 +183,19 @@ export class SidebarComponent implements OnInit {
         this.router.navigate(['/']);
     
       }
+      moving() {
+        if(localStorage.getItem('massage') == "Successfully Login As Not Deregulatedstate vendor"){
+          this.router.navigate(['/dashboard/' + this.username]);}
+          else if(localStorage.getItem('massage') == "Successfully Login As Deregulatedstate vendor"){
+              this.router.navigate(['/dashboards/' + this.username]);
+          }
+      }
       move(){
-        this.router.navigate(['/dashboard/'+this.username]);
+        if(localStorage.getItem('massage') == "Successfully Login As Not Deregulatedstate vendor"){
+            this.router.navigate(['/inactive-product']);}
+            else if(localStorage.getItem('massage') == "Successfully Login As Deregulatedstate vendor"){
+                this.router.navigate(['/inactive-products']);
+            }
       }
     fetchProducts() {
        
@@ -200,13 +211,14 @@ export class SidebarComponent implements OnInit {
         
         } 
     private Sub: Subscription;
+    public massage;
     // pro(){
     //     this.router.navigate(['/userprofile/']);
     //     // this.router.navigate(['/company-profile/']);
     //   }
     public user;
     ngOnInit() {
-       
+        this.massage = localStorage.getItem('massage')
        
         this.user = localStorage.getItem('user')
         this.username = localStorage.getItem('username')

@@ -33,7 +33,7 @@ export class FooterComponent {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         // this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
-        this.http.post('http://192.168.30.193:9000/choice/subscribe/', JSON.stringify({
+        this.http.post(Config.api + 'subscribe/', JSON.stringify({
 
             "email": this.email
         }

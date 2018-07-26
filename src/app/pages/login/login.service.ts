@@ -30,6 +30,7 @@ export class LoginService {
                 console.log(response.json()['Results']);
                 this.hel = response.json()['Results'];
                 this.massage=response.json()['Message'];
+                localStorage.setItem('massage', this.massage);
                 console.log(this.massage);
                 this.tit = this.hel[0];
                 console.log(this.tit);
