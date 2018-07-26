@@ -72,6 +72,68 @@
           </div>
         </div> -->
       </div>
+      <div class="row">
+        <div class="col-xs-6 col-md-3">
+
+          <div class="panel2 panel-default">
+            <div class="panel-body easypiechart-panel">
+              <h4>Deregulated REP's Member </h4>
+              <div class="easypiechart" id="easypiechart-blue" data-percent="">
+                <!-- <span class="percent">90</span> -->
+                <span class="percent">{{deresults.Rep}}</span>
+                <canvas height="110" width="110"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <div class="panel2 panel-default">
+            <div class="panel-body easypiechart-panel">
+              <h4>Total Deregulated Products</h4>
+              <div class="easypiechart" id="easypiechart-orange" data-percent="">
+                <!-- <span class="percent">60</span> -->
+                <span class="percent">{{deresults.Products}}</span>
+                <canvas height="110" width="110"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <div class="panel2 panel-default">
+            <div class="panel-body easypiechart-panel">
+              <h4>Total Deregulated Active Product</h4>
+              <div class="easypiechart" id="easypiechart-teal" data-percent="56">
+                <span class="percent">{{deresults.ActiveProducts}}</span>
+                <!-- <span class="percent">{{active.Results}}</span> -->
+                <canvas height="110" width="110"></canvas>
+              </div>
+              <!-- <input matInput placeholder="Contact #" value = "{{data.user_count}}" #updatecontact  > -->
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <div class="panel2 panel-default">
+            <div class="panel-body easypiechart-panel">
+              <h4>Total Deregulated In Active Product</h4>
+              <div class="easypiechart" id="easypiechart-teal" data-percent="56">
+                <!-- <span class="percent">100</span> -->
+                <span class="percent">{{deresults.InactiveProducts}}</span>
+                <!-- InactiveProducts -->
+                <canvas height="110" width="110"></canvas>
+              </div>
+              <!-- <input matInput placeholder="Contact #" value = "{{data.user_count}}" #updatecontact  > -->
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-xs-6 col-md-3">
+          <div class="panel2 panel-default">
+            <div class="panel-body easypiechart-panel">
+              <h4>Visitors</h4>
+              <div class="easypiechart" id="easypiechart-red" data-percent="27"><span class="percent">27%</span><canvas height="110" width="110"></canvas></div>
+            </div>
+          </div>
+        </div> -->
+      </div>
 
 
 

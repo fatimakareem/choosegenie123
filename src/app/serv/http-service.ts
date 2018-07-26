@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, ConnectionBackend, Request, RequestOptions, RequestOptionsArgs, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
-import 'rxjs/Rx';
+import 'rxjs';
 import { PreloaderService } from './preloader-service';
 import { Config2 } from '../config-2';
 

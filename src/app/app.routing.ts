@@ -263,6 +263,10 @@ export const AppRoutes: Routes = [
             {
                 path: 'sviewapartner',canActivate: [Authgaurd3Service],
                 loadChildren: './sviewapartner/sviewapartner.module#partnerModule'
+            },
+            {
+                path: 'supergetuser',canActivate: [Authgaurd3Service],
+                loadChildren: './supergetusers/supergetusers.module#partnerModule'
             }
         ]
     },          
