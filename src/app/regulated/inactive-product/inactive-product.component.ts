@@ -17,7 +17,7 @@ import { EditService } from '../dashboard/edit.service';
 // import {Config} from "../Config";
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
 import { jsonpCallbackContext } from '@angular/common/http/src/module';
-
+// import { parent } from "../dashboard.class";
 import { PageEvent } from '@angular/material';
 // import { SSL_OP_NO_TICKET } from 'constants';
 

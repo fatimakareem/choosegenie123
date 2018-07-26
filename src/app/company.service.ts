@@ -23,7 +23,7 @@ username;
 //mydata
 
     }
-    searchProduct1(title,page) {
+    deregulatedsearch(title,page) {
       console.log(this.username)
      // let headers = new Headers({'Authorization': 'JWT ' + username.token});
      let headers = new Headers();

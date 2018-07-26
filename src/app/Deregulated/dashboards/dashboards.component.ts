@@ -125,7 +125,7 @@ export class DashboardsComponent implements OnInit {
 
     const Results = {};
 
-    this.companyService.searchProduct1(title, page).subscribe(Response => {
+    this.companyService.deregulatedsearch(title, page).subscribe(Response => {
       console.log('service');
       this.sg['products'] = Response.json()['Results'];
 

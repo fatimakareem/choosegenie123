@@ -124,17 +124,18 @@ export class HomeComponent implements OnInit {
 
 
   }
-  onKeydown(event) {
-    if (event.key === "Enter") {
-      this.router.navigate(['/products/' + this.zipCode]);
-      localStorage.setItem('zip', this.zipCode);
-      console.log(event);
+  // onKeydown(event) {
+  //   if (event.key === "Enter") {
+  //     this.router.navigate(['/products/' + this.zipCode]);
+  //     localStorage.setItem('zip', this.zipCode);
+  //     console.log(event);
 
-    }
-  }
+  //   }
+  // }
 
 
-  Checkzipcode(zipcode1) {
+  Checkzipcode(event,zipcode1) {
+
     console.log("CHOICE GENIE", this.model.zipcode1);
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');

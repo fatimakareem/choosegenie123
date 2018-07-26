@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
   zipcode;
   record: any = []
   zipCode;
-  constructor(private router: Router, private _serv: HeaderService,  private data: DataService, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
+  constructor(private router: Router, private _serv: HeaderService, private data: DataService, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
   checked_login() {
     if (localStorage.getItem('custum')) {
       let local = localStorage.getItem('custum');
@@ -58,11 +58,12 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/consumerdashboard/']);
   }
   moving() {
-    if(localStorage.getItem('massage') == "Successfully Login As Not Deregulatedstate vendor"){
-      this.router.navigate(['/dashboard/' + this.username]);}
-      else if(localStorage.getItem('massage') == "Successfully Login As Deregulatedstate vendor"){
-          this.router.navigate(['/dashboards/' + this.username]);
-      }
+    if (localStorage.getItem('massage') == "Successfully Login As Not Deregulatedstate vendor") {
+      this.router.navigate(['/dashboard/' + this.username]);
+    }
+    else if (localStorage.getItem('massage') == "Successfully Login As Deregulatedstate vendor") {
+      this.router.navigate(['/dashboards/' + this.username]);
+    }
   }
   ngOnInit() {
     this.massage = localStorage.getItem('massage')
@@ -95,67 +96,71 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/']);
 
   }
-  submit(event,query){
-    if (event.key == "Enter") {
-      let headers = new HttpHeaders();
-      headers.append('Content-Type', 'application/json');
-      this.http.get(Config.api + 'zipcodecheck/' + query, { headers: headers })
-        .subscribe(data => {
-          console.log(data);
-          console.log(data['message'], 'hhhhhhhhhhhhhhh')
-  this.state=data['state'];
-          this.zipcodeexist = data['message']
-          if (this.zipcodeexist == "InValid Zipcode") {
-            swal({
-              text: "InValid Zipcode",
-              title: "Choice Genie",
-              type: "error",
-              showConfirmButton: false,
-              timer: 1200,
-              confirmButtonText: "OK",
-  
-            })
-          }
-          else if (this.state == "deregulatedstate") {
-            this.router.navigate(['/product/' + query]);
-            localStorage.setItem('zip', query);
-          }
-          else if(this.state == "notderegulatedstate"){
-            this.router.navigate(['/products/' + query]);
-            localStorage.setItem('zip', query);
-          }
-        },
-          error => {
-            console.log(error);
-  
-  
-          });
-  //  window.location.reload()
- 
+  submit(event, query) {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    this.http.get(Config.api + 'zipcodecheck/' + query, { headers: headers })
+      .subscribe(data => {
+        console.log(data);
+        console.log(data['message'], 'hhhhhhhhhhhhhhh')
+        this.state = data['state'];
+        console.log(this.state)
+        this.zipcodeexist = data['message']
+        if (event.key == "Enter" && this.zipcodeexist == "InValid Zipcode") {
+          swal({
+            text: "InValid Zipcode",
+            title: "Choice Genie",
+            type: "error",
+            showConfirmButton: false,
+            timer: 1200,
+            confirmButtonText: "OK",
 
-  }}
+          })
+        }
+        else if (event.key == "Enter" && this.state == "deregulatedstate") {
+          this.router.navigate(['/product/' + query]);
+          localStorage.setItem('zip', query);
+          //  window.location.reload()
+          $('.main-search').removeClass('active');
+           $('body').removeClass('noScroll');
+            $('.form-search').removeClass('flipInX');
+
+        }
+
+        else if (event.key == "Enter" && this.state == "notderegulatedstate") {
+          this.router.navigate(['/products/' + query]);
+          localStorage.setItem('zip', query);
+          $('.main-search').removeClass('active');
+          $('body').removeClass('noScroll');
+           $('.form-search').removeClass('flipInX');
+        }
+      },
+    );
+
+  }
   searchuserdata(query) {
     console.log(query)
     this._serv.searchrecord(query).subscribe(data => {
       this.record = data
-    
+
       // this.sg['zip'] = Res.json()['Results'];
       // this.data.changezip(this.sg['zip']);
       console.log(this.record)
     }, error => {
 
     })
-   
+
   }
-  
-  singlerfp(zipcode){
+
+  singlerfp(zipcode) {
+    this.zipcode=zipcode;
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    this.http.get(Config.api + 'zipcodecheck/' + zipcode, { headers: headers })
+    this.http.get(Config.api + 'zipcodecheck/' + this.zipcode, { headers: headers })
       .subscribe(data => {
         console.log(data);
         console.log(data['message'], 'hhhhhhhhhhhhhhh')
-this.state=data['state'];
+        this.state = data['state'];
         this.zipcodeexist = data['message']
         if (this.zipcodeexist == "InValid Zipcode") {
           swal({
@@ -169,20 +174,26 @@ this.state=data['state'];
           })
         }
         else if (this.state == "deregulatedstate") {
-          this.router.navigate(['/product/' + zipcode]);
-          localStorage.setItem('zip', zipcode);
+          this.router.navigate(['/product/' + this.zipcode]);
+          localStorage.setItem('zip', this.zipcode);
+          $('.main-search').removeClass('active');
+          $('body').removeClass('noScroll');
+           $('.form-search').removeClass('flipInX');
         }
-        else if(this.state == "notderegulatedstate"){
-          this.router.navigate(['/products/' + zipcode]);
-          localStorage.setItem('zip', zipcode);
+        else if (this.state == "notderegulatedstate") {
+          this.router.navigate(['/products/' + this.zipcode]);
+          localStorage.setItem('zip', this.zipcode);
+          $('.main-search').removeClass('active');
+          $('body').removeClass('noScroll');
+           $('.form-search').removeClass('flipInX');
         }
       },
-        error => {
-          console.log(error);
+      error => {
+        console.log(error);
 
 
-        });
+      });
   }
- 
-  
+
+
 }

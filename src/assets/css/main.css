@@ -4219,6 +4219,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   padding: 10px;
   font-family: "Open Sans",sans-serif;
   font-weight: 300;
+  font-size: 22px;
   color: #4f4f4f;
   background: #ebebeb;
   margin-top: 10px;
@@ -4237,9 +4238,10 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 .plan-information__cell {
   border-right: 1px solid #ebebeb;
   width: 50%;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   padding: 5px 0;
+  color: #000000;
 }
 .plan-information__cell--last {
   border-right: none;
@@ -4253,13 +4255,15 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   background: #ebebeb;
   margin-bottom: 5px;
   margin-top: 10px;
+  font-size: 22px;
 }
 .modal-v2__main-heading {
-  color: #4f4f4f;
+  color: #c00;
   font-family: "Open Sans",sans-serif;
-  font-weight: 300;
-  font-size: 40px;
+  font-weight: 600;
+  font-size: 35px;
   float: left;
+  margin-bottom: 0px;
 
 }
 .plan-information__cell > a{
@@ -4273,8 +4277,8 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 }
 .popupmodel {
   /* margin-top: 25%; */
-  width: 800px !important;
-  right: 19%;
+  width: 830px !important;
+  right: 29%;
   background: #ebebeb !important;
 }
 .popup__heading{
@@ -4333,8 +4337,15 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 .view-plan-details:hover{
   color: #cc0000;
 }
+.plan-description__content >ul{
+  margin-left: 0px;
+}
 .plan-description__content >ul >li{
   list-style: none;
+  font-size: 16px;
+  color: #000;
+  border-bottom: 1px solid #ebebeb;
+  font-weight: 600;
 }
 .blog li{
   width: 33% !important;
