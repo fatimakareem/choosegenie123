@@ -170,7 +170,6 @@ export class DashboardsComponent implements OnInit {
     this.price_rate = price_rate
     this.plan_information = plan_information;
     this.rating_logo = rating_logo;
-
     this.profile_logo = profile_logo;
     this.profileurl = profileurl;
 
