@@ -93,7 +93,7 @@ export class ProductComponent implements OnInit {
   checked14;
   checked15;
   checked16;
-  checked17;
+
   checkedtime;
   pricerate;
   checked7;
@@ -475,14 +475,26 @@ zipcodeexist;
     checked22(event, i) {
         this.sort = "true";
     }
+    checked17(event, i, name) {
+        if (name) {
+            console.log(name);
+            this.names = name;
+            console.log(this.name)
+        }
+        else {
+            console.log()
+            delete this.names;
+        }
+        console.log(this.names)
+    }
   deproduct;
   noresult;
   setPage(page: number) {
 
     
       const Results = {}
-if(this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months5 == "12 Months" || this.months6 == "6 Months"|| this.item ||  this.sort){
-    this.obj.deregulatedfilter(page, this.zip_code,this.months1,this.months2, this.months3,this.months5, this.months6,this.item,this.sort).subscribe(response => {
+if(this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months5 == "12 Months" || this.months6 == "6 Months"|| this.item ||  this.sort || this.names){
+    this.obj.deregulatedfilter(page, this.zip_code,this.months1,this.months2, this.months3,this.months5, this.months6,this.item,this.sort,this.names).subscribe(response => {
 
         this.deproduct = response['Results'];
 this.noresult=response['Total Result'];

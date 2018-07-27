@@ -8,7 +8,7 @@ export class HomeService {
 public username;
   months:any[];
   product;
-  constructor(private http: HttpService) {this.username = localStorage.getItem('username');
+  constructor(private http: Http) {this.username = localStorage.getItem('username');
                this.product = localStorage.getItem('PRO');
 }
 
@@ -150,10 +150,10 @@ public username;
     }
  
   }
-  deregulatedfilter(page,zip_code,months1,months2,months3,months5,months6,items,dsc) {
+  deregulatedfilter(page,zip_code,months1,months2,months3,months5,months6,items,dsc,com) {
     // console.log(price)
       
-         console.log(page,zip_code,months1,months2,months3,months5,months6,items,dsc)
+         console.log(page,zip_code,months1,months2,months3,months5,months6,items,dsc,com)
          const headers = new Headers();
          headers.append('Content-Type', 'application/json');
          return this.http.post(Config.api+'deregulated_genericfilter/'+zip_code +'?page='+page, JSON.stringify({
@@ -164,7 +164,7 @@ public username;
           
            "plan_information3": months5,
            "plan_information4": months6,
-
+             "company":com,
            "itemsperpage":items,
            "dsc":dsc
           }), 
