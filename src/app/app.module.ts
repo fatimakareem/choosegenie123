@@ -94,24 +94,15 @@ import { ChoiceandsavingComponent } from './choiceandsaving/choiceandsaving.comp
 import { WhyChocieGenieComponent } from './why-chocie-genie/why-chocie-genie.component';
 import { RandomService } from './random.service';
 import { ActiveService } from './active.service';
-import { EditreviewService } from './superreviews/editreview.service';
-import { DeletereviewService } from './superreviews/deletereview.service';
-
-import { SuperviewcontactComponent } from './superviewcontact/superviewcontact.component';
-import { SviewapartnerComponent } from './sviewapartner/sviewapartner.component';
-
-import { ChangepasswordComponent } from './changepassword/changepassword.component';
-import { SuperchangepasswordComponent } from './superchangepassword/superchangepassword.component';
+import { EditreviewService } from './ChoiceSuperAdmin/superreviews/editreview.service';
+import { DeletereviewService } from './ChoiceSuperAdmin/superreviews/deletereview.service';
 import { ChangepasswordService } from './changepassword.service';
-import { SuperchangepaswwordService } from './superchangepassword/superchangepaswword.service';
-import { DeletecontactService } from './superviewcontact/deletecontact.service';
-import { DeleteviewapartnerService } from './sviewapartner/deleteviewapartner.service';
-import { SuperupdateService } from './superdashboard/superupdate.service';
-import { DeletesuperdashboardService } from './superdashboard/deletesuperdashboard.service';
+import { DeletecontactService } from './ChoiceSuperAdmin/superviewcontact/deletecontact.service';
+import { DeleteviewapartnerService } from './ChoiceSuperAdmin/sviewapartner/deleteviewapartner.service';
+import { SuperupdateService } from './ChoiceSuperAdmin/superdashboard/superupdate.service';
+import { DeletesuperdashboardService } from './ChoiceSuperAdmin/superdashboard/deletesuperdashboard.service';
 import { DataloginService } from './pages/login/datalogin.service';
 import { AuthguardService } from './authguard.service';
-
-// import { ActivateaccountComponent } from './activateaccount/activateaccount.component';
 import { ConsumersidebarComponent } from './consumersidebar/consumersidebar.component';
 import { ConsumeradminComponent } from './layouts/consumeradmin/consumeradmin.component';
 import { ConsumerdashboardComponent } from './consumerdashboard/consumerdashboard.component';
@@ -119,17 +110,17 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UsernavbarComponent } from './shared/usernavbar/usernavbar.component';
 import { UserNavbarModule } from './shared/usernavbar/usernavbar.module';
 import { UpdateService } from './user-profile/update.service';
-import {SuperdashboardmainComponent} from './superdashboardmain/superdashboardmain.component';
+// import {SuperdashboardmainComponent} from './ChoiceSuperAdmin/superdashboardmain/superdashboardmain.component';
 // import { SuperdashboardmainComponent } from '././superdashboardmain/superdashboardmain.component';
 
-import { UpdatepartnerService } from './sviewapartner/updatepartner.service';
+import { UpdatepartnerService } from './ChoiceSuperAdmin/sviewapartner/updatepartner.service';
 import { GetreviewComponent } from './getreview/getreview.component';
-import { SuperreviewsComponent } from './superreviews/superreviews.component';
+import { SuperreviewsComponent } from './ChoiceSuperAdmin/superreviews/superreviews.component';
 import { HeaderService } from './header/header.service';
 import { UnsubscribeService } from './unsubscribe/unsubscribe.service';
-import { SupergetusersComponent } from './supergetusers/supergetusers.component';
-import { DeletegetuserService } from './supergetusers/deletegetuser.service';
-import { UpdategetuserService } from './supergetusers/updategetuser.service';
+import { SupergetusersComponent } from './ChoiceSuperAdmin/supergetusers/supergetusers.component';
+import { DeletegetuserService } from './ChoiceSuperAdmin/supergetusers/deletegetuser.service';
+import { UpdategetuserService } from './ChoiceSuperAdmin/supergetusers/updategetuser.service';
 
 
 
@@ -247,7 +238,6 @@ export class MaterialModule { }
     ActiveService,
     ChangepasswordService,
     DeletecontactService,
-    SuperchangepaswwordService,
     DeleteviewapartnerService,
     SuperupdateService,
     DeletesuperdashboardService,

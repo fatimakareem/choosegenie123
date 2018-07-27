@@ -112,12 +112,16 @@ export class DashboardsComponent implements OnInit {
       console.log(Res);
 
       this.sg['products'] = Res.json()['Results'];
+      this.noresult=Response['Total Result'];
+      this.zipdet = localStorage.getItem('zip');
      
       this.allItems = this.sg['products'];
       this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
     });
     // this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
   }
+  noresult;
+  zipdet;
   setPage(title, page: number) {
 
     this.title = localStorage.getItem('username');
@@ -128,6 +132,8 @@ export class DashboardsComponent implements OnInit {
     this.companyService.deregulatedsearch(title, page).subscribe(Response => {
       console.log('service');
       this.sg['products'] = Response.json()['Results'];
+      this.noresult=Response['Total Result'];
+      this.zipdet = localStorage.getItem('zip');
 
       console.log(this.sg['products']);
 
