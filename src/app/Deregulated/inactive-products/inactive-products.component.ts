@@ -37,11 +37,12 @@ export class InactiveProductsComponent implements OnInit {
   rating;
   closeResult: string;
   stars;
+ 
   //    setPage;
   constructor(private serve: EditService, private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
 
   }
-  private allItems: any[];
+  public allItems: any[];
   pager: any = {};
   home: any = {};
   private id: any[];
