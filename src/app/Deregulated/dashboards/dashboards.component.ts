@@ -79,66 +79,9 @@ export class DashboardsComponent implements OnInit {
   obj: any = [];
   editdata: any = [];
   states;
-  submit(id, title) {
-    console.log(title.trim())
-    this.router.navigate(['/Review/' + id]);
-    //userprofile
-    localStorage.setItem('company', title);
-}
-  companystates() {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    this.http.get(Config.api + 'deregulated_utility/', { headers: headers })
-
-      .subscribe(Res => {
-
-        this.states = Res.json();
-
-
-        console.log(this.states)
-      });
-
-  }
-  search(page:number) {
-    this.title = localStorage.getItem('username');
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    //   this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
-    this.http.post(Config.api + 'vedor_product_search/' + this.title +'?page='+page, JSON.stringify({
-      "productinactive": this.Inactivedate,
-      "propublish": this.publishdate,
-      "state": this.name
-    }), { headers: headers }).subscribe(Res => {
-      console.log(Res);
-
-      this.sg['products'] = Res.json()['Results'];
-     
-      this.allItems = this.sg['products'];
-      this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
-    });
-    // this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
-  }
-  setPage(title, page: number) {
-
-    this.title = localStorage.getItem('username');
-    console.log("usernameeeeeeeeeeeee", this.title)
-
-    const Results = {};
-
-    this.companyService.deregulatedsearch(title, page).subscribe(Response => {
-      console.log('service');
-      this.sg['products'] = Response.json()['Results'];
-
-      console.log(this.sg['products']);
-
-      this.prod_loaded = true;
-      this.prods_loaded = true;
-      this.allItems = this.sg['products'];
-      console.log(Response.json()['Total Result']);
-      this.pager = this.pagerService.getPager(Response.json()['Total Result'], page, 10);
-    });
-  }
-
+  private Sub: Subscription;
+  form;
+  updataForm: FormGroup;
   catagoryId = '';
   title = '';
   comtitle = '';
@@ -156,7 +99,56 @@ export class DashboardsComponent implements OnInit {
   price_1000_kwh = '';
   price_500_kwh = '';
   price_2000_kwh = '';
-  //Event Binding of Delete Buttons
+  data;
+  dataId = '';
+  list = 'Hello';
+  status: boolean = false;
+  submit(id, title) {
+    console.log(title.trim())
+    this.router.navigate(['/Review/' + id]);
+    localStorage.setItem('company', title);
+}
+  companystates() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.http.get(Config.api + 'deregulated_utility/', { headers: headers })
+      .subscribe(Res => {
+        this.states = Res.json();
+        console.log(this.states)
+      });
+  }
+  
+  search(page:number) {
+    this.title = localStorage.getItem('username');
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.http.post(Config.api + 'vedor_product_search/' + this.title +'?page='+page, JSON.stringify({
+      "productinactive": this.Inactivedate,
+      "propublish": this.publishdate,
+      "state": this.name
+    }), { headers: headers }).subscribe(Res => {
+      console.log(Res);
+      this.sg['products'] = Res.json()['Results']; 
+      this.allItems = this.sg['products'];
+      this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
+    });
+  }
+  setPage(title, page: number) {
+    this.title = localStorage.getItem('username');
+    console.log("usernameeeeeeeeeeeee", this.title)
+    const Results = {};
+    this.companyService.deregulatedsearch(title, page).subscribe(Response => {
+      console.log('service');
+      this.sg['products'] = Response.json()['Results'];
+      console.log(this.sg['products']);
+      this.prod_loaded = true;
+      this.prods_loaded = true;
+      this.allItems = this.sg['products'];
+      console.log(Response.json()['Total Result']);
+      this.pager = this.pagerService.getPager(Response.json()['Total Result'], page, 10);
+    });
+  }
+
   btnderagulateClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_rate, plan_information, rating_logo, profile_logo, profileurl) {
     this.catagoryId = id;
 
@@ -198,22 +190,14 @@ export class DashboardsComponent implements OnInit {
     console.log(val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11)
     console.log('id : ' + this.catagoryId);
   }
-  data;
-  dataId = '';
-  list = 'Hello';
-  status: boolean = false;
-  //Event Binding of Delete Buttons
+ 
   btnDeleteClick(id) {
     this.dataId = id;
     console.log('id : ' + this.dataId);
   }
 
-  //Event Binding of PopUp Delete Modal
-
   deleteClick(id) {
     console.log('delete' + id);
-
-    //Calling Delete Service
     this.newService.Deletederegulated(id).subscribe(data => {
       console.log(data);
       swal({
@@ -222,13 +206,9 @@ export class DashboardsComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500
       })
-
       this.setPage(this.title, 1)
-
-
     }, error => {
     });
-
 
   }
   btnEditClick(id, val1, val2, val3, val4, val5, val6, val13, val8, val9, val10, val11) {
@@ -282,10 +262,7 @@ export class DashboardsComponent implements OnInit {
     this.fact_sheet = val5;
     this.cancelation_fee = val6;
     this.price_rate = val7;
-    // this.price_500_kwh = val12;
     this.status = false;
-    // this.price_2000_kwh = val13;
-
     this.rating_logo = val9;
     this.profile_logo = val10;
     this.profileurl = val11;
@@ -293,8 +270,6 @@ export class DashboardsComponent implements OnInit {
     console.log(id, val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11)
     console.log('id : ' + this.catagoryId);
   }
-
-  //Event Binding of PopUp Delete Modal
 
   activeClick(updatedmydate, updateddate, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive) {
     console.log('edit' + updatedmydate, updateddate, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
@@ -315,9 +290,7 @@ export class DashboardsComponent implements OnInit {
 
   }
 
-  private Sub: Subscription;
-  form;
-  updataForm: FormGroup;
+ 
   public ngOnInit() {
     this.title = localStorage.getItem('username')
     console.log(this.title, 'gggggggggggggggg')

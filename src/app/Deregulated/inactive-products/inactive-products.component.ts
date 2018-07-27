@@ -54,9 +54,23 @@ export class InactiveProductsComponent implements OnInit {
   name;
   Inactivedate;
   publishdate;
-
   val;
   user;
+  catagoryId = '';
+  comtitle = '';
+  cancelation = '';
+  fact_sheet = '';
+  phone = '';
+  plan_information = '';
+  price_rate = '';
+  profile_logo = '';
+  profileurl = '';
+  rating_logo = '';
+  sign_up = '';
+  terms_of_service = '';
+  title;
+  status = true;
+  rate = '';
   ngOnInit() {
       this.title = localStorage.getItem('username')
       console.log(this.title, 'gggggggggggggggg')
@@ -64,15 +78,11 @@ export class InactiveProductsComponent implements OnInit {
       this.zip_code = localStorage.getItem('zip');
       this.data.currentProducts.subscribe(products => this.sg['products'] = products)
       this.data.currentProducts
-      
-
       this.setPage(this.title, 1)
       console.log(this.title, 1)
-this.companystates();
-
-
+      this.companystates();
   }
-  status = true;
+
   btnactiveClick(id, val1, val2, val3, val4, val5, val6, val13, val8, val9, val10, val11) {
       this.catagoryId = id;
       console.log(this.plan_information)
@@ -83,21 +93,14 @@ this.companystates();
       this.plan_information = val8;
       this.fact_sheet = val5;
       this.cancelation = val6;
-     
-    
       this.status = true;
       this.price_rate = val13;
-
       this.rating_logo = val9;
       this.profile_logo = val10;
       this.profileurl = val11;
-
       console.log(id, val1, val2, val3, val4, val5, val6, val13, val8, val9, val10, val11)
       console.log('id : ' + this.catagoryId);
   }
-
-  //Event Binding of PopUp Delete Modal
-
   activeClick(date,updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive) {
       console.log('edit' + date,updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
       console.log("TS OBJECT", updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
@@ -114,19 +117,13 @@ this.companystates();
 
       }, error => {
       });
-      //  window.location.reload();
-
   }
   companystates() {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     this.http.get(Config.api + 'deregulated_utility/', { headers: headers })
-
       .subscribe(Res => {
-
         this.states = Res.json();
-
-
         console.log(this.states)
       });
 
@@ -142,35 +139,14 @@ this.companystates();
       "state": this.name
     }), { headers: headers }).subscribe(Res => {
       console.log(Res);
-
       this.sg['products'] = Res.json()['Results'];
-     
       this.allItems = this.sg['products'];
       this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
     });
-    // this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
   }
-  rate = '';
-  get(rating) {
-      this.rate = rating;
-  }
-  catagoryId = '';
-  comtitle = '';
-  cancelation = '';
-  fact_sheet = '';
-  phone = '';
-  plan_information = '';
-  price_rate = '';
-  profile_logo = '';
-  profileurl = '';
-  rating_logo = '';
-  sign_up = '';
-  terms_of_service = '';
-  title;
-  //Event Binding of Delete Buttons
+ 
   btnEditClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_rate, plan_information, rating_logo, profile_logo, profileurl) {
       this.catagoryId = id;
-
       console.log(this.plan_information)
       this.comtitle = title;
       this.sign_up = sign_up;
@@ -181,7 +157,6 @@ this.companystates();
       this.price_rate = price_rate
       this.plan_information = plan_information;
       this.rating_logo = rating_logo;
-  
       this.profile_logo = profile_logo;
       this.profileurl = profileurl;
       console.log(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_rate, plan_information, rating_logo, profile_logo, profileurl)
@@ -197,9 +172,7 @@ this.companystates();
       this.obj.deregulatedinactivepro(title, page).subscribe(response => {
         console.log('service');
         this.sg['products'] = response.json()['Results'];
-  
         console.log(this.sg['products']);
-  
         this.prod_loaded = true;
         this.prods_loaded = true;
         this.allItems = this.sg['products'];

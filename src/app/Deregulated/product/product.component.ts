@@ -24,379 +24,344 @@ import { PageEvent } from '@angular/material';
 import swal from 'sweetalert2';
 import { error } from 'util';
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+    selector: 'app-product',
+    templateUrl: './product.component.html',
+    styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-  pageSizeOptions;
- 
-  private sub: Subscription;
-  private zip: any;
-  prod_loaded = false;
-  prods_loaded = false;
-  localVar;
-  public products: any;
-  rating;
-  closeResult: string;
-  stars;
-  record: any = [];
-  //    setPage;
-  constructor(private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
-
-  }
-
-  // array of all items to be paged
-  // pager object
-  private allItems: any[];
-  pager: any = {};
-  home: any = {};
-  private id: any[];
-  page: any[];
-  // paged items
-  pagedItems: any[];
-  public zip_code;
-  public username;
-  public customer;
-  i;
-  nottime;
-  price;
-  min;
-  max;
-  months1;
-  months2;
-  months3;
-  months4;
-  months5;
-  months6;
-  months7;
-  planmin;
-  fixed;
-  vari;
-  market;
-  prepaid;
-  notprepaid;
-  time;
-  energy;
-  name;
-  sort;
- 
-
-  checked4;
-
-  checked9;
-  checked8;
-  checked10;
-  checkedpre;
-  checked12;
-  checked11;
-  checked14;
-  checked15;
-  checked16;
-
-  checkedtime;
-  pricerate;
-  checked7;
- 
-  
-  checked13;
-  checkedall;
- 
-  val;
-  ngOnInit() {
-      this.username = localStorage.getItem('username');
-      this.zip_code = localStorage.getItem('zip');
-      this.customer = localStorage.getItem('custum')
-
-      // this.fetchitem();
-      // this.  fetchitem();
-      const Results = {};
-      this.val = "methodName($event[0])"
-      // onclick = function (rating) {
-      //     console.log(rating);
-      // }
-      this.profile()
-      this.companytitle()
-
-      this.data.currentProducts.subscribe(products => this.sg['products'] = products)
-      this.data.currentProducts
-
-      this.sub = this.route.params.subscribe(params => {
-          this.zip = +params['zipCode'];
-          this.setPage(1);
-
-
-      });
-
-
-
-
-  }
-  submit(id, title) {
-    console.log(title.trim())
-    this.router.navigate(['/Review/' + id]);
-    //userprofile
-    localStorage.setItem('company', title);
-}
-  comtitle='';
-  servicearea="";
-  cancelation="";
-  btnratingClick(id, title, profileurl, profile_logo,servicearea) {
-    this.id = id;
-    this.comtitle = title;
-    this.profileurl = profileurl;
-    this.profile_logo = profile_logo;
-    this.servicearea=servicearea;
-    console.log('id : ' + this.id, this.title);
-}
-btnderagulateClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_rate, plan_information, rating_logo, profile_logo, profileurl) {
-    this.catagoryId = id;
-
-    console.log(this.plan_information)
-    this.comtitle = title;
-    this.sign_up = sign_up;
-    this.phone = phone;
-    this.terms_of_service = terms_of_service;
-    this.fact_sheet = fact_sheet;
-    this.cancelation = cancelation_fee;
-    this.price_rate = price_rate
-    this.plan_information = plan_information;
-    this.rating_logo = rating_logo;
-
-    this.profile_logo = profile_logo;
-    this.profileurl = profileurl;
-
-    console.log(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, plan_information, rating_logo, profile_logo, profileurl)
-    console.log('id : ' + this.catagoryId);
-}
-  user;
-
-  checked_login() {
-      if (localStorage.getItem('custum')) {
-          let local = localStorage.getItem('custum');
-          return true;
-      }
-      // else if(localStorage.getItem('custom')) {
-      //     return true;
-      // }
-      else {
-          return false;
-      }
-  }
-  profile() {
-
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      this.http.get(Config.api + 'user_profile/' + this.customer + '/', { headers: headers })
-
-          .subscribe(Res => {
-              this.data = Res.json();
-              console.log(this.data);
-              this.user = this.data['user'].id
-          });
-
-  }
-  rev: any = [];
- 
-  rate = '';
-  get(rating) {
-      this.rate = rating;
-  }
-  reviews(rate, comt, id) {
-      if (localStorage.getItem('custum')) {
-      console.log(id)
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      // this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
-      this.http.post(Config.api + 'reviews/' + this.zip_code + '/' + this.user, JSON.stringify({
-
-          "zipcode": this.zip_code,
-          "productid": id,
-          "user": this.user,
-          "rate": this.rate,
-          "comment": comt
-      }
-
-      ), { headers: headers })
-
-          // this.http.post(Config.api + 'monthly/' + this.zip_code + '/' + this.months + '',{"month": this.months+" Month","custom":"['2','8']"},{ headers: headers })
-          .subscribe(Res => {
-              console.log(Res)
-              swal({
-                  type: 'success',
-                  title: 'Rewiew Added Successfully',
-                  showConfirmButton: false,
-                  timer: 1500
-
-              })
-            
-          })
-         
-      }
-      else  {
-          swal(
-              'Invalid',
-              'User must login First!',
-              'error'
-          )
-          this.router.navigate(['/userlogin/']);
-      }
-  }
-  companytitle() {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    this.http.get(Config.api + 'deregulated_companies/', { headers: headers })
-
-        .subscribe(Res => {
-
-            this.title = Res.json();
-
-            this.title = this.title;
-            console.log(this.title)
-        });
-
-}
-  catagoryId = '';
-  title = '';
-  cancelation_fee = '';
-  fact_sheet = '';
-  phone = '';
-  plan_information = '';
-  price_rate = '';
-  profile_logo = '';
-  profileurl = '';
-  rating_logo = '';
-  sign_up = '';
-  terms_of_service = '';
-
-  price_500_kwh = '';
-  price_2000_kwh = '';
-  //Event Binding of Delete Buttons
-  btnEditClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee,price_rate, plan_information, rating_logo, profile_logo, profileurl) {
-      this.catagoryId = id;
-
-      console.log(this.plan_information)
-      this.title = title;
-      this.sign_up = sign_up;
-      this.phone = phone;
-      this.terms_of_service = terms_of_service;
-      this.fact_sheet = fact_sheet;
-      this.cancelation_fee = cancelation_fee;
-    this.price_rate=price_rate
-      this.plan_information = plan_information;
-      this.rating_logo = rating_logo;
-
-      this.profile_logo = profile_logo;
-      this.profileurl = profileurl;
-    
-      console.log(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, plan_information, rating_logo, profile_logo, profileurl)
-      console.log('id : ' + this.catagoryId);
-  }
-  items;
-
- 
-  comp = '';
-  checked(event, val, i) {
-    if (event.target.checked == true) {
-        console.log(event.target.checked)
-        this.record.push(val)
-    }
-    else if (event.target.checked == false) {
-        console.log(event.target.checked)
-        this.record.pop(val)
-    }
-    console.log(this.record)
-}
-  Comapreproduct(page:number) {
-
-    console.log(this.record.toString())
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    this.http.post(Config.api + 'deregulated_compareproducts/', JSON.stringify({
-
-        "productid": this.record.toString()
-    }
-    ), { headers: headers })
-          .subscribe(Res => {
-              console.log(Res)
-             
-              this.deproduct = Res.json()['Results'];
-              this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
-
-          });
-  }
-  hits(event) {
-    if (event.target.checked == true) {
-
-        let headers = new HttpHeaders();
-
-
-        headers.append('Content-Type', 'text/html');
-
-        this.http.get(Config.api + 'postcounts_deregulated/' + this.record.toString() + '/')
-
-
-
-            .subscribe(data => {
-                console.log(data);
-
-
-
-
-            });
-    }
-}
-state;
-zipcodeexist;
-  Checkzipcode() {
-
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    this.http.get(Config.api + 'zipcodecheck/' + this.zip_code, { headers: headers })
-        .subscribe(data => {
-            console.log(data);
-            this.state = data.json()['state'];
-            console.log(this.state);
-            localStorage.setItem('state', this.state);
-            this.zipcodeexist = data.json()['message']
-            if (this.zipcodeexist == "InValid Zipcode") {
-                swal({
-                  text: "InValid Zipcode",
-                  title: "Choice Genie",
-                  type: "error",
-                  showConfirmButton: false,
-                  timer: 1200,
-                  confirmButtonText: "OK",
-      
-                })
-              }
-              else if (this.state == "deregulatedstate") {
-                this.router.navigate(['/product/' + this.zip_code]);
-                localStorage.setItem('zip', this.zip_code);
-              }
-              else if(this.state == "notderegulatedstate"){
-                this.router.navigate(['/products/' + this.zip_code]);
-                localStorage.setItem('zip', this.zip_code);
-              }
-     
-        });
-    }
+    pageSizeOptions;
+    private sub: Subscription;
+    private zip: any;
+    prod_loaded = false;
+    prods_loaded = false;
+    localVar;
+    public products: any;
+    rating;
+    closeResult: string;
+    stars;
+    record: any = [];
     names;
-   
     index;
-  
     renewablerate;
     renewable;
     com;
-    item="10";
-   
+    item = "10";
     min_price_500;
     max_price_500;
     min_price_1000;
     max_price_1000;
     min_price_2000;
     max_price_2000;
- 
+    constructor(private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
+
+    }
+
+    private allItems: any[];
+    pager: any = {};
+    home: any = {};
+    private id: any[];
+    page: any[];
+    pagedItems: any[];
+    public zip_code;
+    public username;
+    public customer;
+    i;
+    nottime;
+    price;
+    min;
+    max;
+    months1;
+    months2;
+    months3;
+    months4;
+    months5;
+    months6;
+    months7;
+    planmin;
+    fixed;
+    vari;
+    market;
+    prepaid;
+    notprepaid;
+    time;
+    energy;
+    name;
+    sort;
+    checked4;
+    checked9;
+    checked8;
+    checked10;
+    checkedpre;
+    checked12;
+    checked11;
+    checked14;
+    checked15;
+    checked16;
+    checkedtime;
+    pricerate;
+    checked7;
+    checked13;
+    checkedall;
+    comtitle = '';
+    servicearea = "";
+    cancelation = "";
+    val;
+    user;
+    rev: any = [];
+    rate = '';
+    catagoryId = '';
+    title = '';
+    cancelation_fee = '';
+    fact_sheet = '';
+    phone = '';
+    plan_information = '';
+    price_rate = '';
+    profile_logo = '';
+    profileurl = '';
+    rating_logo = '';
+    sign_up = '';
+    terms_of_service = '';
+    price_500_kwh = '';
+    price_2000_kwh = '';
+    items;
+    comp = '';
+    state;
+    zipcodeexist;
+    deproduct;
+    noresult;
+    ngOnInit() {
+        this.username = localStorage.getItem('username');
+        this.zip_code = localStorage.getItem('zip');
+        this.customer = localStorage.getItem('custum')
+        const Results = {};
+        this.val = "methodName($event[0])"
+
+        this.profile()
+        this.companytitle()
+
+        this.data.currentProducts.subscribe(products => this.sg['products'] = products)
+        this.data.currentProducts
+
+        this.sub = this.route.params.subscribe(params => {
+            this.zip = +params['zipCode'];
+            this.setPage(1);
+
+
+        });
+
+    }
+    submit(id, title) {
+        console.log(title.trim())
+        this.router.navigate(['/Review/' + id]);
+        localStorage.setItem('company', title);
+    }
+   
+    btnratingClick(id, title, profileurl, profile_logo, servicearea) {
+        this.id = id;
+        this.comtitle = title;
+        this.profileurl = profileurl;
+        this.profile_logo = profile_logo;
+        this.servicearea = servicearea;
+        console.log('id : ' + this.id, this.title);
+    }
+
+    btnderagulateClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_rate, plan_information, rating_logo, profile_logo, profileurl) {
+        this.catagoryId = id;
+         console.log(this.plan_information)
+        this.comtitle = title;
+        this.sign_up = sign_up;
+        this.phone = phone;
+        this.terms_of_service = terms_of_service;
+        this.fact_sheet = fact_sheet;
+        this.cancelation = cancelation_fee;
+        this.price_rate = price_rate
+        this.plan_information = plan_information;
+        this.rating_logo = rating_logo;
+
+        this.profile_logo = profile_logo;
+        this.profileurl = profileurl;
+        console.log(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, plan_information, rating_logo, profile_logo, profileurl)
+        console.log('id : ' + this.catagoryId);
+    }
+    checked_login() {
+        if (localStorage.getItem('custum')) {
+            let local = localStorage.getItem('custum');
+            return true;
+        }
+
+        else {
+            return false;
+        }
+    }
+    profile() {
+
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http.get(Config.api + 'user_profile/' + this.customer + '/', { headers: headers })
+
+            .subscribe(Res => {
+                this.data = Res.json();
+                console.log(this.data);
+                this.user = this.data['user'].id
+            });
+
+    }
+   
+    get(rating) {
+        this.rate = rating;
+    }
+    reviews(rate, comt, id) {
+        if (localStorage.getItem('custum')) {
+            console.log(id)
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            this.http.post(Config.api + 'reviews/' + this.zip_code + '/' + this.user, JSON.stringify({
+
+                "rate": this.rate,
+                "company_name": this.comtitle,
+                "comment": comt,
+                "user": this.user,
+                "servicearea": this.servicearea,
+                "profile": this.profile_logo
+            }
+
+            ), { headers: headers })
+
+                .subscribe(Res => {
+                    console.log(Res)
+                    swal({
+                        type: 'success',
+                        title: 'Rewiew Added Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+
+                    })
+
+                })
+
+        }
+        else {
+            swal(
+                'Invalid',
+                'User must login First!',
+                'error'
+            )
+            this.router.navigate(['/userlogin/']);
+        }
+    }
+    companytitle() {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http.get(Config.api + 'deregulated_companies/', { headers: headers })
+
+            .subscribe(Res => {
+
+                this.title = Res.json();
+
+                this.title = this.title;
+                console.log(this.title)
+            });
+
+    }
+    btnEditClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_rate, plan_information, rating_logo, profile_logo, profileurl) {
+        this.catagoryId = id;
+
+        console.log(this.plan_information)
+        this.title = title;
+        this.sign_up = sign_up;
+        this.phone = phone;
+        this.terms_of_service = terms_of_service;
+        this.fact_sheet = fact_sheet;
+        this.cancelation_fee = cancelation_fee;
+        this.price_rate = price_rate
+        this.plan_information = plan_information;
+        this.rating_logo = rating_logo;
+
+        this.profile_logo = profile_logo;
+        this.profileurl = profileurl;
+
+        console.log(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, plan_information, rating_logo, profile_logo, profileurl)
+        console.log('id : ' + this.catagoryId);
+    }
+   
+    checked(event, val, i) {
+        if (event.target.checked == true) {
+            console.log(event.target.checked)
+            this.record.push(val)
+        }
+        else if (event.target.checked == false) {
+            console.log(event.target.checked)
+            this.record.pop(val)
+        }
+        console.log(this.record)
+    }
+    Comapreproduct(page: number) {
+
+        console.log(this.record.toString())
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http.post(Config.api + 'deregulated_compareproducts/', JSON.stringify({
+
+            "productid": this.record.toString()
+        }
+        ), { headers: headers })
+            .subscribe(Res => {
+                console.log(Res)
+
+                this.deproduct = Res.json()['Results'];
+                this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
+
+            });
+    }
+    hits(event) {
+        if (event.target.checked == true) {
+
+            let headers = new HttpHeaders();
+            headers.append('Content-Type', 'text/html');
+
+            this.http.get(Config.api + 'postcounts_deregulated/' + this.record.toString() + '/')
+                .subscribe(data => {
+                    console.log(data);
+
+                });
+        }
+    }
+   
+    Checkzipcode() {
+
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http.get(Config.api + 'zipcodecheck/' + this.zip_code, { headers: headers })
+            .subscribe(data => {
+                console.log(data);
+                this.state = data.json()['state'];
+                console.log(this.state);
+                localStorage.setItem('state', this.state);
+                this.zipcodeexist = data.json()['message']
+                if (this.zipcodeexist == "InValid Zipcode") {
+                    swal({
+                        text: "InValid Zipcode",
+                        title: "Choice Genie",
+                        type: "error",
+                        showConfirmButton: false,
+                        timer: 1200,
+                        confirmButtonText: "OK",
+
+                    })
+                }
+                else if (this.state == "deregulatedstate") {
+                    this.router.navigate(['/product/' + this.zip_code]);
+                    localStorage.setItem('zip', this.zip_code);
+                }
+                else if (this.state == "notderegulatedstate") {
+                    this.router.navigate(['/products/' + this.zip_code]);
+                    localStorage.setItem('zip', this.zip_code);
+                }
+
+            });
+    }
+   
+
     checked1(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
@@ -430,7 +395,7 @@ zipcodeexist;
         }
         console.log(this.months3)
     }
-  
+
     checked5(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
@@ -487,43 +452,27 @@ zipcodeexist;
         }
         console.log(this.names)
     }
-  deproduct;
-  noresult;
-  setPage(page: number) {
-
-    
-      const Results = {}
-if(this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months5 == "12 Months" || this.months6 == "6 Months"|| this.item ||  this.sort || this.names){
-    this.obj.deregulatedfilter(page, this.zip_code,this.months1,this.months2, this.months3,this.months5, this.months6,this.item,this.sort,this.names).subscribe(response => {
-
-        this.deproduct = response['Results'];
-this.noresult=response['Total Result'];
-    
-        this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
-
-    }
-
-
-    );
-
-
-}
-    else{  this.obj.searchProducts1(this.zip_code, page).subscribe(response => {
-       
-          this.deproduct = response['Results'];
-
-      // this.data.changeProducts(this.sg['products']);
-       
-       
-          this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
-
-      }
-
-
-      );
-
-
   
+    setPage(page: number) {
+        const Results = {}
+        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.item || this.sort || this.names) {
+            this.obj.deregulatedfilter(page, this.zip_code, this.months1, this.months2, this.months3, this.months5, this.months6, this.item, this.sort, this.names).subscribe(response => {
+
+                this.deproduct = response['Results'];
+                this.noresult = response['Total Result'];
+                this.prod_loaded = true;
+                this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
+
+            });
+        }
+        else {
+            this.obj.searchProducts1(this.zip_code, page).subscribe(response => {
+
+                this.deproduct = response['Results'];
+                this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
+
+            });
+
+        }
     }
-  }
 }

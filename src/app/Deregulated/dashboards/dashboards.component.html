@@ -9,21 +9,22 @@
 
 
         <div class="col-lg-3">
-
-          <mat-form-field class="cus-font">
+            <input type="date" placeholder="Inactive Date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="    padding: 10px 0px; font-size: 20px;">
+          <!-- <mat-form-field class="cus-font">
             <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Inactive Date"/>
             <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle> <mat-datepicker #startPicker></mat-datepicker>
-          </mat-form-field>
+          </mat-form-field> -->
         </div>
           <md-input-container class="block" hidden=true>
-              <input mdInput placeholder="Title" [ngModel]="publishdate | date:'yyyy-MM-dd'" >
+              <input mdInput placeholder="Title" [ngModel]="publishdate | date:'yyyy-MM-dd'"  >
           </md-input-container>
 
           <div class="col-lg-3">
-            <mat-form-field class="cus-font">
-              <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publishdate" placeholder="Publish Date"/>
+              <input type="date" placeholder="Publish Date" required name="publishdate" [(ngModel)]="publishdate" style="    padding: 10px 0px; font-size: 20px;">
+            <!-- <mat-form-field class="cus-font">
+              <input matInput [matDatepicker]="startPicker1" name="publishdate" [(ngModel)]="publishdate" placeholder="Publish Date"/>
               <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
-            </mat-form-field>
+            </mat-form-field> -->
           </div>
 
             <div class="col-lg-3">
