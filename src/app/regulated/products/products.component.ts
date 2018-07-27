@@ -77,6 +77,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     record: any = [];
     market;
     zipcodeexist;
+    keyPress;
     //    setPage;
     constructor(private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService) {
 
@@ -722,6 +723,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         }
         product;
         noresult;
+        zipdet;
     setPage(page: number) {
     
         const Results = {}
@@ -731,7 +733,8 @@ export class ProductsComponent implements OnInit, AfterViewInit {
             this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.names, this.price, this.sort, this.item, this.min, this.max).subscribe(response => {
 
                 this.product = response['Results'];
-this.noresult=response['Total Result'];
+                this.noresult=response['Total Result'];
+                this.zipdet = localStorage.getItem('zip');
                 for (let prod of this.product) {
                     prod["plan_information"] = prod["plan_information"].split(',,', 3000);
                     prod["price_rate"] = prod["price_rate"].split('..', 3000);

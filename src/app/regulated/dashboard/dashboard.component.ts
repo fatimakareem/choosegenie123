@@ -97,6 +97,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
           console.log(Res);
     
           this.sg['products'] = Res.json();  
+        //   this.sg['products'] = Response.json()['Results'];
+          this.noresult=Res.json()['Total Result'];
           for (let prod of this.sg['products']) {
               prod["plan_information"] = prod["plan_information"].split(',,', 3000);
               prod["price_rate"] = prod["price_rate"].split('..', 3000);
@@ -107,7 +109,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       });
         // this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
       }
-  
+      noresult;
+      zipdet;
+
     setPage(title,page: number) {
         
         
@@ -119,6 +123,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         this.companyService.searchProduct(title,page).subscribe(Response => {
             console.log('service');       
             this.sg['products'] = Response.json()['Results'];
+            this.noresult=Response.json()['Total Result'];
+            this.zipdet = localStorage.getItem('zip');
            
             console.log(this.sg['products']);
             for (let prod of this.sg['products']) {

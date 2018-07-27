@@ -230,15 +230,15 @@ export const AppRoutes: Routes = [
         children: [
             {
                 path: 'superdashboard',canActivate: [Authgaurd3Service],
-                loadChildren: './superdashboard/superdashboard.module#SuperDashboardModule'
+                loadChildren: './ChoiceSuperAdmin/superdashboard/superdashboard.module#SuperDashboardModule'
             },
             {
                 path: 'admin/reviews',canActivate: [Authgaurd3Service],
-                loadChildren: './superreviews/superreviews.module#SuperreviewsModule'
+                loadChildren: './ChoiceSuperAdmin/superreviews/superreviews.module#SuperreviewsModule'
             },
             {
                 path: 'admin/subscribers',canActivate: [Authgaurd3Service],
-                loadChildren: './supersubscriber/supersubscriber.module#SupersubscriberModule'
+                loadChildren: './ChoiceSuperAdmin/supersubscriber/supersubscriber.module#SupersubscriberModule'
             },
             {
                 path: 'superadmin/blog',canActivate: [Authgaurd3Service],
@@ -248,25 +248,22 @@ export const AppRoutes: Routes = [
                 path: 'addnewblog',canActivate: [Authgaurd3Service],
                 loadChildren: './Blogchoicegenie/addblog/addblog.module#addblogModule'
             },
-            {
-                path: 'SuperChangePassword',canActivate: [Authgaurd3Service],
-                loadChildren: './superchangepassword/superchangepassword.module#ChangePasswordModule'
-            },
+            
             {
                 path: 'supermaindashboard',canActivate: [Authgaurd3Service],
-                loadChildren: './superdashboardmain/superdashboardmain.module#SuperDashboardmainModule'
+                loadChildren: './ChoiceSuperAdmin/superdashboardmain/superdashboardmain.module#SuperDashboardmainModule'
             },
             {
                 path: 'superviewcontact',canActivate: [Authgaurd3Service],
-                loadChildren: './superviewcontact/superviewcontact.module#superviewcontactModule'
+                loadChildren: './ChoiceSuperAdmin/superviewcontact/superviewcontact.module#superviewcontactModule'
             },//superviewbecomeModuleng superpartnerModule
             {
                 path: 'sviewapartner',canActivate: [Authgaurd3Service],
-                loadChildren: './sviewapartner/sviewapartner.module#partnerModule'
+                loadChildren: './ChoiceSuperAdmin/sviewapartner/sviewapartner.module#partnerModule'
             },
             {
                 path: 'supergetuser',canActivate: [Authgaurd3Service],
-                loadChildren: './supergetusers/supergetusers.module#partnerModule'
+                loadChildren: './ChoiceSuperAdmin/supergetusers/supergetusers.module#partnerModule'
             }
         ]
     },          

@@ -128,11 +128,21 @@ export class DashboardsComponent implements OnInit {
       "state": this.name
     }), { headers: headers }).subscribe(Res => {
       console.log(Res);
+<<<<<<< HEAD
       this.sg['products'] = Res.json()['Results']; 
+=======
+
+      this.sg['products'] = Res.json()['Results'];
+      this.noresult=Response['Total Result'];
+      this.zipdet = localStorage.getItem('zip');
+     
+>>>>>>> 534b6818026bd685c7870f43a925628f3b7923dc
       this.allItems = this.sg['products'];
       this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
     });
   }
+  noresult;
+  zipdet;
   setPage(title, page: number) {
     this.title = localStorage.getItem('username');
     console.log("usernameeeeeeeeeeeee", this.title)
@@ -140,6 +150,12 @@ export class DashboardsComponent implements OnInit {
     this.companyService.deregulatedsearch(title, page).subscribe(Response => {
       console.log('service');
       this.sg['products'] = Response.json()['Results'];
+<<<<<<< HEAD
+=======
+      this.noresult=Response['Total Result'];
+      this.zipdet = localStorage.getItem('zip');
+
+>>>>>>> 534b6818026bd685c7870f43a925628f3b7923dc
       console.log(this.sg['products']);
       this.prod_loaded = true;
       this.prods_loaded = true;
