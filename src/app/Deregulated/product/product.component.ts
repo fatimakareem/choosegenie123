@@ -452,45 +452,11 @@ export class ProductComponent implements OnInit {
         }
         console.log(this.names)
     }
-<<<<<<< HEAD
   
     setPage(page: number) {
         const Results = {}
         if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.item || this.sort || this.names) {
             this.obj.deregulatedfilter(page, this.zip_code, this.months1, this.months2, this.months3, this.months5, this.months6, this.item, this.sort, this.names).subscribe(response => {
-=======
-  deproduct;
-  noresult;
-  zipdet;
-  setPage(page: number) {
-
-    
-      const Results = {}
-if(this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months5 == "12 Months" || this.months6 == "6 Months"|| this.item ||  this.sort || this.names){
-    this.obj.deregulatedfilter(page, this.zip_code,this.months1,this.months2, this.months3,this.months5, this.months6,this.item,this.sort,this.names).subscribe(response => {
-
-        this.deproduct = response['Results'];
-        this.noresult=response['Total Result'];
-        this.zipdet = localStorage.getItem('zip');
-    
-        this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
-
-    }
-
-
-    );
-
-
-}
-    else{  this.obj.searchProducts1(this.zip_code, page).subscribe(response => {
-       
-          this.deproduct = response['Results'];
-
-      // this.data.changeProducts(this.sg['products']);
-       
-       
-          this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
->>>>>>> 534b6818026bd685c7870f43a925628f3b7923dc
 
                 this.deproduct = response['Results'];
                 this.noresult = response['Total Result'];
