@@ -8,6 +8,7 @@ export class HomeService {
 public username;
   months:any[];
   product;
+  items;
   constructor(private http: Http) {this.username = localStorage.getItem('username');
                this.product = localStorage.getItem('PRO');
 }
@@ -152,7 +153,8 @@ public username;
   }
   deregulatedfilter(page,zip_code,months1,months2,months3,months5,months6,items,dsc,com) {
     // console.log(price)
-      
+      if(items==undefined){
+        this.items="10";
          console.log(page,zip_code,months1,months2,months3,months5,months6,items,dsc,com)
          const headers = new Headers();
          headers.append('Content-Type', 'application/json');
@@ -165,11 +167,31 @@ public username;
            "plan_information3": months5,
            "plan_information4": months6,
              "company":com,
-           "itemsperpage":items,
+           "itemsperpage": this.items,
            "dsc":dsc
           }), 
          {headers: headers}).map((response: Response) => response.json());
-         }
+         } else{
+          console.log(page,zip_code,months1,months2,months3,months5,months6,items,dsc,com)
+          const headers = new Headers();
+          headers.append('Content-Type', 'application/json');
+          return this.http.post(Config.api+'deregulated_genericfilter/'+zip_code +'?page='+page, JSON.stringify({
+           
+           "plan_information5": months1,
+            "plan_information1": months2,
+            "plan_information2": months3,
+           
+            "plan_information3": months5,
+            "plan_information4": months6,
+              "company":com,
+            "itemsperpage":items,
+            "dsc":dsc
+           }), 
+          {headers: headers}).map((response: Response) => response.json());
+          }
+        }
+        }
+        
      
 }
  
