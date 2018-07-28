@@ -45,7 +45,7 @@ export class ProductComponent implements OnInit {
     renewablerate;
     renewable;
     com;
-    item = "10";
+    item;
     min_price_500;
     max_price_500;
     min_price_1000;
@@ -455,8 +455,8 @@ export class ProductComponent implements OnInit {
   
     setPage(page: number) {
         const Results = {}
-        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.item || this.sort || this.names) {
-            this.obj.deregulatedfilter(page, this.zip_code, this.months1, this.months2, this.months3, this.months5, this.months6, this.item, this.sort, this.names).subscribe(response => {
+        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.sort || this.names || this.item) {
+      this.obj.deregulatedfilter(page, this.zip_code, this.months1, this.months2, this.months3, this.months5, this.months6, this.item, this.sort, this.names).subscribe(response => {
 
                 this.deproduct = response['Results'];
                 this.noresult = response['Total Result'];
