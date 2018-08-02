@@ -191,10 +191,3 @@ public username;
           }
         }
         }
-        
-     
-<<<<<<< HEAD
-=======
-
- 
->>>>>>> 58e51331bf67fc5da588fca978adecb5a41635da

@@ -3,17 +3,30 @@
 <div class="wrapper">
   <div class="home-main">
     <div id="main-bg-slider" class="carousel slide carousel-fade slider-main" data-ride="carousel" data-interval="8000">
-      <!-- <div class="download-here"> -->
-      <!--download store icons-->
-      <!-- <div class="download-here">
-        <a href="#">
-          <img src="../../assets/img/footer/Adroid-Badge.png" style="width: 114px">
-        </a>
-        <a href="#">
-          <img src="../../assets/img/footer/IOS-Badge.png" style="width: 100px">
-        </a>
+      <!--<div class="download-here">-->
+      <!--&lt;!&ndash;download store icons&ndash;&gt;-->
+       <!--<div class="download-here">-->
+        <!--<a href="#">-->
+          <!--<img src="../../assets/img/footer/Adroid-Badge.png" style="width: 114px">-->
+        <!--</a>-->
+        <!--<a href="#">-->
+          <!--<img src="../../assets/img/footer/IOS-Badge.png" style="width: 100px">-->
+        <!--</a>-->
+      <!--</div>-->
+      <!--</div>-->
+
+
+
+      <div  class="app-banners">
+        <section  class="">
+          <a  href="#" style="float:left;margin-right: 5px" target="_blank">
+            <img  alt="Get it on Google Play" src="../../assets/img/footer/Adroid-Badge.png" style="width: 131px; margin-top: -4px;">
+          </a>
+          <a  href="#" style="float:left;" target="_blank">
+            <img  alt="Get it on Google Play" src="../../assets/img/footer/IOS-Badge.png" style="width:114px">
+          </a>
+        </section>
       </div>
-      </div> -->
 
       <div class="carousel-inner height-slider">
         <div class="item active af-color">
@@ -53,7 +66,7 @@
               <div class="col-md-6 col-sm-6 col-xs-6 compare-input">
                 <div class="form-group label-floating ">
                   <mat-form-field>
-                    <input matInput placeholder="Zip Code" [formControl]="zip_code"  (keydown)="Checkzipcode($event,zipcode1.value)"  value="{{cord}}" [(ngModel)]=zipCode #zipcode1 name="zipCode" 
+                    <input matInput placeholder="Zip Code" [formControl]="zip_code"  (keydown)="Checkzipcode($event,zipcode1.value)"  value="{{cord}}" [(ngModel)]=zipCode #zipcode1 name="zipCode"
                      />
                     <!-- {{cord.postalCode}} -->
                     <mat-error *ngIf="zip_code.hasError('pattern')">
@@ -74,35 +87,11 @@
       </div>
     </div>
 
-    <div class="play-store-icons-wrapper">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 space-up">
-            <div class="play-store-inner">
-              <h4>
-                <span>Download</span> and experience our Super-Cool Next-Generation Mobile App Now.</h4>
-              <ul class="play-store-img">
-                <li>
-                  <a href="#" target="_blank">
-                    <img class="apple-button" alt="IOS" src="assets/img/IOS-Badge.png">
-                  </a>
-                  <a href="https://play.google.com/store/apps/details?id=com.brainplow.choicegenie" target="_blank">
-                    <img alt="google play store" src="assets/img/Adroid-Badge.png">
-                  </a>
-                </li>
-                <!--<li>-->
 
-                <!--</li>-->
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="content-box-02 texas-inline">
-      <div class="container-fluid container-padding">
+      <div class="container-fluid container-padding space-up">
         <div class="text-center">
-          <h3 class="title-04 wow slideInLeft">Top Rated Energy Vendors</h3>
+          <h3 class="title-04 wow slideInLeft padding-zero-i">Top Rated Energy Vendors</h3>
         </div>
         <div class="slick-date normal-slider owl-option-01 owl-theme-01">
           <div class="owl-theme-01__item box-bg">
@@ -154,6 +143,31 @@
             <img src="../../assets/img/providers/TriEagle-Energy-min.jpg">
           </div>
 
+        </div>
+      </div>
+    </div>
+    <div class="play-store-icons-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="play-store-inner">
+              <h4>
+                <span>Download</span> and experience our Super-Cool Next-Generation Mobile App Now.</h4>
+              <ul class="play-store-img">
+                <li>
+                  <a href="#" target="_blank">
+                    <img class="apple-button" alt="IOS" src="assets/img/IOS-Badge.png">
+                  </a>
+                  <a href="https://play.google.com/store/apps/details?id=com.brainplow.choicegenie" target="_blank">
+                    <img alt="google play store" src="assets/img/Adroid-Badge.png">
+                  </a>
+                </li>
+                <!--<li>-->
+
+                <!--</li>-->
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
