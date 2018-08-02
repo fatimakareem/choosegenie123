@@ -248,7 +248,6 @@ export const AppRoutes: Routes = [
                 path: 'addnewblog',canActivate: [Authgaurd3Service],
                 loadChildren: './Blogchoicegenie/addblog/addblog.module#addblogModule'
             },
-            
             {
                 path: 'supermaindashboard',canActivate: [Authgaurd3Service],
                 loadChildren: './ChoiceSuperAdmin/superdashboardmain/superdashboardmain.module#SuperDashboardmainModule'
@@ -302,8 +301,7 @@ export const AppRoutes: Routes = [
                 path: 'ChangePassword1',canActivate: [AuthguardService],
                 loadChildren: './changepassword/changepassword.module#ChangePasswordModule'
             },
-            
-             {
+            {
                 path: '',
                 loadChildren: './userpage/user.module#UserModule'
             },
