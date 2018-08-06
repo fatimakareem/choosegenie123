@@ -81,19 +81,21 @@ export class ConsumersidebarComponent implements OnInit {
   public products: any;
   rating;
   closeResult: string;
+  public user;
+  public username;
+  private Sub: Subscription;
   isMobileMenu() {
       if ($(window).width() > 991) {
           return false;
       }
       return true;
   };
-  public username;
-  private Sub: Subscription;
+ 
   logout(){
     localStorage.clear();
     this.router.navigate(['/']);
   }
-  public user;
+
   ngOnInit() {
      
           this.user = localStorage.getItem('custum')

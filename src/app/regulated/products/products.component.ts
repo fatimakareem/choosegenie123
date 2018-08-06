@@ -56,7 +56,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class ProductsComponent implements OnInit, AfterViewInit {
     today = Date.now();
-    
+
     date;
     deragulate;
     energy;
@@ -95,55 +95,127 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     public zip_code;
     public username;
     public customer;
-
-
+    rev: any = [];
+    user;
     val;
     state;
+    comtitle;
+    rate = '';
+    title = '';
+    catagoryId = '';
+    cancelation = '';
+    fact_sheet = '';
+    phone = '';
+    plan_information = '';
+    price_rate = '';
+    profile_logo = '';
+    profileurl = '';
+    rating_logo = '';
+    sign_up = '';
+    terms_of_service = '';
+    price_1000_kwh = '';
+    price_500_kwh = '';
+    price_2000_kwh = '';
+    servicearea = "";
+    items;
+    Items: any = [];
+    comp = '';
+    names;
+    months1;
+    months2;
+    months3;
+    months4;
+    months5;
+    months7;
+    months6;
+    fixed;
+    vari;
+    index;
+    notprepaid;
+    prepaid;
+    planmin;
+    time;
+    nottime;
+    renewablerate;
+    renewable;
+    com;
+    item;
+    price;
+    min;
+    max;
+    min_price_500;
+    max_price_500;
+    min_price_1000;
+    max_price_1000;
+    min_price_2000;
+    max_price_2000;
+    sort;
+    product;
+    noresult;
+    zipdet;
+    modal: any = [];
     ngOnInit() {
         console.log(this.today = Date.now())
-
-       this.state = localStorage.getItem('state')
+        this.state = localStorage.getItem('state')
         console.log(this.state)
         this.username = localStorage.getItem('username');
         this.zip_code = localStorage.getItem('zip');
         this.customer = localStorage.getItem('custum')
         console.log(localStorage.getItem('zip'), 'kkkkkkkkkk')
-        // this.fetchitem();
-        // this.  fetchitem();
         const Results = {};
         this.val = "methodName($event[0])"
-        // onclick = function (rating) {
-        //     console.log(rating);
-        // }
-
         this.companytitle();
-
-
-
+        this.featuredplan();
+        $('.slick-date').slick({
+            slidesToShow: 5,
+            slidesToScroll: 5,
+            autoplaySpeed: 1500,
+            autoplay: true,
+            prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left"><i class="fa fa-angle-left"></i></button>',
+            nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right"><i class="fa fa-angle-right"></i></button>',
+            responsive: [
+                {
+                    breakpoint: 427,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+        $('.slick-testimonal').slick({
+            slidesToShow: 1,
+            autoplay: true,
+            autoplaySpeed: 7000,
+            pauseOnFocus: false,
+            pauseOnHover: false,
+            fade: true,
+            prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left"><i class="fa fa-angle-left"></i></button>',
+            nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right"><i class="fa fa-angle-right"></i></button>'
+        });
+        $('.slick-testimonal').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+            $('.slider-tagline').hide(10);
+            $('.slider-tagline').show(5);
+        });
     }
-    btnDeleteClick(id, title, profileurl, profile_logo,servicearea) {
+    btnDeleteClick(id, title, profileurl, profile_logo, servicearea) {
         this.id = id;
         this.comtitle = title.trim();
         this.profileurl = profileurl;
         this.profile_logo = profile_logo;
-        this.servicearea=servicearea;
+        this.servicearea = servicearea;
         console.log('id : ' + this.id, this.title);
     }
-   
-    user;
 
     checked_login() {
         if (localStorage.getItem('custum')) {
             let local = localStorage.getItem('custum');
             return true;
         }
-      
         else {
             return false;
         }
     }
     profile() {
-
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         this.http.get(Config.api + 'user_profile/' + this.customer + '/', { headers: headers })
@@ -154,27 +226,24 @@ export class ProductsComponent implements OnInit, AfterViewInit {
                 this.user = this.data['user'].id;
                 console.log(this.user)
             });
-
     }
-    rev: any = [];
-   
-  
+
+
+
     submit(id, title) {
         console.log(title.trim())
         this.router.navigate(['/Review/' + id]);
         //userprofile
         localStorage.setItem('company', title.trim());
     }
-    comtitle;
-    rate = '';
-    title = '';
+
     get(rating) {
         this.rate = rating;
 
     }
     reviews(rate, comt, id) {
         console.log(this.servicearea)
-        
+
         console.log(this.title);
         if (localStorage.getItem('custum')) {
             console.log(id)
@@ -186,8 +255,8 @@ export class ProductsComponent implements OnInit, AfterViewInit {
                 "company_name": this.comtitle,
                 "comment": comt,
                 "user": this.user,
-                "servicearea":this.servicearea,
-                "profile":this.profile_logo
+                "servicearea": this.servicearea,
+                "profile": this.profile_logo
             }
 
             ), { headers: headers })
@@ -213,24 +282,9 @@ export class ProductsComponent implements OnInit, AfterViewInit {
             this.router.navigate(['/userlogin/']);
         }
     }
-    catagoryId = '';
 
-    cancelation = '';
-    fact_sheet = '';
-    phone = '';
-    plan_information = '';
-    price_rate = '';
-    profile_logo = '';
-    profileurl = '';
-    rating_logo = '';
-    sign_up = '';
-    terms_of_service = '';
-    price_1000_kwh = '';
-    price_500_kwh = '';
-    price_2000_kwh = '';
-    servicearea="";
     //Event Binding of Delete Buttons
-   
+
     btnEditClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl) {
         this.catagoryId = id;
 
@@ -252,10 +306,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         console.log(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl)
         console.log('id : ' + this.catagoryId);
     }
-    items;
-   
-   
-    Items: any = [];
+
     featuredplan() {
 
         let headers = new Headers();
@@ -273,15 +324,15 @@ export class ProductsComponent implements OnInit, AfterViewInit {
                     prod["plan_information"] = prod["plan_information"].split(',,', 3000);
                     prod["price_rate"] = prod["price_rate"].split('..', 3000);
                 }
-                setTimeout(function () {
-                    $('.autoplay').slick({
-                        autoplay: true,
-                        slidesToShow: 5,
-                        slidesToScroll: 1,
-                        prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left" style="left:0;"><i class="fa fa-angle-left"></i></button>',
-                        nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" style="right:0;"><i class="fa fa-angle-right"></i></button>'
-                    });
-                }, 50);
+                // setTimeout(function () {
+                //     $('.autoplay').slick({
+                //         autoplay: true,
+                //         slidesToShow: 5,
+                //         slidesToScroll: 1,
+                //         prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left" style="left:0;"><i class="fa fa-angle-left"></i></button>',
+                //         nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" style="right:0;"><i class="fa fa-angle-right"></i></button>'
+                //     });
+                // }, 50);
             });
     }
 
@@ -289,27 +340,15 @@ export class ProductsComponent implements OnInit, AfterViewInit {
 
     hits(event) {
         if (event.target.checked == true) {
-
             let headers = new HttpHeaders();
-
-
             headers.append('Content-Type', 'text/html');
-
             this.http.get(Config.api + 'postcounts/' + this.record.toString() + '/')
-
-
-
                 .subscribe(data => {
                     console.log(data);
-
-
-
-
                 });
         }
     }
 
-    comp = '';
     checked(event, val, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
@@ -321,32 +360,25 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         }
         console.log(this.record)
     }
-   
-    Comapreproduct(page:number) {
+
+    Comapreproduct(page: number) {
 
         console.log(this.record.toString())
-      
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         this.http.post(Config.api + 'comparisonproducts/', JSON.stringify({
-
             "productid": this.record.toString()
         }
         ), { headers: headers })
-
             .subscribe(response => {
                 console.log(response)
-              
                 this.product = response.json()['Results'];
-
                 for (let prod of this.product) {
                     prod["plan_information"] = prod["plan_information"].split(',,', 3000);
                     prod["price_rate"] = prod["price_rate"].split('..', 3000);
-
                 }
                 this.pager = this.pagerService.getPager(response.json()['Total Result'], page, 10);
             }, error => {
-
             })
     }
 
@@ -354,16 +386,11 @@ export class ProductsComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         this.profile()
-        this.featuredplan()
-
         this.data.currentProducts.subscribe(products => this.sg['products'] = products)
         this.data.currentProducts
-
         this.sub = this.route.params.subscribe(params => {
             this.zip = +params['zipCode'];
             this.setPage(1);
-
-
         });
 
         $('#datatables').DataTable({
@@ -374,8 +401,6 @@ export class ProductsComponent implements OnInit, AfterViewInit {
                 search: '_INPUT_',
                 searchPlaceholder: 'Search records',
             }
-
-
         });
 
         const table = $('#datatables').DataTable();
@@ -415,37 +440,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
             });
 
     }
-    names;
-    months1;
-    months2;
-    months3;
-    months4;
-    months5;
-    months7;
-    months6;
-    fixed;
-    vari;
-    index;
-    notprepaid;
-    prepaid;
-    planmin;
-    time;
-    nottime;
-    renewablerate;
-    renewable;
-    com;
-    item;
-    price;
-    min;
-    max;
-    min_price_500;
-    max_price_500;
-    min_price_1000;
-    max_price_1000;
-    min_price_2000;
-    max_price_2000;
-    sort;
-    modal: any = [];
+
     checked1(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
@@ -696,53 +691,51 @@ export class ProductsComponent implements OnInit, AfterViewInit {
                 this.zipcodeexist = data.json()['message']
                 if (this.zipcodeexist == "InValid Zipcode") {
                     swal({
-                      text: "InValid Zipcode",
-                      title: "Choice Genie",
-                      type: "error",
-                      showConfirmButton: false,
-                      timer: 1200,
-                      confirmButtonText: "OK",
-          
+                        text: "InValid Zipcode",
+                        title: "Choice Genie",
+                        type: "error",
+                        showConfirmButton: false,
+                        timer: 1200,
+                        confirmButtonText: "OK",
+
                     })
-                  }
-                  else if (this.state == "deregulatedstate") {
-                    
+                }
+                else if (this.state == "deregulatedstate") {
+
                     this.router.navigate(['/product/' + this.zip_code]);
                     localStorage.setItem('zip', this.zip_code)
                     //  window.location.reload();
-                  }
-                  else if(this.state == "notderegulatedstate"){
-                
+                }
+                else if (this.state == "notderegulatedstate") {
+
                     this.router.navigate(['/products/' + this.zip_code]);
                     delete this.names;
                     localStorage.setItem('zip', this.zip_code);
                     // window.location.reload()
-                  }
-         
+                }
+
             });
-        }
-        product;
-        noresult;
-        zipdet;
+    }
+
     setPage(page: number) {
-    
+
         const Results = {}
         if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "Prepaid" || this.prepaid == "Prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.names || this.sort == "dsc" || this.item || this.price) {
-if(this.item == undefined){
-    this.item="10";
-}
+            if (this.item == undefined) {
+                this.item = "10";
+            }
             console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.names, this.price, this.sort, this.price, 'tttttttttttt');
             this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.names, this.price, this.sort, this.item, this.min, this.max).subscribe(response => {
 
                 this.product = response['Results'];
-                this.noresult=response['Total Result'];
+                this.noresult = response['Total Result'];
                 this.zipdet = localStorage.getItem('zip');
                 for (let prod of this.product) {
                     prod["plan_information"] = prod["plan_information"].split(',,', 3000);
                     prod["price_rate"] = prod["price_rate"].split('..', 3000);
 
                 }
-             
+
                 this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
 
             }
@@ -752,62 +745,62 @@ if(this.item == undefined){
 
 
         }
-       
-       
-        else{
+
+
+        else {
             this.obj.searchProducts(this.zip_code, page).subscribe(response => {
 
                 this.product = response['Results'];
-                this.noresult=response['Total Result'];
+                this.noresult = response['Total Result'];
                 for (let prod of this.product) {
                     prod["plan_information"] = prod["plan_information"].split(',,', 3000);
                     prod["price_rate"] = prod["price_rate"].split('..', 3000);
 
                 }
-              
-               
+
+
                 this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
 
             }
 
 
             );
-      
+
         }
 
-      
+
     }
-  
+
 
     openDialog(pID): void {
-                let dialogRef = this.dialog.open(PremiseDialog, {
-                    // width: '300px',
-                    data: { productID: pID, zip: this.zip }
-                });
+        let dialogRef = this.dialog.open(PremiseDialog, {
+            // width: '300px',
+            data: { productID: pID, zip: this.zip }
+        });
 
-                dialogRef.afterClosed().subscribe(result => {
-                });
-            }
+        dialogRef.afterClosed().subscribe(result => {
+        });
+    }
     openDialog2(pID): void {
-                let dialogRef = this.dialog.open(plandetailDialog, {
-                    // width: '300px',
-                    // data: { productID: pID, zip: this.zip }
-                });
+        let dialogRef = this.dialog.open(plandetailDialog, {
+            // width: '300px',
+            // data: { productID: pID, zip: this.zip }
+        });
 
-                dialogRef.afterClosed().subscribe(result => {
-                });
+        dialogRef.afterClosed().subscribe(result => {
+        });
 
-            }
+    }
 
 
 }
 
-    @Component({
-        selector: 'premise-dialog',
-        templateUrl: 'premise-dialog.html',
-    })
+@Component({
+    selector: 'premise-dialog',
+    templateUrl: 'premise-dialog.html',
+})
 
-    export class PremiseDialog {
+export class PremiseDialog {
     product_id;
     premiseID;
     signup;
@@ -821,7 +814,7 @@ if(this.item == undefined){
     // private http: any;
 
     constructor(private http: HttpClient, private sg: SimpleGlobal,
-        public dialogRef: MatDialogRef < PremiseDialog >,
+        public dialogRef: MatDialogRef<PremiseDialog>,
         @Inject(MAT_DIALOG_DATA) public data: any, private router: Router) {
         this.product_id = data.productID;
         console.clear(); console.log(this.product_id);
