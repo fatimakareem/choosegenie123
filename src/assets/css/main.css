@@ -50,6 +50,9 @@
 .padding-zero{
   margin: 0px;
 }
+.padding-zero-i{
+  padding: 0px !important;
+}
 .padding{
   padding-right: 81px;
   padding-left: 40px;
@@ -223,7 +226,7 @@ app-header {
   margin: 0 auto;
   max-width: 400px;
   opacity: 0.8;
-  margin-top: 163px !important;
+  margin-top: 87px !important;
 }
 
 .packages-holder {
@@ -1370,7 +1373,9 @@ app-residential-dialog2 .forgot-pass {
 .signup-main .mat-stepper-vertical {
   background: none; }
 .signup-main .card-title {
-  font-weight: 500; }
+  font-weight: 500;
+  /*padding: 0px;*/
+}
 .signup-main .form-group .control-label {
   font-size: 18px;
   line-height: 22px;
@@ -1426,6 +1431,7 @@ app-residential-dialog2 .forgot-pass {
   line-height: 26px;
   font-weight: 500;
   margin-bottom: 0px !important;
+  padding: 0px;
 }
 
 input.mat-input-element,
@@ -3487,7 +3493,7 @@ h1, .entry-title-2 {
 
 /*slider css start*/
 #main-bg-slider .item{
-  height: 650px;
+  height: 400px;
   overflow: hidden;
 }
 #main-bg-slider .item img{
@@ -3511,7 +3517,7 @@ h1, .entry-title-2 {
 .search-bg__title {
   width: 100%;
   text-align: center;
-  font-size: 48px;
+  font-size: 35px;
   color: rgb(255, 255, 255);
   font-weight: 600;
   margin-bottom: 19px;
@@ -3522,7 +3528,7 @@ h1, .entry-title-2 {
   color: rgb(255, 255, 255);
   margin-bottom: 19px;
   position: absolute;
-  top: 22px;
+  top: 49px;
   left: 30px;
   right: 30px;
   z-index: 9;
@@ -3680,6 +3686,17 @@ h1, .entry-title-2 {
 }
 
 /*texas section home page start*/
+.app-banners {
+  position: absolute;
+  right: 40px;
+  top: 10px;
+  z-index: 9;
+}
+
+
+
+
+
 .texas-heading{
   color: #ffffff;
   text-shadow: none;
@@ -3733,7 +3750,7 @@ h1, .entry-title-2 {
   border-radius: 10px;
   /* border: 1px solid #000000; */
   width: 96%;
-  padding: 10px;
+  padding: 3px 10px 0px;
 }
 .slick-slide img1{
   border:none !important;
@@ -3752,7 +3769,7 @@ h1, .entry-title-2 {
 
 /*vanders signup css start*/
 .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder, .mat-form-field-empty.mat-form-field-placeholder, mat-form-field.mat-form-field {
-  font-size: 22px;
+  font-size: 27px;
   font-weight: 700;
   color: #333;
 }
@@ -5018,7 +5035,7 @@ text-align: center;
 }
 /*Start Home*/
 .height-slider{
-  height: 500px;
+  height: 400px;
 }
 .text-red{
   color: #C00;
@@ -5048,8 +5065,8 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 
 .play-store-inner span{
-  font-size: 50px;
-  color: #c00;
+  /*font-size: 50px;*/
+  /*color: #c00;*/
 }
 .play-store-img{
   margin: 0px;
@@ -5063,6 +5080,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 
 .play-store-img li a img{
   width: 27%;
+  margin-top: -10px;
 }
 .apple-button{
   height: 81px;
@@ -5893,6 +5911,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 @media (max-width: 426px) {
   /* Small devices (425px and down) */
+  .container-padding {
+    padding: 0px 44px !important;
+  }
   .login-form-1{
     width: 100%;
   }
@@ -6453,5 +6474,8 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
   .form-group.label-floating label.control-label, .form-group.label-placeholder label.control-label{
     font-size: 17px !important;
+  }
+  .form-zip {
+    margin-top: 47px !important;
   }
 }
