@@ -12,36 +12,30 @@
                     <i class="material-icons">mail_outline</i>
                 </div>
                 <div class="card-content">
-                    <h4 class="card-title">Edit Profile</h4>
+                    <h4 class="card-title">Edit Your Profile</h4>
                     <div class="row">
-                        <div class="col-sm-4">
-
-                            <div>
-                                <mat-form-field>
-                                    <input matInput placeholder="ID" type="text" value="{{data.id}}" name="data.id" #updatedid>
-                                </mat-form-field>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
+                      
+                        <div class="col-sm-6">
                             <div>
                                 <mat-form-field>
                                     <input matInput placeholder="REP Name" type="text" value="{{data.REP_name}}" #updatedREP>
                                 </mat-form-field>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
 
                             <div>
                                 <mat-form-field>
-                                    <input matInput placeholder="REP_certificate_id" type="text" value="{{data.REP_certificate_id}}" #updatedREPid>
+                                    <input matInput placeholder="REP Certificate Id" type="text" value="{{data.REP_certificate_id}}" #updatedREPid>
 
 
                                 </mat-form-field>
 
                             </div>
                         </div>
-
-                        <div class="col-sm-4">
+                        </div>
+<div class="row">
+                        <div class="col-sm-6">
                             <div>
 
                                 <mat-form-field class="margin">
@@ -52,7 +46,7 @@
 
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <div>
 
                                 <mat-form-field class="margin">
@@ -63,47 +57,58 @@
 
                             </div>
                         </div>
+</div>
+<div class="form-footer text-right row">
 
-                        <div class="col-sm-4">
-                            <div>
+    <div class="form-group col-lg-6" style="margin: 0 auto;">
+        <button type="submit" style="width:100%; border-radius:50px" class="btn btn-lrg btn-fill btn-wd" (click)="onRegister(updatedid.value,updatedREP.value,updatedREPid.value,updatedName.value,updatedphone.value,updatedmarket.value,updatedstatus.value,updateduser.value)">Update</button>
+    </div>
+</div>
+</div>
+<!-- <div class="row">  -->
+                        <!-- <div class="col-sm-4"> -->
+                            <!-- <div> -->
 
-                                <mat-form-field class="margin">
-                                    <input matInput placeholder="Market" type="text" value="{{data.Market}}" #updatedmarket>
-
-                                </mat-form-field>
-
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div>
-
-                                <mat-form-field class="margin">
-                                    <input matInput placeholder="Status" type="text" value="{{data.status}}" #updatedstatus>
+                                <mat-form-field class="margin" style="display: none">
+                                    <input matInput   type="text" value="{{data.Market}}" hidden="true" #updatedmarket>
 
                                 </mat-form-field>
 
-                            </div>
-                        </div>
-                        <div class="col-sm-4" >
-                            <div>
+                            <!-- </div> -->
+                        <!-- </div> -->
+                        <!-- <div class="col-sm-4"> -->
+                            <!-- <div> -->
 
-                                <mat-form-field class="margin">
-                                    <input matInput placeholder="User" type="text" value="{{data.user}}" #updateduser>
+                                <mat-form-field class="margin" style="display: none">
+                                    <input matInput  type="text" value="{{data.status}}" hidden="true" #updatedstatus>
 
                                 </mat-form-field>
 
-                            </div>
-                        </div>
+                            <!-- </div> -->
+                        <!-- </div> -->
+                        <!-- <div class="col-sm-4" > -->
+                            <!-- <div> -->
 
-                    </div>
+                                <mat-form-field class="margin" style="display: none">
+                                    <input matInput  type="text" value="{{data.user}}" hidden="true" #updateduser>
 
-                    <div class="form-footer text-right row">
+                                </mat-form-field>
 
-                        <div class="form-group col-lg-6" style="margin: 0 auto;">
-                            <button type="submit" style="width:100%; border-radius:50px" class="btn btn-lrg btn-fill btn-wd" (click)="onRegister(updatedid.value,updatedREP.value,updatedREPid.value,updatedName.value,updatedphone.value,updatedmarket.value,updatedstatus.value,updateduser.value)">Update</button>
-                        </div>
-                    </div>
-                </div>
+                            <!-- </div> -->
+                        <!-- </div> -->
+                        <!-- <div class="col-sm-4"> -->
+
+                            <!-- <div> -->
+                                <mat-form-field style="display: none">
+                                    <input matInput type="text" value="{{data.id}}" hidden="true" name="data.id" #updatedid>
+                                </mat-form-field>
+                            <!-- </div> -->
+                        <!-- </div> -->
+
+                    <!-- </div> -->
+
+                    
+                <!-- </div> -->
             </form>
 
         </div>
