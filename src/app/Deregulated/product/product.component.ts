@@ -329,7 +329,6 @@ export class ProductComponent implements OnInit {
     }
    
     Checkzipcode() {
-
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         this.http.get(Config.api + 'zipcodecheck/' + this.zip_code, { headers: headers })
@@ -362,7 +361,7 @@ export class ProductComponent implements OnInit {
             });
     }
    
-
+//////////////////Genaric Filters////////////////////////
     checked1(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)

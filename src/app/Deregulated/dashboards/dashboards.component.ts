@@ -56,7 +56,8 @@ export class DashboardsComponent implements OnInit {
   date;
   mydate;
   today = Date.now();
-  // mydate;
+  noresult;
+  zipdet;
   publishdate;
   Inactivedate;
   pageSizeOptions;
@@ -133,8 +134,7 @@ export class DashboardsComponent implements OnInit {
       this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
     });
   }
-  noresult;
-  zipdet;
+  
   setPage(title, page: number) {
     this.title = localStorage.getItem('username');
     console.log("usernameeeeeeeeeeeee", this.title)

@@ -17,9 +17,9 @@ import { PageEvent } from '@angular/material';
 import { DeleteService } from './delete.service';
 import { DataService } from '../../data.service';
 import { EditService } from './edit.service';
-import { NgForm,FormBuilder, FormGroup, Validators, FormControl, AbstractControl,FormGroupDirective,RadioControlValueAccessor } from '@angular/forms';
+import { NgForm, FormBuilder, FormGroup, Validators, FormControl, AbstractControl, FormGroupDirective, RadioControlValueAccessor } from '@angular/forms';
 import swal from 'sweetalert2';
-import {NgControl} from '@angular/forms';
+import { NgControl } from '@angular/forms';
 
 declare interface DataTable {
     headerRow: string[];
@@ -45,18 +45,36 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
-    constructor(private route: ActivatedRoute, private https: HttpClient, private newService: DeleteService,private serve:EditService,
-        private formBuilder: FormBuilder,  private router: Router, private http: Http, private pagerService: PagerService, private homeService: HomeService, private sg: SimpleGlobal,private dialog: MatDialog, private dataa: DataService, private companyService: CompanyService) {
+    constructor(private route: ActivatedRoute, private https: HttpClient, private newService: DeleteService, private serve: EditService,
+        private formBuilder: FormBuilder, private router: Router, private http: Http, private pagerService: PagerService, private homeService: HomeService, private sg: SimpleGlobal, private dialog: MatDialog, private dataa: DataService, private companyService: CompanyService) {
 
-            this.title = localStorage.getItem('username');
+        this.title = localStorage.getItem('username');
 
-        }
-        // date;
-        mydate;
-        today = Date.now();
-// mydate;
-
-
+    }
+    // date;
+    mydate;
+    today = Date.now();
+    // mydate;
+    private Sub: Subscription;
+    form;
+    updataForm: FormGroup;
+    noresult;
+    zipdet;
+    catagoryId = '';
+    title = '';
+    cancelation_fee = '';
+    fact_sheet = '';
+    phone = '';
+    plan_information = '';
+    price_rate = '';
+    profile_logo = '';
+    profileurl = '';
+    rating_logo = '';
+    sign_up = '';
+    terms_of_service = '';
+    price_1000_kwh = '';
+    price_500_kwh = '';
+    price_2000_kwh = '';
     pageSizeOptions;
     private allItems: any[];
     pager: any = {};
@@ -72,60 +90,59 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     public products: any;
     rating;
     closeResult: string;
-     public username;
-     name;
-    obj:any=[];
+    public username;
+    name;
+    obj: any = [];
     editdata: any = [];
     Inactivedate;
     publishdate;
+    data;
+    dataId = '';
+    list = 'Hello';
+    status: boolean = false;
     submit(id, title) {
         console.log(title.trim())
         this.router.navigate(['/Review/' + id]);
-        //userprofile
         localStorage.setItem('company', title.trim());
     }
-    search(page:number) {
+    search(page: number) {
         this.title = localStorage.getItem('username');
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        //   this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
-        this.http.post(Config.api + 'search_by_vendor/' + this.title +'?page='+page, JSON.stringify({
-          "productinactive": this.Inactivedate,
-          "propublish": this.publishdate,
-          "utility": this.name
+        this.http.post(Config.api + 'search_by_vendor/' + this.title + '?page=' + page, JSON.stringify({
+            "productinactive": this.Inactivedate,
+            "propublish": this.publishdate,
+            "utility": this.name
         }), { headers: headers }).subscribe(Res => {
-          console.log(Res);
-    
-          this.sg['products'] = Res.json();  
-        //   this.sg['products'] = Response.json()['Results'];
-          this.noresult=Res.json()['Total Result'];
-          for (let prod of this.sg['products']) {
-              prod["plan_information"] = prod["plan_information"].split(',,', 3000);
-              prod["price_rate"] = prod["price_rate"].split('..', 3000);
+            console.log(Res);
 
-          }
-          this.allItems = this.sg['products'];
-          this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
-      });
-        // this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
-      }
-      noresult;
-      zipdet;
+            this.sg['products'] = Res.json();
+            //   this.sg['products'] = Response.json()['Results'];
+            this.noresult = Res.json()['Total Result'];
+            for (let prod of this.sg['products']) {
+                prod["plan_information"] = prod["plan_information"].split(',,', 3000);
+                prod["price_rate"] = prod["price_rate"].split('..', 3000);
 
-    setPage(title,page: number) {
-        
-        
+            }
+            this.allItems = this.sg['products'];
+            this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
+        });
+    }
+
+    setPage(title, page: number) {
+
+
         this.title = localStorage.getItem('username');
-         console.log("usernameeeeeeeeeeeee",this.title)
+        console.log("usernameeeeeeeeeeeee", this.title)
 
         const Results = {};
-      
-        this.companyService.searchProduct(title,page).subscribe(Response => {
-            console.log('service');       
+
+        this.companyService.searchProduct(title, page).subscribe(Response => {
+            console.log('service');
             this.sg['products'] = Response.json()['Results'];
-            this.noresult=Response.json()['Total Result'];
+            this.noresult = Response.json()['Total Result'];
             this.zipdet = localStorage.getItem('zip');
-           
+
             console.log(this.sg['products']);
             for (let prod of this.sg['products']) {
                 prod["plan_information"] = prod["plan_information"].split(',,', 3000);
@@ -138,52 +155,35 @@ export class DashboardComponent implements OnInit, AfterViewInit {
             this.prods_loaded = true;
             this.allItems = this.sg['products'];
             console.log(Response.json()['Total Result']);
-             this.pager = this.pagerService.getPager(Response.json()['Total Result'], page, 10);
-              });
-            
+            this.pager = this.pagerService.getPager(Response.json()['Total Result'], page, 10);
+        });
+
     }
-    catagoryId = '';
-    title='';
-    cancelation_fee='';
-             fact_sheet='';
-             phone='';
-             plan_information='';
-             price_rate='';
-             profile_logo='';
-             profileurl='';
-             rating_logo='';
-             sign_up='';
-             terms_of_service='';
-             price_1000_kwh='';
-             price_500_kwh='';
-             price_2000_kwh='';
-     //Event Binding of Delete Buttons
-     btnshowClick(id,val1,val2,val3,val4,val5,val6,val12,val13,val7,val8,val9,val10,val11) {
-         this.catagoryId = id;
-         console.log(this.plan_information)
-         this.title=val1;
-         this.sign_up=val2;
-         this.phone=val3;
-         this.terms_of_service=val4;
-         this.plan_information=val8;
-         this.fact_sheet=val5;
-         this.cancelation_fee=val6;
-         this.price_1000_kwh=val7;
-         this.price_500_kwh=val12;
 
-                  this.price_2000_kwh=val13;
+    //Event Binding of Delete Buttons
+    btnshowClick(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11) {
+        this.catagoryId = id;
+        console.log(this.plan_information)
+        this.title = val1;
+        this.sign_up = val2;
+        this.phone = val3;
+        this.terms_of_service = val4;
+        this.plan_information = val8;
+        this.fact_sheet = val5;
+        this.cancelation_fee = val6;
+        this.price_1000_kwh = val7;
+        this.price_500_kwh = val12;
 
-         this.rating_logo=val9;
-         this.profile_logo=val10;
-         this.profileurl=val11;
-        
-         console.log(val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11)
-         console.log('id : ' + this.catagoryId );
-     }
-    data;
-    dataId = '';
-    list = 'Hello';
-    status: boolean = false;
+        this.price_2000_kwh = val13;
+
+        this.rating_logo = val9;
+        this.profile_logo = val10;
+        this.profileurl = val11;
+
+        console.log(val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11)
+        console.log('id : ' + this.catagoryId);
+    }
+
     //Event Binding of Delete Buttons
     btnDeleteClick(id) {
         this.dataId = id;
@@ -203,125 +203,123 @@ export class DashboardComponent implements OnInit, AfterViewInit {
                 title: 'Successfully deleted',
                 showConfirmButton: false,
                 timer: 1500
-              })
-         
-                this.setPage(this.title,1)
+            })
 
-               
+            this.setPage(this.title, 1)
+
+
         }, error => {
         });
-  
+
 
     }
- btnEditClick(id,val1,val2,val3,val4,val5,val6,val12,val13,val7,val8,val9,val10,val11) {
+    btnEditClick(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11) {
         this.catagoryId = id;
         console.log(this.plan_information)
-        this.title=val1;
-        this.sign_up=val2;
-        this.phone=val3;
-        this.terms_of_service=val4;
-        this.plan_information=val8;
-        this.fact_sheet=val5;
-        this.cancelation_fee=val6;
-        this.price_1000_kwh=val7;
-        this.price_500_kwh=val12;
-  this.price_2000_kwh=val13;
-        this.rating_logo=val9;
-        this.profile_logo=val10;
-        this.profileurl=val11;
-       
-        console.log(id,val1,val2,val3,val4,val5,val6,val12,val13,val7,val8,val9,val10,val11)
-        console.log('id : ' + this.catagoryId );
+        this.title = val1;
+        this.sign_up = val2;
+        this.phone = val3;
+        this.terms_of_service = val4;
+        this.plan_information = val8;
+        this.fact_sheet = val5;
+        this.cancelation_fee = val6;
+        this.price_1000_kwh = val7;
+        this.price_500_kwh = val12;
+        this.price_2000_kwh = val13;
+        this.rating_logo = val9;
+        this.profile_logo = val10;
+        this.profileurl = val11;
+
+        console.log(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11)
+        console.log('id : ' + this.catagoryId);
     }
 
     //Event Binding of PopUp Delete Modal
 
-    editClick(mydate,updateddate,updatedtitle,updatedsign_up,updatedphone,updatedterms_of_service,updatedfact_sheet,updatedcancelation_fee,updatedprice500kwh,updatedprice1000kwh,updatedprice2000kwh,updatedplan_information,updatedrating_logo,updatedprofile_logo,updatedprofileurl,upactive) {
-        console.log('edit' +updateddate,updatedtitle,updatedsign_up,updatedphone,updatedterms_of_service,updatedfact_sheet,updatedcancelation_fee,updatedprice500kwh,updatedprice1000kwh,updatedprice2000kwh,updatedplan_information,updatedrating_logo,updatedprofile_logo,updatedprofileurl,upactive);
-console.log("TS OBJECT",updatedtitle,updatedsign_up,updatedphone,updatedterms_of_service,updatedfact_sheet,updatedcancelation_fee,updatedprice500kwh,updatedprice1000kwh,updatedprice2000kwh,updatedplan_information,updatedrating_logo,updatedprofile_logo,updatedprofileurl,upactive);
+    editClick(mydate, updateddate, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive) {
+        console.log('edit' + updateddate, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
+        console.log("TS OBJECT", updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
         //Calling Delete Service
-        this.serve.editTodoList(mydate,updateddate,this.catagoryId,updatedtitle,updatedsign_up,updatedphone,updatedterms_of_service,updatedfact_sheet,updatedcancelation_fee,updatedprice500kwh,updatedprice1000kwh,updatedprice2000kwh,updatedplan_information,updatedrating_logo,updatedprofile_logo,updatedprofileurl,upactive).subscribe(data => {
+        this.serve.editTodoList(mydate, updateddate, this.catagoryId, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive).subscribe(data => {
             console.log(data);
             swal({
                 type: 'success',
                 title: 'Successfully updated',
                 showConfirmButton: false,
                 timer: 1500
-              })
-           
-              this.setPage(this.title,1);
+            })
+
+            this.setPage(this.title, 1);
         }, error => {
         });
-     }
-    btnactiveClick(id,val1,val2,val3,val4,val5,val6,val12,val13,val7,val8,val9,val10,val11) {
-     
+    }
+    btnactiveClick(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11) {
+
         this.catagoryId = id;
         console.log(this.plan_information)
-        this.title=val1;
-        this.sign_up=val2;
-        this.phone=val3;
-        this.terms_of_service=val4;
-        this.plan_information=val8;
-        this.fact_sheet=val5;
-        this.cancelation_fee=val6;
-        this.price_1000_kwh=val7;
-        this.price_500_kwh=val12;
-this.status=false;
-                 this.price_2000_kwh=val13;
+        this.title = val1;
+        this.sign_up = val2;
+        this.phone = val3;
+        this.terms_of_service = val4;
+        this.plan_information = val8;
+        this.fact_sheet = val5;
+        this.cancelation_fee = val6;
+        this.price_1000_kwh = val7;
+        this.price_500_kwh = val12;
+        this.status = false;
+        this.price_2000_kwh = val13;
 
-        this.rating_logo=val9;
-        this.profile_logo=val10;
-        this.profileurl=val11;
-       
-        console.log(id,val1,val2,val3,val4,val5,val6,val12,val13,val7,val8,val9,val10,val11)
-        console.log('id : ' + this.catagoryId );
+        this.rating_logo = val9;
+        this.profile_logo = val10;
+        this.profileurl = val11;
+
+        console.log(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11)
+        console.log('id : ' + this.catagoryId);
     }
 
     //Event Binding of PopUp Delete Modal
 
-    activeClick(updatedmydate,updateddate,updatedtitle,updatedsign_up,updatedphone,updatedterms_of_service,updatedfact_sheet,updatedcancelation_fee,updatedprice500kwh,updatedprice1000kwh,updatedprice2000kwh,updatedplan_information,updatedrating_logo,updatedprofile_logo,updatedprofileurl,upactive) {
-        console.log('edit' +updatedmydate,updateddate,updatedtitle,updatedsign_up,updatedphone,updatedterms_of_service,updatedfact_sheet,updatedcancelation_fee,updatedprice500kwh,updatedprice1000kwh,updatedprice2000kwh,updatedplan_information,updatedrating_logo,updatedprofile_logo,updatedprofileurl,upactive);
-console.log("TS OBJECT",updatedtitle,updatedsign_up,updatedphone,updatedterms_of_service,updatedfact_sheet,updatedcancelation_fee,updatedprice500kwh,updatedprice1000kwh,updatedprice2000kwh,updatedplan_information,updatedrating_logo,updatedprofile_logo,updatedprofileurl,upactive);
+    activeClick(updatedmydate, updateddate, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive) {
+        console.log('edit' + updatedmydate, updateddate, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
+        console.log("TS OBJECT", updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, upactive);
         //Calling Delete Service
-        this.serve.editTodoList(updatedmydate,updateddate,this.catagoryId,updatedtitle,updatedsign_up,updatedphone,updatedterms_of_service,updatedfact_sheet,updatedcancelation_fee,updatedprice500kwh,updatedprice1000kwh,updatedprice2000kwh,updatedplan_information,updatedrating_logo,updatedprofile_logo,updatedprofileurl,false).subscribe(data => {
+        this.serve.editTodoList(updatedmydate, updateddate, this.catagoryId, updatedtitle, updatedsign_up, updatedphone, updatedterms_of_service, updatedfact_sheet, updatedcancelation_fee, updatedprice500kwh, updatedprice1000kwh, updatedprice2000kwh, updatedplan_information, updatedrating_logo, updatedprofile_logo, updatedprofileurl, false).subscribe(data => {
             console.log(data);
             swal({
                 type: 'success',
                 title: 'Successfully updated',
                 showConfirmButton: false,
                 timer: 1500
-              })
-              this.setPage(this.title,1);
+            })
+            this.setPage(this.title, 1);
 
         }, error => {
         });
-    
+
     }
-   
-    private Sub: Subscription;
-    form;
-    updataForm : FormGroup;
+
+
     public ngOnInit() {
-      this.title = localStorage.getItem('username')
-        console.log(this.title,'gggggggggggggggg')
+        this.title = localStorage.getItem('username')
+        console.log(this.title, 'gggggggggggggggg')
         this.updataForm = this.formBuilder.group({
-          
+
             cancelation_fee: ['', Validators.compose([Validators.required])],
             fact_sheet: ['', Validators.compose([Validators.required])],
             phone: ['', Validators.compose([Validators.required])],
             id: ['', Validators.required],
-            plan_information: ['',  Validators.compose([Validators.required])],
+            plan_information: ['', Validators.compose([Validators.required])],
             price_rate: ['', Validators.compose([Validators.required])],
             profile_logo: ['', Validators.compose([Validators.required])],
             profileurl: ['', Validators.required],
-            rating_logo: ['',  Validators.compose([Validators.required])],
+            rating_logo: ['', Validators.compose([Validators.required])],
             sign_up: ['', Validators.compose([Validators.required])],
-            terms_of_service: ['',  Validators.compose([Validators.required])],
+            terms_of_service: ['', Validators.compose([Validators.required])],
             title: ['', Validators.compose([Validators.required])],
         });
-            this.setPage(this.title,1)
-            console.log(this.title,1)
-            
+        this.setPage(this.title, 1)
+        console.log(this.title, 1)
+
 
     }
     ngAfterViewInit() {

@@ -57,9 +57,25 @@ export class InactiveProductComponent implements OnInit {
     name;
     publishdate;
     Inactivedate;
-
+    rate = '';
     val;
     user;
+    status = true;
+    catagoryId = '';
+    title = '';
+    cancelation_fee = '';
+    fact_sheet = '';
+    phone = '';
+    plan_information = '';
+    price_rate = '';
+    profile_logo = '';
+    profileurl = '';
+    rating_logo = '';
+    sign_up = '';
+    terms_of_service = '';
+    price_1000_kwh = '';
+    price_500_kwh = '';
+    price_2000_kwh = '';
     ngOnInit() {
         this.title = localStorage.getItem('username')
         console.log(this.title, 'gggggggggggggggg')
@@ -67,15 +83,10 @@ export class InactiveProductComponent implements OnInit {
         this.zip_code = localStorage.getItem('zip');
         this.data.currentProducts.subscribe(products => this.sg['products'] = products)
         this.data.currentProducts
-        
-
         this.setPage(this.title, 1)
         console.log(this.title, 1)
-
-
-
     }
-    status = true;
+    
     btnactiveClick(id, val1, val2, val3, val4, val5, val6, val12, val13, val7, val8, val9, val10, val11) {
         this.catagoryId = id;
         console.log(this.plan_information)
@@ -124,7 +135,6 @@ export class InactiveProductComponent implements OnInit {
         this.title = localStorage.getItem('username');
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        //   this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
         this.http.post(Config.api + 'search_by_vendor/' + this.title +'?page='+page, JSON.stringify({
           "productinactive": this.Inactivedate,
           "propublish": this.publishdate,
@@ -141,27 +151,12 @@ export class InactiveProductComponent implements OnInit {
           this.allItems = this.sg['products'];
           this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
       });
-        // this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
       }
-    rate = '';
+   
     get(rating) {
         this.rate = rating;
     }
-    catagoryId = '';
-    title = '';
-    cancelation_fee = '';
-    fact_sheet = '';
-    phone = '';
-    plan_information = '';
-    price_rate = '';
-    profile_logo = '';
-    profileurl = '';
-    rating_logo = '';
-    sign_up = '';
-    terms_of_service = '';
-    price_1000_kwh = '';
-    price_500_kwh = '';
-    price_2000_kwh = '';
+   
     //Event Binding of Delete Buttons
     btnEditClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl) {
         this.catagoryId = id;
