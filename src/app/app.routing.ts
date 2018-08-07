@@ -6,39 +6,17 @@ import {AboutComponent} from "./about/about.component";
 import {CustomerLayoutComponent} from "./layouts/customer/customer-layout.component";
 import {NormalLayoutComponent} from "./layouts/normal/normal-layout.component";
 import {StepperOverviewExample} from "./signup/stepper-overview-example";
-import { LoginComponent } from './pages/login/login.component';
-import { TermsComponent } from './terms/terms.component';
-import { UsersignupComponent } from './usersignup/usersignup.component';
-import { UserloginComponent } from './pages/userlogin/userlogin.component';
-import { Component } from '@angular/core';
-import { SuperloginComponent } from './pages/superlogin/superlogin.component';
 import { SuperadminComponent } from './layouts/superadmin/superadmin.component';
-import { ActivateaccountComponent } from './activateaccount/activateaccount.component';
-import { AuthguardService } from './authguard.service';
+import { AuthguardService } from './_guards/authguard.service';
 import { ConsumeradminComponent } from './layouts/consumeradmin/consumeradmin.component';
-import { Authgaurd2Service } from './authgaurd2.service';
-import { Authgaurd3Service } from './authgaurd3.service';
-
-// import { UsersdashboardComponent } from './layouts/usersdashboard/usersdashboard.component';
+import { Authgaurd2Service } from './_guards/authgaurd2.service';
+import { Authgaurd3Service } from './_guards/authgaurd3.service';
 
 export const AppRoutes: Routes = [
-    // {
-    //     path: '',
-    //     redirectTo: 'home',
-    //     pathMatch: 'full',
-    // },
+   
     {path: "", component: HomeComponent},
     
-    // {path: "usersignup", component: UsersignupComponent},
-    // {path:"userlogin", component:UserloginComponent},
-    // {path:"superlogin", component:SuperloginComponent},
-    // {
-    //     path: 'activateaccount/:query1',
-    //     //redirectTo: 'activateaccount/:query1',
-    //     pathMatch: 'full'
-      
-    // },
-   
+ 
 
     {
         path: '',
