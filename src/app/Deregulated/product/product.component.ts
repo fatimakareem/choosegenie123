@@ -23,6 +23,7 @@ import { PageEvent } from '@angular/material';
 
 import swal from 'sweetalert2';
 import { error } from 'util';
+declare const $: any;
 @Component({
     selector: 'app-product',
     templateUrl: './product.component.html',
@@ -55,7 +56,7 @@ export class ProductComponent implements OnInit {
     constructor(private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
 
     }
-
+   
     private allItems: any[];
     pager: any = {};
     home: any = {};
@@ -130,13 +131,14 @@ export class ProductComponent implements OnInit {
     zipcodeexist;
     deproduct;
     noresult;
+    Items;
     ngOnInit() {
         this.username = localStorage.getItem('username');
         this.zip_code = localStorage.getItem('zip');
         this.customer = localStorage.getItem('custum')
         const Results = {};
         this.val = "methodName($event[0])"
-
+this. featuredplan();
         this.profile()
         this.companytitle()
 
@@ -150,6 +152,29 @@ export class ProductComponent implements OnInit {
 
         });
 
+    }
+    featuredplan() {
+
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json')
+        this.http.get(Config.api + 'topproducts_deregulated/', { headers: headers })
+
+            .subscribe(Res => {
+
+                this.sg['plan'] = Res.json()['Results'];
+                // this.data.changeProducts(this.sg['plan']);
+                this.Items = this.sg['plan'];
+                
+                setTimeout(function () {
+                    $('.autoplay').slick({
+                        autoplay: true,
+                        slidesToShow: 5,
+                        slidesToScroll: 1,
+                        prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left" style="left:0;"><i class="fa fa-angle-left"></i></button>',
+                        nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" style="right:0;"><i class="fa fa-angle-right"></i></button>'
+                    });
+                }, 1);
+            });
     }
     submit(id, title) {
         console.log(title.trim())
