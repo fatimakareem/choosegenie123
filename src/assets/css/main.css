@@ -741,8 +741,9 @@ background: goldenrod;
     font-weight: 600;
   }
   .checkbox-font{
-    font-size: 18px !important;
+    font-size: 16px !important;
     color: #000000 !important;
+    font-weight: bold !important;
   }
   .sidebar.custom .logo {
     padding: 10px; }
@@ -3690,7 +3691,7 @@ h1, .entry-title-2 {
   position: absolute;
   right: 40px;
   top: 10px;
-  z-index: 9;
+  z-index: 1;
 }
 
 
