@@ -264,6 +264,10 @@ export const AppRoutes: Routes = [
                 loadChildren: './admin/new-product/new-product.module#NewProductModule'
             },
             {
+                path: "new-products",canActivate: [AuthguardService],
+                loadChildren: './Deregulated/new-products/new-products.module#NewProductsModule'
+            },
+            {
                 path: "inactive-product",canActivate: [AuthguardService],
                 loadChildren: './regulated/inactive-product/inactive-product.module#InactiveProductModule'
             },

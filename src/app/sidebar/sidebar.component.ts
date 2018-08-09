@@ -183,6 +183,13 @@ export class SidebarComponent implements OnInit {
         this.router.navigate(['/']);
     
       }
+      pro() {
+        if(localStorage.getItem('massage') == "Successfully Login As Not Deregulatedstate vendor"){
+          this.router.navigate(['/new-product']);}
+          else if(localStorage.getItem('massage') == "Successfully Login As Deregulatedstate vendor"){
+              this.router.navigate(['/new-products']);
+          }
+      }
       moving() {
         if(localStorage.getItem('massage') == "Successfully Login As Not Deregulatedstate vendor"){
           this.router.navigate(['/dashboard/' + this.username]);}

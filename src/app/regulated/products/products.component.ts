@@ -165,37 +165,40 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         const Results = {};
         this.val = "methodName($event[0])"
         this.companytitle();
+
+       
+    
         this.featuredplan();
-        $('.slick-date').slick({
-            slidesToShow: 5,
-            slidesToScroll: 5,
-            autoplaySpeed: 1500,
-            autoplay: true,
-            prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left"><i class="fa fa-angle-left"></i></button>',
-            nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right"><i class="fa fa-angle-right"></i></button>',
-            responsive: [
-                {
-                    breakpoint: 427,
-                    settings: {
-                        slidesToShow: 1
-                    }
-                }
-            ]
-        });
-        $('.slick-testimonal').slick({
-            slidesToShow: 1,
-            autoplay: true,
-            autoplaySpeed: 7000,
-            pauseOnFocus: false,
-            pauseOnHover: false,
-            fade: true,
-            prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left"><i class="fa fa-angle-left"></i></button>',
-            nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right"><i class="fa fa-angle-right"></i></button>'
-        });
-        $('.slick-testimonal').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-            $('.slider-tagline').hide(10);
-            $('.slider-tagline').show(5);
-        });
+        // $('.slick-date').slick({
+        //     slidesToShow: 5,
+        //     slidesToScroll: 5,
+        //     autoplaySpeed: 1500,
+        //     autoplay: true,
+        //     prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left"><i class="fa fa-angle-left"></i></button>',
+        //     nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right"><i class="fa fa-angle-right"></i></button>',
+        //     responsive: [
+        //         {
+        //             breakpoint: 427,
+        //             settings: {
+        //                 slidesToShow: 1
+        //             }
+        //         }
+        //     ]
+        // });
+        // $('.slick-testimonal').slick({
+        //     slidesToShow: 1,
+        //     autoplay: true,
+        //     autoplaySpeed: 7000,
+        //     pauseOnFocus: false,
+        //     pauseOnHover: false,
+        //     fade: true,
+        //     prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left"><i class="fa fa-angle-left"></i></button>',
+        //     nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right"><i class="fa fa-angle-right"></i></button>'
+        // });
+        // $('.slick-testimonal').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+        //     $('.slider-tagline').hide(10);
+        //     $('.slider-tagline').show(5);
+        // });
     }
     btnDeleteClick(id, title, profileurl, profile_logo, servicearea) {
         this.id = id;
@@ -324,15 +327,15 @@ export class ProductsComponent implements OnInit, AfterViewInit {
                     prod["plan_information"] = prod["plan_information"].split(',,', 3000);
                     prod["price_rate"] = prod["price_rate"].split('..', 3000);
                 }
-                // setTimeout(function () {
-                //     $('.autoplay').slick({
-                //         autoplay: true,
-                //         slidesToShow: 5,
-                //         slidesToScroll: 1,
-                //         prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left" style="left:0;"><i class="fa fa-angle-left"></i></button>',
-                //         nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" style="right:0;"><i class="fa fa-angle-right"></i></button>'
-                //     });
-                // }, 50);
+                setTimeout(function () {
+                    $('.autoplay').slick({
+                        autoplay: true,
+                        slidesToShow: 5,
+                        slidesToScroll: 1,
+                        prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left" style="left:0;"><i class="fa fa-angle-left"></i></button>',
+                        nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" style="right:0;"><i class="fa fa-angle-right"></i></button>'
+                    });
+                }, 1);
             });
     }
 
