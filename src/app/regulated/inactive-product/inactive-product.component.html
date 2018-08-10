@@ -49,7 +49,15 @@
   <!-- <div class="page-title">
     <span>Product Search</span>
   </div> -->
-  <div class="products-area-products" *ngIf="prod_loaded">
+  <ng-template #no_data_temp2>
+
+    <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
+    <h1 style="height:1000px;width:1000px;padding:200px">
+
+      <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Record Found</b>
+    </h1>
+  </ng-template>
+  <div class="products-area-products" *ngIf="noresult != '0';else no_data_temp2">
      <div class="custom card" *ngFor="let data of allItems; let i = index">
       <div class="row">
 

@@ -115,9 +115,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
             "utility": this.name
         }), { headers: headers }).subscribe(Res => {
             console.log(Res);
-
-            this.sg['products'] = Res.json();
-            //   this.sg['products'] = Response.json()['Results'];
+            this.sg['products'] = Res.json()['Results'];
             this.noresult = Res.json()['Total Result'];
             for (let prod of this.sg['products']) {
                 prod["plan_information"] = prod["plan_information"].split(',,', 3000);

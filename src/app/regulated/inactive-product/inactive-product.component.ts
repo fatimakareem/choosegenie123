@@ -131,6 +131,7 @@ export class InactiveProductComponent implements OnInit {
         //  window.location.reload();
 
     }
+    noresult;
     search(page:number) {
         this.title = localStorage.getItem('username');
         let headers = new Headers();
@@ -142,7 +143,8 @@ export class InactiveProductComponent implements OnInit {
         }), { headers: headers }).subscribe(Res => {
           console.log(Res);
     
-          this.sg['products'] = Res.json();  
+          this.sg['products'] = Res.json()['Results'];  
+          this.noresult = Res.json()['Total Result'];
           for (let prod of this.sg['products']) {
               prod["plan_information"] = prod["plan_information"].split(',,', 3000);
               prod["price_rate"] = prod["price_rate"].split('..', 3000);
@@ -188,7 +190,8 @@ export class InactiveProductComponent implements OnInit {
         this.title = localStorage.getItem('username');
         this.obj.inactiveproduct(title, page).subscribe(response => {
             this.sg['products'] = response.json()['Results'];
-
+            this.noresult = response.json()['Total Result'];
+            console.log(this.noresult)
             for (let prod of this.sg['products']) {
               
                 prod["plan_information"] = prod["plan_information"].split(',', 3000);

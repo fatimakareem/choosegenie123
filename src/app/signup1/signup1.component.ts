@@ -116,7 +116,6 @@ export class Signup1Component implements OnInit {
 
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    // this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
     this.http.get(Config.api + 'city/' + this.model.state + '', { headers: headers })
 
       //  this.http.get(Config.api + 'signup/'+ this.zip_code +'', {headers: headers})
@@ -124,9 +123,6 @@ export class Signup1Component implements OnInit {
         console.log(Res);
       
         this.city = Res;
-
-
-        // this.data.changeProducts(this.sg['products']);
 
       });
   }
@@ -184,11 +180,8 @@ export class Signup1Component implements OnInit {
 
 
     headers.append('Content-Type', 'application/json');
-    // this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
+ 
     this.http.get(Config.api + 'repname/' + REP_certificate_id1, { headers: headers })
-
-
-      //   // this.http.post(Config.api + 'signup/'+ this.zip_code +'', {"premiseid": this.premiseID +'', {headers: headers})
       .subscribe(data => {
         console.log(data);
         // this.next = Res[0].next;
