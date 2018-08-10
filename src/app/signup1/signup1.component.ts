@@ -161,7 +161,7 @@ export class Signup1Component implements OnInit {
 
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    this.http.get(Config.api + 'email_exist/' + email1 + '/', { headers: headers })
+    this.http.get(Config.api + 'email_exist/' + email1 , { headers: headers })
 
       .subscribe(data => {
         console.log(data);
