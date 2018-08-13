@@ -20,11 +20,13 @@
             <!-- <input matInput type="password" id="password" placeholder="Enter Your Password" formControlName="password" [(ngModel)]="password"> -->
           </mat-form-field>
    
-          <mat-checkbox>
-            Stay signed in
-          </mat-checkbox>
-          <br/>
-          <blackgeeks-recaptcha  ></blackgeeks-recaptcha>
+          <div class="float-left">
+              <label >
+                <input [(ngModel)]="staySignedIn" type="checkbox" name="stay-signed" value="Stay Sign In">
+                <div class="float-r">Stay Signed In</div>
+              </label>
+            </div>
+            <blackgeeks-recaptcha class="float-r margin-right-bottom" ></blackgeeks-recaptcha>
           <div class="row" *ngIf="isequal==false">
             <p class="col-lg-12 errormessage">Invalid Answer</p>
           </div>

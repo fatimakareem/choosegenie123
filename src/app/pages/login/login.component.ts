@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
   status;
   islogin = true;
   isequal;
-  staySignedIn=true;
+
   // returnUrl: string;
 
 
@@ -77,8 +77,11 @@ export class LoginComponent implements OnInit {
       this.nativeElement = element.nativeElement;
       this.sidebarVisible = false;
     }
+     
 
   }
+  
+
     
   isFieldValid(form: FormGroup, field: string) {
     return !form.get(field).valid && form.get(field).touched;
@@ -191,7 +194,9 @@ export class LoginComponent implements OnInit {
   //   status=this.recaptcha();
   //   // this.recaptcha = captchaResponse;
   //   }
+ 
   ngOnInit() {
+    
     this.login = this.fb.group({
       username: ['', Validators.compose([Validators.required])],
       // We can use more than one validator per field. If we want to use more than one validator we have to wrap our array of validators with a Validators.compose function. Here we are using a required, minimum length and maximum length validator.
@@ -210,7 +215,7 @@ export class LoginComponent implements OnInit {
       $('.card').removeClass('card-hidden');
     }, 700);
   }
- 
+  staySignedIn :boolean=true;
   sidebarToggle() {
     var toggleButton = this.toggleButton;
     var body = document.getElementsByTagName('body')[0];

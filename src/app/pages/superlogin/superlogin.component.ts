@@ -1,20 +1,14 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef,ViewChild } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Config } from '../../Config';
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
 import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 import { SimpleGlobal } from 'ng2-simple-global';
-import { ResponseContentType } from '@angular/http/src/enums';
-import { Console } from '@angular/core/src/console';
 import swal from 'sweetalert2';
-import { TOUCHEND_HIDE_DELAY } from '@angular/material';
-// import { HomeRoutes } from '../../home/home.routing';
-
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
-import { PasswordValidation } from './password-validator.component';
-import { DataService } from '../../data.service';
 import { SuperLoginService } from './superlogin.service';
+import { RecaptchaComponent } from 'recaptcha-blackgeeks';
  
 declare var $: any;
 declare interface ValidatorFn {
@@ -40,6 +34,9 @@ declare interface User {
   styleUrls: ['./superlogin.component.scss']
 })
 export class SuperloginComponent implements OnInit {
+  @ViewChild(RecaptchaComponent) captcha: RecaptchaComponent;
+  isCaptcha=false;
+  statuslogin: any;
   public typeValidation: User;
   register: FormGroup;
   login: FormGroup;
@@ -52,6 +49,9 @@ export class SuperloginComponent implements OnInit {
   hide=true;
 user;
   password;
+  status;
+  islogin = true;
+  isequal;
   constructor(public router: Router, private element: ElementRef, private http: Http, private route: ActivatedRoute,
     private sg: SimpleGlobal, private _nav: Router, private _serv: SuperLoginService, private formBuilder: FormBuilder, private https: HttpClient) {
     this.nativeElement = element.nativeElement;
@@ -69,9 +69,14 @@ user;
     };
   }
   loginUser(e){
+    
     e.preventDefault();
     var username = e.target.elements[0].value;
     var password = e.target.elements[1].value;
+    if (this.captcha.getResponse()) {
+      console.log('equ ok');
+      // alert("login");
+      this.isequal=true;
     console.log(username,password);
     if(username == 'admin' && password =='admin123') {
     
@@ -105,65 +110,33 @@ user;
 
 
   }
-  recaptcha;
-  resolved(captchaResponse: string) {
-    console.log(`Resolved captcha with response ${captchaResponse}:`);
-    this.recaptcha = captchaResponse;
-    }
-  onLogin() {
-    // console.log(this.login);
-    if (this.login.valid) {
-      //console.log(this.login.value);
-      // console.log('form submitted');
-      // this._serv.login_authenticate(this.login.value.username,this.login.value.password).subscribe(
-      //   data => {
-          //  console.log("user",data);
-          this._serv.login(this.login.value.username, this.login.value.password).subscribe(
-            data => {
-              console.log(data);
-              swal(
-                'Successfully! Logged in',
-                '',
-                'success'
-              )
-              // this.toastr.success('Successfully!', 'Logged in',{toastLife: 5000});
-              this.router.navigate(['/superdashboard/']);
-             // this.router.navigate(['/dashboard/'+ this.username]);
-              localStorage.setItem('username', this.username);
+  else {
+    this.captcha.reset();
+    this.isequal = false;
+    // this.islogin = true;
+  }
+ }
+  // recaptcha;
+  // resolved(captchaResponse: string) {
+  //   console.log(`Resolved captcha with response ${captchaResponse}:`);
+  //   this.recaptcha = captchaResponse;
+  //   }
 
-            },
-            error => {
-              console.log(error);
-             // this.toastr.error(error, null, {toastLife: 5000});
-              swal(
-                'Invalid',
-                'Username OR Password',
-                'error'
-              )
-           
-            });
-
-      
-    }
-    else {
-      this.validateAllFormFields(this.login);
-    }
-  } 
 
    
   
 
-  validateAllFormFields(formGroup: FormGroup) {
-    Object.keys(formGroup.controls).forEach(field => {
-      // console.log(field);
-      const control = formGroup.get(field);
-      if (control instanceof FormControl) {
-        control.markAsTouched({ onlySelf: true });
-      } else if (control instanceof FormGroup) {
-        this.validateAllFormFields(control);
-      }
-    });
-  }
+  // validateAllFormFields(formGroup: FormGroup) {
+  //   Object.keys(formGroup.controls).forEach(field => {
+  //     // console.log(field);
+  //     const control = formGroup.get(field);
+  //     if (control instanceof FormControl) {
+  //       control.markAsTouched({ onlySelf: true });
+  //     } else if (control instanceof FormGroup) {
+  //       this.validateAllFormFields(control);
+  //     }
+  //   });
+  // }
 
   ngOnInit() {
     this.login = this.formBuilder.group({

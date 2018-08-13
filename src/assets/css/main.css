@@ -2754,7 +2754,7 @@ section {
 
 .login-form-1-center{
   width: 40%;
-  margin: 120px auto;
+  margin: 63px auto 25px;
 }
 
 .login-form-1{
@@ -2892,11 +2892,23 @@ section {
   font-size: 18px;
   font-weight: bold;
 }
-
+.login-form-1-body > div label{
+  float: left;
+  margin-top: 20px;
+  font-size: 18px;
+}
+.login-form-1-body > div label input{
+  margin-right: 5px;
+}
+blackgeeks-recaptcha p{
+  font-size: 25px !important;
+}
 .login-form-1-body > div > a{
   color: #3f51b5;
 }
-
+.margin-right-bottom{
+  margin: 0 20px 20px 0;
+}
 .login-form-1-body > div > a:hover{
   color: #25B7D3;
   text-decoration: underline;
@@ -5211,6 +5223,9 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .float-r{
   float: right;
+}
+.float-left{
+  float: left;
 }
 .position{
   position: fixed !important;

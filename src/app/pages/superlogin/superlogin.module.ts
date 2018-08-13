@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataService } from '../../data.service';
 import { SuperLoginRoutes } from './superlogin.routing';
 import { SuperloginComponent } from './superlogin.component';
+import { BlackgeeksRecaptchaModule } from 'recaptcha-blackgeeks';
 import { RecaptchaModule } from 'ng-recaptcha';
 
 
@@ -20,6 +21,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
 @NgModule({
     imports: [
         CommonModule,
+        BlackgeeksRecaptchaModule,
         RecaptchaModule.forRoot(),
         RouterModule.forChild(SuperLoginRoutes),
         MaterialModule,
