@@ -157,6 +157,20 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         console.log(this.today = Date.now())
         this.state = localStorage.getItem('state')
+        this.names = localStorage.getItem('name')
+        this.price = localStorage.getItem('price')
+        this.fixed = localStorage.getItem('fixed')
+        this.vari = localStorage.getItem('vari')
+        this.market = localStorage.getItem('market')
+        this.min = localStorage.getItem('min')
+        this.max = localStorage.getItem('max')
+        this.months1 = localStorage.getItem('months1')
+        this.months2 = localStorage.getItem('months2')
+        this.months3 = localStorage.getItem('months3')
+        this.months4 = localStorage.getItem('months4')
+        this.months5 = localStorage.getItem('months5')
+        this.months6 = localStorage.getItem('months6')
+        this.months7 = localStorage.getItem('months7')
         console.log(this.state)
         this.username = localStorage.getItem('username');
         this.zip_code = localStorage.getItem('zip');
@@ -166,8 +180,8 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         this.val = "methodName($event[0])"
         this.companytitle();
 
-       
-    
+
+
         this.featuredplan();
         // $('.slick-date').slick({
         //     slidesToShow: 5,
@@ -721,6 +735,48 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     }
 
     setPage(page: number) {
+        if (this.months1 == null) {
+            delete this.months1;
+        }
+        if (this.months2 == null) {
+            delete this.months2;
+        }
+        if (this.months3 == null) {
+            delete this.months3;
+        }
+        if (this.months4 == null) {
+            delete this.months4;
+        }
+        if (this.months5 == null) {
+            delete this.months5;
+        }
+        if (this.months6 == null) {
+            delete this.months6;
+        }
+        if (this.months7 == null) {
+            delete this.months7;
+        }
+        if (this.fixed == null) {
+            delete this.fixed;
+        }
+        if (this.vari == null) {
+            delete this.vari;
+        }
+        if (this.market == null) {
+            delete this.market;
+        }
+        if (this.price == null) {
+            delete this.price;
+        }
+        if (this.names == null) {
+            delete this.names;
+        }
+        if (this.min == null) {
+            delete this.min;
+        }
+        if (this.max == null) {
+            delete this.max;
+        }
 
         const Results = {}
         if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "Prepaid" || this.prepaid == "Prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.names || this.sort == "dsc" || this.item || this.price) {
@@ -745,7 +801,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
 
 
             );
-
+            // localStorage.clear();
 
         }
 

@@ -27,6 +27,10 @@ export const AppRoutes: Routes = [
               loadChildren: './regulated/products/products.module#ProductsModule'
           },
           {
+            path: 'guid',
+            loadChildren: './guid/guid.module#GuidModule'
+        },
+          {
             path: 'product/:zipCode',
             loadChildren: './Deregulated/product/product.module#ProductModule'
         },
