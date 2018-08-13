@@ -124,15 +124,26 @@ export class HomeComponent implements OnInit {
 
 
   }
-  // onKeydown(event) {
-  //   if (event.key === "Enter") {
-  //     this.router.navigate(['/products/' + this.zipCode]);
-  //     localStorage.setItem('zip', this.zipCode);
-  //     console.log(event);
+ 
+ move(name){
+if(this.zipCode){
+ 
+  this.router.navigate(['/products/' + this.zipCode]);
+  localStorage.setItem('zip', this.zipCode);
+  localStorage.setItem('name', name.trim());
+}
+else{
+  swal({
+    text: "Please Enter zipcode",
+    title: "Choice Genie",
+    type: "error",
+    showConfirmButton: false,
+    timer: 1200,
+    confirmButtonText: "OK",
 
-  //   }
-  // }
-
+  }) 
+}
+ }
 
   Checkzipcode(event,zipcode1) {
 
@@ -171,6 +182,43 @@ this.state=data['state'];
 
         });
   }
+  Checkzipcode1(event,zipcode1) {
+
+    console.log("CHOICE GENIE", this.model.zipcode1);
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    this.http.get(Config.api + 'zipcodecheck/' + zipcode1, { headers: headers })
+      .subscribe(data => {
+        console.log(data);
+        console.log(data['message'], 'hhhhhhhhhhhhhhh')
+this.state=data['state'];
+        this.zipcodeexist = data['message']
+        if (this.zipcodeexist == "InValid Zipcode") {
+          swal({
+            text: "InValid Zipcode",
+            title: "Choice Genie",
+            type: "error",
+            showConfirmButton: false,
+            timer: 1200,
+            confirmButtonText: "OK",
+
+          })
+        }
+        else if (this.state == "deregulatedstate") {
+          this.router.navigate(['/guid']);
+          localStorage.setItem('zip', this.zipCode);
+        }
+        else if(this.state == "notderegulatedstate"){
+          this.router.navigate(['/guid']);
+          localStorage.setItem('zip', this.zipCode);
+        }
+      },
+        error => {
+          console.log(error);
+
+
+        });
+  }
   keyPress(event: any) {
     const pattern = /[0-9\+\-\ ]/;
 
@@ -184,40 +232,25 @@ this.state=data['state'];
 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    //   this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
     this.Http.get(Config.api + 'zipcodedata/75001', { headers: headers })
         .subscribe(Res => {
             console.log(Res);
-
-            // localStorage.setItem("signupDetails", JSON.stringify(Res));
-            // localStorage.setItem("signedupcompanyid", this.product_id);
-            //localStorage.setItem("consumerPremiseID", this.premiseID);
-
-            //   return JSON.parse(localStorage.getItem("premiseID"))   
-            this.sg['products'] = Res.json()['Results'];
-            this.data.changeProducts(this.sg['products']);
-            for (let prod of this.sg['products']) {
-                // console.log(prod["plan_information"])
-                // console.log(prod["price_rate"])
+            this.sg['plan'] = Res.json()['Results'];
+            this.data.changeProducts(this.sg['plan']);
+            for (let prod of this.sg['plan']) {
                 prod["plan_information"] = prod["plan_information"].split(',,', 3000);
                 prod["price_rate"] = prod["price_rate"].split('..', 3000);
               }
-
-         
-          
-            
-            // setTimeout(function(){
-            //     $('.autoplay').slick({
-       
-            //         slidesToShow: 3,
-            //         slidesToScroll: 1,
-            //         autoplay: true,
-            //        //prevArrow:'<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>',
-            //      //   nextArrow:'<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>'
-            //         prevArrow:'<button _ngcontent-c0="" ngxcarouselprev="" class="leftRs buttons btn btn-rose btn-xs" style="display: block;"><i _ngcontent-c0="" class="material-icons">keyboard_arrow_left</i> </button>',
-            //         nextArrow:'<button _ngcontent-c0="" ngxcarouselnext="" class="rightRs buttons btn btn-rose btn-xs" style="display: block;"><i _ngcontent-c0="" class="material-icons">keyboard_arrow_right</i> </button>'
-            //       });
-            // }, 50);
+ setTimeout(function () {
+                $('.autoplay').slick({
+                  slidesToShow: 5,
+                  slidesToScroll: 5,
+                  autoplaySpeed: 1500,
+                  autoplay: true,
+                    prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left" style="left:0;"><i class="fa fa-angle-left"></i></button>',
+                    nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" style="right:0;"><i class="fa fa-angle-right"></i></button>'
+                });
+            }, 1);
         });
 }
 
