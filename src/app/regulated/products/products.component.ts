@@ -24,6 +24,7 @@ import { PageEvent } from '@angular/material';
 
 import swal from 'sweetalert2';
 import { error } from 'util';
+import { delay } from 'rxjs/operator/delay';
 
 
 
@@ -155,6 +156,39 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     zipdet;
     modal: any = [];
     ngOnInit() {
+        $('.slick-date').slick({
+            slidesToShow: 2,
+            variableWidth: true,
+            responsive: [
+              {
+                breakpoint: 400,
+                settings: {
+                  slidesToShow: 1
+                }
+              }
+            ]
+          });
+          
+          
+          const mainSearch = $('.main-search');
+          const formSearch = $('.form-search');
+          
+          $('.search-bg').click(function () {
+            $(mainSearch).addClass('active');
+            $('body').addClass('noScroll');
+            $(formSearch).addClass('flipInX');
+          
+            setTimeout(function () {
+              $('.form-search .mat-input-element').focus();
+            }, 370);
+          
+          });
+          
+          $('#closeSearch').click(function () {
+            $(mainSearch).removeClass('active');
+            $('body').removeClass('noScroll');
+            $(formSearch).removeClass('flipInX');
+          });
         console.log(this.today = Date.now())
         this.state = localStorage.getItem('state')
         this.names = localStorage.getItem('name')
@@ -180,39 +214,8 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         this.val = "methodName($event[0])"
         this.companytitle();
 
-
-
         this.featuredplan();
-        // $('.slick-date').slick({
-        //     slidesToShow: 5,
-        //     slidesToScroll: 5,
-        //     autoplaySpeed: 1500,
-        //     autoplay: true,
-        //     prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left"><i class="fa fa-angle-left"></i></button>',
-        //     nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right"><i class="fa fa-angle-right"></i></button>',
-        //     responsive: [
-        //         {
-        //             breakpoint: 427,
-        //             settings: {
-        //                 slidesToShow: 1
-        //             }
-        //         }
-        //     ]
-        // });
-        // $('.slick-testimonal').slick({
-        //     slidesToShow: 1,
-        //     autoplay: true,
-        //     autoplaySpeed: 7000,
-        //     pauseOnFocus: false,
-        //     pauseOnHover: false,
-        //     fade: true,
-        //     prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left"><i class="fa fa-angle-left"></i></button>',
-        //     nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right"><i class="fa fa-angle-right"></i></button>'
-        // });
-        // $('.slick-testimonal').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-        //     $('.slider-tagline').hide(10);
-        //     $('.slider-tagline').show(5);
-        // });
+    
     }
     btnDeleteClick(id, title, profileurl, profile_logo, servicearea) {
         this.id = id;
@@ -333,6 +336,41 @@ export class ProductsComponent implements OnInit, AfterViewInit {
             .subscribe(Res => {
 
                 this.sg['plan'] = Res.json()['Results'];
+                setTimeout(function () {
+                    $('.homeSlider').slick({
+                      infinite: true,
+                      slidesToShow: 5,
+                      slidesToScroll: 1,
+                      autoplay: true,
+                      prevArrow: '<button class="leftRs"><i class="fa fa-chevron-left"></i></button>',
+                      nextArrow: '<button class="rightRs"><i class="fa fa-chevron-right"></i></button>',
+                      responsive: [
+                        {
+                          breakpoint: 1024,
+                          settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true
+                          }
+                        },
+                        {
+                          breakpoint: 600,
+                          settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                          }
+                        },
+                        {
+                          breakpoint: 480,
+                          settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                          }
+                        }
+                  
+                      ]
+                    });
+                  }, 0);
                 // this.data.changeProducts(this.sg['plan']);
                 this.Items = this.sg['plan'];
                 for (let prod of this.sg['plan']) {
@@ -341,15 +379,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
                     prod["plan_information"] = prod["plan_information"].split(',,', 3000);
                     prod["price_rate"] = prod["price_rate"].split('..', 3000);
                 }
-                setTimeout(function () {
-                    $('.autoplay').slick({
-                        autoplay: true,
-                        slidesToShow: 5,
-                        slidesToScroll: 1,
-                        prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left" style="left:0;"><i class="fa fa-angle-left"></i></button>',
-                        nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" style="right:0;"><i class="fa fa-angle-right"></i></button>'
-                    });
-                }, 1);
+              
             });
     }
 
@@ -462,10 +492,12 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months1 = "36 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months1;
+            localStorage.removeItem('months1');
         }
         console.log(this.months1)
     }
@@ -473,10 +505,12 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months2 = "24 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months2;
+            localStorage.removeItem('months2');
         }
         console.log(this.months2)
     }
@@ -484,10 +518,12 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months3 = "18 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months3;
+            localStorage.removeItem('months3');
         }
         console.log(this.months3)
     }
@@ -495,10 +531,12 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months4 = "14 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months4;
+            localStorage.removeItem('months4');
         }
         console.log(this.months4)
     }
@@ -506,10 +544,12 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months5 = "12 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months5;
+            localStorage.removeItem('months5');
         }
         console.log(this.months5)
     }
@@ -517,10 +557,12 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months6 = "6 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months6;
+            localStorage.removeItem('months6');
         }
         console.log(this.months6)
     }
@@ -528,10 +570,12 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months7 = "5 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months7;
+            localStorage.removeItem('months7');
         }
         console.log(this.months7)
     }
@@ -539,10 +583,12 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.fixed = "Fixed Rate";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.fixed;
+            localStorage.removeItem('fixed');
         }
         console.log(this.fixed)
     }
@@ -550,10 +596,12 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.vari = "Variable (Changing Rate)";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.vari;
+            localStorage.removeItem('vari');
         }
         console.log(this.vari)
     }
@@ -561,10 +609,12 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (event.target.checked == true) {
             console.log(event.target.checked, this.market)
             this.market = "Indexed (Market Rate)";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.market;
+            localStorage.removeItem('market');
         }
         console.log(this.market)
     }
@@ -572,6 +622,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.notprepaid = "prepaid";
+            this.setPage(1);
             delete this.prepaid;
             console.log(this.notprepaid);
         }
@@ -582,6 +633,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (event.target.checked == true) {
             console.log(event.target.checked);
             this.prepaid = "prepaid";
+            this.setPage(1);
             delete this.notprepaid;
         }
 
@@ -590,6 +642,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     checkedpre(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked);
+            this.setPage(1);
             delete this.notprepaid;
             delete this.prepaid;
 
@@ -601,6 +654,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (event.target.checked == true) {
             console.log(event.target.checked);
             this.planmin = "NULL";
+            this.setPage(1);
 
         }
 
@@ -610,7 +664,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (event.target.checked == true) {
             console.log(event.target.checked);
             delete this.planmin;
-
+            this.setPage(1);
         }
 
         console.log(this.planmin)
@@ -620,6 +674,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
             console.log(event.target.checked);
             this.time = "Time Of Use";
             delete this.nottime;
+            this.setPage(1);
         }
 
         console.log(this.time)
@@ -629,6 +684,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
             console.log(event.target.checked);
             delete this.time;
             delete this.nottime;
+            this.setPage(1);
         }
         console.log(this.time)
     }
@@ -637,6 +693,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
             console.log(event.target.checked);
             this.nottime = "Time Of Use";
             delete this.time;
+            this.setPage(1);
         }
 
         console.log(this.nottime)
@@ -645,7 +702,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (energy) {
             console.log(energy);
             this.renewable = energy;
-
+            this.setPage(1);
         }
         else if (!energy) {
             console.log()
@@ -658,10 +715,12 @@ export class ProductsComponent implements OnInit, AfterViewInit {
             console.log(name);
             this.names = name.trim();
             console.log(this.name)
+            this.setPage(1);
         }
         else {
             console.log()
             delete this.names;
+            localStorage.removeItem('name');
         }
         console.log(this.names)
     }
@@ -669,34 +728,90 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         if (item) {
             console.log(item);
             this.item = item;
-
+            this.setPage(1);
         }
         else {
             console.log()
-            this.item = "10";
-
+            delete this.item;
             console.log(this.item)
         }
     }
     pricerate(min, max, price) {
+        if(min && max && price){
         this.min = min;
         this.max = max;
         this.price = price;
-
+        this.setPage(1);
+        }
+        else{
+            localStorage.removeItem('min');
+            localStorage.removeItem('max');
+            localStorage.removeItem('price');
+          delete this.min;
+          delete this.max;  
+          delete this.price; 
+        }
 
         console.log()
     }
 
     checked20(event, i) {
         this.sort = "dsc";
+        this.setPage(1);
     }
     checked21(event, i) {
         this.sort = "dsc";
+        this.setPage(1);
     }
     checked22(event, i) {
         this.sort = "dsc";
+        this.setPage(1);
     }
+    move(name){
+       
+         this.names=name.trim();
+        //   this.router.navigate(['/products/' + this.zip_code]);
+        //   localStorage.setItem('zip', this.zip_code);
+        //   localStorage.setItem('name', name.trim());
+          this.setPage(1);
+        }
     Checkzipcode() {
+        localStorage.removeItem('min');
+            localStorage.removeItem('max');
+            localStorage.removeItem('price');
+            localStorage.removeItem('names');
+            localStorage.removeItem('market');
+            localStorage.removeItem('fixed');
+            localStorage.removeItem('vari');
+            localStorage.removeItem('months1');
+            localStorage.removeItem('months2');
+            localStorage.removeItem('months3');
+            localStorage.removeItem('months4');
+            localStorage.removeItem('months5');
+            localStorage.removeItem('months6');
+            localStorage.removeItem('months7');
+            localStorage.removeItem('name');
+            delete this.min;
+            delete this.max;         
+            delete this.price;
+            delete this.names;
+            delete this.market;
+            delete this.vari;
+            delete this.fixed;
+            delete this.months1;
+            delete this.months2;
+            delete this.months3;
+            delete this.months4;
+            delete this.months5;
+            delete this.months6;
+            delete this.months7;
+            delete this.sort;
+            delete this.renewable;
+            delete this.notprepaid;
+            delete this.prepaid;
+            delete this.time;
+            delete this.nottime;
+            delete this.planmin;
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         this.http.get(Config.api + 'zipcodecheck/' + this.zip_code, { headers: headers })
@@ -706,6 +821,8 @@ export class ProductsComponent implements OnInit, AfterViewInit {
                 console.log(this.state);
                 localStorage.setItem('state', this.state);
                 this.zipcodeexist = data.json()['message']
+                delete this.item;
+               
                 if (this.zipcodeexist == "InValid Zipcode") {
                     swal({
                         text: "InValid Zipcode",
@@ -731,7 +848,19 @@ export class ProductsComponent implements OnInit, AfterViewInit {
                     // window.location.reload()
                 }
 
-            });
+            },
+            error=>{
+                swal({
+                    text: "Zipcode Dose Not Exist",
+                    title: "Choice Genie",
+                    type: "error",
+                    showConfirmButton: false,
+                    timer: 1200,
+                    confirmButtonText: "OK",
+
+                })
+            }
+        );
     }
 
     setPage(page: number) {

@@ -136,6 +136,13 @@ export class ProductComponent implements OnInit {
         this.username = localStorage.getItem('username');
         this.zip_code = localStorage.getItem('zip');
         this.customer = localStorage.getItem('custum')
+        this.months1 = localStorage.getItem('months1')
+        this.months2 = localStorage.getItem('months2')
+        this.months3 = localStorage.getItem('months3')
+      
+        this.months5 = localStorage.getItem('months5')
+        this.months6 = localStorage.getItem('months6')
+       
         const Results = {};
         this.val = "methodName($event[0])"
 this. featuredplan();

@@ -413,15 +413,15 @@
                     <a (click)="setPage(page)" class="view-plan-details">{{page}}</a>
                   </li>
 
-                  <!--<li *ngIf="(pager.startPage  + 5) <= pager.totalPages">-->
-                  <!--    <a (click)="setPage(pager.currentPage + 5)">...</a>-->
-                  <!--</li>-->
-                  <!-- <li *ngIf="(pager.startPage  + 5) <= pager.totalPages" >-->
-                  <!--    <a (click)="setPage(pager.totalPages)">{{pager.totalPages}}</a>-->
-                  <!--</li>-->
-                  <li *ngIf="(pager.totalPages - pager.startPage) > 3 ">
-                    <a (click)="setPage(pager.startPage + 3)">...</a>
+                  <li *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+                     <a (click)="setPage(pager.currentPage + 3)">...</a>
                   </li>
+                  <!-- <li *ngIf="(pager.startPage  + 5) <= pager.totalPages" >
+                     <a (click)="setPage(pager.totalPages)">{{pager.totalPages}}</a>
+                  </li> -->
+                  <!-- <li *ngIf="(pager.totalPages - pager.startPage) > 3 ">
+                    <a (click)="setPage(pager.startPage + 3)">...</a>
+                  </li> -->
                   <!-- <li *ngIf="(pager.totalPages - pager.startPage) > 3" >
     <a (click)="setPage(pager.totalPages)" class="view-plan-details">{{pager.totalPages}}</a>
     </li> -->
@@ -472,11 +472,12 @@
         <div style="padding: 0px; text-align:center;" >
           <h1 style="margin: 11px; font-size: 45px;">Most Popular Plans</h1>
         </div>
-        <div class="autoplay" *ngIf="sg['plan']">
-          <div class="mustafa" style="width:1100px;border-radius:20px" *ngFor="let data of sg['plan']; let i = index">
+        <div class="homeSlider" *ngIf="sg['plan']">
+          <div style="width:1100px;border-radius:20px" *ngFor="let data of sg['plan']; let i = index">
             <div class="prod-slide">
+                <a (click)="move(data.title)">
               <img class="img1" src="{{data.profile_logo}}" alt="{{data.title}}" alt="Card image cap" />
-
+                </a>
               <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
                 data-toggle="modal" data-target="#myModal2">Plan Information
               </h2>

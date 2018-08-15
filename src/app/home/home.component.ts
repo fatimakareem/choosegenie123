@@ -124,10 +124,10 @@ export class HomeComponent implements OnInit {
 
 
   }
- 
+
  move(name){
 if(this.zipCode){
- 
+
   this.router.navigate(['/products/' + this.zipCode]);
   localStorage.setItem('zip', this.zipCode);
   localStorage.setItem('name', name.trim());
@@ -141,7 +141,7 @@ else{
     timer: 1200,
     confirmButtonText: "OK",
 
-  }) 
+  })
 }
  }
 
@@ -205,7 +205,7 @@ this.state=data['state'];
           })
         }
         else if (this.state == "deregulatedstate") {
-          this.router.navigate(['/guid']);
+          this.router.navigate(['/guids']);
           localStorage.setItem('zip', this.zipCode);
         }
         else if(this.state == "notderegulatedstate"){
@@ -247,8 +247,8 @@ this.state=data['state'];
                   slidesToScroll: 5,
                   autoplaySpeed: 1500,
                   autoplay: true,
-                    prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left" style="left:0;"><i class="fa fa-angle-left"></i></button>',
-                    nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" style="right:0;"><i class="fa fa-angle-right"></i></button>'
+                    prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left" ><i class="fa fa-angle-left"></i></button>',
+                    nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" ><i class="fa fa-angle-right"></i></button>'
                 });
             }, 1);
         });

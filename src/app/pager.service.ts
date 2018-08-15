@@ -12,7 +12,11 @@ export class PagerService {
     if (totalPages <= 3) {
         startPage = 1;
         endPage = totalPages;
-    } else {
+    }else if(totalPages > 3){
+        startPage=currentPage;
+        endPage = currentPage+2;
+    }
+     else {
         if (currentPage <= 3) {
             startPage = 1;
             endPage = 3;

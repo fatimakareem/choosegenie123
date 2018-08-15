@@ -26,10 +26,7 @@ export const AppRoutes: Routes = [
               path: 'products/:zipCode',
               loadChildren: './regulated/products/products.module#ProductsModule'
           },
-          {
-            path: 'guid',
-            loadChildren: './guid/guid.module#GuidModule'
-        },
+         
           {
             path: 'product/:zipCode',
             loadChildren: './Deregulated/product/product.module#ProductModule'
@@ -42,6 +39,14 @@ export const AppRoutes: Routes = [
         path: '',
         component: NormalLayoutComponent,
         children: [
+            {
+                path: 'guid',
+                loadChildren: './guid/guid.module#GuidModule'
+            },
+            {
+                path: 'guids',
+                loadChildren: './guids/guids.module#GuidsModule'
+            },
           {
               path: 'commercial',
               loadChildren: './commercial/commercial.module#CommercialModule'
