@@ -19,14 +19,20 @@
             <!-- <div *ngIf="!islogin">
               <p class="errormessage">Incorrect Password or Username</p>
             </div> -->
-            <mat-checkbox>
+            <!-- <mat-checkbox>
 
               Stay signed in
-            </mat-checkbox>
-            <br/>
+            </mat-checkbox> -->
+            <div class="float-left">
+              <label >
+                <input [(ngModel)]="staySignedIn" type="checkbox" name="stay-signed" value="Stay Sign In">
+                <div class="float-r">Stay Signed In</div>
+              </label>
+            </div>
+            
             <!-- || !recaptcha -->
             <!-- <div class="row" style="margin: 25px 0 0 0;"> -->
-            <blackgeeks-recaptcha  ></blackgeeks-recaptcha>
+            <blackgeeks-recaptcha class="float-r margin-right-bottom" ></blackgeeks-recaptcha>
             <!-- </div> -->
             <div class="row" *ngIf="isequal==false">
               <p class="col-lg-12 errormessage">Invalid Answer</p>

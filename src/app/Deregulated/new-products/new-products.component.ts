@@ -38,6 +38,7 @@ export class NewProductsComponent implements OnInit {
   cancelation_fee;
   terms_of_service;
   phone;
+  contact_email;
   sign_up;
   minimum_usage_fee;
   renewable;
