@@ -109,6 +109,7 @@ checked1(event, i) {
   else if (event.target.checked == false) {
       console.log(event.target.checked)
       delete this.months1;
+      localStorage.removeItem('months1');
   }
   console.log(this.months1)
 }
@@ -121,6 +122,7 @@ checked2(event, i) {
   else if (event.target.checked == false) {
       console.log(event.target.checked)
       delete this.months2;
+      localStorage.removeItem('months2');
   }
   console.log(this.months2)
 }
@@ -133,6 +135,7 @@ checked3(event, i) {
   else if (event.target.checked == false) {
       console.log(event.target.checked)
       delete this.months3;
+      localStorage.removeItem('months3');
   }
   console.log(this.months3)
 }
@@ -146,6 +149,7 @@ checked5(event, i) {
   else if (event.target.checked == false) {
       console.log(event.target.checked)
       delete this.months5;
+      localStorage.removeItem('months5');
   }
   console.log(this.months5)
 }
@@ -158,6 +162,7 @@ checked6(event, i) {
   else if (event.target.checked == false) {
       console.log(event.target.checked)
       delete this.months6;
+      localStorage.removeItem('months6');
   }
   console.log(this.months6)
 }

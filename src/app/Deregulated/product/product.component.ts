@@ -361,6 +361,20 @@ this. featuredplan();
     }
    
     Checkzipcode() {
+        delete this.months1;
+        delete this.months2;
+        delete this.months3;
+        delete this.months4;
+        delete this.months5;
+        delete this.months6;
+        delete this.months7;
+        localStorage.removeItem('months1');
+        localStorage.removeItem('months2');
+        localStorage.removeItem('months3');
+        localStorage.removeItem('months4');
+        localStorage.removeItem('months5');
+        localStorage.removeItem('months6');
+        localStorage.removeItem('months7');
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         this.http.get(Config.api + 'zipcodecheck/' + this.zip_code, { headers: headers })
@@ -398,10 +412,12 @@ this. featuredplan();
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months1 = "36 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months1;
+            localStorage.removeItem('months1');
         }
         console.log(this.months1)
     }
@@ -409,10 +425,12 @@ this. featuredplan();
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months2 = "24 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months2;
+            localStorage.removeItem('months2');
         }
         console.log(this.months2)
     }
@@ -420,10 +438,12 @@ this. featuredplan();
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months3 = "18 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months3;
+            localStorage.removeItem('months3');
         }
         console.log(this.months3)
     }
@@ -432,10 +452,12 @@ this. featuredplan();
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months5 = "12 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months5;
+            localStorage.removeItem('months5');
         }
         console.log(this.months5)
     }
@@ -443,10 +465,12 @@ this. featuredplan();
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months6 = "6 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months6;
+            localStorage.removeItem('months6');
         }
         console.log(this.months6)
     }
@@ -454,7 +478,7 @@ this. featuredplan();
         if (item) {
             console.log(item);
             this.item = item;
-
+            this.setPage(1);
         }
         else {
             console.log()
@@ -465,18 +489,22 @@ this. featuredplan();
     }
     checked20(event, i) {
         this.sort = "true";
+        this.setPage(1);
     }
     checked21(event, i) {
         this.sort = "true";
+        this.setPage(1);
     }
     checked22(event, i) {
         this.sort = "true";
+        this.setPage(1);
     }
     checked17(event, i, name) {
         if (name) {
             console.log(name);
             this.names = name;
             console.log(this.name)
+            this.setPage(1);
         }
         else {
             console.log()
@@ -486,6 +514,21 @@ this. featuredplan();
     }
 
     setPage(page: number) {
+        if (this.months1 == null) {
+            delete this.months1;
+        }
+        if (this.months2 == null) {
+            delete this.months2;
+        }
+        if (this.months3 == null) {
+            delete this.months3;
+        }
+        if (this.months5 == null) {
+            delete this.months5;
+        }
+        if (this.months6 == null) {
+            delete this.months6;
+        }
         //alert( this.noresult);
         const Results = {}
         if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.sort || this.names || this.item) {

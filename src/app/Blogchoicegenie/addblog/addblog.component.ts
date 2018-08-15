@@ -35,9 +35,10 @@ export class AddblogComponent implements OnInit {
   result: any = [];
   url: any = 'JPG, GIF, PNG';
   Ch_image;
-
+  
   constructor( public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
   ngOnInit() {
+  
     this.signupForm = this.fb.group({
       'Ch_image': ['', Validators.compose([Validators.required])],
       'heading1': ['', Validators.compose([Validators.required])],
