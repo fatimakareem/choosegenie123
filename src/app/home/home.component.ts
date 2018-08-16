@@ -158,7 +158,7 @@ this.state=data['state'];
         this.zipcodeexist = data['message']
         if (this.zipcodeexist == "InValid Zipcode") {
           swal({
-            text: "InValid Zipcode",
+            text: "Invalid Zipcode",
             title: "Choice Genie",
             type: "error",
             showConfirmButton: false,
@@ -178,7 +178,15 @@ this.state=data['state'];
       },
         error => {
           console.log(error);
+          swal({
+            text: "Invalid Zipcode",
+            title: "Choice Genie",
+            type: "error",
+            showConfirmButton: false,
+            timer: 1200,
+            confirmButtonText: "OK",
 
+          })
 
         });
   }
@@ -215,7 +223,15 @@ this.state=data['state'];
       },
         error => {
           console.log(error);
+          swal({
+            text: "InValid Zipcode",
+            title: "Choice Genie",
+            type: "error",
+            showConfirmButton: false,
+            timer: 1200,
+            confirmButtonText: "OK",
 
+          })
 
         });
   }

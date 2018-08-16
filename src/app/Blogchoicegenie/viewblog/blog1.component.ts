@@ -15,18 +15,21 @@ data:any=[];
   constructor(private route: ActivatedRoute,private http: HttpService) { }
   private Sub: Subscription;
 public heading1;
+heading;
   ngOnInit() {
+    this.fetchProducts();
     this.route.params.subscribe ( params => {
-        this.fetchProducts(params['heading1']) 
+       
       });
       this.Sub = this.route.params.subscribe(params => {
       this.heading1= +params['heading1'] ;
       });
   }
-  fetchProducts(heading1) {
+  fetchProducts() {
+    this.heading=localStorage.getItem('heading');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    this.http.get(Config.api+'filterblog/'+ heading1 +'/' ,{ headers: headers })
+    this.http.get(Config.api+'filterblog/'+ this.heading +'/' ,{ headers: headers })
     .subscribe(Res => {
     this.data = Res.json()[0];
     console.log(this.data);

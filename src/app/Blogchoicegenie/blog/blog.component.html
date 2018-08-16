@@ -64,7 +64,7 @@
       <div class="blog-layout-content">
         <h2>{{data.heading1}}</h2>
         <p>{{data.content1 | slice:0:106}}..</p>
-        <a  routerLink="/blog/{{data.heading1}}">
+        <a (click)="fun(data.heading1)">
         <button class="btn btn-fill margin-zero1" type="submit">Read more</button></a>
       </div>
     </div>

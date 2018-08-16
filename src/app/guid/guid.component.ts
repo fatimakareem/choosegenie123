@@ -9,6 +9,9 @@ import { FormBuilder, Validators, NgControl, RadioControlValueAccessor, FormCont
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
  import swal from 'sweetalert2';
 import { MatSelect } from '@angular/material';
+import { HomeService } from "../home/home.service";
+import { DataService } from '../data.service';
+import { PagerService } from '../pager.service';
 
 import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
 @Component({
@@ -39,7 +42,8 @@ export class GuidComponent implements OnInit {
   min;
   max;
   zip_code;
-  constructor(private https:Http,public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
+  product;
+  constructor(private fb: FormBuilder,private http: Http, private pagerService: PagerService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private data: DataService) { }
 
   ngOnInit() {  
     this.zip_code = localStorage.getItem('zip');
@@ -65,6 +69,15 @@ export class GuidComponent implements OnInit {
     'months6': [''],
     'months7': [''],
   });
+  this.fun();
+  }
+  fun(){
+    this.obj.searchProducts(this.zip_code, 1).subscribe(response => {
+        this.product = response['Total Result'];
+       console.log(this.product,'dddd')
+
+    });
+
   }
   checked8(event, i) {
     if (event.target.checked == true) {

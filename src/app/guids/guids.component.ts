@@ -9,6 +9,7 @@ import { FormBuilder, Validators, NgControl, RadioControlValueAccessor, FormCont
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
  import swal from 'sweetalert2';
 import { MatSelect } from '@angular/material';
+import { HomeService } from "../home/home.service";
 
 import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group';
 @Component({
@@ -23,9 +24,7 @@ export class GuidsComponent implements OnInit {
   normalPattern = '[a-zA-Z0-9_.-]+?';
   digitsOnly = '^[0-9,-]+$';
   email = '^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$';
-  fixed;
-  vari;
-  market;
+ 
   months1;
   months2;
   months3;
@@ -33,11 +32,10 @@ export class GuidsComponent implements OnInit {
   months5;
   months6;
   months7;
-  price;
-  min;
-  max;
+ 
   zip_code;
-  constructor(private https:Http,public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
+  product
+  constructor(private obj: HomeService,private https:Http,public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
 
   ngOnInit() {  
     this.zip_code = localStorage.getItem('zip');
@@ -63,6 +61,15 @@ export class GuidsComponent implements OnInit {
     'months6': [''],
     'months7': [''],
   });
+  this.fun();
+  }
+  fun(){
+    this.obj.searchProducts1(this.zip_code, 1).subscribe(response => {
+        this.product = response['Total Result'];
+       console.log(this.product,'dddd')
+
+    });
+
   }
 //   checked8(event, i) {
 //     if (event.target.checked == true) {

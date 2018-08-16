@@ -36,6 +36,7 @@ export class AddblogComponent implements OnInit {
   url: any = 'JPG, GIF, PNG';
   Ch_image;
   
+   
   constructor( public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
   ngOnInit() {
   
