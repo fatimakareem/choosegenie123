@@ -42,8 +42,10 @@ export class Blog3Component implements OnInit {
       
       }
       id='';
-      btnDeleteClick(id) {
+      btnDeleteClick(id,heading1,Ch_image) {
         this.id = id;
+        this.heading1=heading1;
+        this.Ch_image=Ch_image;
         console.log('id : ' + this.id);
     }
       deleteClick(id) {
