@@ -25,17 +25,17 @@
             </mat-checkbox> -->
             <div class="float-left">
               <label >
-                <!-- <input [(ngModel)]="staySignedIn" type="checkbox" name="stay-signed" value="Stay Sign In"> -->
+                <input [(ngModel)]="staySignedIn" type="checkbox" name="stay-signed" value="Stay Sign In">
                 <div class="float-r">Stay Signed In</div>
               </label>
             </div>
-            
+
             <!-- || !recaptcha -->
             <!-- <div class="row" style="margin: 25px 0 0 0;"> -->
             <blackgeeks-recaptcha class="float-r margin-right-bottom" ></blackgeeks-recaptcha>
             <!-- </div> -->
-            <div class="row" *ngIf="isequal==false">
-              <p class="col-lg-12 errormessage">Invalid Answer</p>
+            <div class="" *ngIf="isequal==false">
+              <p class="col-lg-12 errormessage" style="color: #CC0000">Invalid Answer</p>
             </div>
             <!-- <re-captcha (resolved)="resolved($event)" siteKey="6Lc4418UAAAAAPxDwXhjAF3a2sdRn2RIoMQxF9D9
             " style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;"></re-captcha>

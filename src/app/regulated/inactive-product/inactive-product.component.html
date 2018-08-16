@@ -1,17 +1,18 @@
 <div class="products-area">
-  <div class="row">
-    <div class="search-bar1 col-lg-10">
+  <div class="row" style="width: 100%; margin: 0 auto;">
+    <div class="search-bar1 col-lg-12">
         <md-input-container class="block" hidden=true>
             <input mdInput placeholder="Title" [ngModel]="Inactivedate | date:'yyyy-MM-dd'" >
         </md-input-container>
 
 
         <div class="col-lg-3">
+          <label class="date-lable">Effective from Date</label>
           <!-- <mat-form-field class="cus-font">
             <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Inactive Date"/>
             <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle> <mat-datepicker #startPicker></mat-datepicker>
           </mat-form-field> -->
-          <input type="date" placeholder="Inactive Date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="    padding: 10px 0px; font-size: 20px;">
+          <input type="date" placeholder="Inactive Date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="padding: 2px 0px; font-size: 16px; font-weight: bold;">
 
         </div>
           <md-input-container class="block" hidden=true>
@@ -19,16 +20,17 @@
           </md-input-container>
 
           <div class="col-lg-3">
+            <label class="date-lable">Effective to Date</label>
             <!-- <mat-form-field class="cus-font">
               <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publishdate" placeholder="Publish Date"/>
               <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
             </mat-form-field> -->
-            <input type="date"  placeholder="Publish Date" required name="publishdate" [(ngModel)]="publishdate" style="    padding: 10px 0px; font-size: 20px;">
+            <input type="date"  placeholder="Publish Date" required name="publishdate" [(ngModel)]="publishdate" style="padding: 2px 0px; font-size: 16px; font-weight: bold;">
 
           </div>
 
             <div class="col-lg-3">
-              <mat-form-field class="cus-font">
+              <mat-form-field class="cus-font" style="margin-top: 12px;">
 
                 <mat-select class="search-select" placeholder="Service Area Name" required [(ngModel)]="name" name="name">
                   <mat-option value="AEP TEXAS NORTH DIVISION" style="font-size: 20px">AEP TEXAS NORTH DIVISION</mat-option>
@@ -36,7 +38,7 @@
                   <mat-option value="TEXAS-NEW MEXICO POWER COMPANY" style="font-size: 20px">TEXAS-NEW MEXICO POWER COMPANY</mat-option>
                   <mat-option value="AEP TEXAS CENTRAL" style="font-size: 20px">AEP TEXAS CENTRAL</mat-option>
                   <mat-option value="ONCOR ELECTRIC DELIVERY COMPANY" style="font-size: 20px">ONCOR ELECTRIC DELIVERY COMPANY</mat-option>
-                   
+
                 </mat-select>
               </mat-form-field>
             </div>
@@ -45,7 +47,7 @@
             <button class="col-lg-3 search-btn btn-fill" (click)="search(1)">Search</button>
     </div>
   </div>
-    
+
   <!-- <div class="page-title">
     <span>Product Search</span>
   </div> -->
@@ -63,7 +65,7 @@
 
         <div class="col-sm-12">
           <div class="card-header card-header-text position-abs cards-itme" data-background-color="rose">
-            <h4 class="card-title">{{data.title}} </h4>
+            <h4 class="card-title" style="margin-bottom: 8px !important;">{{data.title}} </h4>
 
           </div>
 
@@ -96,7 +98,7 @@
               <h3 style=" text-align: center">
                 <b> Price Detail</b>
               </h3>
-              <div style="text-align:center; padding-top:10px;">
+              <div style="text-align:center; padding-top:10px; font-weight: bold;">
                 500 kWh
                 <b class="price-style"> {{data.price_500_kwh}}¢</b>
 
@@ -111,7 +113,7 @@
 
               </div>
 
-              <a>
+              <a style="margin-top: 10px;">
                 <label class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                   data-toggle="modal" data-target="#myModal2" style="    padding-bottom: 0px; margin-bottom: 0px;">Plan Information</label>
               </a>
@@ -124,8 +126,8 @@
                 <!-- Modal content-->
                 <div class="modal-content popupmodel">
                   <!-- <div class="modal-header">
-                               
-                               
+
+
                               </div> -->
                   <div class="modal-body" style="font-size: 18px;
                               background: #ffffff;
@@ -203,10 +205,10 @@
 
                       <!-- <input matInput placeholder="status" [formControl]="signupForm.controls['status']" required [value]="status" [(ngModel)]="model.status" hidden="true"> -->
                       <div class=" text-center">
-                        <button type="submit" class="btn btn-rose" (click)="activeClick(mydate.value,updatedtitle.value,updatedsign_up.value,updatedphone.value,updatedterms_of_service.value,updatedfact_sheet.value,updatedcancelation_fee.value,updatedprice500kwh.value,updatedprice1000kwh.value,updatedprice2000kwh.value,updatedplan_information.value,updatedrating_logo.value,updatedprofile_logo.value,updatedprofileurl.value,upactive.value)"
+                        <button type="submit" class="btn btn-fill" (click)="activeClick(mydate.value,updatedtitle.value,updatedsign_up.value,updatedphone.value,updatedterms_of_service.value,updatedfact_sheet.value,updatedcancelation_fee.value,updatedprice500kwh.value,updatedprice1000kwh.value,updatedprice2000kwh.value,updatedplan_information.value,updatedrating_logo.value,updatedprofile_logo.value,updatedprofileurl.value,upactive.value)"
                           data-dismiss="modal">active</button>
 
-                        <button type="button" class="btn btn-rose" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-fill" data-dismiss="modal">Cancel</button>
                       </div>
                     </form>
 
@@ -215,29 +217,26 @@
               </div>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12 term">
-              <div class="text-center">
 
-
-
-                <button class="fa fa-check edit-del-btn" type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
-                  data-toggle="modal" data-target="#myModal3">
-
-                </button>
-              </div>
               <h3 class="text-center">
                 <b> Call Now</b>
               </h3>
               <p class="text-center">{{data.phone}}</p>
-              <button class="btn btn-rose" style="display:block; margin: 0 auto;">
+              <button class="btn btn-fill" style="display:block; margin: 0 auto 20px;">
                 <a style="color:white" href="{{data.profileurl}}" target="_blank">Signup </a>
-              
               </button>
-
+              <div class="text-center">
+                <button class="edit-del-btn2" type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
+                        data-toggle="modal" data-target="#myModal3">
+                  <i class="fa fa-times inactive"></i>
+                  <span style="font-size: 19px;"> Activate </span>
+                </button>
+              </div>
 
             </div>
-      
+
             <div class="col-sm-12">
-            
+
             </div>
           </div>
         </div>
@@ -247,17 +246,17 @@
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content popupmodel">
-  
+
             <div class="modal-body" style="font-size: 18px;
                                         background: #ffffff;
-                                        padding: 20px;
+                                        padding: 20px 20px 0px;
                                         margin: 15px;
                                         position: relative;">
               <div class="popup-close-button" data-dismiss="modal">X</div>
               <div class="row">
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="border-bottom: 1px #4f4f4f solid;">
                   <p class=" modal-v2__main-heading"> {{title}}</p>
-  
+
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
                   <div class="popup-image">
@@ -266,20 +265,20 @@
                     </a>
                   </div>
                 </div>
-                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                <div class="col-lg-6 col-md-5 col-sm-5 col-xs-5">
                   <div class="plan-information__heading">Price Rate</div>
                   <table>
                     <tbody>
                       <tr class="plan-information__row">
-                        <td class="plan-information__cell">price_1000_kwh</td>
+                        <td class="plan-information__cell">Price 1000 kwh</td>
                         <td class="plan-information__cell plan-information__cell--last ">{{price_1000_kwh}}</td>
                       </tr>
                       <tr class="plan-information__row">
-                        <td class="plan-information__cell">price_500_kwh</td>
+                        <td class="plan-information__cell">Price 500 kwh</td>
                         <td class="plan-information__cell plan-information__cell--last ">{{price_500_kwh}}</td>
                       </tr>
                       <tr class="plan-information__row">
-                        <td class="plan-information__cell">price_2000_kwh</td>
+                        <td class="plan-information__cell">Price 2000 kwh</td>
                         <td class="plan-information__cell plan-information__cell--last ">{{price_2000_kwh}}</td>
                       </tr>
                     </tbody>
@@ -298,7 +297,7 @@
                             <i style="color:#25B7D3" class="material-icons">picture_as_pdf</i>
                             Terms of service
                           </a>
-  
+
                         </td>
                       </tr>
                     </tbody>
@@ -306,35 +305,35 @@
                   <div class="plan-description">
                     <div class="plan-description__heading">Cancelation Fee</div>
                     <div class="plan-description__content">
-  
+
                       <h4 *ngIf="data.cancelation_fee;else no_data_temp2">
                         &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee.split(' ',3000)[2]}}
                       </h4>
-  
+
                       <ng-template #no_data_temp2>
                         <h4>&nbsp;&nbsp;&nbsp;&nbsp; ---</h4>
                       </ng-template>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                <div class="col-lg-6 col-md-7 col-sm-7 col-xs-7">
                   <div class="plan-description">
                     <div class="plan-description__heading">Plan Information</div>
                     <div class="plan-description__content">
                       <ul>
                         <li *ngFor="let data of plan_information">{{data}}</li>
                       </ul>
-  
-  
+
+
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-  
-            <div style="display:inline-block; text-align:center;">
+
+            <div style="display:inline-block; text-align:center; margin-top: -10px;">
               <a href="{{sign_up}}" target="_blank">
-                <button class="btn btn-rose">Order Online</button>
+                <button class="btn btn-fill">Order Online</button>
               </a>
               <div style="display:inline-block; padding:24px;">
                 <span style="font-size:24px; font-weight:600px">OR CALL
@@ -355,9 +354,9 @@
     </div>
 
   </div>
-  
+
   <div class="text-center">
- 
+
     <div class="products-area" *ngIf="prod_loaded">
       <ng-container class="card" *ngFor="let data of sg['products']; let i = index">
         <!-- items being paged -->
@@ -367,19 +366,19 @@
           <!-- pager -->
           <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
             <li [ngClass]="{hide:pager.currentPage === 1}">
-              <a (click)="setPage(1)" class="btn btn-rose">First</a>
+              <a (click)="setPage(1)" class="btn btn-fill">First</a>
             </li>
             <li [ngClass]="{hide:pager.currentPage === 1}">
-              <a (click)="setPage(data.title.trim(),pager.currentPage - 1)" class="btn btn-rose">Previous</a>
+              <a (click)="setPage(data.title.trim(),pager.currentPage - 1)" class="btn btn-fill">Previous</a>
             </li>
             <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-              <a (click)="setPage(data.title.trim(),page)" class="btn btn-rose">{{page}}</a>
+              <a (click)="setPage(data.title.trim(),page)" class="btn btn-fill">{{page}}</a>
             </li>
             <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-              <a (click)="setPage(data.title.trim(),pager.currentPage + 1)" class="btn btn-rose" type="Next">Next</a>
+              <a (click)="setPage(data.title.trim(),pager.currentPage + 1)" class="btn btn-fill" type="Next">Next</a>
             </li>
             <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-              <a (click)="setPage(data.title.trim(),pager.totalPages)" class="btn btn-rose" type="Last">Last</a>
+              <a (click)="setPage(data.title.trim(),pager.totalPages)" class="btn btn-fill" type="Last">Last</a>
             </li>
           </ul>
         </div>

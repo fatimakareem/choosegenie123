@@ -1,5 +1,10 @@
 <div class="container com-prof-fixed" style="width: 100%;     padding: 20px 0px;">
-    <div class="vander-signup-heading" data-notify="container">
+  <div class="page-title">
+
+    <h3 class="text-center choiecegenie-offers wow fadeInLeft">Edit Your Profile</h3>
+
+  </div>
+    <div class="vander-signup-heading col-sm-12" data-notify="container">
         <i class="material-icons" data-notify="icon">notifications</i>
         <span data-notify="message">The information below is intended for internal use only and will not be shared with other site members. The information
             gathered will help us serve you better.
@@ -8,21 +13,20 @@
     <div class="col-sm-12">
         <div class="card">
             <form>
-                <div class="card-header card-header-icon" data-background-color="rose">
-                    <i class="material-icons">mail_outline</i>
-                </div>
+                <!--<div class="card-header card-header-icon" data-background-color="rose">-->
+                    <!--<i class="material-icons">mail_outline</i>-->
+                <!--</div>-->
                 <div class="card-content">
-                    <h4 class="card-title">Edit Your Profile</h4>
+                    <h4 class="title-05"></h4>
                     <div class="row">
-                      
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 margin-t">
                             <div>
                                 <mat-form-field>
                                     <input matInput placeholder="REP Name" type="text" value="{{data.REP_name}}" #updatedREP>
                                 </mat-form-field>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 margin-t">
 
                             <div>
                                 <mat-form-field>
@@ -33,9 +37,7 @@
 
                             </div>
                         </div>
-                        </div>
-<div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 margin-t">
                             <div>
 
                                 <mat-form-field class="margin">
@@ -46,7 +48,7 @@
 
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 margin-t">
                             <div>
 
                                 <mat-form-field class="margin">
@@ -57,11 +59,11 @@
 
                             </div>
                         </div>
-</div>
+                    </div>
 <div class="form-footer text-right row">
 
     <div class="form-group col-lg-6" style="margin: 0 auto;">
-        <button type="submit" style="width:100%; border-radius:50px" class="btn btn-lrg btn-fill btn-wd" (click)="onRegister(updatedid.value,updatedREP.value,updatedREPid.value,updatedName.value,updatedphone.value,updatedmarket.value,updatedstatus.value,updateduser.value)">Update</button>
+        <button type="submit" style="width:100%; border-radius:50px; margin: 0px;" class="btn btn-lrg btn-fill btn-wd" (click)="onRegister(updatedid.value,updatedREP.value,updatedREPid.value,updatedName.value,updatedphone.value,updatedmarket.value,updatedstatus.value,updateduser.value)">Update</button>
     </div>
 </div>
 </div>
@@ -107,7 +109,7 @@
 
                     <!-- </div> -->
 
-                    
+
                 <!-- </div> -->
             </form>
 
