@@ -124,26 +124,8 @@ export class HomeComponent implements OnInit {
 
 
   }
-
- move(name){
-if(this.zipCode){
-
-  this.router.navigate(['/products/' + this.zipCode]);
-  localStorage.setItem('zip', this.zipCode);
-  localStorage.setItem('name', name.trim());
-}
-else{
-  swal({
-    text: "Please Enter zipcode",
-    title: "Choice Genie",
-    type: "error",
-    showConfirmButton: false,
-    timer: 1200,
-    confirmButtonText: "OK",
-
-  })
-}
- }
+  
+ 
 
   Checkzipcode(event,zipcode1) {
 
@@ -243,20 +225,23 @@ this.state=data['state'];
       event.preventDefault();
     }
   }
-
+  mess;
+  notmess;
+  resulttaxes;
+  resultderegulated;
+  total;
   premiseIdData() {
 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    this.Http.get(Config.api + 'zipcodedata/75001', { headers: headers })
+    this.Http.get(Config.api + 'combine_vendors/', { headers: headers })
         .subscribe(Res => {
             console.log(Res);
-            this.sg['plan'] = Res.json()['Results'];
-            this.data.changeProducts(this.sg['plan']);
-            for (let prod of this.sg['plan']) {
-                prod["plan_information"] = prod["plan_information"].split(',,', 3000);
-                prod["price_rate"] = prod["price_rate"].split('..', 3000);
-              }
+            this.mess = Res.json()['Results_Texas'];
+            this.notmess = Res.json()['Results_Deregulated'];
+          this.resulttaxes= Res.json()['Vendors2'];
+          this.resultderegulated= Res.json()['Vendors1'];
+        
  setTimeout(function () {
                 $('.autoplay').slick({
                   slidesToShow: 5,
@@ -269,5 +254,41 @@ this.state=data['state'];
             }, 1);
         });
 }
-
+derugu(name){
+  if(this.zipCode && this.notmess == "Yes"){
+    this.router.navigate(['/product/' + this.zipCode]);
+    localStorage.setItem('zip', this.zipCode);
+    localStorage.setItem('name', name);
+  }
+  else{
+    swal({
+      text: "Please Enter zipcode",
+      title: "Choice Genie",
+      type: "error",
+      showConfirmButton: false,
+      timer: 1200,
+      confirmButtonText: "OK",
+  
+    })
+  }
+}
+move(name){
+  if(this.zipCode && this.mess == "Yes"){
+  
+    this.router.navigate(['/products/' + this.zipCode]);
+    localStorage.setItem('zip', this.zipCode);
+    localStorage.setItem('name', name.trim());
+  }
+  else{
+    swal({
+      text: "Please Enter zipcode",
+      title: "Choice Genie",
+      type: "error",
+      showConfirmButton: false,
+      timer: 1200,
+      confirmButtonText: "OK",
+  
+    })
+  }
+   }
 }

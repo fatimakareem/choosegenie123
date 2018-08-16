@@ -133,6 +133,7 @@ export class ProductComponent implements OnInit {
     noresult;
     Items;
     ngOnInit() {
+        this.names=localStorage.getItem('name');
         this.username = localStorage.getItem('username');
         this.zip_code = localStorage.getItem('zip');
         this.customer = localStorage.getItem('custum')
@@ -368,6 +369,7 @@ this. featuredplan();
         delete this.months5;
         delete this.months6;
         delete this.months7;
+        delete this.names;
         localStorage.removeItem('months1');
         localStorage.removeItem('months2');
         localStorage.removeItem('months3');
@@ -375,6 +377,7 @@ this. featuredplan();
         localStorage.removeItem('months5');
         localStorage.removeItem('months6');
         localStorage.removeItem('months7');
+        localStorage.removeItem('name');
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         this.http.get(Config.api + 'zipcodecheck/' + this.zip_code, { headers: headers })
