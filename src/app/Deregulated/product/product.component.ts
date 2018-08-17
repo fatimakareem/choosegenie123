@@ -362,8 +362,6 @@ this. featuredplan();
     }
 
     Checkzipcode() {
-<<<<<<< HEAD
-=======
         delete this.months1;
         delete this.months2;
         delete this.months3;
@@ -380,7 +378,6 @@ this. featuredplan();
         localStorage.removeItem('months6');
         localStorage.removeItem('months7');
         localStorage.removeItem('name');
->>>>>>> 76b5085df4fc7cd61e9bbac4067ef80ed641fb69
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         this.http.get(Config.api + 'zipcodecheck/' + this.zip_code, { headers: headers })
