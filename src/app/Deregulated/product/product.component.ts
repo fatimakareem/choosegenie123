@@ -503,6 +503,29 @@ this. featuredplan();
     }
 
     setPage(page: number) {
+        if (this.months1 == null) {
+            delete this.months1;
+        }
+        if (this.months2 == null) {
+            delete this.months2;
+        }
+        if (this.months3 == null) {
+            delete this.months3;
+        }
+        if (this.months4 == null) {
+            delete this.months4;
+        }
+        if (this.months5 == null) {
+            delete this.months5;
+        }
+        if (this.months6 == null) {
+            delete this.months6;
+        }
+        if (this.months7 == null) {
+            delete this.months7;
+        } if (this.names == null) {
+            delete this.names;
+        }
         //alert( this.noresult);
         const Results = {}
         if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.sort || this.names || this.item) {
