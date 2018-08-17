@@ -254,41 +254,90 @@ this.state=data['state'];
             }, 1);
         });
 }
-derugu(name){
-  if(this.zipCode && this.notmess == "Yes"){
-    this.router.navigate(['/product/' + this.zipCode]);
-    localStorage.setItem('zip', this.zipCode);
+// derugu(name){
+//   if(this.zipCode && this.state == "Yes"){
+//     this.router.navigate(['/product/' + this.zipCode]);
+//     localStorage.setItem('zip', this.zipCode);
+//     localStorage.setItem('name', name);
+//   }
+//   else{
+//     swal({
+//       text: "Please Enter zipcode",
+//       title: "Choice Genie",
+//       type: "error",
+//       showConfirmButton: false,
+//       timer: 1200,
+//       confirmButtonText: "OK",
+  
+//     })
+//   }
+// }
+// move(name){
+//   if(this.zipCode && this.state == "Yes"){
+  
+//     this.router.navigate(['/products/' + this.zipCode]);
+//     localStorage.setItem('zip', this.zipCode);
+//     localStorage.setItem('name', name.trim());
+//   }
+//   else{
+//     swal({
+//       text: "Please Enter zipcode",
+//       title: "Choice Genie",
+//       type: "error",
+//       showConfirmButton: false,
+//       timer: 1200,
+//       confirmButtonText: "OK",
+  
+//     })
+//   }
+//    }
+   move(name) {
+
+    console.log("CHOICE GENIE", this.model.zipcode1);
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    this.http.get(Config.api + 'zipcodecheck/' + this.zipCode, { headers: headers })
+      .subscribe(data => {
+        console.log(data);
+        console.log(data['message'], 'hhhhhhhhhhhhhhh')
+this.state=data['state'];
+        this.zipcodeexist = data['message']
+        if (this.zipcodeexist == "InValid Zipcode") {
+          swal({
+            text: "InValid Zipcode",
+            title: "Choice Genie",
+            type: "error",
+            showConfirmButton: false,
+            timer: 1200,
+            confirmButtonText: "OK",
+
+          })
+        }
+        else if (this.state == "deregulatedstate") {
+          this.router.navigate(['/product/' + this.zipCode]);
+          localStorage.setItem('zip', this.zipCode);
     localStorage.setItem('name', name);
-  }
-  else{
-    swal({
-      text: "Please Enter zipcode",
-      title: "Choice Genie",
-      type: "error",
-      showConfirmButton: false,
-      timer: 1200,
-      confirmButtonText: "OK",
   
-    })
+        }
+        else if(this.state == "notderegulatedstate"){
+          this.router.navigate(['/products/' + this.zipCode]);
+          localStorage.setItem('zip', this.zipCode);
+          localStorage.setItem('name', name.trim());
+    
+        }
+      },
+        error => {
+          console.log(error);
+          swal({
+            text: "InValid Zipcode",
+            title: "Choice Genie",
+            type: "error",
+            showConfirmButton: false,
+            timer: 1200,
+            confirmButtonText: "OK",
+
+          })
+
+        });
   }
-}
-move(name){
-  if(this.zipCode && this.mess == "Yes"){
-  
-    this.router.navigate(['/products/' + this.zipCode]);
-    localStorage.setItem('zip', this.zipCode);
-    localStorage.setItem('name', name.trim());
-  }
-  else{
-    swal({
-      text: "Please Enter zipcode",
-      title: "Choice Genie",
-      type: "error",
-      showConfirmButton: false,
-      timer: 1200,
-      confirmButtonText: "OK",
-  
-    })
-  }
-   }
 }
