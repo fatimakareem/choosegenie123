@@ -1,7 +1,7 @@
 <div class="new-product-holder">
   <div class="page-title">
 
-    <h3 class="text-center choiecegenie-offers wow fadeInLeft">ADD NEW PRODUCT</h3>
+    <h3 class="text-center choiecegenie-offers wow fadeInLeft" style="margin-bottom: 13px !important;">ADD NEW PRODUCT</h3>
 
   </div>
 
@@ -12,32 +12,32 @@
     <!-- <form   *ngif="signupForm"> -->
 
     <form method="" action="" (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate>
-      <mat-horizontal-stepper [linear]="isLinear">
+      <mat-horizontal-stepper class="mat-tabs-bar2" [linear]="isLinear" style="background: none;">
         <mat-step [stepControl]="signupForm">
           <div [formGroup]="signupForm" style="padding: 10px;">
+            <ng-template matStepLabel>Label Name</ng-template>
             <ng-template matStepLabel></ng-template>
             <div class="card" style="padding: 15px;">
-              <div class="card-header card-header-icon" data-background-color="rose" style="margin-top: -35px;">
-                <i class="material-icons">mail_outline</i>
-              </div>
-              <div class="card-content">
+              <!--<div class="card-header card-header-icon" data-background-color="rose" style="margin-top: -35px;">-->
+                <!--<i class="material-icons">mail_outline</i>-->
+              <!--</div>-->
+              <div class="">
                 <h4 class="card-title"></h4>
                 <div class="row">
                   <div class="col-sm-6">
-
                     <div class="form-group">
                       <mat-form-field>
                         <input matInput placeholder="Utility Area" required [(ngModel)]="utilityarea" formControlName="utilityarea">
                       </mat-form-field>
                     </div>
-
+                    <!-- <mat-error *ngIf="firstFormGroup.controls['serviceType'].invalid"><strong>One statement must be selected</strong></mat-error> -->
+                  </div>
+                  <div class="col-sm-6">
                     <div class="form-group">
                       <mat-form-field>
                         <input matInput placeholder="Contact Email" required [(ngModel)]="contact_email" formControlName="contact_email">
                       </mat-form-field>
                     </div>
-
-                    <!-- <mat-error *ngIf="firstFormGroup.controls['serviceType'].invalid"><strong>One statement must be selected</strong></mat-error> -->
                   </div>
                 </div>
                 <div class="col-sm-6">
@@ -61,26 +61,23 @@
 
               </div>
               <div class="text-right">
-                <button mat-button matStepperNext class="btn btn-fill">Next</button>
+                <button mat-button matStepperNext class="btn btn-fill">Next
+                  <i _ngcontent-c0="" class="fa fa-angle-right" style="font-size: 26px; margin: -9px 0px 0px 3px;"></i>
+                </button>
               </div>
             </div>
           </div>
 
         </mat-step>
-
         <mat-step [stepControl]="secondFormGroup">
           <div  [formGroup]="secondFormGroup" style="padding: 10px;">
+            <ng-template matStepLabel>Label Name</ng-template>
             <ng-template matStepLabel></ng-template>
-            <div class="card">
-              <div class="card-header card-header-icon" data-background-color="rose" style="margin-top: -35px;">
-                <i class="material-icons">mail_outline</i>
-              </div>
-              <div class="card-content">
-                <label class="control-label">
-                  <i>
-
-                  </i>
-                </label>
+            <div class="card" style="padding: 15px;">
+              <!--<div class="card-header card-header-icon" data-background-color="rose" style="margin-top: -35px;">-->
+                <!--<i class="material-icons">mail_outline</i>-->
+              <!--</div>-->
+              <div class="">
                 <div class="row">
 
                         <div class="form-group" hidden="true">
@@ -131,8 +128,12 @@
 
                 </div>
                 <div class="text-right">
-                  <button mat-button matStepperPrevious class="btn btn-fill">Back</button>
-                  <button mat-button matStepperNext class="btn btn-fill">Next</button>
+                  <button mat-button matStepperPrevious class="btn btn-fill">
+                    <i _ngcontent-c0="" class="fa fa-angle-left" style="font-size: 26px; margin: -9px 3px 0px 0px;"></i>
+                    Back</button>
+                  <button mat-button matStepperNext class="btn btn-fill">Next
+                    <i _ngcontent-c0="" class="fa fa-angle-right" style="font-size: 26px; margin: -9px 0px 0px 3px;"></i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -140,39 +141,35 @@
         </mat-step>
         <mat-step [stepControl]="thirdFormGroup">
           <div  [formGroup]="thirdFormGroup" style="padding: 10px;">
+            <ng-template matStepLabel>Label Name</ng-template>
             <ng-template matStepLabel></ng-template>
-            <div class="card">
-              <div class="card-header card-header-icon" data-background-color="rose" style="margin-top: -35px;">
-                <i class="material-icons">mail_outline</i>
-              </div>
-              <div class="card-content">
-
-                <label class="control-label">
-
-                </label>
+            <div class="card" style="padding: 15px;">
+              <!--<div class="card-header card-header-icon" data-background-color="rose" style="margin-top: -35px;">-->
+                <!--<i class="material-icons">mail_outline</i>-->
+              <!--</div>-->
+              <div class="">
                 <div class="row">
-
-
-                  <br class="clearfix" />
-
-                    <div class="form-group col-sm-4" >
+                    <div class="col-sm-4">
+                      <div class="form-group">
                       <mat-form-field>
                         <input matInput placeholder="Terms of Service " [(ngModel)]="terms_of_service"  formControlName="terms_of_service">
                       </mat-form-field>
+                      </div>
                     </div>
 
 
 
 
-                    <div class="form-group col-sm-4" >
+                    <div class="col-sm-4" >
+                      <div class="form-group">
                       <mat-form-field>
                         <input matInput placeholder="Fact Sheet " [(ngModel)]="fact_sheet"  formControlName="fact_sheet">
                       </mat-form-field>
+                      </div>
 
 
 
                   </div>
-                  <br class="clearfix" />
                   <div class="col-sm-4">
                     <div class="form-group">
                       <mat-form-field>
@@ -202,8 +199,6 @@
                       </div>
                     </div> -->
 
-
-                  <br class="clearfix" />
                   <div class="col-sm-6">
                     <div class="form-group">
                       <mat-form-field class="margin">
@@ -214,7 +209,6 @@
 
 
                   </div>
-                  <br class="clearfix" />
                   <div class="col-sm-6">
                     <div class="form-group">
                       <mat-form-field class="margin">
@@ -227,8 +221,12 @@
                   </div>
                 </div>
                 <div class="text-right">
-                  <button mat-button matStepperPrevious class="btn btn-fill">Back</button>
-                  <button mat-button matStepperNext class="btn btn-fill">Next</button>
+                  <button mat-button matStepperPrevious class="btn btn-fill">
+                    <i _ngcontent-c0="" class="fa fa-angle-left" style="font-size: 26px; margin: -9px 3px 0px 0px;"></i>
+                    Back</button>
+                  <button mat-button matStepperNext class="btn btn-fill">Next
+                    <i _ngcontent-c0="" class="fa fa-angle-right" style="font-size: 26px; margin: -9px 0px 0px 3px;"></i>
+                  </button>
                 </div>
               </div>
             </div>
@@ -236,19 +234,13 @@
         </mat-step>
         <mat-step [stepControl]="fourthFormGroup">
           <div [formGroup]="fourthFormGroup" style="padding: 10px;">
+            <ng-template matStepLabel>Label Name</ng-template>
             <ng-template matStepLabel></ng-template>
-            <div class="card">
-              <div class="card-header card-header-icon" data-background-color="rose" style="margin-top: -35px;">
-                <i class="material-icons">mail_outline</i>
-              </div>
-              <div class="card-content">
-                <h4 class="card-title"></h4>
-                <h3 class="title">
-
-                </h3>
-                <label class="control-label">
-
-                </label>
+            <div class="card" style="padding: 15px;">
+              <!--<div class="card-header card-header-icon" data-background-color="rose" style="margin-top: -35px;">-->
+                <!--<i class="material-icons">mail_outline</i>-->
+              <!--</div>-->
+              <div class="">
                 <div class="row">
                   <div class="col-sm-6">
 
@@ -288,7 +280,9 @@
                   </div>
                 </div>
                 <div class="text-right">
-                  <button mat-button matStepperPrevious class="btn btn-fill">Back</button>
+                  <button mat-button matStepperPrevious class="btn btn-fill">
+                    <i _ngcontent-c0="" class="fa fa-angle-left" style="font-size: 26px; margin: -9px 3px 0px 0px;"></i>
+                    Back</button>
                   <button type="submit" mat-button matStepperNext (click)="signupuserdata(utilityarea,contact_email,title.value,profileurl.value,profile_logo.value,plan_information,price_rate,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up.value,minimum_usage_fee,renewable,spectialterms,price_1000_kwh,price_500_kwh,price_2000_kwh)" class="btn btn-fill">Done</button>
                 </div>
               </div>

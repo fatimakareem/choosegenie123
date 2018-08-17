@@ -45,7 +45,8 @@
     </div>
   </div>
   <div class="found-div" style="margin-top: 18px; width: 100%;">
-    We found <strong style="display: inline-block">{{noresult}}</strong> residential plans for “<strong style="display: inline-block">{{zipdet}}</strong>”
+    We found <strong style="display: inline-block">{{noresult}}</strong> residential plans 
+    <!-- “<strong style="display: inline-block">{{zipdet}}</strong>” -->
 
 
 
@@ -391,7 +392,10 @@
                   </a>
                   <div style="display:inline-block; padding:24px;">
                     <span style="font-size:24px; font-weight:600px">OR CALL
-                      <b> {{data.phone}} </b>
+                        <a href="tel:{{data.phone}}" style="display: block">
+                            <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
+                            {{data.phone}}</a>
+                      <!-- <b> {{data.phone}} </b> -->
                     </span>
                   </div>
                 </div>
@@ -405,7 +409,10 @@
             <h3 class="text-center">
               <b> Call now</b>
             </h3>
-            <h3 class="text-center font">{{data.phone}}</h3>
+            <h3 class="text-center font">
+                <a href="tel:{{data.phone}}" style="display: block">
+                    <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
+                    {{data.phone}}</a></h3>
             <!-- (click)="openDialog(data.id)" -->
             <div class="text-center">
               <button class="btn btn-fill button-social">
@@ -530,8 +537,10 @@
                 <button class="btn btn-fill">Signup Now</button>
               </a>
               <div *ngIf="phone" style="display:inline-block; padding:24px;">
-                <span style="font-size:24px; font-weight:600px">OR CALL
-                  <b> {{phone}} </b>
+                <span style="font-size:24px; font-weight:600px">OR CALL                   <b> <a href="tel:{{phone}}" style="display: block">
+                        <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
+                        {{phone}}</a></b>
+                  <!-- <b> {{phone}} </b> -->
                 </span>
               </div>
             </div>

@@ -48,6 +48,8 @@ export class SuperloginComponent implements OnInit {
   private sidebarVisible: boolean;
   private nativeElement: Node;
   public username="admin";
+  staySignedIn;
+  e;
   hide=true;
 user;
   password;

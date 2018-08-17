@@ -195,11 +195,11 @@ this.state=data['state'];
           })
         }
         else if (this.state == "deregulatedstate") {
-          this.router.navigate(['/guids']);
+        //  this.router.navigate(['/guids']);
           localStorage.setItem('zip', this.zipCode);
         }
         else if(this.state == "notderegulatedstate"){
-          this.router.navigate(['/guid']);
+          //this.router.navigate(['/guid']);
           localStorage.setItem('zip', this.zipCode);
         }
       },
@@ -223,6 +223,7 @@ this.state=data['state'];
     let inputChar = String.fromCharCode(event.charCode);
     if (event.keyCode != 8 && !pattern.test(inputChar)) {
       event.preventDefault();
+      
     }
   }
   mess;

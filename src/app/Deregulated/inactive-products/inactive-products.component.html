@@ -1,17 +1,19 @@
 <div class="products-area">
-  <div class="row">
-    <div class="search-bar1 col-lg-10">
+  <div class="row" style="width: 100%; margin: 0 auto;">
+    <div class="search-bar1 col-lg-12">
+
         <md-input-container class="block" hidden=true>
             <input mdInput placeholder="Title" [ngModel]="Inactivedate | date:'yyyy-MM-dd'" >
         </md-input-container>
 
 
         <div class="col-lg-3">
+          <label _ngcontent-c10="" class="date-lable">Effective from Date</label>
           <!-- <mat-form-field class="cus-font">
             <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Inactive Date"/>
             <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle> <mat-datepicker #startPicker></mat-datepicker>
           </mat-form-field> -->
-          <input type="date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="    padding: 10px 0px; font-size: 20px;">
+          <input type="date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="padding: 2px 0px; font-size: 16px; font-weight: bold;">
 
         </div>
           <md-input-container class="block" hidden=true>
@@ -19,22 +21,23 @@
           </md-input-container>
 
           <div class="col-lg-3">
+            <label _ngcontent-c10="" class="date-lable">Effective from Date</label>
             <!-- <mat-form-field class="cus-font">
               <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publishdate" placeholder="Publish Date"/>
               <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
             </mat-form-field> -->
-            <input type="date" required name="publishdate" [(ngModel)]="publishdate" style="    padding: 10px 0px; font-size: 20px;">
+            <input type="date" required name="publishdate" [(ngModel)]="publishdate" style="padding: 2px 0px; font-size: 16px; font-weight: bold;">
           </div>
 
             <div class="col-lg-3">
-              <mat-form-field class="cus-font">
+              <mat-form-field class="cus-font" style="margin-top: 12px;">
 
                 <mat-select class="search-select" placeholder="Service Area Name" required [(ngModel)]="name" name="name">
                     <mat-option *ngFor="let data of states" [value]="data.serviceareaname">
                         {{data.serviceareaname}}
-  
+
                       </mat-option>
-                   
+
                 </mat-select>
               </mat-form-field>
             </div>
@@ -43,7 +46,7 @@
             <button class="col-lg-3 search-btn btn-fill" (click)="search(1)">Search</button>
     </div>
   </div>
-  
+
 <!-- <div class="page-title">
   <span>Product Search</span>
 </div> -->
@@ -106,8 +109,8 @@
               <!-- Modal content-->
               <div class="modal-content popupmodel">
                 <!-- <div class="modal-header">
-                             
-                             
+
+
                             </div> -->
                 <div class="modal-body" style="font-size: 18px;
                             background: #ffffff;
@@ -163,7 +166,7 @@
                     <input matInput placeholder="Price Rate" name="price_rate" value="{{price_rate}}" [hidden]="true" #updatedpricerate/>
 
 
-                  
+
 
 
                     <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" value="{{cancelation_fee}}" #updatedcancelation_fee/>
@@ -209,14 +212,14 @@
             <p class="text-center">{{data.phone}}</p>
             <button class="btn btn-rose" style="display:block; margin: 0 auto;">
               <a style="color:white" href="{{data.profileurl}}" target="_blank">Signup </a>
-            
+
             </button>
 
 
           </div>
-    
+
           <div class="col-sm-12">
-          
+
           </div>
         </div>
       </div>
@@ -253,7 +256,7 @@
                       <td class="plan-information__cell">Price Rate</td>
                       <td class="plan-information__cell plan-information__cell--last ">{{price_rate}}</td>
                     </tr>
-                   
+
                   </tbody>
                 </table>
                 <table>
