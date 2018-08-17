@@ -26,6 +26,8 @@ declare interface User {
   idSource?: string;
   idDestination?: string;
   optionsCheckboxes?: boolean;
+  staySignedIn;
+  e;
 }
 
 @Component({

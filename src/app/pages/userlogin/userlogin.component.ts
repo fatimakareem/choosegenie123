@@ -44,6 +44,7 @@ export class UserloginComponent implements OnInit {
   isCaptcha=false;
   public typeValidation: User;
   register: FormGroup;
+  staySignedIn
   Email;
   login: FormGroup;
   type: FormGroup;

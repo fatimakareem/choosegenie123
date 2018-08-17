@@ -3830,7 +3830,7 @@ h1, .entry-title-2 {
   border-radius: 10px;
   border:none !important;
   width: 95% !important;
-  height: 80px;
+  height: 95px;
   margin: 0 auto;
   webkit-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
@@ -5195,7 +5195,7 @@ text-align: center;
 }
 /*Start Home*/
 .height-slider{
-  height: 355px;
+  height: 400px;
 }
 .text-red{
   color: #C00;

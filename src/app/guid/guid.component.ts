@@ -21,6 +21,8 @@ import { modelGroupProvider } from '@angular/forms/src/directives/ng_model_group
 })
 export class GuidComponent implements OnInit {
   isLinear = true;
+  onSubmit;
+  i;
   signupForm: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
