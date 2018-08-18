@@ -5599,6 +5599,42 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   -ms-transform: scale(1.05);
   transform: scale(1.05);
 }
+
+
+.btn-slider-left-p{
+  height: 47px;
+  width: 47px;
+  border-radius: 100%;
+  /*background: #cc0000 !important;*/
+  top: 34%;
+  left: -4.7%;
+  z-index: 1;
+  position: absolute;
+  background: none;
+  border: 1px solid #000000;
+  font-size: 28px;
+  color: #000000;
+}
+.btn-slider-left-p i{
+  margin-right: 3px;
+}
+.btn-slider-right-p{
+  height: 47px;
+  width: 47px;
+  border-radius: 100%;
+  /*background: #cc0000 !important;*/
+  top: 34%;
+  right: -4%;
+  z-index: 1;
+  position: absolute;
+  background: none;
+  border: 1px solid #000000;
+  font-size: 28px;
+  color: #000000;
+}
+.btn-slider-right-p i{
+  margin-left: 3px;
+}
 /* End Products */
 
 /* Start user Sidebar */

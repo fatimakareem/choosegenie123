@@ -24,6 +24,8 @@ export class NewProductsComponent implements OnInit {
   model: any = {};
   normalPattern = '[a-zA-Z0-9_.-]+?';
   digitsOnly = '^[0-9,-]+$';
+  public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+
   email = '^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$';
   public username;
   flag = true;
@@ -63,27 +65,27 @@ title;
    this. fetchProducts()
     console.log(this.username)
     this.signupForm = this.fb.group({
-      'utilityarea': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
-     'contact_email':['', Validators.compose([Validators.required])],
+      'utilityarea': ['', Validators.compose([Validators.required])],
+     'contact_email':['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
 
     });
     this.secondFormGroup = this.fb.group({
-      'plan_information': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
-      'price_rate': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
+      'plan_information': ['', Validators.compose([Validators.required])],
+      'price_rate': ['', Validators.compose([Validators.required])],
       'cancelation_fee': ['', Validators.compose([Validators.required])],
     });
     this.thirdFormGroup = this.fb.group({
-     'fact_sheet': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
-      'terms_of_service': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
+     'fact_sheet': ['', Validators.compose([Validators.required])],
+      'terms_of_service': ['', Validators.compose([Validators.required])],
       'phone': ['', Validators.compose([Validators.required])],
       'minimum_usage_fee': ['', Validators.compose([Validators.required])],
-      'renewable': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
+      'renewable': ['', Validators.compose([Validators.required])],
     });
     this.fourthFormGroup = this.fb.group({
       'specialterms': ['', Validators.compose([Validators.required])],
-      'price_1000_kwh': [''],
-      'price_500_kwh': [''],
-      'price_2000_kwh': [''],
+      'price_1000_kwh': ['', Validators.compose([Validators.required])],
+      'price_500_kwh': ['', Validators.compose([Validators.required])],
+      'price_2000_kwh': ['', Validators.compose([Validators.required])],
     });
   }
   check(e){}

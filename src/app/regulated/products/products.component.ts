@@ -342,8 +342,8 @@ export class ProductsComponent implements OnInit, AfterViewInit {
                       slidesToShow: 5,
                       slidesToScroll: 1,
                       autoplay: true,
-                      prevArrow: '<button class="leftRs"><i class="fa fa-chevron-left"></i></button>',
-                      nextArrow: '<button class="rightRs"><i class="fa fa-chevron-right"></i></button>',
+                      prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;left:  0;"><i class="fa fa-chevron-left"></i></button>',
+                      nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;right:  0;"><i class="fa fa-chevron-right"></i></button>',
                       responsive: [
                         {
                           breakpoint: 1024,
