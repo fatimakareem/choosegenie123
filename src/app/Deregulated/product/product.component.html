@@ -493,8 +493,9 @@
             <div class="autoplay" *ngIf="sg['plan']">
               <div class="mustafa" style="width:1100px;border-radius:20px" *ngFor="let data of sg['plan']; let i = index">
                 <div class="prod-slide">
+                  <a (click)="move(data.title)">
                   <img class="img2" src="{{data.profile_logo}}" alt="{{data.title}}" alt="Card image cap" />
-
+                </a>
                   <h2 class="view-plan-details" (click)="btnderagulateClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_rate,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                   data-toggle="modal" data-target="#myModal6" style="    padding-bottom: 0px; margin-bottom: 0px;">Plan Information</h2>
 
@@ -674,7 +675,7 @@
 
 
                         <p class="items-detail">
-                          {{data.plan_information}}
+                          {{data.plan_information }} +
                         </p>
 
                       </div>
