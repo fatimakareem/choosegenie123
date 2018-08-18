@@ -415,6 +415,7 @@ this. featuredplan();
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months1 = "36 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
@@ -426,6 +427,7 @@ this. featuredplan();
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months2 = "24 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
@@ -437,6 +439,7 @@ this. featuredplan();
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months3 = "18 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
@@ -449,6 +452,7 @@ this. featuredplan();
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months5 = "12 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
@@ -460,6 +464,7 @@ this. featuredplan();
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.months6 = "6 Months";
+            this.setPage(1);
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
@@ -471,7 +476,7 @@ this. featuredplan();
         if (item) {
             console.log(item);
             this.item = item;
-
+            this.setPage(1);
         }
         else {
             console.log()
@@ -482,18 +487,22 @@ this. featuredplan();
     }
     checked20(event, i) {
         this.sort = "true";
+        this.setPage(1);
     }
     checked21(event, i) {
         this.sort = "true";
+        this.setPage(1);
     }
     checked22(event, i) {
         this.sort = "true";
+        this.setPage(1);
     }
     checked17(event, i, name) {
         if (name) {
             console.log(name);
             this.names = name;
             console.log(this.name)
+            this.setPage(1);
         }
         else {
             console.log()
@@ -501,7 +510,12 @@ this. featuredplan();
         }
         console.log(this.names)
     }
-
+    move(name){
+       
+        this.names=name;
+     
+         this.setPage(1);
+       }
     setPage(page: number) {
         if (this.months1 == null) {
             delete this.months1;
