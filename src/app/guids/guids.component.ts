@@ -34,7 +34,9 @@ export class GuidsComponent implements OnInit {
   months7;
  
   zip_code;
-  product
+  product;
+  onSubmit;
+  i;
   constructor(private obj: HomeService,private https:Http,public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
 
   ngOnInit() {  

@@ -35,6 +35,9 @@
 .border-bottom-no{
   border-bottom: none !important;
 }
+.container-margin{
+  margin-top: 20px;
+}
 .margin{
   margin-top: -9px !important;
 }
@@ -3574,7 +3577,7 @@ h1, .entry-title-2 {
 .search-bg__title {
   width: 100%;
   text-align: center;
-  font-size: 25px;
+  font-size: 30px;
   color: rgb(255, 255, 255);
   font-weight: 600;
   margin-bottom: 19px;
@@ -3830,7 +3833,7 @@ h1, .entry-title-2 {
   border-radius: 10px;
   border:none !important;
   width: 95% !important;
-  height: 95px;
+  height: 80px;
   margin: 0 auto;
   webkit-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
@@ -4216,6 +4219,7 @@ nav#mainnav ul {
 nav#mainnav li {
   padding:0;
   border-bottom: 1px solid #333;
+  margin-bottom: 0px;
 }
 nav#mainnav li.selected-item  {
   border-bottom:none;
@@ -5595,8 +5599,8 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   margin-bottom: 20px !important;
 }
 .zip-input{
-  font-size: 30px !important;
-  height: 34px !important;
+  font-size: 37px !important;
+  height: 38px !important;
   font-weight: bold !important;
   text-align: center;
 }
@@ -6103,6 +6107,25 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   background: none !important;
 }
 
+
+
+.mat-tabs-bar2 .mat-horizontal-stepper-header-container{
+  width: 94%;
+  margin: 0 auto -19px;
+  height: 44px;
+  border: 1px solid #dad7d7;
+  border-radius: 5px;
+  background: #dedede;
+}
+.mat-tabs-bar2 .mat-step-header .mat-step-icon{
+  background-color: #c00 !important;
+}
+.mat-tabs-bar2 .mat-stepper-horizontal-line{
+  display: none;
+}
+.mat-tabs-bar2 .mat-step-header.cdk-keyboard-focused, .mat-step-header.cdk-program-focused, .mat-step-header:hover{
+  background: none !important;
+}
 /*End Dashboards */
 /*Start product*/
 .card .card-header{
@@ -6558,7 +6581,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     height: 380px;
   }
   .form-zip{
-    margin-top: 39px !important;
+    margin-top: 24px !important;
   }
   #main-bg-slider .item img{
     height: 380px;
@@ -6786,15 +6809,15 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
   }
   .margintop{
-    margin-top: 120px !important;
+    margin-top: 81px !important;
   }
   .btn-slider-left{
     top: 31%;
-    left: -7.5%;
+    left: -0.5%;
   }
   .btn-slider-right{
     top: 31%;
-    right: -7.5% !important;
+    right: -0.5% !important;
   }
   .faqs h1{
     font-size: 34px;
