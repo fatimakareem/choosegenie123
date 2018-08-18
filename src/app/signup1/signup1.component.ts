@@ -24,12 +24,16 @@ export class Signup1Component implements OnInit {
   city;
   username;
   confirmpassword;
+  password;
   signupForm: FormGroup;
   private next: any;
   model: any = {};
   normalPattern = '[a-zA-Z0-9_.-]+?';
   digitsOnly = '^[0-9,-]+$';
+  useronly='[a-zA-Z0-9_.]+';
   email = '^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$';
+  public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+
   flag = true;
   status: boolean = true;
   date = new FormControl(new Date());
@@ -45,8 +49,8 @@ export class Signup1Component implements OnInit {
       'repid': ['', Validators.compose([Validators.required, , Validators.pattern(this.digitsOnly)])],
       'repname': ['', Validators.compose([Validators.required])],
       'email': ['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
-      'username': ['', Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z_\- ]+$/)])],
-      'contactphone': ['', Validators.compose([Validators.required, Validators.pattern(this.digitsOnly)])],
+      'username': ['', Validators.compose([Validators.required, Validators.pattern(this.useronly)])],
+      'contactphone': ['', Validators.compose([Validators.required])],
       //  'Market': ['', Validators.compose([Validators.required])],
       'contactname': ['', Validators.compose([Validators.required])],
      

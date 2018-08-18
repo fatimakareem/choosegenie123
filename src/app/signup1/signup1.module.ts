@@ -9,6 +9,7 @@ import {Signup1Routes} from "./signup1.routing";
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDatepickerModule} from "@angular/material";
 import { HttpClientModule } from '@angular/common/http';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
     imports: [
@@ -20,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
         FormsModule,
         ReactiveFormsModule,
         MatDatepickerModule,
-        HttpClientModule
+        HttpClientModule,TextMaskModule
     ],
     declarations: [
         Signup1Component
