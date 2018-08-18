@@ -265,8 +265,7 @@
               </h5>
             </a>
           </div>
-          <mat-select (change)="checked16($event,i,energy)" value="renewable" required [(ngModel)]="energy"
-            name="energy">
+          <mat-select (change)="checked16($event,i,energy)" value="renewable" required [(ngModel)]="energy" name="energy">
             <mat-option value="100">100% RENEWABLE</mat-option>
             <mat-option value="76,99">76% To 99%</mat-option>
             <mat-option value="51,75">51% To 75%</mat-option>
@@ -291,7 +290,7 @@
           <!-- <span class="left"></span> -->
           <mat-form-field class="margin-up">
 
-            <mat-select  (change)="checked17($event,i,name)" value="names" required [(ngModel)]="name" name="name">
+            <mat-select (change)="checked17($event,i,name)" value="names" required [(ngModel)]="name" name="name">
 
               <mat-option *ngFor="let data of title" [value]="data.title">
                 {{data.title}}
@@ -326,11 +325,16 @@
         </li>
         <li>
           <div class="text-center">
-            <button type="button" class="btn-fill sidebar-serch-btn" (click)="setPage(1)" style="margin: 0px; text-transform: capitalize; padding: 5px 0px;">
+            <button type="button" class="btn-fill sidebar-serch-btn" (click)="setPage(1)" style="margin: 0px; padding: 5px 0px;">
               Refresh Results
               <!-- <i class="material-icons" title="Use these filters to set your preferences. Get rid of the plans you don’t want to see and only show those that fit your needs.">search</i> -->
             </button>
           </div>
+          <!-- <div class="text-center">
+            <button type="button" class="btn-fill sidebar-serch-btn" (click)="setPage(1)" style="margin: 0px; text-transform: capitalize; padding: 5px 0px;">
+              Refresh Results
+                  </button>
+          </div> -->
         </li>
         <!-- <li>
     <h5>Ranging from</h5>
@@ -346,7 +350,7 @@
 
 
 
-  <div class="main-content custom col-sm-10" style="padding-top: 5px; padding-left: 12px; padding-bottom: 10px;float: right;" >
+  <div class="main-content custom col-sm-10" style="padding-top: 5px; padding-left: 12px; padding-bottom: 10px;float: right;">
     <!-- <div class="container-fluid"> -->
     <div class="row"></div>
 
@@ -414,7 +418,7 @@
                   </li>
 
                   <li *ngIf="(pager.startPage  + 3) <= pager.totalPages">
-                     <a (click)="setPage(pager.currentPage + 3)">...</a>
+                    <a (click)="setPage(pager.currentPage + 3)">...</a>
                   </li>
                   <!-- <li *ngIf="(pager.startPage  + 5) <= pager.totalPages" >
                      <a (click)="setPage(pager.totalPages)">{{pager.totalPages}}</a>
@@ -469,27 +473,27 @@
 
         </div>
         <div *ngIf="sg['plan']">
-        <div style="padding: 0px; text-align:center;" >
-          <h1 style="margin:0px 0px -10px; font-size: 45px;">Most Popular Plans</h1>
-        </div>
-        <div class="homeSlider" *ngIf="sg['plan']">
-          <div class="mustafa" style="width:1100px;border-radius:20px" *ngFor="let data of sg['plan']; let i = index">
-            <div class="prod-slide">
+          <div style="padding: 0px; text-align:center;">
+            <h1 style="margin:0px 0px -10px; font-size: 45px;">Most Popular Plans</h1>
+          </div>
+          <div class="homeSlider" *ngIf="sg['plan']">
+            <div class="mustafa" style="width:1100px;border-radius:20px" *ngFor="let data of sg['plan']; let i = index">
+              <div class="prod-slide">
                 <a (click)="move(data.title)">
-              <img class="img2" src="{{data.profile_logo}}" alt="{{data.title}}" alt="Card image cap" />
+                  <img class="img2" src="{{data.profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" alt="Card image cap" />
                 </a>
-              <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
-                data-toggle="modal" data-target="#myModal2">Plan Information
-              </h2>
-              <h2 class="view-plan-details" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo)" data-toggle="modal"
-                data-target="#myModal3"> Leave a Review
-              </h2>
+                <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
+                  data-toggle="modal" data-target="#myModal2">Plan Information
+                </h2>
+                <h2 class="view-plan-details" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo)" data-toggle="modal"
+                  data-target="#myModal3"> Leave a Review
+                </h2>
+              </div>
+
+
             </div>
-
-
           </div>
         </div>
-      </div>
 
 
 
@@ -499,11 +503,13 @@
           <!-- <h1 style="margin:-7px 0px; font-size: 45px;">Search Plans</h1> -->
         </div>
         <div class="found-div" style="margin-top: 5px;">
-            We found <strong >{{noresult}}</strong> residential plans for “<strong>{{zip_code}}</strong>”
+          We found
+          <strong>{{noresult}}</strong> residential plans for “
+          <strong>{{zip_code}}</strong>”
 
 
 
-          </div>
+        </div>
 
         <div>
           <div class="custom card up-margin" *ngFor="let data of product; let i = index">
@@ -526,7 +532,7 @@
                     <!-- <input type="checkbox" value="{{data.id}}" name="comp"  > -->
                     <a href="{{data.profileurl}}" target="_blank" class="display-b margin-top">
 
-                      <img src="{{data.profile_logo}}" alt="{{data.title}}" class="product-icons" />
+                      <img src="{{data.profile_logo}}" alt="{{data.title}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" class="product-icons" />
                     </a>
                     <img src="{{data.rating_logo}}" alt="{{data.title}}" class="rating-stars" />
 
@@ -566,7 +572,7 @@
                               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
                                 <div class="popup-image">
                                   <a href="{{profileurl}}" target="_blank" class="display-b margin-top">
-                                    <img src="{{profile_logo}}" />
+                                    <img src="{{profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"  />
                                   </a>
                                 </div>
                               </div>
@@ -753,7 +759,7 @@
                       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
                         <div class="popup-image">
                           <a href="{{profileurl}}" target="_blank" class="display-b margin-top">
-                            <img src="{{profile_logo}}" />
+                            <img src="{{profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"  />
                           </a>
                         </div>
                       </div>
@@ -840,7 +846,13 @@
                     </a>
                     <div style="display:inline-block; padding:24px;">
                       <span style="font-size:24px; font-weight:600px">OR CALL
-                        <b> {{phone}} </b>
+                        <b>
+                          <a href="tel:{{phone}}" style="display: block">
+                            <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
+                            {{phone}}</a>
+
+
+                        </b>
                       </span>
                     </div>
                   </div>

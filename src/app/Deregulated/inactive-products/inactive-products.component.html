@@ -56,7 +56,7 @@
 
       <div class="col-sm-12">
         <div class="card-header card-header-text position-abs cards-itme" data-background-color="rose">
-          <h4 class="card-title">{{data.title}} </h4>
+          <h4 class="card-title" style="margin-bottom: 10px !important;">{{data.title}} </h4>
 
         </div>
 
@@ -197,24 +197,25 @@
             </div>
           </div>
           <div class="col-md-3 col-sm-6 col-xs-12 term">
-            <div class="text-center">
-
-
-
-              <button class="fa fa-check edit-del-btn" type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
-                data-toggle="modal" data-target="#myModal3">
-
-              </button>
-            </div>
+            
             <h3 class="text-center">
               <b> Call Now</b>
             </h3>
             <p class="text-center">{{data.phone}}</p>
-            <button class="btn btn-rose" style="display:block; margin: 0 auto;">
+            <button class="btn btn-fill" style="display:block; margin: 0 auto 20px;">
               <a style="color:white" href="{{data.profileurl}}" target="_blank">Signup </a>
 
             </button>
+            <div class="text-center">
 
+
+
+                <button class="edit-del-btn2" type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
+                  data-toggle="modal" data-target="#myModal3">
+                  <i class="fa fa-times inactive"></i>
+                  <span style="font-size: 19px;">Activate</span>
+                </button>
+              </div>
 
           </div>
 
@@ -248,7 +249,7 @@
                   </a>
                 </div>
               </div>
-              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="plan-information__heading">Price Rate</div>
                 <table>
                   <tbody>
@@ -278,21 +279,9 @@
                     </tr>
                   </tbody>
                 </table>
-                <div class="plan-description">
-                  <div class="plan-description__heading">Cancelation Fee</div>
-                  <div class="plan-description__content">
-
-                    <h4 *ngIf="data.cancelation_fee;else no_data_temp2">
-                      &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee}}
-                    </h4>
-
-                    <ng-template #no_data_temp2>
-                      <h4>&nbsp;&nbsp;&nbsp;&nbsp; ---</h4>
-                    </ng-template>
-                  </div>
-                </div>
+               
               </div>
-              <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="plan-description">
                   <div class="plan-description__heading">Plan Information</div>
                   <div class="plan-description__content">
@@ -304,6 +293,22 @@
                   </div>
                 </div>
               </div>
+              <div class="col-lg-12">
+                  <div class="plan-description">
+                      <div class="plan-description__heading">Cancelation Fee</div>
+                      <div class="plan-description__content">
+    
+                        <h4 *ngIf="data.cancelation_fee;else no_data_temp2">
+                          &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee}}
+                        </h4>
+    
+                        <ng-template #no_data_temp2>
+                          <h4>&nbsp;&nbsp;&nbsp;&nbsp; ---</h4>
+                        </ng-template>
+                      </div>
+                    </div>
+              </div>
+
             </div>
           </div>
 

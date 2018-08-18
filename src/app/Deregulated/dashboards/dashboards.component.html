@@ -1,7 +1,7 @@
 <div class="products-area" *ngIf="prod_loaded">
 
 
-  <div class="row">
+  <div class="row" style="width: 100%; margin: 0 auto;">
     <div class="search-bar1 col-lg-12">
         <md-input-container class="block" hidden=true>
             <input mdInput placeholder="Title" [ngModel]="Inactivedate | date:'yyyy-MM-dd'" >
@@ -9,7 +9,8 @@
 
 
         <div class="col-lg-3">
-            <input type="date" placeholder="Inactive Date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="    padding: 10px 0px; font-size: 20px;">
+          <label class="date-lable">Effective from Date</label>
+            <input type="date" placeholder="Inactive Date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="    padding: 2px 0px; font-size: 16px; font-weight: bold;">
           <!-- <mat-form-field class="cus-font">
             <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Inactive Date"/>
             <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle> <mat-datepicker #startPicker></mat-datepicker>
@@ -20,7 +21,8 @@
           </md-input-container>
 
           <div class="col-lg-3">
-              <input type="date" placeholder="Publish Date" required name="publishdate" [(ngModel)]="publishdate" style="    padding: 10px 0px; font-size: 20px;">
+              <label class="date-lable">Effective to Date</label>
+              <input type="date" placeholder="Publish Date" required name="publishdate" [(ngModel)]="publishdate" style="    padding: 2px 0px; font-size: 16px; font-weight: bold;">
             <!-- <mat-form-field class="cus-font">
               <input matInput [matDatepicker]="startPicker1" name="publishdate" [(ngModel)]="publishdate" placeholder="Publish Date"/>
               <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
@@ -28,7 +30,7 @@
           </div>
 
             <div class="col-lg-3">
-              <mat-form-field class="cus-font">
+              <mat-form-field class="cus-font" style="margin-top: 12px;">
 
                 <mat-select class="search-select" placeholder="Service Area Name" required [(ngModel)]="name" name="name">
                     <mat-option *ngFor="let data of states" [value]="data.serviceareaname">
@@ -44,7 +46,7 @@
             <button class="col-lg-3 search-btn btn-fill" (click)="search(1)">Search</button>
     </div>
   </div>
-  <div class="found-div" style="margin-top: 18px; width: 100%;">
+  <div class="found-div" style="margin-bottom: 9px; width: 100%;">
     We found <strong style="display: inline-block">{{noresult}}</strong> residential plans 
     <!-- “<strong style="display: inline-block">{{zipdet}}</strong>” -->
 
@@ -61,7 +63,7 @@
           <div class="col-md-3  col-sm-3 col-xs-5 plan-detail text-center display">
             <a href="{{data.sign_up}}" target="_blank" class="margin-top">
 
-              <img src="{{data.profile_logo}}" alt="{{data.title}}" />
+              <img src="{{data.profile_logo}}"   onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" />
             </a>
             <div class="modal fade" id="myModal3" role="dialog">
               <div class="modal-dialog">
@@ -81,7 +83,7 @@
                       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
                         <div class="popup-image">
                           <a href="{{data.sign_up}}" target="_blank" class="display-b margin-top">
-                            <img src="{{data.profile_logo}}" />
+                            <img src="{{data.profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"  />
                           </a>
                         </div>
                       </div>
@@ -231,7 +233,7 @@
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
                       <div class="popup-image">
                         <a href="{{data.sign_up}}" target="_blank" class="display-b margin-top">
-                          <img src="{{data.profile_logo}}" />
+                          <img src="{{data.profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"  />
                         </a>
                       </div>
                     </div>
@@ -428,8 +430,10 @@
                 data-toggle="modal" data-target="#myModal2" style="margin-right: 20px;"><span style="font-size: 19px;"> Edit </span>
               </button>
 
-              <button class="fa fa-check edit-del-btn"  type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_rate,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
-                data-toggle="modal" data-target="#myModal3"><span style="font-size: 19px;"> Inactive </span>
+              <button class="edit-del-btn1"  type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_rate,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
+                data-toggle="modal" data-target="#myModal3">
+                <i class="fa fa-times inactive"></i>
+                <span style="font-size: 19px;"> Inactive </span>
               </button>
             </div>
 
@@ -460,7 +464,7 @@
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
                   <div class="popup-image">
                     <a href="{{sign_up}}" target="_blank" class="display-b margin-top">
-                      <img src="{{profile_logo}}" />
+                      <img src="{{profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"  />
                     </a>
                   </div>
                 </div>
@@ -522,7 +526,7 @@
 
                       <ng-template #no_data_temp2>
 
-                        <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
+                  
                         <h4>&nbsp;&nbsp;&nbsp;&nbsp; ---</h4>
                       </ng-template>
                       <!-- <p class="ng-binding">A great low rate with guaranteed price protection for 1 full year. Exclusive online offer available to new customers.</p> -->
