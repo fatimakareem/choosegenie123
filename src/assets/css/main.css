@@ -36,7 +36,7 @@
   border-bottom: none !important;
 }
 .container-margin{
-  margin-top: 20px;
+  margin-top: 60px;
 }
 .margin{
   margin-top: -9px !important;
@@ -245,11 +245,14 @@ app-header {
   margin-top: 0px !important;
 }
 .zip-inputs{
-    width: 100%;
-    height: 49px;
-    background: #ffffff;
-    font-size: 32px;
-    text-align: center;
+  width: 100%;
+  height: 49px;
+  background: #ffffff;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+  border-style: double;
 }
 .compare-button {
   margin-top: -50px;
@@ -1584,7 +1587,7 @@ h3 {
 }
 .vanders:hover .drop-downs{
   display: block !important;
-  right: -78px;
+  right: -27px;
 }
 .vanders:hover .nav-vanders{
   display: block !important;
@@ -2273,11 +2276,11 @@ section {
 }
 .compare-lable{
   color: #444444 !important;
-  height: 38px;
+  height: 41px;
   margin-bottom: 0px;
 }
 .zip-code-heading{
-  margin-bottom: 0px;
+  margin: -5px 0px 0px;
   padding: 0px;
   text-align: center;
   font-size: 30px;
@@ -3553,7 +3556,7 @@ h1, .entry-title-2 {
 
 /*slider css start*/
 #main-bg-slider .item{
-  height: 400px;
+  height: 425px;
   overflow: hidden;
 }
 #main-bg-slider .item img{
@@ -3577,7 +3580,7 @@ h1, .entry-title-2 {
 .search-bg__title {
   width: 100%;
   text-align: center;
-  font-size: 30px;
+  font-size: 36px;
   color: rgb(255, 255, 255);
   font-weight: 600;
   margin-bottom: 19px;
@@ -4482,20 +4485,18 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   font-weight: bold;
 }
 .pric-range-box input {
-  width: 65px;
-  border-radius: 4px;
-  background: #fff !important;
-  height: 30px;
-  padding: 0 !important;
-  text-align: right;
-  height: 34px !important;
-  width:51px  !important;
-  font-family: FontAwesome, 'Roboto';
-  font-size: 26px;
-  border: solid 1px #bfbcbc !important;
-
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+    border-radius: 4px;
+    background: #fff !important;
+    padding: 0 !important;
+    text-align: left;
+    padding: 0px 5px !important;
+    height: 34px !important;
+    width: 44px !important;
+    font-family: FontAwesome, 'Roboto';
+    font-size: 26px;
+    border: solid 1px #bfbcbc !important;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
 /*Dashboard front page*/
@@ -5199,7 +5200,7 @@ text-align: center;
 }
 /*Start Home*/
 .height-slider{
-  height: 400px;
+  height: 425px;
 }
 .text-red{
   color: #C00;
@@ -5245,7 +5246,8 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 
 .play-store-img li a img{
   width: 27%;
-  margin-top: -10px;
+  margin-top: -15px;
+  margin-bottom: -9px;
 }
 .apple-button{
   height: 81px;
@@ -5591,7 +5593,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   margin-top: 6px;
 }
 .custom-style{
-  width: 52%;
+  width: 70%;
   height: 36px;
   margin: 0 auto !important;
   border: 1px solid rgb(188, 188, 188);
@@ -5599,8 +5601,8 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   margin-bottom: 20px !important;
 }
 .zip-input{
-  font-size: 37px !important;
-  height: 38px !important;
+  font-size: 45px !important;
+  height: 39px !important;
   font-weight: bold !important;
   text-align: center;
 }
