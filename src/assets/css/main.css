@@ -198,9 +198,9 @@ app-header {
   width: 250px;
   display: block; }
 .logo img {
-  width: 87%;
+  width: 100%;
   padding: 1px 0px 15px 5px;
-
+margin-top: 11px;
 }
 
 .nav-home ul {
@@ -1572,6 +1572,15 @@ h3 {
     display: none;
     z-index: 9;
 }
+.drop-downs-l{
+  height: auto;
+  top: 20px;
+  position: absolute;
+  min-height: 200px;
+  width: 300px;
+  display: none;
+  z-index: 9;
+}
 .nav-vanders{
   display: none !important;
   position: absolute;
@@ -1588,6 +1597,10 @@ h3 {
 .vanders:hover .drop-downs{
   display: block !important;
   right: -27px;
+}
+.vanders:hover .drop-downs-l{
+  display: block !important;
+  right: -100px;
 }
 .vanders:hover .nav-vanders{
   display: block !important;
@@ -5045,7 +5058,9 @@ section#boody{
 }
 .sidebar-profile-img{
   width: 55%;
-  height: 55%;
+  /* height: 55%; */
+  padding: 60px 0px;
+  text-align: center;
   margin: 0 auto;
   border-radius: 100%;
   background: #ffffff;
@@ -5055,7 +5070,8 @@ section#boody{
 }
 .sidebar-profile-img >a >img{
   width: 90%;
-  margin: 36% 5%;
+  /* margin: 36% 5%; */
+  height: 32px;
 }
 #mainnav >ul >li >input{
   font-size: 25px;
@@ -5498,6 +5514,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   padding: 5px 10px;
   border-radius: 4px;
   margin-right: 10px;
+  font-size: 15px;
 }
 .Compare:hover{
   background: #c00;
@@ -6802,6 +6819,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     text-align: center;
     /*margin: 50px 0 10px;*/
     position: relative;
+    border-radius: 8px;
 }
 .found-div .change-location {
   -webkit-transform: translateX(0);

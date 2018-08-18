@@ -12,6 +12,7 @@ import swal from 'sweetalert2';
 import { SimpleGlobal } from 'ng2-simple-global';
 import { DataService } from '../data.service';
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
+ 
 declare var $;
 
 export class errorMatcher implements ErrorStateMatcher {
@@ -217,6 +218,7 @@ this.state=data['state'];
 
         });
   }
+  
   keyPress(event: any) {
     const pattern = /[0-9\+\-\ ]/;
 

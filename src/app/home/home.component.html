@@ -69,7 +69,7 @@
                   <h4 class="zip-code-heading">Enter Zip Code</h4>
                   <!-- <mat-form-field> -->
                   <input class="zip-inputs" placeholder="Zip Code" [formControl]="zip_code" value="{{cord}}" [(ngModel)]=zipCode #zipcode1
-                    name="zipCode"  />
+                    name="zipCode"  (keypress)="keyPress($event)"  />
                   <!-- {{cord.postalCode}} -->
                   <!-- (keydown)="Checkzipcode($event,zipcode1.value)" -->
                   <mat-error *ngIf="zip_code.hasError('pattern')">
