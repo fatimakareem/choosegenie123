@@ -5002,7 +5002,7 @@ canvas {
 }
 .compare-button{
   display: inline-block ;
-  width: 48% !important;
+  /* width: 48% !important; */
 }
 #main-bg-slider .item::after {
   content: "";
@@ -5215,6 +5215,9 @@ padding: 5px 10px;
 text-align: center;
 }
 /*Start Home*/
+.slider-pad{
+  padding: 0px 100px !important;
+}
 .height-slider{
   height: 425px;
 }
@@ -6350,6 +6353,18 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 @media (max-width: 426px) {
   /* Small devices (425px and down) */
+  .compare-button {
+    margin-top: -15px;
+  }
+.slider-pad {
+  padding: 0px 20px !important;
+}
+.left-margin {
+  margin-left: 0%;
+}
+.zip-code-heading{
+  font-size: 27px;
+}
   .container-padding {
     padding: 0px 44px !important;
   }
@@ -6414,13 +6429,13 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     margin-left: 0px;
   }
   .margintop {
-    margin-top: 322px !important;
-}
+    margin-top: 165px !important;
+  }
   .footer-text p{
     text-align: center;
   }
   .space-up{
-    margin-top: 180px;
+    margin-top: 359px;
   }
   .footer-text p{
     text-align: center;
@@ -6636,8 +6651,12 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     height: 380px;
   }
   .form-zip{
-    margin-top: 24px !important;
+    /* margin-top: 24px !important; */
+    margin-top: 0px !important;
   }
+  .container-margin {
+    margin-top: 14px;
+}
   #main-bg-slider .item img{
     height: 380px;
   }
@@ -6864,8 +6883,11 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     animation: none !important;
 
   }
+  .container-margin {
+    margin-top: 70px;
+}
   .margintop{
-    margin-top: 81px !important;
+    margin-top: 81px;
   }
   .btn-slider-left{
     top: 31%;
@@ -6879,7 +6901,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     font-size: 34px;
   }
 }
+@media (max-width: 425px) {
 
+}
 @media (max-width: 375px) {
   .appio-center-heading >h2 {
     font-size: 34px;
@@ -6894,6 +6918,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .form-group.label-floating label.control-label, .form-group.label-placeholder label.control-label{
     font-size: 21px !important;
   }
+  .zip-code-heading {
+    font-size: 23px;
+}
 }
 @media (max-width: 320px) {
   .fixed-width{
@@ -6914,4 +6941,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .form-zip {
     margin-top: 47px !important;
   }
+  .zip-code-heading {
+    font-size: 19px;
+}
+.title-04 {
+  font-size: 16px !important;
+}
 }
