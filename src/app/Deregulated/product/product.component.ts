@@ -160,6 +160,7 @@ this. featuredplan();
 
         });
 
+
     }
     featuredplan() {
 
@@ -189,7 +190,10 @@ this. featuredplan();
         this.router.navigate(['/Review/' + id]);
         localStorage.setItem('company', title);
     }
-
+    plan(plan) {
+        this.plan_information = plan;
+        console.log('id : ' + this.id, this.title);
+    }
     btnratingClick(id, title, profileurl, profile_logo, servicearea) {
         this.id = id;
         this.comtitle = title;

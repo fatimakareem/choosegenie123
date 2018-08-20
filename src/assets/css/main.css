@@ -5140,6 +5140,12 @@ section#boody{
   font: bold 30px/24px Georgia, "Times New Roman", Times, serif;
   font-size: 20px;
 }
+.price-style-1 {
+  display: block;
+  text-align: center;
+  font: bold 30px/24px Georgia, "Times New Roman", Times, serif;
+  font-size: 30px;
+}
 .add-price {
   width: 100%;
   /* overflow: hidden; */
@@ -5382,6 +5388,13 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   line-height: 23px;
   font-weight: 600;
   font-size: 18px;
+}
+.height-items-detail{
+  height: 94px;
+  overflow: hidden;
+}
+.height-unfixed{
+  height: auto;
 }
 .plan-detail{
   /* min-height: 205px !important; */
@@ -6130,7 +6143,8 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 .inactive{
   border: 1px solid;
   border-radius: 100%;
-  width: 31px;
+  width: 25px;
+  font-size: 22px;
 }
 .input-group .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder, .mat-form-field-empty.mat-form-field-placeholder, mat-form-field.mat-form-field{
   margin-top: 0px;
@@ -6914,4 +6928,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .form-zip {
     margin-top: 47px !important;
   }
+}
+.arrow-absolute{
+  position: absolute;
+  right: -3px;
+  top: 43px;
 }

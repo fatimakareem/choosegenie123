@@ -123,6 +123,11 @@ export class UserloginComponent implements OnInit {
       this.validateAllFormFields(this.login);
     }
   }
+  else {
+    this.captcha.reset();
+    this.isequal = false;
+    // this.islogin = true;
+  }
   }
 
   foremail() {

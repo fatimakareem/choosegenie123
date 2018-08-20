@@ -30,7 +30,7 @@ export class BecomeapartnerComponent implements OnInit {
   model: any = {};
   normalPattern = '[a-zA-Z0-9_.-]+?';
   digitsOnly = '^[0-9,-]+$';
-  // email = '^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$';
+  Email = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
 
   flag = true;
   // date = new FormControl(new Date());
@@ -41,7 +41,7 @@ export class BecomeapartnerComponent implements OnInit {
       'name': ['', Validators.compose([Validators.required])],
       'partnername': ['', Validators.compose([Validators.required])],
       'desc': ['', Validators.compose([Validators.required])],
-      'email': ['', Validators.compose([Validators.required])],
+      'email': ['', Validators.compose([Validators.required, Validators.pattern(this.Email)])],
     });
   }
 
@@ -67,6 +67,7 @@ export class BecomeapartnerComponent implements OnInit {
       .subscribe(Res => {
         console.log(Res);
         console.log(this.model);
+        if(name && email && partnername && desc && date){
         swal({
           text: "Thank you for Successflluy Contact Us ",
           title: "Choice Genie",
@@ -75,7 +76,7 @@ export class BecomeapartnerComponent implements OnInit {
           timer: 1200,
           confirmButtonText: "OK",
 
-        })
+        })}
         console.log(this.model);
 
       },

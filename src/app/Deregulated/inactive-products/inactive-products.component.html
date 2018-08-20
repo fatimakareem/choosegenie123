@@ -32,7 +32,7 @@
             <div class="col-lg-3">
               <mat-form-field class="cus-font" style="margin-top: 12px;">
 
-                <mat-select class="search-select" placeholder="Service Area Name" required [(ngModel)]="name" name="name">
+                <mat-select class="search-select" placeholder="Service Area" required [(ngModel)]="name" name="name">
                     <mat-option *ngFor="let data of states" [value]="data.serviceareaname">
                         {{data.serviceareaname}}
 
@@ -204,16 +204,17 @@
             <p class="text-center">{{data.phone}}</p>
             <button class="btn btn-fill" style="display:block; margin: 0 auto 20px;">
               <a style="color:white" href="{{data.profileurl}}" target="_blank">Signup </a>
-
+              <i _ngcontent-c0="" class="material-icons">bubble_chart</i>
             </button>
             <div class="text-center">
 
 
 
-                <button class="edit-del-btn2" type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
+                <button class="edit-del-btn1" type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                   data-toggle="modal" data-target="#myModal3">
-                  <i class="fa fa-times inactive"></i>
+                  
                   <span style="font-size: 19px;">Activate</span>
+                  <i class="fa fa-times inactive"></i>
                 </button>
               </div>
 

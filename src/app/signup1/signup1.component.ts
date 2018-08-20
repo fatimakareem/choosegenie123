@@ -46,7 +46,7 @@ export class Signup1Component implements OnInit {
     this.states();
     // this.city();
     this.signupForm = this.fb.group({
-      'repid': ['', Validators.compose([Validators.required, , Validators.pattern(this.digitsOnly)])],
+      'repid': ['', Validators.compose([Validators.required, Validators.pattern(this.digitsOnly)])],
       'repname': ['', Validators.compose([Validators.required])],
       'email': ['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
       'username': ['', Validators.compose([Validators.required, Validators.pattern(this.useronly)])],
