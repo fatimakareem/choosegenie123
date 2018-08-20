@@ -24,6 +24,8 @@ export class NewProductComponent implements OnInit {
   model: any = {};
   normalPattern = '[a-zA-Z0-9_.-]+?';
   digitsOnly = '^[0-9,-]+$';
+  public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+
   email = '^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$';
   public username;
   flag = true;
@@ -40,6 +42,7 @@ export class NewProductComponent implements OnInit {
   phone;
   sign_up;
   minimum_usage_fee;
+  contact_email;
   renewable;
   fact_sheet;
   spectialterms;
@@ -62,13 +65,13 @@ title;
    this. fetchProducts()
     console.log(this.username)
     this.signupForm = this.fb.group({
-      'utilityarea': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
-     
+      'utilityarea': ['', Validators.compose([Validators.required])],
+      'contact_email':['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
 
     });
     this.secondFormGroup = this.fb.group({
-      'plan_information': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
-      'price_rate': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
+      'plan_information': ['', Validators.compose([Validators.required])],
+      'price_rate': ['', Validators.compose([Validators.required])],
       'cancelation_fee': ['', Validators.compose([Validators.required])],
     });
     this.thirdFormGroup = this.fb.group({
@@ -76,13 +79,13 @@ title;
       //'terms_of_service': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
       'phone': ['', Validators.compose([Validators.required])],
       'minimum_usage_fee': ['', Validators.compose([Validators.required])],
-      'renewable': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
+      'renewable': ['', Validators.compose([Validators.required])],
     });
     this.fourthFormGroup = this.fb.group({
       'specialterms': ['', Validators.compose([Validators.required])],
-      'price_1000_kwh': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
-      'price_500_kwh': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
-      'price_2000_kwh': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
+      'price_1000_kwh': ['', Validators.compose([Validators.required])],
+      'price_500_kwh': ['', Validators.compose([Validators.required])],
+      'price_2000_kwh': ['', Validators.compose([Validators.required])],
     });
   }
   check(e){}
@@ -123,7 +126,7 @@ console.log(this.tit)
     onSubmit(f) {
       f.resetForm();
     }
-  signupuserdata(utilityarea,title,profileurl,profile_logo,plan_information,price_rate,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh) {
+  signupuserdata(utilityarea,contact_email,title,profileurl,profile_logo,plan_information,price_rate,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh) {
     console.log(utilityarea,title,profileurl,profile_logo,plan_information,price_rate,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh);
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');    
@@ -144,8 +147,8 @@ console.log(this.tit)
       "specialterms":specialterms,
       "price_1000_kwh":price_1000_kwh,
       "price_500_kwh":price_500_kwh,
-      "price_2000_kwh":price_2000_kwh
-
+      "price_2000_kwh":price_2000_kwh,
+      "contact_email":contact_email
     }, { headers: headers })
       .subscribe(Res => {
         console.log(Res);

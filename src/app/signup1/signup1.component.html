@@ -32,8 +32,8 @@
           <div class="form-group">
             <mat-form-field>
               <input matInput placeholder="REP Name" [formControl]="signupForm.controls['repname']" #repname required [(ngModel)]="model.repname">
-              <!-- <mat-error *ngIf="secondFormGroup.controls.lName.value == ''"><strong>Cannot be empty</strong></mat-error>
-<mat-error *ngIf="secondFormGroup.controls.lName.dirty && !secondFormGroup.controls.lName.value"> Special characters not allowed</mat-error> -->
+              <mat-error *ngIf="signupForm.controls['repname'].value == '' || !signupForm.controls['repname'].value"><strong>This Field cannot be empty</strong></mat-error>
+
             </mat-form-field>
           </div>
         </div>
@@ -42,8 +42,10 @@
           <div class="form-group ">
             <mat-form-field>
               <input matInput placeholder="REP Certificate #" [formControl]="signupForm.controls['repid']" #REP_certificate_id1 (ngModelChange)="Checkzipcode(REP_certificate_id1.value)" required [(ngModel)]="model.repid">
-              <!-- <mat-error *ngIf="secondFormGroup.controls.lName.value == ''"><strong>Cannot be empty</strong></mat-error>
-<mat-error *ngIf="secondFormGroup.controls.lName.dirty && !secondFormGroup.controls.lName.value"> Special characters not allowed</mat-error> -->
+              <mat-error *ngIf="signupForm.controls['repid'].value == '' || !signupForm.controls['repid'].value"><strong>This Field cannot be empty</strong></mat-error>
+              <mat-error *ngIf="signupForm.controls['repid'].hasError('pattern')">
+                  Only Numbers
+                </mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -54,7 +56,8 @@
             <mat-form-field>
               <input matInput placeholder="Email" required [formControl]="signupForm.controls['email']" #email1 (ngModelChange)="emailCheck(email1.value)"
                 [(ngModel)]="model.email" />
-
+                <mat-error *ngIf="signupForm.controls['email'].value == '' || !signupForm.controls['email'].value"><strong>This Field cannot be empty</strong></mat-error>
+                <mat-error *ngIf="signupForm.controls['email'].invalid"><strong>Please enter a valid email address</strong></mat-error>
 
             </mat-form-field>
             <div *ngIf="emailexist!=true" class="alert alert-danger">
@@ -70,8 +73,9 @@
         <div class="col-sm-6">
           <div class="form-group margin ">
             <mat-form-field>
-              <input matInput placeholder="Contact No." [formControl]="signupForm.controls['contactphone']" required [(ngModel)]="model.contactphone">
-              
+              <input matInput [textMask]="{mask: phoneMask}" placeholder="Contact No." [formControl]="signupForm.controls['contactphone']" required [(ngModel)]="model.contactphone">
+              <mat-error *ngIf="signupForm.controls['contactphone'].value == '' || !signupForm.controls['contactphone'].value"><strong>This Field cannot be empty</strong></mat-error>
+
             </mat-form-field>
           </div>
         </div>
@@ -81,7 +85,7 @@
           <div class="form-group margin ">
             <mat-form-field>
               <input matInput placeholder="Contact Name" [formControl]="signupForm.controls['contactname']" required [(ngModel)]="model.contactname">
-              <!-- <mat-error *ngIf="secondFormGroup.controls.Country.dirty && !secondFormGroup.controls.Country.value"> Special characters not allowed</mat-error> -->
+              <mat-error *ngIf="signupForm.controls['contactname'].value == '' || !signupForm.controls['contactname'].value"><strong>This Field cannot be empty</strong></mat-error>
             </mat-form-field>
 
           </div>
@@ -94,7 +98,10 @@
 
               <input matInput placeholder="Company User Name" [formControl]="signupForm.controls['username']" (ngModelChange)="usernameCheck(username1.value)"
                 #username1 required [(ngModel)]="model.username">
-
+                <mat-error *ngIf="signupForm.controls['username'].value == '' || !signupForm.controls['username'].value"><strong>This Field cannot be empty</strong></mat-error>
+                <mat-error *ngIf="signupForm.controls['username'].hasError('pattern')">
+                    Invalid Username
+                  </mat-error>
             </mat-form-field>
             <div *ngIf="usernameexist!= true" class="alert alert-danger">
               This username already exist.
@@ -112,8 +119,12 @@
             <mat-form-field>
               <input matInput placeholder="Password" type="password" [type]="hide ? 'password' : 'text'"  [formControl]="signupForm.controls['password']" required [(ngModel)]="model.password">
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              <!-- <mat-error *ngIf="secondFormGroup.controls.Password.dirty && !secondFormGroup.controls.Password.value"> Special characters not allowed</mat-error> -->
-            </mat-form-field>
+              <mat-error *ngIf="signupForm.controls['password'].value == '' || !signupForm.controls['password'].value"><strong>This Field cannot be empty</strong></mat-error>
+
+              <!-- <mat-error *ngIf="signupForm.control.password.errors?.minlength">
+                  Password must be at least 6 characters long.
+                </mat-error>           -->
+                </mat-form-field>
           </div>
         </div>
         <br class="clearfix" />
@@ -122,7 +133,7 @@
             <mat-form-field>
               <input matInput placeholder="Confirm Password" type="password"[type]="hide ? 'password' : 'text'" [formControl]="signupForm.controls['confirmpassword']" [(ngModel)]="model.confirmpassword" required>
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              <!-- <mat-error *ngIf="secondFormGroup.controls.Confirm_Password.dirty && !secondFormGroup.controls.Confirm_Password.value"> Special characters not allowed</mat-error> -->
+              <mat-error *ngIf="signupForm.controls['confirmpassword'].value == '' || !signupForm.controls['confirmpassword'].value"><strong>This Field cannot be empty</strong></mat-error>
               <mat-error *ngIf="(signupForm.controls.confirmpassword.value != signupForm.controls.password.value) || signupForm.controls.confirmpassword.value == ''"><strong>Password must match
               </strong></mat-error>    
             </mat-form-field>
