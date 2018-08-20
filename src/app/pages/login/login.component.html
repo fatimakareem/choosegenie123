@@ -12,10 +12,13 @@
 
             <mat-form-field [ngClass]="displayFieldCss(login, 'username')">
               <input matInput id="username" placeholder="Enter Username" formControlName="username" [(ngModel)]="username">
+              <mat-error *ngIf="login.controls.username.value == '' || !login.controls.username.value"><strong>This Field cannot be empty</strong></mat-error>
+
             </mat-form-field>
             <mat-form-field [ngClass]="displayFieldCss(login, 'password')">
               <input matInput type="password" id="password" [type]="hide ? 'password' : 'text'"  placeholder="Enter Your Password" formControlName="password" [(ngModel)]="password">
               <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error *ngIf="login.controls.password.value == '' || !login.controls.password.value"><strong>This Field cannot be empty</strong></mat-error>
 
             </mat-form-field>
             <!-- <div *ngIf="!islogin">

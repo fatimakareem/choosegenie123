@@ -33,6 +33,8 @@
 
                 <mat-form-field>
                   <input matInput placeholder="  Name" [formControl]="signupForm.controls['name']" required [(ngModel)]="model.name">
+                  <mat-error *ngIf="signupForm.controls['name'].value == '' || !signupForm.controls['name'].value"><strong>This Field cannot be empty</strong></mat-error>
+
                 </mat-form-field>
               </div>
             </div>
@@ -41,8 +43,16 @@
               <div class="form-group">
 
                 <mat-form-field>
-                  <input matInput placeholder="Service ZipCode" (ngModelChange)="states(zip.value)" #zip [formControl]="signupForm.controls['service_zip']"
+                  <input matInput placeholder="Service ZipCode" maxlength="5" (ngModelChange)="states(zip.value)" #zip [formControl]="signupForm.controls['service_zip']"
                     required [(ngModel)]="model.service_zip">
+                    <mat-error *ngIf="signupForm.controls['service_zip'].value == '' || !signupForm.controls['service_zip'].value"><strong>This Field cannot be empty</strong></mat-error>
+
+                    <mat-error *ngIf="signupForm.controls['service_zip'].hasError('pattern')">
+                      Only Numbers
+                    </mat-error>
+                    <mat-error *ngIf="signupForm.controls['service_zip'].errors?.minlength">
+                      Only 5 Numbers.
+                    </mat-error>
                 </mat-form-field>
               </div>
             </div>
@@ -52,7 +62,8 @@
 
                 <mat-form-field>
                   <input matInput placeholder="Service Address" [formControl]="signupForm.controls['service_address']" required [(ngModel)]="model.service_address">
-                  <!-- <mat-error *ngIf="secondFormGroup.controls.Country.dirty && !secondFormGroup.controls.Country.value"> Special characters not allowed</mat-error> -->
+                  <mat-error *ngIf="signupForm.controls['service_address'].value == '' || !signupForm.controls['service_address'].value"><strong>This Field cannot be empty</strong></mat-error>
+
                 </mat-form-field>
               </div>
             </div>
@@ -67,7 +78,10 @@
 </mat-form-field> -->
 <mat-form-field>
   <input matInput placeholder="Service State" [formControl]="signupForm.controls['service_state']" #servicestate required [(ngModel)]="model.service_state"   >
-  </mat-form-field>
+  <mat-error *ngIf="signupForm.controls['service_state'].value == '' || !signupForm.controls['service_state'].value"><strong>This Field cannot be empty</strong></mat-error>
+ 
+</mat-form-field>
+
                 <!-- <mat-form-field>
                   <input type="text" placeholder="Service State" aria-label="Number" matInput [formControl]="signupForm.controls['service_state']"
                     value="{{state}}" [(ngModel)]="model.service_state">
@@ -81,9 +95,8 @@
                 <mat-form-field>
                   <input matInput placeholder="Service City"   [formControl]="signupForm.controls['service_city']"  #service_city required
                     [(ngModel)]="model.service_city">
-                  <mat-error *ngIf="signupForm.controls.service_city.value == ''">
-                    <strong>City cannot be empty</strong>
-                  </mat-error>
+                    <mat-error *ngIf="signupForm.controls['service_city'].value == '' || !signupForm.controls['service_city'].value"><strong>This Field cannot be empty</strong></mat-error>
+
                   <!-- <mat-error *ngIf="secondFormGroup.controls.Country.dirty && !secondFormGroup.controls.Country.value"> Special characters not allowed</mat-error> -->
                 </mat-form-field>
               </div>
@@ -104,6 +117,10 @@
                 <mat-form-field>
                   <input matInput placeholder="Email" required [formControl]="signupForm.controls['email']" #email1 (ngModelChange)="emailCheck(email1.value)"
                     [(ngModel)]="model.email" />
+                    <mat-error *ngIf="signupForm.controls['email'].value == '' || !signupForm.controls['email'].value"><strong>This Field cannot be empty</strong></mat-error>
+                    <mat-error *ngIf="signupForm.controls['email'].hasError('pattern')">
+                      Please enter a valid email address
+                    </mat-error>
                   <!-- (ngModelChange)="emailCheck(email1.value)" #email1  -->
 
                 </mat-form-field>
@@ -123,7 +140,9 @@
               <div class="form-group margin">
 
                 <mat-form-field>
-                  <input matInput placeholder="Contact No" [formControl]="signupForm.controls['phoneno']" required [(ngModel)]="model.phoneno">
+                  <input matInput [textMask]="{mask: phoneMask}" placeholder="Contact No" [formControl]="signupForm.controls['phoneno']" required [(ngModel)]="model.phoneno">
+                  <mat-error *ngIf="signupForm.controls['phoneno'].value == '' || !signupForm.controls['phoneno'].value"><strong>This Field cannot be empty</strong></mat-error>
+
                   <!-- <mat-error *ngIf="secondFormGroup.controls.Phone_No.dirty && !secondFormGroup.controls.Phone_No.value"> Special characters not allowed</mat-error> -->
                 </mat-form-field>
               </div>
@@ -190,10 +209,10 @@
 
                   <input matInput placeholder="User name " [formControl]="signupForm.controls['username']" (ngModelChange)="usernameCheck(username1.value)"
                     #username1 required [(ngModel)]="model.username">
-                  <!-- <mat-error *ngIf="signupForm.controls.username.value == ''"><strong>Username cannot be empty</strong></mat-error>          
-                  <mat-error *ngIf="signupForm.controls.username.hasError('pattern')">
-                  Invalid Username
-                 </mat-error>     -->
+                    <mat-error *ngIf="signupForm.controls['username'].value == '' || !signupForm.controls['username'].value"><strong>This Field cannot be empty</strong></mat-error>
+                    <mat-error *ngIf="signupForm.controls['username'].hasError('pattern')">
+                        Invalid Username
+                      </mat-error>
                 </mat-form-field>
                 <div *ngIf="usernameexist!= true" class="alert alert-danger">
                   This username already exist.
@@ -214,6 +233,7 @@
                   <input matInput placeholder="Password" type="password" [type]="hide ? 'password' : 'text'" [formControl]="signupForm.controls['password']"
                     required [(ngModel)]="model.password">
                   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <mat-error *ngIf="signupForm.controls['password'].value == '' || !signupForm.controls['password'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                   <!-- <mat-error *ngIf="secondFormGroup.controls.Password.dirty && !secondFormGroup.controls.Password.value"> Special characters not allowed</mat-error> -->
                 </mat-form-field>
@@ -227,6 +247,8 @@
                   <input matInput placeholder="Confirm Password" type="password" [type]="hide ? 'password' : 'text'" [formControl]="signupForm.controls['confirmpassword']"
                   required >
                   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <mat-error *ngIf="signupForm.controls['confirmpassword'].value == '' || !signupForm.controls['confirmpassword'].value"><strong>This Field cannot be empty</strong></mat-error>
+
                   <!-- <mat-error *ngIf="secondFormGroup.controls.Confirm_Password.dirty && !secondFormGroup.controls.Confirm_Password.value"> Special characters not allowed</mat-error> -->
                   <mat-error *ngIf="(signupForm.controls.confirmpassword.value != signupForm.controls.password.value) || signupForm.controls.confirmpassword.value == ''">
                     <strong>Password must match
@@ -239,11 +261,11 @@
               <!-- <blackgeeks-recaptcha></blackgeeks-recaptcha> -->
             </div>
 
-            <div class="col-lg-6 form-footer text-right">
+            <div class="col-lg-12 form-footer text-center">
 
               <div class="form-group" style="margin: 0px;">
   
-                <button class="btn btn-fill" style="width:100%; border-radius:50px;font-size:24px !important;" type="submit"
+                <button class="btn btn-fill" style="width:50%; border-radius:50px;font-size:24px !important;" type="submit"
                   (click)="signupuserdata();clear() ">Register</button>
               </div>
   

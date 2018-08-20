@@ -39,6 +39,9 @@ export class UsersignupComponent implements OnInit {
   digitsOnly = '^[0-9,-]+$';
   email = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
   usernameOnly = '[a-zA-Z0-9_.]+';
+  public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  useronly='[a-zA-Z0-9_.]+';
+
   flag = true;
   date = new FormControl(new Date());
   hide = true;
@@ -57,16 +60,16 @@ export class UsersignupComponent implements OnInit {
     this.signupForm = this.fb.group({
 
       'name': ['', Validators.compose([Validators.required])],
-      'service_zip': ['', Validators.compose([Validators.required])],
+      'service_zip': ['', Validators.compose([Validators.required, Validators.pattern(this.digitsOnly), Validators.minLength(5)])],
  
       'email': ['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
-      'username': ['', Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z_\- ]+$/)])],
+      'username': ['', Validators.compose([Validators.required, Validators.pattern(this.useronly)])],
     
-      'phoneno': ['', Validators.compose([Validators.required, Validators.pattern(this.digitsOnly)])],
-      'dob': ['', Validators.compose([Validators.required])],
-      'service_state': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
-      'service_address': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
-      'service_city': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
+      'phoneno': ['', Validators.compose([Validators.required])],
+     // 'dob': ['', Validators.compose([Validators.required])],
+      'service_state': ['', Validators.compose([Validators.required])],
+      'service_address': ['', Validators.compose([Validators.required])],
+      'service_city': ['', Validators.compose([Validators.required])],
    
       'password': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
       'confirmpassword': ['', Validators.compose([Validators.required, Validators.minLength(6)])],

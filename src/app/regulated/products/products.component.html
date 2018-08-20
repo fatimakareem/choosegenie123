@@ -14,7 +14,7 @@
           <div class="form-group label-floating custom-style">
 
             <b>
-              <input type="text" class="form-control zip-input" [(ngModel)]="zip_code" name="zipcode" (keypress)="keyPress($event)" (change)="Checkzipcode()">
+              <input type="text" class="form-control zip-input" maxlength="5" [(ngModel)]="zip_code" name="zipcode" (keypress)="keyPress($event)" (change)="Checkzipcode()">
             </b>
           </div>
 
@@ -58,7 +58,7 @@
           <mat-form-field class="margin-up" style="border-top: 0px !important;">
             <!-- <label class="control-label"style="font-size: 18px">KWh</label> -->
             <!-- placeholder="Kwh" -->
-            <mat-select required [(ngModel)]="price" name="price">
+            <mat-select required [(ngModel)]="price" name="price" (change)="price1(price)">
 
               <mat-option value="500" style="font-size: 20px">500 kWh</mat-option>
               <mat-option value="1000" style="font-size: 20px">1000 kWh</mat-option>
@@ -660,17 +660,45 @@
 
                     <!-- <div class="holder white"> -->
                     <!--class="product-price"-->
-                    <div style="text-align:center; font-weight: bold; margin-top: 11px;">
-                      500 kWh
-                      <b class="price-style"> {{data.price_500_kwh}}¢</b>
+                    <div style="text-align:center; font-weight: bold; margin:10px 0px 11px; font-size: 20px;" *ngIf="value1==500">
+                      {{value1}}Kwh
+                      <b class="price-style-1"> {{data.price_500_kwh}}¢</b>
 
                     </div>
-                    <div class="add-price grid-element">
+                    <div style="text-align:center; font-weight: bold; margin:10px 0px 11px; font-size: 20px;" *ngIf="value1==1000">
+                      {{value1}}Kwh
+                      <b class="price-style"> {{data.price_1000_kwh}}¢</b>
+
+                    </div>
+                    <div style="text-align:center; font-weight: bold; margin:10px 0px 11px; font-size: 20px;" *ngIf="value1==2000">
+                      {{value1}}Kwh
+                      <b class="price-style"> {{data.price_2000_kwh}}¢</b>
+
+                    </div>
+                    <div class="add-price grid-element" *ngIf="value1==500">
                       <div class="unit">1,000 kWh
                         <span class="price-style"> {{data.price_1000_kwh}}¢ </span>
                       </div>
                       <div class="unit">2,000 kWh
                         <span class="price-style"> {{data.price_2000_kwh}}¢ </span>
+                      </div>
+
+                    </div>
+                    <div class="add-price grid-element" *ngIf="value1==1000">
+                      <div class="unit">500 kWh
+                        <span class="price-style"> {{data.price_500_kwh}}¢ </span>
+                      </div>
+                      <div class="unit">2,000 kWh
+                        <span class="price-style"> {{data.price_2000_kwh}}¢ </span>
+                      </div>
+
+                    </div>
+                    <div class="add-price grid-element" *ngIf="value1==2000">
+                      <div class="unit">500 kWh
+                        <span class="price-style"> {{data.price_500_kwh}}¢ </span>
+                      </div>
+                      <div class="unit">1000 kWh
+                        <span class="price-style"> {{data.price_1000_kwh}}¢ </span>
                       </div>
 
                     </div>

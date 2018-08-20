@@ -35,7 +35,7 @@
                 <div class="col-lg-3 cus-font">
                   <mat-form-field >
 
-                    <mat-select class="search-select" placeholder="Service Area Name" required [(ngModel)]="name" name="name">
+                    <mat-select class="search-select" placeholder="Service Area" required [(ngModel)]="name" name="name">
                       <mat-option value="AEP TEXAS NORTH DIVISION" style="font-size: 20px">AEP TEXAS NORTH DIVISION</mat-option>
                       <mat-option value="CENTERPOINT ENERGY HOUSTON ELECTRIC LLC" style="font-size: 20px">CENTERPOINT ENERGY HOUSTON ELECTRIC LLC</mat-option>
                       <mat-option value="TEXAS-NEW MEXICO POWER COMPANY" style="font-size: 20px">TEXAS-NEW MEXICO POWER COMPANY</mat-option>
@@ -48,7 +48,7 @@
 
                 <button class="col-lg-3 search-btn btn-fill" (click)="search(1)">Search</button>
         </div>
-        <div class="found-div" style="margin-top: 18px; width: 100%;">
+        <div class="found-div" style="    margin-bottom: 9px; width: 100%;">
           We found <strong style="display: inline-block">{{noresult}}</strong> residential plans 
           <!-- “<strong style="display: inline-block">{{zipdet}}</strong>” -->
 
@@ -441,10 +441,10 @@
                       data-toggle="modal" data-target="#myModal2" style="margin-right: 20px;"><span style="font-size: 19px;"> Edit </span>
                     </button>
 
-                    <button class="edit-del-btn1"  type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
+                    <button class="edit-del-btn2"  type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                       data-toggle="modal" data-target="#myModal3">
-                      <i class="fa fa-times inactive"></i>
                       <span style="font-size: 19px;"> Inactive </span>
+                      <i class="fa fa-times inactive"></i>
                     </button>
                   </div>
 

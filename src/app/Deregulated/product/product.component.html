@@ -14,7 +14,7 @@
             <div class="form-group label-floating custom-style">
 
               <b>
-                <input type="text" class="form-control zip-input" [(ngModel)]="zip_code" name="zipcode" (change)="Checkzipcode()">
+                <input type="text"  maxlength="5" class="form-control zip-input" [(ngModel)]="zip_code" name="zipcode" (change)="Checkzipcode()">
               </b>
             </div>
 
@@ -674,10 +674,17 @@
                       <div style="text-align:center; padding-top:10px;">
 
 
-                        <p class="items-detail">
-                          {{data.plan_information }} +
+                        <p class="items-detail" style="display: inline-block; margin: 0;">
+                          {{data.plan_information | slice:0:26 }} 
+                        
                         </p>
-
+                        <div *ngIf="(data.plan_information) > (data.plan_information | slice:0:26)">
+                        <a href="#p-pane-{{i}}" class="view-more collapsed arrow-absolute" data-toggle="collapse"><i class="material-icons">arrow_drop_down</i></a>
+                      </div>
+                      
+                        <p id="p-pane-{{i}}" class="items-detail collapse" style="margin-top: -5px;">
+                         {{data.plan_information | slice:26:2000}}
+                        </p>
                       </div>
                       <a (click)="submit(data.id,data.title)">
                         <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;">Reviews</label>

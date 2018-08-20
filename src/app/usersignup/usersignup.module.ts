@@ -10,13 +10,14 @@ import {MatDatepickerModule} from "@angular/material";
 import { HttpClientModule } from '@angular/common/http';
 import { UserSignupRoutes } from './usersignup.routing';
 import { UsersignupComponent } from './usersignup.component';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule.forChild(UserSignupRoutes),
         // MdModule,
-        BlackgeeksRecaptchaModule,
+        BlackgeeksRecaptchaModule,TextMaskModule,
         MaterialModule,
         FormsModule,
         ReactiveFormsModule,

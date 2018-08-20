@@ -57,7 +57,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class ProductsComponent implements OnInit, AfterViewInit {
     today = Date.now();
-
+value1="500";
     date;
     deragulate;
     energy;
@@ -710,6 +710,18 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         }
         console.log(this.renewable)
     }
+    price1(price) {
+        if (price) {
+            console.log(price);
+            this.value1 = price;
+            this.setPage(1);
+        }
+        else if (!price) {
+            console.log()
+            //delete this.price;
+        }
+        console.log(this.price)
+    }
     checked17(event, i, name) {
         if (name) {
             console.log(name);
@@ -775,6 +787,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         //   localStorage.setItem('name', name.trim());
           this.setPage(1);
         }
+
     Checkzipcode() {
         localStorage.removeItem('min');
             localStorage.removeItem('max');
