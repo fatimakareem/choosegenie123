@@ -56,7 +56,7 @@ export class ProductComponent implements OnInit {
     constructor(private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
 
     }
-
+   
     private allItems: any[];
     pager: any = {};
     home: any = {};
@@ -132,6 +132,7 @@ export class ProductComponent implements OnInit {
     deproduct;
     noresult;
     Items;
+   
     ngOnInit() {
         this.names=localStorage.getItem('name');
         this.username = localStorage.getItem('username');
