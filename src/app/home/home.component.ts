@@ -252,7 +252,21 @@ this.state=data['state'];
                   autoplaySpeed: 1500,
                   autoplay: true,
                     prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left" ><i class="fa fa-angle-left"></i></button>',
-                    nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" ><i class="fa fa-angle-right"></i></button>'
+                    nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" ><i class="fa fa-angle-right"></i></button>',
+                    responsive: [
+                      {
+                        breakpoint: 769,
+                        settings: {
+                          slidesToShow: 3
+                        }
+                      },
+                      {
+                        breakpoint: 427,
+                        settings: {
+                          slidesToShow: 1
+                        }
+                      }
+                    ]
                 });
             }, 1);
         });

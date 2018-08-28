@@ -250,6 +250,10 @@ export const AppRoutes: Routes = [
             {
                 path: 'supergetuser',canActivate: [Authgaurd3Service],
                 loadChildren: './ChoiceSuperAdmin/supergetusers/supergetusers.module#partnerModule'
+            },
+            {
+                path: 'superipuser',canActivate: [Authgaurd3Service],
+                loadChildren: './ChoiceSuperAdmin/superipuser/superipuser.module#SuperDashboardmainModule'
             }
         ]
     },          
