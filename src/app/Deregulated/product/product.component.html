@@ -365,7 +365,7 @@
 
 
 
-      <div class="col-sm-12 product-main" style="padding:0px;margin-left: 14px;" *ngIf="noresult != '0';else no_data_temp2">
+      <div class="col-sm-12 product-main" style="padding:0px;margin-left: 14px;">
         <div class="products-area-products">
           <div class="row" style="height: 35px;;">
 
@@ -520,7 +520,7 @@
 
 
           </div>
-          <div>
+          <div *ngIf="noresult != '0';else no_data_temp2">
             <div class="custom card up-margin" *ngFor="let data of deproduct; let i = index">
               <div class="row">
 

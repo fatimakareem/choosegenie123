@@ -432,6 +432,7 @@ value1="500";
 
 
     ngAfterViewInit() {
+       
         this.profile()
         this.data.currentProducts.subscribe(products => this.sg['products'] = products)
         this.data.currentProducts
