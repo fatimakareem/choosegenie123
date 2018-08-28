@@ -715,7 +715,7 @@ background: goldenrod;
   color: #212121;
   position: fixed !important;
   overflow-y: scroll;
-  height: 700px;
+  height: 694px;
 }
   .sidebar-user h5 {
     padding: 0px;
@@ -725,7 +725,9 @@ background: goldenrod;
   }
   .sidebar-user ul li {
     display: block;
-    margin: 0 0 8px; }
+    /* margin: 0 0 8px; */
+    margin: 0 0 0px;
+   }
   .sidebar-user mat-slider {
     width: 100%; }
   .sidebar-user .btn {
@@ -3086,8 +3088,8 @@ li.pinterest:hover {
   text-shadow: 2px 2px 7px #a6a6a7;
 }
 .com-table {
-  margin: 0 0 80px;
-  overflow-x: scroll;
+  /*margin: 0 0 80px;*/
+  /*overflow-x: scroll;*/
 }
 
 .appio-center-heading span.bordered-icon {
@@ -4513,6 +4515,11 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 }
 
 /*Dashboard front page*/
+table.table thead th{
+  background: #CC0000;
+}
+
+
 .carousel-inner > .item > img, .carousel-inner > .item > a > img{
   margin: 0 auto;
   float: none;
@@ -4673,8 +4680,13 @@ h1.page-header {
 }
 .easypiechart-panel {
   text-align: center;
-  padding: 1px 0;
+  padding: 0px 10px !important;
   /*margin-bottom: 20px;*/
+}
+.easypiechart-panel h4{
+  font-size: 27px;
+  margin-bottom: 0px;
+  line-height: 30px;
 }
 .easypiechart {
   position: relative;
@@ -4682,7 +4694,7 @@ h1.page-header {
   width: 120px;
   border-radius: 50%;
   height: 120px;
-  margin: 20px auto 10px auto;
+  margin: 0px auto 10px auto;
 }
 
 .easypiechart .percent {
@@ -4721,17 +4733,19 @@ canvas {
 
 }
 .panel-heading {
-  font-size: 24px !important;
-  font-weight: 300;
+  font-size: 26px !important;
+  font-weight: 500 !important;
+  color: #c00 !important;
   letter-spacing: 0.025em;
   height: 60px;
   background-color: #fff;
-  padding: 25px 10px 5px 15px !important;
+  padding: 21px 0px 0px 15px !important;
 }
 .article .date {
   text-align: center;
   margin: 25px auto;
   display: block;
+  color: #c00;
 }
 .large {
   font-size: 2em;
@@ -4744,7 +4758,7 @@ canvas {
   color: #30a5ff;
 }
 .heading-bottom p {
-  line-height: 24px;
+  line-height: 14px;
 }
 
 .header-bar{
@@ -4842,6 +4856,7 @@ canvas {
 
 .heading-bottom >h4 {
   margin-bottom: 0px !important;
+  padding-bottom: 0px;
 
 }
 .panel-default{
@@ -5790,6 +5805,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   position: fixed;
   width:20%;
   height: 700px;
+  /* height: 562px; */
   overflow-y: scroll;
 }
 .super-sidebar-list li{

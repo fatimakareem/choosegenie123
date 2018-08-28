@@ -70,7 +70,7 @@
           <!-- <li>
             <div class="panel-title">
               <a>
-                <h5 class="cat-title color-red" style="margin-bottom: 15px;margin-top: -20px;"> Price Range
+                <h5 class="cat-title color-red" style="margin-bottom: 15px;margin-top: -36px;"> Price Range
                   <i class="color-black fa fa-info-circle float" aria-hidden="true" title="Price per kilowatt hour: A kilowatt hour is equal to 1 kilowatt (1kW) of power used for 1 hour (1h) of time."></i>
                 </h5>
               </a>
@@ -291,7 +291,7 @@
             <!-- <span class="left"></span> -->
             <mat-form-field class="margin-up">
 
-              <mat-select placeholder="Company" (change)="checked17($event,i,name)" value="name" required [(ngModel)]="name" name="name">
+              <mat-select placeholder="" (change)="checked17($event,i,name)" value="name" required [(ngModel)]="name" name="name">
 
                 <mat-option *ngFor="let data of title" [value]="data.title">
                   {{data.title}}
@@ -300,21 +300,21 @@
 
               </mat-select>
             </mat-form-field>
-            <hr style="background: #000000">
+            <!-- <hr style="background: #000000"> -->
           </li>
 
           <li>
 
             <div class="panel-title">
               <a>
-                <h5 class="color-red">Product per Page
+                <h5 class="color-red" style="margin-top: -36px;">Product per Page
                   <i class="color-black fa fa-info-circle float" aria-hidden="true" title="Time-of-Use plans include incentives to use power during certain periods such as nights or weekends.  The average prices shown for Time-of-Use Plans are based on the REP’s estimate of energy used during discounted and non-discounted times.  Please note that the average price you pay will vary depending on your actual usage of energy during the discounted and non-discounted times.  See the glossary for details."></i>
 
                 </h5>
               </a>
             </div>
             <mat-form-field class="margin-up">
-              <mat-select class="width-sec" placeholder="" selected="10" (change)="checked18($event,i,items)" value="item" required [(ngModel)]="items"
+              <mat-select class="" placeholder="" selected="10" (change)="checked18($event,i,items)" value="item" required [(ngModel)]="items"
                 name="items">
                 <mat-option value="10" selected="true">10 PER PAGE</mat-option>
                 <mat-option value="20">20 PER PAGE</mat-option>
@@ -325,7 +325,7 @@
 
           </li>
           <li>
-            <div class="text-center">
+            <div class="text-center" style="margin-top: -26px;">
               <button type="button" class="btn-fill sidebar-serch-btn" (click)="setPage(1)" style="margin: 0px; text-transform: capitalize; padding: 5px 0px;">
                 Refresh Results
                 <!-- <i class="material-icons" title="Use these filters to set your preferences. Get rid of the plans you don’t want to see and only show those that fit your needs.">search</i> -->
@@ -346,7 +346,7 @@
 
 
 
-    <div class="main-content custom col-sm-10" style="padding-top: 5px; padding-left: 12px; padding-bottom: 10px;">
+    <div class="main-content custom col-sm-10" style="padding-top: 5px; padding-left: 12px; padding-bottom: 10px; float: right;">
       <!-- <div class="container-fluid"> -->
       <div class="row"></div>
 

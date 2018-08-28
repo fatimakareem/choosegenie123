@@ -1,5 +1,5 @@
 <div class="col-md-12 col-lg-12 col-sm-12  colxs-12">
-  <div class="page-title">
+  <div class="page-title margin-t">
 
     <h3 class="text-center choiecegenie-offers wow fadeInLeft"> User Details   </h3>
 
@@ -49,7 +49,7 @@
 
                       <!-- id.value,updatedzipcode.value,updatedutilityarea.value,updatedtitle.value,updatedphone.value,updatedstate.value,updatedcountry.value,updatedstatus.value,updateduser.value -->
                       <!-- <input matInput name="item.id" value="{{item.id}}"[hidden]="true" required #catagoryId/> -->
-                   
+
                       <input matInput name="item.REP_name" value="{{item.REP_name}}"[hidden]="true" required #updatedrepname/>
                     <input matInput  name="item.REP_certificate_id" value="{{item.REP_certificate_id}}"[hidden]="true" required #updaterepcertificateid/>
                     <input matInput  name="item.Contact_Name" value="{{item.Contact_Name}}" required [hidden]="true" #updatedcontactname/>
@@ -66,7 +66,7 @@
                 <!-- <td style="font-size: 20px;">
                   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
-                     
+
                       <input matInput name="item.REP_name" value="{{item.REP_name}}"[hidden]="true" required #updatedrepname/>
                     <input matInput  name="item.REP_certificate_id" value="{{item.REP_certificate_id}}"[hidden]="true" required #updaterepcertificateid/>
                     <input matInput  name="item.Contact_Name" value="{{item.Contact_Name}}" required [hidden]="true" #updatedcontactname/>
@@ -107,13 +107,13 @@
                   <p class="delet-this">Do you want to Delete this Task?</p>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-rose" (click)="deleteClick(dataId)" data-dismiss="modal" style="
+                  <button type="button" class="btn btn-fill" (click)="deleteClick(dataId)" data-dismiss="modal" style="
                   color: white;
 
                   width: 20%;
                   height: 45px;
                   font-size: 18px;">Delete</button>
-                  <button type="button" class="btn btn-rose" data-dismiss="modal" style="
+                  <button type="button" class="btn btn-fill" data-dismiss="modal" style="
                   color: white;
 
                   width: 20%;
@@ -133,19 +133,19 @@
               <!-- pager -->
               <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
                 <li [ngClass]="{hide:pager.currentPage === 1}">
-                  <a (click)="premiseIdData(1)" class="btn btn-rose">First</a>
+                  <a (click)="premiseIdData(1)" class="btn btn-fill">First</a>
                 </li>
                 <li [ngClass]="{hide:pager.currentPage === 1}">
-                  <a (click)="premiseIdData(pager.currentPage - 1)" class="btn btn-rose">Previous</a>
+                  <a (click)="premiseIdData(pager.currentPage - 1)" class="btn btn-fill">Previous</a>
                 </li>
                 <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                  <a (click)="premiseIdData(page)" class="btn btn-rose">{{page}}</a>
+                  <a (click)="premiseIdData(page)" class="btn btn-fill">{{page}}</a>
                 </li>
                 <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                  <a (click)="premiseIdData(pager.currentPage + 1)" class="btn btn-rose" type="Next">Next</a>
+                  <a (click)="premiseIdData(pager.currentPage + 1)" class="btn btn-fill" type="Next">Next</a>
                 </li>
                 <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                  <a (click)="premiseIdData(pager.totalPages)" class="btn btn-rose" type="Last">Last</a>
+                  <a (click)="premiseIdData(pager.totalPages)" class="btn btn-fill" type="Last">Last</a>
                 </li>
               </ul>
             </div>
