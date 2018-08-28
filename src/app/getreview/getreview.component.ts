@@ -104,7 +104,7 @@ export class GetreviewComponent implements OnInit {
 
             .subscribe(Res => {
                 console.log(Res);
-                this.hit = Res.json()[0].hits;
+                this.hit = Res.json()['Result'][0].hits;
                 console.log(this.hit)
             });
     }
