@@ -1,7 +1,7 @@
 <!-- <app-loader></app-loader> -->
 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="padding: 0px;">
 
-  <div class="page-title">
+  <div class="page-title margin-t">
     <!--<span>View Partners Detail </span>-->
     <h3 class="text-center choiecegenie-offers wow fadeInLeft" style="margin-bottom: 11px !important;">User's Detail  </h3>
 
@@ -17,7 +17,7 @@
 
 
 <div class="ptb-80" >
-<div class="container-fluid" style="padding: 0px;">
+<div class="container-fluid">
 <!-- <div class="text-center appio-center-heading pb-20">
 <h2>Why ChoiceGenie?</h2>
 <span _ngcontent-c4="" class="bordered-icon"><i _ngcontent-c4="" class="fa fa-square"></i></span>
@@ -62,7 +62,7 @@
     (click)="btnEditClick(item.id,item.name,item.email,item.partnername,item.desc,item.activepartner);editClick(updatedname.value,updatedemail.value,updatedpartnername.value,updateddesc.value,updatedactivepartner.value)"><i class="fa fa-check"></i> </button>
   </form>
   </td> -->
-<!-- 
+<!--
     <td style="font-size: 20px;">
       <button  class="btn btn-default" data-target="#myModal3" data-toggle="modal" style=" width: 100%; height: 100%; color: red; background-color: #ffffff !important; " type="submit" value="Delete"(click)="btnDeleteClick(item.id)" >
         <i  class="fa fa-times"></i> </button>
@@ -73,7 +73,7 @@
 </table>
 <!-- <div class="modal fade" id="myModal3" role="dialog">
   <div class="modal-dialog">
-   
+
     <div class="modal-content" style="margin-top:25%; width:119%;">
       <div class="modal-header">
 
@@ -87,13 +87,13 @@
         <p class="delet-this">Do you want to Delete this Task?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-rose" (click)="deleteClick(dataId)" data-dismiss="modal" style="
+        <button type="button" class="btn btn-fill" (click)="deleteClick(dataId)" data-dismiss="modal" style="
       color: white;
 
       width: 20%;
       height: 45px;
       font-size: 18px;">Delete</button>
-        <button type="button" class="btn btn-rose" data-dismiss="modal" style="
+        <button type="button" class="btn btn-fill" data-dismiss="modal" style="
       color: white;
 
       width: 20%;
@@ -113,19 +113,19 @@
     <!-- pager -->
     <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
       <li [ngClass]="{hide:pager.currentPage === 1}">
-        <a (click)="premiseIdData(1)" class="btn btn-rose">First</a>
+        <a (click)="premiseIdData(1)" class="btn btn-fill">First</a>
       </li>
       <li [ngClass]="{hide:pager.currentPage === 1}">
-        <a (click)="premiseIdData(pager.currentPage - 1)" class="btn btn-rose">Previous</a>
+        <a (click)="premiseIdData(pager.currentPage - 1)" class="btn btn-fill">Previous</a>
       </li>
       <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-        <a (click)="premiseIdData(page)" class="btn btn-rose">{{page}}</a>
+        <a (click)="premiseIdData(page)" class="btn btn-fill">{{page}}</a>
       </li>
       <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-        <a (click)="premiseIdData(pager.currentPage + 1)" class="btn btn-rose" type="Next">Next</a>
+        <a (click)="premiseIdData(pager.currentPage + 1)" class="btn btn-fill" type="Next">Next</a>
       </li>
       <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-        <a (click)="premiseIdData(pager.totalPages)" class="btn btn-rose" type="Last">Last</a>
+        <a (click)="premiseIdData(pager.totalPages)" class="btn btn-fill" type="Last">Last</a>
       </li>
     </ul>
   </div>
