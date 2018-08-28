@@ -128,7 +128,7 @@ export class HomeComponent implements OnInit {
   
   onKeydown(event,zipcode1) {
     if (event.key === "Enter") {
-      alert("enter the zip code")
+      //alert("enter the zip code")
       console.log(event);
       console.log("CHOICE GENIE", this.model.zipcode1);
     let headers = new HttpHeaders();
