@@ -432,7 +432,6 @@ value1="500";
 
 
     ngAfterViewInit() {
-       
         this.profile()
         this.data.currentProducts.subscribe(products => this.sg['products'] = products)
         this.data.currentProducts
@@ -499,6 +498,7 @@ value1="500";
             console.log(event.target.checked)
             delete this.months1;
             localStorage.removeItem('months1');
+            this.setPage(1);
         }
         console.log(this.months1)
     }
@@ -512,7 +512,9 @@ value1="500";
             console.log(event.target.checked)
             delete this.months2;
             localStorage.removeItem('months2');
-        }
+       
+            this.setPage(1);
+         }
         console.log(this.months2)
     }
     checked3(event, i) {
@@ -525,6 +527,7 @@ value1="500";
             console.log(event.target.checked)
             delete this.months3;
             localStorage.removeItem('months3');
+            this.setPage(1);
         }
         console.log(this.months3)
     }
@@ -538,6 +541,7 @@ value1="500";
             console.log(event.target.checked)
             delete this.months4;
             localStorage.removeItem('months4');
+            this.setPage(1);
         }
         console.log(this.months4)
     }
@@ -551,6 +555,7 @@ value1="500";
             console.log(event.target.checked)
             delete this.months5;
             localStorage.removeItem('months5');
+            this.setPage(1);
         }
         console.log(this.months5)
     }
@@ -564,6 +569,7 @@ value1="500";
             console.log(event.target.checked)
             delete this.months6;
             localStorage.removeItem('months6');
+            this.setPage(1);
         }
         console.log(this.months6)
     }
@@ -577,6 +583,7 @@ value1="500";
             console.log(event.target.checked)
             delete this.months7;
             localStorage.removeItem('months7');
+            this.setPage(1);
         }
         console.log(this.months7)
     }
@@ -590,6 +597,7 @@ value1="500";
             console.log(event.target.checked)
             delete this.fixed;
             localStorage.removeItem('fixed');
+            this.setPage(1);
         }
         console.log(this.fixed)
     }
@@ -603,6 +611,7 @@ value1="500";
             console.log(event.target.checked)
             delete this.vari;
             localStorage.removeItem('vari');
+            this.setPage(1);
         }
         console.log(this.vari)
     }
@@ -616,6 +625,7 @@ value1="500";
             console.log(event.target.checked)
             delete this.market;
             localStorage.removeItem('market');
+            this.setPage(1);
         }
         console.log(this.market)
     }
@@ -623,8 +633,9 @@ value1="500";
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.notprepaid = "prepaid";
-            this.setPage(1);
             delete this.prepaid;
+            this.setPage(1);
+           
             console.log(this.notprepaid);
         }
 
@@ -634,8 +645,8 @@ value1="500";
         if (event.target.checked == true) {
             console.log(event.target.checked);
             this.prepaid = "prepaid";
-            this.setPage(1);
             delete this.notprepaid;
+            this.setPage(1);
         }
 
         console.log(this.prepaid)
@@ -643,10 +654,10 @@ value1="500";
     checkedpre(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked);
-            this.setPage(1);
+           
             delete this.notprepaid;
             delete this.prepaid;
-
+            this.setPage(1);
         }
 
         console.log(this.prepaid, this.notprepaid)
@@ -734,6 +745,7 @@ value1="500";
             console.log()
             delete this.names;
             localStorage.removeItem('name');
+
         }
         console.log(this.names)
     }
@@ -763,6 +775,7 @@ value1="500";
           delete this.min;
           delete this.max;  
           delete this.price; 
+          this.setPage(1);
         }
 
         console.log()
@@ -922,7 +935,7 @@ value1="500";
         }
 
         const Results = {}
-        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "Prepaid" || this.prepaid == "Prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.names || this.sort == "dsc" || this.item || this.price) {
+        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "prepaid" || this.prepaid == "prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.names || this.sort == "dsc" || this.item || this.price) {
             if (this.item == undefined) {
                 this.item = "10";
             }

@@ -42,9 +42,10 @@ declare interface User {
 export class UserloginComponent implements OnInit {
   @ViewChild(RecaptchaComponent) captcha: RecaptchaComponent;
   isCaptcha=false;
+
   public typeValidation: User;
   register: FormGroup;
-  staySignedIn
+  staySignedIn:boolean=true;
   Email;
   login: FormGroup;
   type: FormGroup;
@@ -63,6 +64,7 @@ export class UserloginComponent implements OnInit {
     this.sidebarVisible = false;
 
   }
+ 
   isFieldValid(form: FormGroup, field: string) {
     return !form.get(field).valid && form.get(field).touched;
   }
@@ -128,8 +130,23 @@ export class UserloginComponent implements OnInit {
     this.isequal = false;
     // this.islogin = true;
   }
+  if(this.staySignedIn == false){
+    localStorage.setItem('signed', 'false');
+    console.log(this.staySignedIn)
   }
+  }
+  checked(event, i) {
+    if (event.target.checked == true) {
+        console.log(event.target.checked)
+        this.staySignedIn=true;
+    }
+    else if (event.target.checked == false) {
+        console.log(event.target.checked)
+        this.staySignedIn=false;
 
+    }
+   
+}
   foremail() {
     
   }
@@ -191,6 +208,7 @@ export class UserloginComponent implements OnInit {
       // We can use more than one validator per field. If we want to use more than one validator we have to wrap our array of validators with a Validators.compose function. Here we are using a required, minimum length and maximum length validator.
       password: ['', Validators.compose([Validators.required])],
       Email:['', Validators.compose([])],
+      staySignedIn:['', Validators.compose([])],
     });
 
    

@@ -126,61 +126,10 @@ export class HomeComponent implements OnInit {
 
   }
   
-  onKeydown(event,zipcode1) {
-    if (event.key === "Enter") {
-      alert("enter the zip code")
-      console.log(event);
-      console.log("CHOICE GENIE", this.model.zipcode1);
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    this.http.get(Config.api + 'zipcodecheck/' + zipcode1, { headers: headers })
-      .subscribe(data => {
-        console.log(data);
-        console.log(data['message'], 'hhhhhhhhhhhhhhh')
-this.state=data['state'];
-        this.zipcodeexist = data['message']
-        if (this.zipcodeexist == "InValid Zipcode") {
-          swal({
-            text: "Invalid Zipcode",
-            title: "Choice Genie",
-            type: "error",
-            showConfirmButton: false,
-            timer: 1200,
-            confirmButtonText: "OK",
-
-          })
-        }
-        else if (this.state == "deregulatedstate") {
-          this.router.navigate(['/product/' + this.zipCode]);
-          localStorage.setItem('zip', this.zipCode);
-        }
-        else if(this.state == "notderegulatedstate"){
-          this.router.navigate(['/products/' + this.zipCode]);
-          localStorage.setItem('zip', this.zipCode);
-        }
-      },
-        error => {
-          console.log(error);
-          swal({
-            text: "Invalid Zipcode",
-            title: "Choice Genie",
-            type: "error",
-            showConfirmButton: false,
-            timer: 1200,
-            confirmButtonText: "OK",
-
-          })
-
-        });
-  
-      //this.router.navigate(['/product/' + this.zipCode]);
-    }
-  }
+ 
 
   Checkzipcode(event,zipcode1) {
-    // if (event.key === "Enter") {
-    //   alert("enter")
-      console.log(event);
+
     console.log("CHOICE GENIE", this.model.zipcode1);
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
@@ -224,7 +173,6 @@ this.state=data['state'];
 
         });
   }
-// }
   Checkzipcode1(event,zipcode1) {
 
     console.log("CHOICE GENIE", this.model.zipcode1);
@@ -304,21 +252,7 @@ this.state=data['state'];
                   autoplaySpeed: 1500,
                   autoplay: true,
                     prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left" ><i class="fa fa-angle-left"></i></button>',
-                    nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" ><i class="fa fa-angle-right"></i></button>',
-                    responsive: [
-                      {
-                        breakpoint: 769,
-                        settings: {
-                          slidesToShow: 3
-                        }
-                      },
-                      {
-                        breakpoint: 427,
-                        settings: {
-                          slidesToShow: 1
-                        }
-                      }
-                    ]
+                    nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" ><i class="fa fa-angle-right"></i></button>'
                 });
             }, 1);
         });
