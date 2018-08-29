@@ -527,7 +527,7 @@
                 <div class="col-sm-12" style="padding: 0px 10px 11px 10px;">
                   <div class="card-header card-header-text position-abs cards-itme" data-background-color="rose">
                     <!-- {{data.id}}  -->
-                    <h4 class="card-title">{{data.title}} </h4>
+                    <h4 class="card-title" style="margin-bottom: 10px !important;">{{data.title}} </h4>
 
                   </div>
                   <!-- <input type="checkbox" name="comp"  #comp (change)="checked(data.id,i)">{{data.id}} -->
@@ -754,7 +754,7 @@
                             </a>
                           </div>
                         </div>
-                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <div class="plan-information__heading">Price Rate</div>
                           <table>
                             <tbody>
@@ -786,25 +786,10 @@
                               </tr>
                             </tbody>
                           </table>
-                          <div class="plan-description">
-                            <div class="plan-description__heading">Cancelation Fee</div>
-                            <div class="plan-description__content">
-
-                              <h4 *ngIf="cancelation_fee;else no_data_temp2">
-                                &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee}}
-                              </h4>
-
-                              <ng-template #no_data_temp2>
-
-                                <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
-                                <h4>&nbsp;&nbsp;&nbsp;&nbsp; ---</h4>
-                              </ng-template>
-                              <!-- <p class="ng-binding">A great low rate with guaranteed price protection for 1 full year. Exclusive online offer available to new customers.</p> -->
-                            </div>
-                          </div>
+                          
 
                         </div>
-                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                           <div class="plan-description">
                             <div class="plan-description__heading">Plan Information</div>
                             <div class="plan-description__content">
@@ -813,6 +798,24 @@
                               </ul>
 
 
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-12">
+                          <div class="plan-description">
+                            <div class="plan-description__heading">Cancelation Fee</div>
+                            <div class="plan-description__content">
+
+                              <h4 *ngIf="cancelation_fee;else no_data_temp2">
+                                {{cancelation_fee}}
+                              </h4>
+
+                              <ng-template #no_data_temp2>
+
+                                <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
+                                <h4>---</h4>
+                              </ng-template>
+                              <!-- <p class="ng-binding">A great low rate with guaranteed price protection for 1 full year. Exclusive online offer available to new customers.</p> -->
                             </div>
                           </div>
                         </div>
@@ -826,7 +829,7 @@
                       <div *ngIf="phone" style="display:inline-block; padding:24px;">
                         <span style="font-size:24px; font-weight:600px">OR CALL
                           <b>
-                              <a href="tel:{{phone}}" style="display: block">
+                              <a href="tel:{{phone}}" style="display: inline-block">
                                   <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
                                   {{phone}}</a>  </b>
                         </span>

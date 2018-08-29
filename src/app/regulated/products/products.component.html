@@ -90,7 +90,7 @@
             </button>
 
           </div>
-          <hr style="margin-top: 20px !important; background: #000000">
+          <hr style="margin-top: 10px !important; background: #000000">
         </li>
 
 
@@ -265,7 +265,7 @@
               </h5>
             </a>
           </div>
-          <mat-form-field class="margin-up">
+          <mat-form-field class="margin-up1">
           <mat-select (change)="checked16($event,i,energy)" value="renewable" required [(ngModel)]="energy" name="energy">
             <mat-option value="100">100% RENEWABLE</mat-option>
             <mat-option value="76,99">76% To 99%</mat-option>
@@ -855,7 +855,7 @@
     &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation.split(' ',3000)[2]}}
     </h4> -->
                             <h4 *ngIf="cancelation;else no_data_temp2">
-                              &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation}}
+                              {{cancelation}}
                             </h4>
                             <ng-template #no_data_temp2>
 
@@ -876,7 +876,7 @@
                     <div style="display:inline-block; padding:24px;">
                       <span style="font-size:24px; font-weight:600px">OR CALL
                         <b>
-                          <a href="tel:{{phone}}" style="display: block">
+                          <a href="tel:{{phone}}" >
                             <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
                             {{phone}}</a>
 

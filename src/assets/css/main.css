@@ -4498,6 +4498,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 }
 .pric-range-box{
   font-weight: bold;
+  margin-top: -12px;
 }
 .pric-range-box input {
     border-radius: 4px;
@@ -5495,6 +5496,9 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 .margin-up{
   margin-top: -6px !important;
 }
+.margin-up1{
+  margin-top: -19px !important;
+}
 .display{
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6220,6 +6224,11 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   z-index: 0 !important;
 }
 /*End product*/
+.radio, .checkbox {
+  margin-top: 0px !important;
+  margin-bottom: 3px !important;
+}
+
 /*
  * --------------------------------------------------
  * 3. Responsiveness/media queries
@@ -6980,6 +6989,6 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 .arrow-absolute{
   position: absolute;
-  right: -3px;
+  right: 10px;
   top: 43px;
 }
