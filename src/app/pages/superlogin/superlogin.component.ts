@@ -48,7 +48,7 @@ export class SuperloginComponent implements OnInit {
   private sidebarVisible: boolean;
   private nativeElement: Node;
   public username="admin";
-  staySignedIn;
+  staySignedIn:boolean=true;
   e;
   hide=true;
 user;
@@ -119,6 +119,10 @@ user;
     this.isequal = false;
     // this.islogin = true;
   }
+  if(this.staySignedIn == false){
+    localStorage.setItem('signed', 'false');
+    console.log(this.staySignedIn)
+  }
  }
   // recaptcha;
   // resolved(captchaResponse: string) {
@@ -141,13 +145,25 @@ user;
   //     }
   //   });
   // }
+  checked(event, i) {
+    if (event.target.checked == true) {
+        console.log(event.target.checked)
+        this.staySignedIn=true;
+    }
+    else if (event.target.checked == false) {
+        console.log(event.target.checked)
+        this.staySignedIn=false;
 
+    }
+   
+}
   ngOnInit() {
     this.login = this.formBuilder.group({
       // To add a validator, we must first convert the string value into an array. The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.
       username: ['', Validators.compose([Validators.required])],
       // We can use more than one validator per field. If we want to use more than one validator we have to wrap our array of validators with a Validators.compose function. Here we are using a required, minimum length and maximum length validator.
-      password: ['', Validators.compose([Validators.required])]
+      password: ['', Validators.compose([Validators.required])],
+      staySignedIn:['', Validators.compose([])],
     });
     var navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];

@@ -56,7 +56,7 @@ export class ProductComponent implements OnInit {
     constructor(private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
 
     }
-   
+
     private allItems: any[];
     pager: any = {};
     home: any = {};
@@ -132,7 +132,6 @@ export class ProductComponent implements OnInit {
     deproduct;
     noresult;
     Items;
-   
     ngOnInit() {
         this.names=localStorage.getItem('name');
         this.username = localStorage.getItem('username');
@@ -422,6 +421,7 @@ this. featuredplan();
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months1;
+            this.setPage(1);
         }
         console.log(this.months1)
     }
@@ -434,6 +434,7 @@ this. featuredplan();
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months2;
+            this.setPage(1);
         }
         console.log(this.months2)
     }
@@ -446,6 +447,7 @@ this. featuredplan();
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months3;
+            this.setPage(1);
         }
         console.log(this.months3)
     }
@@ -459,6 +461,7 @@ this. featuredplan();
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months5;
+            this.setPage(1);
         }
         console.log(this.months5)
     }
@@ -471,6 +474,7 @@ this. featuredplan();
         else if (event.target.checked == false) {
             console.log(event.target.checked)
             delete this.months6;
+            this.setPage(1);
         }
         console.log(this.months6)
     }
@@ -560,6 +564,7 @@ this. featuredplan();
         else {
             this.obj.searchProducts1(this.zip_code, page).subscribe(response => {
                 this.deproduct = response['Results'];
+                this.noresult = response['Total Result'];
                 this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
 
             });

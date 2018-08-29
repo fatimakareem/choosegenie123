@@ -126,6 +126,7 @@ export class HomeComponent implements OnInit {
 
   }
   
+<<<<<<< HEAD
   onKeydown(event,zipcode1) {
     if (event.key === "Enter") {
       //alert("enter the zip code")
@@ -176,11 +177,12 @@ this.state=data['state'];
       //this.router.navigate(['/product/' + this.zipCode]);
     }
   }
+=======
+ 
+>>>>>>> 779f7be00d58b8ae2321acab4653125e678f6a25
 
   Checkzipcode(event,zipcode1) {
-    // if (event.key === "Enter") {
-    //   alert("enter")
-      console.log(event);
+
     console.log("CHOICE GENIE", this.model.zipcode1);
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
@@ -224,7 +226,6 @@ this.state=data['state'];
 
         });
   }
-// }
   Checkzipcode1(event,zipcode1) {
 
     console.log("CHOICE GENIE", this.model.zipcode1);
@@ -304,21 +305,7 @@ this.state=data['state'];
                   autoplaySpeed: 1500,
                   autoplay: true,
                     prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left" ><i class="fa fa-angle-left"></i></button>',
-                    nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" ><i class="fa fa-angle-right"></i></button>',
-                    responsive: [
-                      {
-                        breakpoint: 769,
-                        settings: {
-                          slidesToShow: 3
-                        }
-                      },
-                      {
-                        breakpoint: 427,
-                        settings: {
-                          slidesToShow: 1
-                        }
-                      }
-                    ]
+                    nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" ><i class="fa fa-angle-right"></i></button>'
                 });
             }, 1);
         });

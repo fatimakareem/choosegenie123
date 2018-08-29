@@ -23,7 +23,10 @@
           </mat-form-field>
           <div class="float-left">
               <label >
-                  <mat-checkbox checked="true">Stay Signed In</mat-checkbox>
+                  <input type="checkbox" [(ngModel)]="staySignedIn" formControlName="staySignedIn" value="staySignedIn" (change)="checked($event,i)" checked="true">
+                  <!-- <input [(ngModel)]="staySignedIn" type="checkbox" checked="true" name="stay-signed" value="Stay Sign In"> -->
+                  <div class="float-r">Stay Signed In</div>
+                  <!-- <mat-checkbox checked="true">Stay Signed In</mat-checkbox> -->
               </label>
             </div>
           <blackgeeks-recaptcha class="float-r margin-right-bottom" ></blackgeeks-recaptcha>

@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
   status;
   islogin = true;
   isequal;
-
+  staySignedIn:boolean=true;
   // returnUrl: string;
 
 
@@ -143,8 +143,22 @@ export class LoginComponent implements OnInit {
       this.isequal = false;
       // this.islogin = true;
     }
+    if(this.staySignedIn == false){
+      localStorage.setItem('signed', 'false');
+      console.log(this.staySignedIn)
+    }
   }
+  checked(event, i) {
+    if (event.target.checked == true) {
+        console.log(event.target.checked)
+        this.staySignedIn=true;
+    }
+    else if (event.target.checked == false) {
+        console.log(event.target.checked)
+        this.staySignedIn=false;
 
+    }
+  }
   model: any = {};
   forgetpass(Email) {
     console.log("CHOICE GENIE", this.username);
@@ -202,6 +216,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.compose([Validators.required])],
       // title: ['', Validators.compose([Validators.required])],
       Email: ['', Validators.compose([])],
+      staySignedIn:['', Validators.compose([])],
     });
 
     var navbar: HTMLElement = this.element.nativeElement;
@@ -214,7 +229,7 @@ export class LoginComponent implements OnInit {
       $('.card').removeClass('card-hidden');
     }, 700);
   }
-  staySignedIn: boolean = true;
+ 
   sidebarToggle() {
     var toggleButton = this.toggleButton;
     var body = document.getElementsByTagName('body')[0];

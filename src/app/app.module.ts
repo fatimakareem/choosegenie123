@@ -96,7 +96,7 @@ import { HeaderService } from './header/header.service';
 import { UnsubscribeService } from './unsubscribe/unsubscribe.service';
 import { DeletegetuserService } from './ChoiceSuperAdmin/supergetusers/deletegetuser.service';
 import { UpdategetuserService } from './ChoiceSuperAdmin/supergetusers/updategetuser.service';
- 
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -193,6 +193,7 @@ export class MaterialModule { }
 
   ],
   providers: [
+    CookieService,
     HomeService,
     HeaderService,
     CompanyService,
