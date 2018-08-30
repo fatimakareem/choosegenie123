@@ -126,7 +126,6 @@ export class HomeComponent implements OnInit {
 
   }
   
-<<<<<<< HEAD
   onKeydown(event,zipcode1) {
     if (event.key === "Enter") {
       //alert("enter the zip code")
@@ -177,9 +176,7 @@ this.state=data['state'];
       //this.router.navigate(['/product/' + this.zipCode]);
     }
   }
-=======
  
->>>>>>> 779f7be00d58b8ae2321acab4653125e678f6a25
 
   Checkzipcode(event,zipcode1) {
 
