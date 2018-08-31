@@ -8,7 +8,7 @@ import {MatDatepickerModule} from "@angular/material";
 import { HttpClientModule } from '@angular/common/http';
 import { AddblogRoutes } from './addblog.routing';
 import { AddblogComponent } from './addblog.component';
-// import { CKEditorModule } from 'ng2-ckeditor';
+import { CKEditorModule } from 'ng2-ckeditor';
 
 @NgModule({
     imports: [
@@ -19,7 +19,7 @@ import { AddblogComponent } from './addblog.component';
         ReactiveFormsModule,
         MatDatepickerModule,
         HttpClientModule,
-        // CKEditorModule
+        CKEditorModule
     ],
     declarations: [
        AddblogComponent

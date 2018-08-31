@@ -13,9 +13,19 @@
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
-              <mat-form-field class="width-full">
+                <ckeditor
+                [(ngModel)]="model.heading1" [formControl]="signupForm.controls['heading1']">
+                  <ckbutton [name]="'saveButton'"
+                    [command]="'saveCmd'"
+                    (click)="save($event)"
+                    [icon]="'save.png'"
+                    [label]="'Save Document'"
+                    [toolbar]="'clipboard,1'">
+                  </ckbutton>
+              </ckeditor>
+              <!-- <mat-form-field class="width-full">
                 <input matInput placeholder=" Heading 1 " [formControl]="signupForm.controls['heading1']" required [(ngModel)]="model.heading1">
-              </mat-form-field>
+              </mat-form-field> -->
             </div>
           </div>
           <div class="col-sm-6">
