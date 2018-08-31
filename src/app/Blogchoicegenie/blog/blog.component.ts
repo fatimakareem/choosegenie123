@@ -7,7 +7,7 @@ import { SimpleGlobal } from 'ng2-simple-global';
 import { FormBuilder } from '@angular/forms';
 import { HttpClient } from "@angular/common/http";
 import { HttpService } from '../../serv/http-service';
-
+declare const $: any;
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
@@ -17,17 +17,25 @@ export class BlogComponent implements OnInit {
 
   constructor(private https: HttpService, public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
   data: any = [];
+  content;
+  con;
   ngOnInit() {
     this.profile();
+    
   }
   profile() {
 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    this.https.get(Config.api + 'Gettingblog/', { headers: headers })
+    this.https.get(Config.api + 'gettingblog_all/', { headers: headers })
       .subscribe(Res => {
         this.data = Res.json();
-        console.log(this.data);
+    //     // this.content= this.data.content1
+    //     this.content=Res.json()[0]['content1'];
+    //  this.con=(this.content).replace(/<[^>]+>/gm, '')
+    //     // $('#myDiv').html(this.content);
+    //     console.log(this.content);
+        
       });
 
   }
