@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Blog1Routes } from './blog1.routing';
 import { Blog1Component } from './blog1.component';
 import { LoaderModule } from '../../loader/loader.module';
-import '@progress/kendo-ui';
+
 
 @NgModule({
     imports: [

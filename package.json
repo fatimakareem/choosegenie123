@@ -28,7 +28,6 @@
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/platform-server": "^5.0.0",
     "@angular/router": "^5.0.0",
-    "@progress/kendo-ui": "^2018.2.822",
     "angular-star-rating": "^4.0.0-beta.3",
     "angular-svg-round-progressbar": "^2.0.0",
     "angular2-material-datepicker": "0.5.0",

@@ -11,7 +11,7 @@ import { DeleteBlogService } from './Blogchoicegenie/adminblog/delete-blog.servi
 import { EditBlogService } from './Blogchoicegenie/adminblog/edit-blog.service';
 import { AngularcliStarRatingModule } from 'angularcli-star-rating'
 import { LoaderModule } from './loader/loader.module';
-import '@progress/kendo-ui';
+
 import {
   MatAutocompleteModule,
   MatButtonModule,
