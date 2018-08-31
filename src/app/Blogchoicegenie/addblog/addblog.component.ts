@@ -34,14 +34,14 @@ export class AddblogComponent implements OnInit {
   usernameexist: boolean = true;
   result: any = [];
   url: any = 'JPG, GIF, PNG';
-  Ch_image;
+  blog_image;
   
    
   constructor( public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
   ngOnInit() {
   
     this.signupForm = this.fb.group({
-      'Ch_image': ['', Validators.compose([Validators.required])],
+      'blog_image': ['', Validators.compose([Validators.required])],
       'heading': ['', Validators.compose([Validators.required])],
       'content1': ['', Validators.compose([Validators.required])],
      
@@ -49,12 +49,12 @@ export class AddblogComponent implements OnInit {
   }
  
   onChange(event: EventTarget) {
-    this.Ch_image = new FormData();
+    this.blog_image = new FormData();
     const eventObj: MSInputMethodContext = <MSInputMethodContext>event;
     const target: HTMLInputElement = <HTMLInputElement>eventObj.target;
-    this.Ch_image.append('fileToUpload', target.files[0]);
-    console.log(this.Ch_image);
-    alert(this.Ch_image);
+    this.blog_image.append('fileToUpload', target.files[0]);
+    console.log(this.blog_image);
+    alert(this.blog_image);
   }
 
   readUrl(event: any) {
@@ -73,7 +73,7 @@ export class AddblogComponent implements OnInit {
   upload() {
     this.http.post(
       Config.Imageurlupload,
-      this.Ch_image, { responseType: 'text' }).subscribe(data => {
+      this.blog_image, { responseType: 'text' }).subscribe(data => {
         if (data === "Sorry, not a valid Image.Sorry, only JPG, JPEG, PNG & GIF files are allowed.Sorry, your file was not uploaded.") {
         }
         else {
@@ -81,7 +81,7 @@ export class AddblogComponent implements OnInit {
           
           console.log(data);
           alert(data);
-          this.model.Ch_image = data;
+          this.model.blog_image = data;
         
           this.signupuserdata();
         }

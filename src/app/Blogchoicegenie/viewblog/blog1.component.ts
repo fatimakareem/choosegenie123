@@ -20,6 +20,7 @@ export class Blog1Component implements OnInit {
   public heading1;
   heading;
   text;
+  image;
   ngOnInit() {
     this.fetchProducts();
     this.route.params.subscribe(params => {
@@ -37,7 +38,8 @@ export class Blog1Component implements OnInit {
     this.http.get('http://192.168.30.238:9000/gettingblog_html/'+this.heading + '/', { headers: headers })
       .subscribe(Res => {
         this.data = Res.json()[0].content1;
-        
+        this.image=Res.json()[0].blog_image;
+        console.log(this.image);
         $('#myDiv').html(this.data);
         
       });
