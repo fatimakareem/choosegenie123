@@ -42,19 +42,9 @@ export class AddblogComponent implements OnInit {
   
     this.signupForm = this.fb.group({
       'Ch_image': ['', Validators.compose([Validators.required])],
-      'heading1': ['', Validators.compose([Validators.required])],
+      'heading': ['', Validators.compose([Validators.required])],
       'content1': ['', Validators.compose([Validators.required])],
-      'heading2': ['', Validators.compose([Validators.required])],
-      'content2': ['', Validators.compose([Validators.required])],
-      'heading3': ['', Validators.compose([Validators.required])],
-      'content3': ['', Validators.compose([Validators.required])],
-      'heading4': ['', Validators.compose([Validators.required])],
-      'content4': ['', Validators.compose([Validators.required])],
-      'heading5': ['', Validators.compose([Validators.required])],
-      'content5': ['', Validators.compose([Validators.required])],
-      'heading6': ['', Validators.compose([Validators.required])],
-      'content6': ['', Validators.compose([Validators.required])],
-
+     
     });
   }
  

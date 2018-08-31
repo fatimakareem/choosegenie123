@@ -11,10 +11,18 @@
     <div class="ptb-80" >
       <div class="">
         <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group margin">
+                  <mat-form-field class="width-full">
+                    <input matInput placeholder=" Heading" [formControl]="signupForm.controls['heading']" required [(ngModel)]="model.heading">
+                  </mat-form-field>
+                </div>
+              </div>
+              <br class="clearfix" />
           <div class="col-sm-6">
             <div class="form-group">
                 <ckeditor
-                [(ngModel)]="model.heading1" [formControl]="signupForm.controls['heading1']">
+                [(ngModel)]="model.content1" [formControl]="signupForm.controls['content1']">
                   <ckbutton [name]="'saveButton'"
                     [command]="'saveCmd'"
                     (click)="save($event)"
@@ -28,7 +36,7 @@
               </mat-form-field> -->
             </div>
           </div>
-          <div class="col-sm-6">
+          <!-- <div class="col-sm-6">
             <div class="form-group">
               <mat-form-field class="width-full">
                 <input matInput placeholder=" Content1" [formControl]="signupForm.controls['content1']" required [(ngModel)]="model.content1">
@@ -38,7 +46,7 @@
           <div class="col-sm-6">
             <div class="form-group margin">
               <mat-form-field class="width-full">
-                <input matInput placeholder=" Heading2" [formControl]="signupForm.controls['heading2']" required [(ngModel)]="model.heading2">
+                <input matInput placeholder=" Heading2" [formControl]="signupForm.controls['heading']" required [(ngModel)]="model.heading">
               </mat-form-field>
             </div>
           </div>
@@ -113,7 +121,7 @@
                 <input matInput placeholder=" Content6" [formControl]="signupForm.controls['content6']" required [(ngModel)]="model.content6">
               </mat-form-field>
             </div>
-          </div>
+          </div> -->
           <div class="col-sm-12" style="margin-bottom: 30px;">
           <input id="img" type='file' (change)="onChange($event)" (change)="readUrl($event)" name="Ch_image" [(ngModel)]="model.Ch_image" accept="image/*" multiple>
           <img [src]="url" class="image-box" >
