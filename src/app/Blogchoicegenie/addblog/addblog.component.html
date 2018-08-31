@@ -11,15 +11,17 @@
     <div class="ptb-80" >
       <div class="">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div class="form-group margin">
                   <mat-form-field class="width-full">
                     <input matInput placeholder=" Heading" [formControl]="signupForm.controls['heading']" required [(ngModel)]="model.heading">
                   </mat-form-field>
                 </div>
               </div>
-              <br class="clearfix" />
-          <div class="col-sm-6">
+              </div>
+              <!-- <br class="clearfix" /> -->
+              <div class="row">
+          <div class="col-sm-12">
             <div class="form-group">
                 <ckeditor
                 [(ngModel)]="model.content1" [formControl]="signupForm.controls['content1']">
@@ -130,7 +132,7 @@
           <br class="clearfix" />
           <div class="col-sm-6" style="margin: 0 auto">
             <div class="form-group margin">
-              <button class="btn btn-fill" style="width:100%; border-radius:50px;font-size:24px !important;" type="submit"(click)="upload()">Register</button>
+              <button class="btn btn-fill" style="width:100%; border-radius:50px;font-size:24px !important;" type="submit"(click)="upload()">Add Now</button>
             </div>
           </div>
         </div>
