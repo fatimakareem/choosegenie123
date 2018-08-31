@@ -133,7 +133,9 @@ export class ProductComponent implements OnInit {
     noresult;
     Items;
     ngOnInit() {
-        this.names=localStorage.getItem('name');
+
+
+      this.names=localStorage.getItem('name');
         this.username = localStorage.getItem('username');
         this.zip_code = localStorage.getItem('zip');
         this.customer = localStorage.getItem('custum')
@@ -162,6 +164,12 @@ this. featuredplan();
 
 
     }
+  w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+  }
+ w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+  }
     featuredplan() {
 
         let headers = new Headers();
@@ -180,7 +188,21 @@ this. featuredplan();
                         slidesToShow: 5,
                         slidesToScroll: 1,
                         prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left" style="left:0;"><i class="fa fa-angle-left"></i></button>',
-                        nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" style="right:0;"><i class="fa fa-angle-right"></i></button>'
+                        nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" style="right:0;"><i class="fa fa-angle-right"></i></button>',
+                      responsive: [
+                        {
+                          breakpoint: 769,
+                          settings: {
+                            slidesToShow: 3
+                          }
+                        },
+                        {
+                          breakpoint: 500,
+                          settings: {
+                            slidesToShow: 1
+                          }
+                        }
+                      ]
                     });
                 }, 1);
             });
@@ -190,7 +212,7 @@ this. featuredplan();
         this.router.navigate(['/Review/' + id]);
         localStorage.setItem('company', title);
     }
-   
+
     btnratingClick(id, title, profileurl, profile_logo, servicearea) {
         this.id = id;
         this.comtitle = title;
@@ -517,9 +539,9 @@ this. featuredplan();
         console.log(this.names)
     }
     move(name){
-       
+
         this.names=name;
-     
+
          this.setPage(1);
        }
     setPage(page: number) {

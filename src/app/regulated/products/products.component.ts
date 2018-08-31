@@ -168,22 +168,22 @@ value1="500";
               }
             ]
           });
-          
-          
+
+
           const mainSearch = $('.main-search');
           const formSearch = $('.form-search');
-          
+
           $('.search-bg').click(function () {
             $(mainSearch).addClass('active');
             $('body').addClass('noScroll');
             $(formSearch).addClass('flipInX');
-          
+
             setTimeout(function () {
               $('.form-search .mat-input-element').focus();
             }, 370);
-          
+
           });
-          
+
           $('#closeSearch').click(function () {
             $(mainSearch).removeClass('active');
             $('body').removeClass('noScroll');
@@ -215,8 +215,17 @@ value1="500";
         this.companytitle();
 
         this.featuredplan();
-    
+
     }
+
+  w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+  }
+  w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+  }
+
+
     btnDeleteClick(id, title, profileurl, profile_logo, servicearea) {
         this.id = id;
         this.comtitle = title.trim();
@@ -367,7 +376,7 @@ value1="500";
                             slidesToScroll: 1
                           }
                         }
-                  
+
                       ]
                     });
                   }, 0);
@@ -379,7 +388,7 @@ value1="500";
                     prod["plan_information"] = prod["plan_information"].split(',,', 3000);
                     prod["price_rate"] = prod["price_rate"].split('..', 3000);
                 }
-              
+
             });
     }
 
@@ -512,7 +521,7 @@ value1="500";
             console.log(event.target.checked)
             delete this.months2;
             localStorage.removeItem('months2');
-       
+
             this.setPage(1);
          }
         console.log(this.months2)
@@ -635,7 +644,7 @@ value1="500";
             this.notprepaid = "prepaid";
             delete this.prepaid;
             this.setPage(1);
-           
+
             console.log(this.notprepaid);
         }
 
@@ -654,7 +663,7 @@ value1="500";
     checkedpre(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked);
-           
+
             delete this.notprepaid;
             delete this.prepaid;
             this.setPage(1);
@@ -773,8 +782,8 @@ value1="500";
             localStorage.removeItem('max');
             localStorage.removeItem('price');
           delete this.min;
-          delete this.max;  
-          delete this.price; 
+          delete this.max;
+          delete this.price;
           this.setPage(1);
         }
 
@@ -794,7 +803,7 @@ value1="500";
         this.setPage(1);
     }
     move(name){
-       
+
          this.names=name.trim();
         //   this.router.navigate(['/products/' + this.zip_code]);
         //   localStorage.setItem('zip', this.zip_code);
@@ -819,7 +828,7 @@ value1="500";
             localStorage.removeItem('months7');
             localStorage.removeItem('name');
             delete this.min;
-            delete this.max;         
+            delete this.max;
             delete this.price;
             delete this.names;
             delete this.market;
@@ -849,7 +858,7 @@ value1="500";
                 localStorage.setItem('state', this.state);
                 this.zipcodeexist = data.json()['message']
                 delete this.item;
-               
+
                 if (this.zipcodeexist == "InValid Zipcode") {
                     swal({
                         text: "InValid Zipcode",
