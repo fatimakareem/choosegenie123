@@ -84,6 +84,10 @@ export const AppRoutes: Routes = [
             loadChildren: './Blogchoicegenie/blog/blog.module#BlogModule'
         },
         {
+            path: 'blogss',
+            loadChildren: './blogss/blogss.module#BecomeapartnerModule'
+        },
+        {
             path: 'blog/:heading1',
             loadChildren: './Blogchoicegenie/viewblog/blog1.module#Blog1Module'
             // loadChildren: './pages/login/login.module#LoginModule'

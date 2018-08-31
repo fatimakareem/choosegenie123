@@ -176,10 +176,7 @@ this.state=data['state'];
       //this.router.navigate(['/product/' + this.zipCode]);
     }
   }
-<<<<<<< HEAD
  
-=======
->>>>>>> 1d417140455825897894a48bac9ff23e6b22a082
 
   Checkzipcode(event,zipcode1) {
 
