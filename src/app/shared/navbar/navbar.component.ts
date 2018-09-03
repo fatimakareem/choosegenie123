@@ -43,6 +43,7 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     public customer;
     public username;
+    public admin;
     @ViewChild('app-navbar-cmp') button: any;
     constructor(private route: ActivatedRoute, private https: HttpClient, 
         private location: Location, private router: Router, private http: Http,    
@@ -77,6 +78,18 @@ export class NavbarComponent implements OnInit {
           else {
           return false;    }
       }
+      check_login1() {
+        if (localStorage.getItem('currentadmin')) {
+          let local = localStorage.getItem('currentadmin');
+          return true;
+        }
+        else {
+          return false;
+        }
+      }
+      moving1() {
+        this.router.navigate(['/supermaindashboard']);
+      }
       movein() {
         this.router.navigate(['/consumerdashboard/']);
       }
@@ -98,6 +111,8 @@ export class NavbarComponent implements OnInit {
       }
      
     ngOnInit() {
+        this.admin=localStorage.getItem('currentadmin')
+
         this.massage = localStorage.getItem('massage')
         this.username = localStorage.getItem('user')
         console.log(this.username);
