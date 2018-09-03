@@ -155,7 +155,21 @@ value1="500";
     noresult;
     zipdet;
     modal: any = [];
+    myID;
     ngOnInit() {
+        this.myID = document.getElementById("myID");
+
+var myScrollFunc = function() {
+  var y = window.scrollY;
+  if (y >= 800) {
+    this.myID.className = "bottomMenu show"
+  }
+else {
+    this.myID.className = "bottomMenu hide"
+  }
+};
+
+window.addEventListener("scroll", myScrollFunc);
         $('.slick-date').slick({
             slidesToShow: 2,
             variableWidth: true,
@@ -223,6 +237,10 @@ value1="500";
   }
   w3_close() {
     document.getElementById("mySidebar").style.display = "none";
+  }
+  pop_close() {
+    // document.getElementById("myID").style.display = "none";
+    this.myID.className = "bottomMenu hide"
   }
 
 

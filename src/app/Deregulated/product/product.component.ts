@@ -132,8 +132,21 @@ export class ProductComponent implements OnInit {
     deproduct;
     noresult;
     Items;
+    myID;
     ngOnInit() {
+        this.myID = document.getElementById("myID");
 
+        var myScrollFunc = function() {
+          var y = window.scrollY;
+          if (y >= 800) {
+            this.myID.className = "bottomMenu show"
+          }
+        else {
+            this.myID.className = "bottomMenu hide"
+          }
+        };
+        
+        window.addEventListener("scroll", myScrollFunc);
 
       this.names=localStorage.getItem('name');
         this.username = localStorage.getItem('username');
@@ -164,12 +177,18 @@ this. featuredplan();
 
 
     }
+   
+    
   w3_open() {
     document.getElementById("mySidebar").style.display = "block";
   }
  w3_close() {
     document.getElementById("mySidebar").style.display = "none";
   }
+    pop_close() {
+        // document.getElementById("myID").style.display = "none";
+        this.myID.className = "bottomMenu hide"
+      }
     featuredplan() {
 
         let headers = new Headers();

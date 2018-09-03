@@ -366,13 +366,13 @@ this.state=data['state'];
 
           })
         }
-        else if (this.state == "deregulatedstate") {
+        else if (this.state == "deregulatedstate" && this.notmess== "Yes" ) {
           this.router.navigate(['/product/' + this.zipCode]);
           localStorage.setItem('zip', this.zipCode);
     localStorage.setItem('name', name);
   
         }
-        else if(this.state == "notderegulatedstate"){
+        else if(this.state == "notderegulatedstate" && this.mess == "Yes"){
           this.router.navigate(['/products/' + this.zipCode]);
           localStorage.setItem('zip', this.zipCode);
           localStorage.setItem('name', name.trim());
