@@ -3091,10 +3091,7 @@ li.pinterest:hover {
   position: relative;
   text-shadow: 2px 2px 7px #a6a6a7;
 }
-.com-table {
-  /*margin: 0 0 80px;*/
-  /*overflow-x: scroll;*/
-}
+
 
 .appio-center-heading span.bordered-icon {
   color: #31aae2;
@@ -5275,10 +5272,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   padding-bottom: 0px;
 }
 
-.play-store-inner span{
-  /*font-size: 50px;*/
-  /*color: #c00;*/
-}
+
 .play-store-img{
   margin: 0px;
 }
@@ -6672,9 +6666,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .top-margin{
     margin-top: 0px;
   }
-  .product-main{
-    /*margin-top: 50px !important;*/
-  }
+ 
   .card .card-header.card-header-text{
     display: inline-block !important;
   }
