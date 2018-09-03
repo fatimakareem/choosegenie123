@@ -92,7 +92,7 @@ user;
     this.router.navigate(['/supermaindashboard']);
     // localStorage.setItem('user', this.username);
    
-      localStorage.setItem('currentadmin', JSON.stringify(username));
+      localStorage.setItem('currentadmin', username);
       // console.log ("junaid",localStorage.getItem('currentUser'))
   }
    

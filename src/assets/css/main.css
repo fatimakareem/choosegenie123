@@ -5679,7 +5679,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 
 .w3-sidebar {
   height: 100%;
-  width: 214px;
+  width: 237px !important;
   background-color: #fff;
   position: fixed!important;
   z-index: 2;
