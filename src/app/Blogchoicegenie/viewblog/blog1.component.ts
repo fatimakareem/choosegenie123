@@ -35,7 +35,7 @@ export class Blog1Component implements OnInit {
     this.heading = localStorage.getItem('heading');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    this.http.get(Config.api +'gettingblog_html/'+ this.heading + '/', { headers: headers })
+    this.http.get(Config.api +'gettingblog_html/'+this.heading+'/', { headers: headers })
       .subscribe(Res => {
         this.data = Res.json()[0].content1;
         this.image=Res.json()[0].blog_image;
