@@ -57,6 +57,7 @@ export class LoginComponent implements OnInit {
   private nativeElement: Node;
   public username;
   public title;
+  i;
   Email;
   status;
   islogin = true;

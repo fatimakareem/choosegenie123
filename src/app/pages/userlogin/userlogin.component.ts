@@ -57,6 +57,7 @@ export class UserloginComponent implements OnInit {
   password;
   hide=true;
   islogin = true;
+  i;
   isequal;
   constructor(public router: Router, private element: ElementRef, private http: Http, private route: ActivatedRoute,
     private sg: SimpleGlobal, private _nav: Router, private _serv: UserLoginService, private formBuilder: FormBuilder, private https: HttpClient) {

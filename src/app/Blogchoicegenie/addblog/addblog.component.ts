@@ -18,6 +18,7 @@ import { MatSelect } from '@angular/material';
 export class AddblogComponent implements OnInit {
   state;
   city;
+  save;
   username;
   confirmpassword;
   signupForm: FormGroup;
