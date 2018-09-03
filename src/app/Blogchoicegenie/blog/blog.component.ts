@@ -39,8 +39,10 @@ export class BlogComponent implements OnInit {
       });
 
   }
+//  link='/blog/';
+  link='/';
   fun(heading){
-    this.router.navigate(['/blog/' + heading.split(' ').join('-')]);
+    this.router.navigate(['/' + heading.split(' ').join('-')]);
     localStorage.setItem('heading', heading);
   }
 }

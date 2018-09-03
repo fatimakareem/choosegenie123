@@ -3572,11 +3572,11 @@ h1, .entry-title-2 {
 
 /*slider css start*/
 #main-bg-slider .item{
-  height: 425px;
+  height: 442px;
   overflow: hidden;
 }
 #main-bg-slider .item img{
-  height: 650px;
+  height: 442px;
   width: 100%;
   overflow: hidden;
 }
@@ -5242,7 +5242,7 @@ text-align: center;
   padding: 0px 100px !important;
 }
 .height-slider{
-  height: 425px;
+  height: 442px;
 }
 .text-red{
   color: #C00;
@@ -5284,12 +5284,12 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 
 .play-store-img li a img{
-  width: 27%;
+  width: 21%;
   margin-top: -15px;
   margin-bottom: -9px;
 }
 .apple-button{
-  height: 81px;
+  height: 63px;
 }
 
 /*End Home*/

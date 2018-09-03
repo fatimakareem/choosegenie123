@@ -88,7 +88,7 @@ export const AppRoutes: Routes = [
             loadChildren: './blogss/blogss.module#BecomeapartnerModule'
         },
         {
-            path: 'blog/:heading1',
+            path: ':heading',
             loadChildren: './Blogchoicegenie/viewblog/blog1.module#Blog1Module'
             // loadChildren: './pages/login/login.module#LoginModule'
         },
