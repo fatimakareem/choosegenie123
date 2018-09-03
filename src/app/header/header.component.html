@@ -190,6 +190,26 @@
             </ul>
           </div>
         </li>
+        <li class="vanders" *ngIf="check_login1()">
+            <a>
+              <i class="material-icons">account_circle</i>{{admin}}
+              <!-- <input style="cursor: pointer;font-size: 20px; margin-left: 5px;" type="text" [value]="username" readonly> -->
+            </a>
+            <div class="drop-downs">
+              <ul class="nav-vanders  why-choiegenie-sublist">
+                <li>
+                  <a (click)="moving1()" style="cursor: pointer;">
+                    Dashboard
+                  </a>
+                </li>
+   <li>
+                  <a (click)="logout()">
+                    <i class="material-icons">lock</i>Logout
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
         <li class="vanders" *ngIf="checked_login()">
           <a>
             <i class="material-icons">account_circle</i>{{customer}}

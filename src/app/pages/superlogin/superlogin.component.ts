@@ -90,7 +90,7 @@ user;
       'success'
     )
     this.router.navigate(['/supermaindashboard']);
-    localStorage.setItem('user', this.username);
+    // localStorage.setItem('user', this.username);
    
       localStorage.setItem('currentadmin', JSON.stringify(username));
       // console.log ("junaid",localStorage.getItem('currentUser'))

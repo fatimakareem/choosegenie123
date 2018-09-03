@@ -35,6 +35,7 @@ export class HeaderComponent implements OnInit {
   zipcode;
   record: any = []
   zipCode;
+  admin;
   constructor(private router: Router, private _serv: HeaderService, private data: DataService, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
   checked_login() {
     if (localStorage.getItem('custum')) {
@@ -54,6 +55,15 @@ export class HeaderComponent implements OnInit {
       return false;
     }
   }
+  check_login1() {
+    if (localStorage.getItem('currentadmin')) {
+      let local = localStorage.getItem('currentadmin');
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
   move() {
     this.router.navigate(['/consumerdashboard/']);
   }
@@ -64,6 +74,9 @@ export class HeaderComponent implements OnInit {
     else if (localStorage.getItem('massage') == "Successfully Login As Deregulatedstate vendor") {
       this.router.navigate(['/dashboards/' + this.username]);
     }
+  }
+  moving1() {
+    this.router.navigate(['/supermaindashboard']);
   }
   ngOnInit() {
     this.massage = localStorage.getItem('massage')
@@ -86,7 +99,7 @@ export class HeaderComponent implements OnInit {
       $('body').removeClass('noScroll');
       $(formSearch).removeClass('flipInX');
     });
-
+this.admin=localStorage.getItem('currentadmin')
     this.username = localStorage.getItem('user')
     console.log(this.username);
     this.customer = localStorage.getItem('custum')
