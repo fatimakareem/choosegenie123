@@ -161,7 +161,7 @@ value1="500";
 
 var myScrollFunc = function() {
   var y = window.scrollY;
-  if (y >= 800) {
+  if (y >= 500) {
     this.myID.className = "bottomMenu show"
   }
 else {

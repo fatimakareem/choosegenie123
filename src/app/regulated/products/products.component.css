@@ -80,7 +80,7 @@ body {
 }
 .bottomMenu {
   position: fixed;
-  bottom: 0;
+  bottom: 70px;
   width: 24%;
     height: auto;
   background: #fff;
