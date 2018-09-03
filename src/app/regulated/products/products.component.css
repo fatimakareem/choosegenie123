@@ -103,9 +103,12 @@ body {
   z-index: 3;
 }
 .signup-popup h1{
-    font-size: 36px;
-    text-shadow: none;
-    color: #fff;
+  font-size: 29px;
+  text-shadow: none;
+  color: #fff;
+  padding: 0px 25px;
+  width: 80%;
+  margin: 0 auto;
 }
 .pop-up-close{
   text-align: right;
@@ -121,8 +124,14 @@ body {
   text-align: left;
   line-height: 22px;
   font-weight: bold;
+  margin-top: 6px;
 }
-
+.popo-up-logo{
+  display: inline-block;
+}
+.popo-up-logo img{
+  width: 80%;
+}
 /**/
 
 
