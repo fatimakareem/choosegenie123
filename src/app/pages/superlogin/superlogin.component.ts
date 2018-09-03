@@ -50,6 +50,7 @@ export class SuperloginComponent implements OnInit {
   public username="admin";
   staySignedIn:boolean=true;
   e;
+  i;
   hide=true;
 user;
   password;

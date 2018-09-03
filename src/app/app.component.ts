@@ -3,7 +3,7 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 import { DOCUMENT } from '@angular/platform-browser';
-import { CookieService } from 'ngx-cookie-service';
+// import { CookieService } from 'ngx-cookie-service';
 declare const $: any;
 
 @Component({
@@ -14,7 +14,7 @@ declare const $: any;
 export class AppComponent implements OnInit {
     private _router: Subscription;
 
-    constructor(private cookieService: CookieService , private router: Router, @Inject(DOCUMENT,) private document: any) {}
+    constructor(private router: Router, @Inject(DOCUMENT,) private document: any) {}
 
     ngOnInit() {
         window.onbeforeunload = function() {
