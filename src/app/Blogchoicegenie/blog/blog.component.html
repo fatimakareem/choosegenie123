@@ -63,7 +63,7 @@
       </div>
       <div class="blog-layout-content">
         <h2>{{data.heading}}</h2>
-        <div [innerHTML]="data.content1 | slice:0:500"></div>
+        <div [innerHTML]="data.content1 | slice:0:300"></div>
         <a (click)="fun(data.heading)">
         <button class="btn btn-fill margin-zero1" type="submit">Read more</button></a>
       </div>
