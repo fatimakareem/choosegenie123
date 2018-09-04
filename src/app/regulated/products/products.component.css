@@ -75,6 +75,16 @@
   padding-bottom: 3px;
 }
 
+.w3-teal, .w3-hover-teal{
+  color: #fff!important;
+  background-color: #c00!important;
+  margin-left: 20px;
+  border-radius: 7px;
+  margin-top: 3px;
+}
+
+
+
 body {
   height: 2000px;
 }
