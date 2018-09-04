@@ -11,6 +11,7 @@ import { AuthguardService } from './_guards/authguard.service';
 import { ConsumeradminComponent } from './layouts/consumeradmin/consumeradmin.component';
 import { Authgaurd2Service } from './_guards/authgaurd2.service';
 import { Authgaurd3Service } from './_guards/authgaurd3.service';
+import { Blog1Component } from './Blogchoicegenie/viewblog/blog1.component';
 
 export const AppRoutes: Routes = [
    
@@ -177,6 +178,13 @@ export const AppRoutes: Routes = [
     {path: "what-is-ChoiceGenie", component: AboutComponent},
     // {path: "contact", component: ContactusComponent},
     {path: "stepper", component: StepperOverviewExample},
+    {path: ":heading", component: Blog1Component},
+
+      // {
+    //     path: ':heading',
+    //     loadChildren: './Blogchoicegenie/viewblog/blog1.module#Blog1Module'
+    //     // loadChildren: './pages/login/login.module#LoginModule'
+    // },
     // {
     //     path: 'dashboard',
     //     redirectTo: 'dashboard'
@@ -302,7 +310,11 @@ export const AppRoutes: Routes = [
             },
         ]
     }, 
-    
+    // {
+    //     path: ':heading',
+    //     loadChildren: './Blogchoicegenie/viewblog/blog1.module#Blog1Module'
+    //     // loadChildren: './pages/login/login.module#LoginModule'
+    // },
     {
         path: '',
         component: AuthLayoutComponent,
@@ -315,11 +327,11 @@ export const AppRoutes: Routes = [
             path: 'residential',
             loadChildren: './residential/residential.module#ResidentialModule'
           },
-          {
-            path: ':heading',
-            loadChildren: './Blogchoicegenie/viewblog/blog1.module#Blog1Module'
-            // loadChildren: './pages/login/login.module#LoginModule'
-        },
+        //   {
+        //     path: ':heading',
+        //     loadChildren: './Blogchoicegenie/viewblog/blog1.module#Blog1Module'
+        //     // loadChildren: './pages/login/login.module#LoginModule'
+        // },
         ]
     }
     

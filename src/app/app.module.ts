@@ -99,6 +99,7 @@ import { DeletegetuserService } from './ChoiceSuperAdmin/supergetusers/deleteget
 import { UpdategetuserService } from './ChoiceSuperAdmin/supergetusers/updategetuser.service';
 // import { CookieService } from 'ngx-cookie-service';
 import { BlogssComponent } from './blogss/blogss.component';
+import { Blog1Component } from './Blogchoicegenie/viewblog/blog1.component';
 
 
 
@@ -183,6 +184,7 @@ export class MaterialModule { }
     UserSidebarComponent,
     SupersiderbarComponent,
     AboutComponent,
+    Blog1Component,
     ConsumersidebarComponent,
     ConsumeradminComponent,
     // ChangePasswordComponent,
