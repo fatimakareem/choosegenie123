@@ -87,11 +87,7 @@ export const AppRoutes: Routes = [
             path: 'blogss',
             loadChildren: './blogss/blogss.module#BecomeapartnerModule'
         },
-        {
-            path: ':heading',
-            loadChildren: './Blogchoicegenie/viewblog/blog1.module#Blog1Module'
-            // loadChildren: './pages/login/login.module#LoginModule'
-        },
+       
     
     
         {
@@ -318,7 +314,12 @@ export const AppRoutes: Routes = [
           {
             path: 'residential',
             loadChildren: './residential/residential.module#ResidentialModule'
-          }
+          },
+          {
+            path: ':heading',
+            loadChildren: './Blogchoicegenie/viewblog/blog1.module#Blog1Module'
+            // loadChildren: './pages/login/login.module#LoginModule'
+        },
         ]
     }
     

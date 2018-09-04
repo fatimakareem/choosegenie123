@@ -57,7 +57,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class ProductsComponent implements OnInit, AfterViewInit {
     today = Date.now();
-value1="500";
+    value1 = "500";
     date;
     deragulate;
     energy;
@@ -156,53 +156,76 @@ value1="500";
     zipdet;
     modal: any = [];
     myID;
+    close;
     ngOnInit() {
-        this.myID = document.getElementById("myID");
 
-var myScrollFunc = function() {
-  var y = window.scrollY;
-  if (y >= 500) {
-    this.myID.className = "bottomMenu show"
-  }
-else {
-    this.myID.className = "bottomMenu hide"
-  }
-};
 
-window.addEventListener("scroll", myScrollFunc);
+        var position = $(window).scrollTop(); 
+
+        // should start at 0
+        
+        $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+            if(scroll > position) {
+              
+                // $('div').text('Scrolling Down Scripts');
+                this.myID.className = "bottomMenu show"
+            } else {
+                
+                //  $('div').text('Scrolling Up Scripts');
+               
+                this.myID.className = "bottomMenu hide"
+            }
+            position = scroll;
+        });
+
+
+
+        // this.myID = document.getElementById("myID");
+        // var myScrollFunc = function () {
+        //     var y = window.scrollY;
+        //     if (y >= 500) {
+        //         this.myID.className = "bottomMenu show"
+        //     }
+        //     else {
+        //         this.myID.className = "bottomMenu hide"
+        //     }
+        // };
+
+        // window.addEventListener("scroll", myScrollFunc);
         $('.slick-date').slick({
             slidesToShow: 2,
             variableWidth: true,
             responsive: [
-              {
-                breakpoint: 400,
-                settings: {
-                  slidesToShow: 1
+                {
+                    breakpoint: 400,
+                    settings: {
+                        slidesToShow: 1
+                    }
                 }
-              }
             ]
-          });
+        });
 
 
-          const mainSearch = $('.main-search');
-          const formSearch = $('.form-search');
+        const mainSearch = $('.main-search');
+        const formSearch = $('.form-search');
 
-          $('.search-bg').click(function () {
+        $('.search-bg').click(function () {
             $(mainSearch).addClass('active');
             $('body').addClass('noScroll');
             $(formSearch).addClass('flipInX');
 
             setTimeout(function () {
-              $('.form-search .mat-input-element').focus();
+                $('.form-search .mat-input-element').focus();
             }, 370);
 
-          });
+        });
 
-          $('#closeSearch').click(function () {
+        $('#closeSearch').click(function () {
             $(mainSearch).removeClass('active');
             $('body').removeClass('noScroll');
             $(formSearch).removeClass('flipInX');
-          });
+        });
         console.log(this.today = Date.now())
         this.state = localStorage.getItem('state')
         this.names = localStorage.getItem('name')
@@ -232,16 +255,18 @@ window.addEventListener("scroll", myScrollFunc);
 
     }
 
-  w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-  }
-  w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-  }
-  pop_close() {
-    // document.getElementById("myID").style.display = "none";
-    this.myID.className = "bottomMenu hide"
-  }
+    w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+    }
+    w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+    }
+    pop_close() {
+       
+        this.myID.className = "bottomMenu hide";
+       
+
+    }
 
 
     btnDeleteClick(id, title, profileurl, profile_logo, servicearea) {
@@ -365,39 +390,39 @@ window.addEventListener("scroll", myScrollFunc);
                 this.sg['plan'] = Res.json()['Results'];
                 setTimeout(function () {
                     $('.homeSlider').slick({
-                      infinite: true,
-                      slidesToShow: 5,
-                      slidesToScroll: 1,
-                      autoplay: true,
-                      prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;left:  0;"><i class="fa fa-chevron-left"></i></button>',
-                      nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;right:  0;"><i class="fa fa-chevron-right"></i></button>',
-                      responsive: [
-                        {
-                          breakpoint: 1024,
-                          settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3,
-                            infinite: true
-                          }
-                        },
-                        {
-                          breakpoint: 600,
-                          settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                          }
-                        },
-                        {
-                          breakpoint: 480,
-                          settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                          }
-                        }
+                        infinite: true,
+                        slidesToShow: 5,
+                        slidesToScroll: 1,
+                        autoplay: true,
+                        prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;left:  0;"><i class="fa fa-chevron-left"></i></button>',
+                        nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;right:  0;"><i class="fa fa-chevron-right"></i></button>',
+                        responsive: [
+                            {
+                                breakpoint: 1024,
+                                settings: {
+                                    slidesToShow: 3,
+                                    slidesToScroll: 3,
+                                    infinite: true
+                                }
+                            },
+                            {
+                                breakpoint: 600,
+                                settings: {
+                                    slidesToShow: 2,
+                                    slidesToScroll: 2
+                                }
+                            },
+                            {
+                                breakpoint: 480,
+                                settings: {
+                                    slidesToShow: 1,
+                                    slidesToScroll: 1
+                                }
+                            }
 
-                      ]
+                        ]
                     });
-                  }, 0);
+                }, 0);
                 // this.data.changeProducts(this.sg['plan']);
                 this.Items = this.sg['plan'];
                 for (let prod of this.sg['plan']) {
@@ -541,7 +566,7 @@ window.addEventListener("scroll", myScrollFunc);
             localStorage.removeItem('months2');
 
             this.setPage(1);
-         }
+        }
         console.log(this.months2)
     }
     checked3(event, i) {
@@ -789,20 +814,20 @@ window.addEventListener("scroll", myScrollFunc);
         }
     }
     pricerate(min, max, price) {
-        if(min && max && price){
-        this.min = min;
-        this.max = max;
-        this.price = price;
-        this.setPage(1);
+        if (min && max && price) {
+            this.min = min;
+            this.max = max;
+            this.price = price;
+            this.setPage(1);
         }
-        else{
+        else {
             localStorage.removeItem('min');
             localStorage.removeItem('max');
             localStorage.removeItem('price');
-          delete this.min;
-          delete this.max;
-          delete this.price;
-          this.setPage(1);
+            delete this.min;
+            delete this.max;
+            delete this.price;
+            this.setPage(1);
         }
 
         console.log()
@@ -820,52 +845,52 @@ window.addEventListener("scroll", myScrollFunc);
         this.sort = "dsc";
         this.setPage(1);
     }
-    move(name){
+    move(name) {
 
-         this.names=name.trim();
+        this.names = name.trim();
         //   this.router.navigate(['/products/' + this.zip_code]);
         //   localStorage.setItem('zip', this.zip_code);
         //   localStorage.setItem('name', name.trim());
-          this.setPage(1);
-        }
+        this.setPage(1);
+    }
 
     Checkzipcode() {
         localStorage.removeItem('min');
-            localStorage.removeItem('max');
-            localStorage.removeItem('price');
-            localStorage.removeItem('names');
-            localStorage.removeItem('market');
-            localStorage.removeItem('fixed');
-            localStorage.removeItem('vari');
-            localStorage.removeItem('months1');
-            localStorage.removeItem('months2');
-            localStorage.removeItem('months3');
-            localStorage.removeItem('months4');
-            localStorage.removeItem('months5');
-            localStorage.removeItem('months6');
-            localStorage.removeItem('months7');
-            localStorage.removeItem('name');
-            delete this.min;
-            delete this.max;
-            delete this.price;
-            delete this.names;
-            delete this.market;
-            delete this.vari;
-            delete this.fixed;
-            delete this.months1;
-            delete this.months2;
-            delete this.months3;
-            delete this.months4;
-            delete this.months5;
-            delete this.months6;
-            delete this.months7;
-            delete this.sort;
-            delete this.renewable;
-            delete this.notprepaid;
-            delete this.prepaid;
-            delete this.time;
-            delete this.nottime;
-            delete this.planmin;
+        localStorage.removeItem('max');
+        localStorage.removeItem('price');
+        localStorage.removeItem('names');
+        localStorage.removeItem('market');
+        localStorage.removeItem('fixed');
+        localStorage.removeItem('vari');
+        localStorage.removeItem('months1');
+        localStorage.removeItem('months2');
+        localStorage.removeItem('months3');
+        localStorage.removeItem('months4');
+        localStorage.removeItem('months5');
+        localStorage.removeItem('months6');
+        localStorage.removeItem('months7');
+        localStorage.removeItem('name');
+        delete this.min;
+        delete this.max;
+        delete this.price;
+        delete this.names;
+        delete this.market;
+        delete this.vari;
+        delete this.fixed;
+        delete this.months1;
+        delete this.months2;
+        delete this.months3;
+        delete this.months4;
+        delete this.months5;
+        delete this.months6;
+        delete this.months7;
+        delete this.sort;
+        delete this.renewable;
+        delete this.notprepaid;
+        delete this.prepaid;
+        delete this.time;
+        delete this.nottime;
+        delete this.planmin;
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         this.http.get(Config.api + 'zipcodecheck/' + this.zip_code, { headers: headers })
@@ -903,7 +928,7 @@ window.addEventListener("scroll", myScrollFunc);
                 }
 
             },
-            error=>{
+            error => {
                 swal({
                     text: "Zipcode Dose Not Exist",
                     title: "Choice Genie",
@@ -914,7 +939,7 @@ window.addEventListener("scroll", myScrollFunc);
 
                 })
             }
-        );
+            );
     }
 
     setPage(page: number) {
