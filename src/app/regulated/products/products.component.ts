@@ -160,39 +160,39 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     ngOnInit() {
 
 
-        var position = $(window).scrollTop(); 
+        // var position = $(window).scrollTop(); 
 
-        // should start at 0
+        // // should start at 0
         
-        $(window).scroll(function() {
-            var scroll = $(window).scrollTop();
-            if(scroll > position) {
+        // $(window).scroll(function() {
+        //     var scroll = $(window).scrollTop();
+        //     if(scroll > position) {
               
-                // $('div').text('Scrolling Down Scripts');
-                this.myID.className = "bottomMenu show"
-            } else {
-                
-                //  $('div').text('Scrolling Up Scripts');
-               
-                this.myID.className = "bottomMenu hide"
-            }
-            position = scroll;
-        });
-
-
-
-        // this.myID = document.getElementById("myID");
-        // var myScrollFunc = function () {
-        //     var y = window.scrollY;
-        //     if (y >= 500) {
+        //         // $('div').text('Scrolling Down Scripts');
         //         this.myID.className = "bottomMenu show"
-        //     }
-        //     else {
+        //     } else {
+                
+        //         //  $('div').text('Scrolling Up Scripts');
+               
         //         this.myID.className = "bottomMenu hide"
         //     }
-        // };
+        //     position = scroll;
+        // });
 
-        // window.addEventListener("scroll", myScrollFunc);
+
+
+        this.myID = document.getElementById("myID");
+        var myScrollFunc = function () {
+            var y = window.scrollY;
+            if (y >= 500) {
+                this.myID.className = "bottomMenu show"
+            }
+            else {
+                this.myID.className = "bottomMenu hide"
+            }
+        };
+
+        window.addEventListener("scroll", myScrollFunc);
         $('.slick-date').slick({
             slidesToShow: 2,
             variableWidth: true,
