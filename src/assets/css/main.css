@@ -5707,12 +5707,11 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   width: 100%;
   display: block;
   padding: 5px 5px 0px 0px;
-  text-align: left;
   border: none;
   white-space: normal;
   float: none;
   outline: 0;
-  text-align: right;
+  text-align: right !important;
   font-size: 26px;
   font-weight: bold;
   color: #c00;
