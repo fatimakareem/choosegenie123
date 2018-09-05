@@ -25,6 +25,7 @@ import { PageEvent } from '@angular/material';
 import swal from 'sweetalert2';
 import { error } from 'util';
 import { delay } from 'rxjs/operator/delay';
+import {ExcelService} from '../../excel.service';
 
 
 
@@ -80,7 +81,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     zipcodeexist;
     keyPress;
     //    setPage;
-    constructor(private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService) {
+    constructor(private excelService:ExcelService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService) {
 
     }
 
@@ -157,6 +158,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     modal: any = [];
     myID;
     close;
+    status:any=true
     ngOnInit() {
 
 
@@ -254,7 +256,9 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         this.featuredplan();
 
     }
-
+    exportAsXLSX(){
+        this.excelService.exportAsExcelFile(  this.product, 'ChoiceGenie Vendor Detail');
+     }
     w3_open() {
         document.getElementById("mySidebar").style.display = "block";
       }
@@ -262,9 +266,9 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         document.getElementById("mySidebar").style.display = "none";
       }
     pop_close() {
-       
-        this.myID.className = "bottomMenu hide";
-       
+        
+        // this.myID.className = "bottomMenu hide";
+       this.status=false;
 
     }
 

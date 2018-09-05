@@ -100,6 +100,7 @@ import { UpdategetuserService } from './ChoiceSuperAdmin/supergetusers/updateget
 // import { CookieService } from 'ngx-cookie-service';
 import { BlogssComponent } from './blogss/blogss.component';
 
+import { ExcelService } from './excel.service';
 
 
 
@@ -196,6 +197,7 @@ export class MaterialModule { }
   ],
   providers: [
     // CookieService
+    ExcelService,
     HomeService,
     HeaderService,
     CompanyService,

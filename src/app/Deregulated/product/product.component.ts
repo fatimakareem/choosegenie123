@@ -20,7 +20,7 @@ import { jsonpCallbackContext } from '@angular/common/http/src/module';
 //import { Http } from '@angular/http/src/http';
 import { PageEvent } from '@angular/material';
 // import { SSL_OP_NO_TICKET } from 'constants';
-
+import {ExcelService} from '../../excel.service';
 import swal from 'sweetalert2';
 import { error } from 'util';
 declare const $: any;
@@ -53,10 +53,12 @@ export class ProductComponent implements OnInit {
     max_price_1000;
     min_price_2000;
     max_price_2000;
-    constructor(private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
+    constructor(private excelService:ExcelService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
 
     }
-
+    exportAsXLSX(){
+        this.excelService.exportAsExcelFile( this.deproduct, 'ChoiceGenie Vendor Detail');
+     }
     private allItems: any[];
     pager: any = {};
     home: any = {};
@@ -133,6 +135,8 @@ export class ProductComponent implements OnInit {
     noresult;
     Items;
     myID;
+    status:any=true;
+    
     ngOnInit() {
         this.myID = document.getElementById("myID");
 
@@ -187,7 +191,7 @@ this. featuredplan();
   }
     pop_close() {
         // document.getElementById("myID").style.display = "none";
-        this.myID.className = "bottomMenu hide"
+        this.status=false;
       }
     featuredplan() {
 
