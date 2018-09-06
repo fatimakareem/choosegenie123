@@ -104,10 +104,26 @@ export class NavbarComponent implements OnInit {
         this.router.navigate(['/userprofile/']);
         // this.router.navigate(['/company-profile/']);
       }
-    logout(){
-        localStorage.clear();
+      logout() {
+        localStorage.removeItem('currentadmin');
         this.router.navigate(['/']);
-      //  console.log("logout"); 
+    
+      }
+      vendorlogout() {
+        localStorage.removeItem('massage');
+        localStorage.removeItem('user');
+    
+        localStorage.removeItem('username');
+        localStorage.removeItem('change');
+        localStorage.removeItem('currentUser');
+    
+        this.router.navigate(['/']);
+    
+      }
+      checked_logout() {
+        localStorage.removeItem('custum');
+        localStorage.removeItem('currentcustomer');
+        this.router.navigate(['/']);
       }
      
     ngOnInit() {

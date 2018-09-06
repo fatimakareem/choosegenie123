@@ -13,7 +13,7 @@ DeleteTodoList(id) {
   console.log(id)
   const headers = new Headers();
   headers.append('Content-Type', 'application/json');
-  return this.http.delete(Config.api+'delblog/'+ id ,
+  return this.http.delete(Config.api+'blog_editordelete/'+ id +'/',
   {headers: headers}).map((response: Response) => response.json());
   }
 }

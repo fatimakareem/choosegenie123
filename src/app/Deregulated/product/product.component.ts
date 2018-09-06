@@ -54,8 +54,9 @@ export class ProductComponent implements OnInit {
     min_price_2000;
     max_price_2000;
     constructor(private excelService:ExcelService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
-
+        
     }
+   
     exportAsXLSX(){
         this.excelService.exportAsExcelFile( this.deproduct, 'ChoiceGenie Vendor Detail');
      }
@@ -610,6 +611,7 @@ this. featuredplan();
             this.obj.searchProducts1(this.zip_code, page).subscribe(response => {
                 this.deproduct = response['Results'];
                 this.noresult = response['Total Result'];
+               
                 this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
 
             });

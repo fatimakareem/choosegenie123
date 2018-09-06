@@ -15,7 +15,7 @@ import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
  import swal from 'sweetalert2'; 
  import { DeleteBlogService } from './delete-blog.service';
  import { EditBlogService } from './edit-blog.service';
-
+ declare const $: any;
 import { MatSelect } from '@angular/material'; 
 @Component({
   selector: 'app-blog3',
@@ -31,11 +31,15 @@ export class Blog3Component implements OnInit {
     ngOnInit() {
       this. profile();
     }
+    fun(heading){
+      this.router.navigate(['/' + heading.split(' ').join('-')]);
+      localStorage.setItem('heading', heading);
+    }
     profile() {
       
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      this.https.get(Config.api+'Gettingblog/' , { headers: headers })
+      this.https.get(Config.api+'gettingblog_all/' , { headers: headers })
       
       .subscribe(Res => {
       this.data=Res.json();
@@ -44,10 +48,10 @@ export class Blog3Component implements OnInit {
       
       }
       id='';
-      btnDeleteClick(id,heading1,Ch_image) {
+      btnDeleteClick(id,heading,blog_image) {
         this.id = id;
-        this.heading1=heading1;
-        this.Ch_image=Ch_image;
+        this.heading=heading;
+        this.blog_image=blog_image;
         console.log('id : ' + this.id);
     }
       deleteClick(id) {
@@ -71,48 +75,31 @@ export class Blog3Component implements OnInit {
      //   window.location.reload();
 
     }
-    heading1='';
+    heading='';
     content1='';
-    Ch_image='';
-    heading2='';
-    content2='';
-    heading3='';
-    content3='';
-    heading4='';
-    content4='';
-    heading5='';
-    content5='';
-    heading6='';
-    content6='';
+    blog_image='';
+   
     blogId='';
-    btnEditClick(id,heading1,content1,Ch_image,heading2,content2,heading3,content3,heading4,content4,heading5,content5,heading6,content6) {
+    btnEditClick(id,heading,content1,blog_image) {
       this.blogId = id;
       
-      this.heading1=heading1;
+      this.heading=heading;
     this.content1=content1;
-    this.Ch_image=Ch_image;
-    this.heading2=heading2;
-    this.content2=content2;
-    this.heading3=heading3;
-    this.content3=content3;
-    this.heading4=heading4;
-    this.content4=content4;
-    this.heading5=heading5;
-    this.content5=content5;
-    this.heading6=heading6;
-    this.content6=content6;
+    $('#myDiv').html(this.content1);
+    this.blog_image=blog_image;
+   
      
-      console.log(this.blogId,heading1,content1,Ch_image,heading2,content2,heading3,content3,heading4,content4,heading5,content5,heading6,content6)
+      console.log(this.blogId,heading,content1,blog_image)
       console.log('id : ' + this.blogId );
   }
 
   //Event Binding of PopUp Delete Modal
 
-  editClick(updatedheading1,updatedcontent1,updatedCh_image,updatedheading2,updatedcontent2,updatedheading3,updatedcontent3,updatedheading4,updatedcontent4,updatedheading5,updatedcontent5,updatedheading6,updatedcontent6) {
-      console.log('edit' +updatedheading1,updatedcontent1,updatedCh_image,updatedheading2,updatedcontent2,updatedheading3,updatedcontent3,updatedheading4,updatedcontent4,updatedheading5,updatedcontent5,updatedheading6,updatedcontent6);
-console.log("TS OBJECT",updatedheading1,updatedcontent1,updatedCh_image,updatedheading2,updatedcontent2,updatedheading3,updatedcontent3,updatedheading4,updatedcontent4,updatedheading5,updatedcontent5,updatedheading6,updatedcontent6);
+  editClick(updatedheading,updatedcontent1,updatedblog_image,) {
+      console.log('edit' +updatedheading,updatedcontent1,updatedblog_image);
+console.log("TS OBJECT",updatedheading,updatedcontent1,updatedblog_image);
       //Calling Delete Service
-      this.serve.editTodoList(this.blogId,updatedheading1,updatedcontent1,updatedCh_image,updatedheading2,updatedcontent2,updatedheading3,updatedcontent3,updatedheading4,updatedcontent4,updatedheading5,updatedcontent5,updatedheading6,updatedcontent6).subscribe(data => {
+      this.serve.editTodoList(this.blogId,updatedheading,updatedcontent1,updatedblog_image).subscribe(data => {
           console.log(data);
           swal({
               type: 'success',
