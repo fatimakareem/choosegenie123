@@ -40,6 +40,7 @@ export class Signup1Component implements OnInit {
   emailexist: boolean = true;
   hide = true;
   repname;
+  isequal;
   constructor(public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute,
     private sg: SimpleGlobal) { }
   ngOnInit() {
@@ -133,6 +134,8 @@ export class Signup1Component implements OnInit {
  
   signupuserdata() {
     //alert('hello');
+    if (this.captcha.getResponse()) {
+      this.isequal = true;
     console.log("CHOICE GENIE", this.model);
 
     let headers = new HttpHeaders();
@@ -151,6 +154,12 @@ export class Signup1Component implements OnInit {
           console.log(error);
           
         });
+      }
+      else {
+        this.captcha.reset();
+        this.isequal = false;
+        // this.islogin = true;
+      }
    
 
 
