@@ -9,7 +9,6 @@ import { SuperreviewsComponent } from './superreviews.component';
 
 
 
-
 @NgModule({
     imports: [
         CommonModule,
@@ -17,7 +16,8 @@ import { SuperreviewsComponent } from './superreviews.component';
         FormsModule,
         ReactiveFormsModule,
         // MdModule,
-        MaterialModule
+        MaterialModule,
+     
     ],
     declarations: [SuperreviewsComponent]
 })

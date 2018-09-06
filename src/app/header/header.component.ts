@@ -105,9 +105,25 @@ this.admin=localStorage.getItem('currentadmin')
     this.customer = localStorage.getItem('custum')
   }
   logout() {
-    localStorage.clear();
+    localStorage.removeItem('currentadmin');
     this.router.navigate(['/']);
 
+  }
+  vendorlogout() {
+    localStorage.removeItem('massage');
+    localStorage.removeItem('user');
+
+    localStorage.removeItem('username');
+    localStorage.removeItem('change');
+    localStorage.removeItem('currentUser');
+
+    this.router.navigate(['/']);
+
+  }
+  checked_logout() {
+    localStorage.removeItem('custum');
+    localStorage.removeItem('currentcustomer');
+    this.router.navigate(['/']);
   }
   submit(event, query) {
     let headers = new HttpHeaders();
