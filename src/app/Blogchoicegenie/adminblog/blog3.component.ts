@@ -85,6 +85,7 @@ export class Blog3Component implements OnInit {
       
       this.heading=heading;
     this.content1=content1;
+   
     $('#myDiv').html(this.content1);
     this.blog_image=blog_image;
    
