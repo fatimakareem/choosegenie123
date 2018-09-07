@@ -40,7 +40,7 @@ export class UsersignupComponent implements OnInit {
   email = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
   usernameOnly = '[a-zA-Z0-9_.]+';
   public phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-  useronly='[a-zA-Z0-9_.]+';
+  useronly = '[a-zA-Z0-9_.]+';
 
   flag = true;
   date = new FormControl(new Date());
@@ -48,6 +48,7 @@ export class UsersignupComponent implements OnInit {
   emailexist: boolean = true;
   usernameexist: boolean = true;
   service_zip;
+  isequal;
   constructor(private _serv: LoginService, public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) {
     // this.captcha.reset();
     // let status = this.captcha.getResponse();
@@ -61,20 +62,20 @@ export class UsersignupComponent implements OnInit {
 
       'name': ['', Validators.compose([Validators.required])],
       'service_zip': ['', Validators.compose([Validators.required, Validators.pattern(this.digitsOnly), Validators.minLength(5)])],
- 
+
       'email': ['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
       'username': ['', Validators.compose([Validators.required, Validators.pattern(this.useronly)])],
-    
+
       'phoneno': ['', Validators.compose([Validators.required])],
-     // 'dob': ['', Validators.compose([Validators.required])],
+      // 'dob': ['', Validators.compose([Validators.required])],
       'service_state': ['', Validators.compose([Validators.required])],
       'service_address': ['', Validators.compose([Validators.required])],
       'service_city': ['', Validators.compose([Validators.required])],
-   
+
       'password': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
       'confirmpassword': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
-   
- 
+
+
     },
       {
         validator: PasswordValidation.MatchPassword // your validation method
@@ -99,7 +100,7 @@ export class UsersignupComponent implements OnInit {
 
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    this.http.get(Config.api + 'email_exist/' + email1 , { headers: headers })
+    this.http.get(Config.api + 'email_exist/' + email1, { headers: headers })
 
       .subscribe(data => {
         console.log(data);
@@ -147,7 +148,7 @@ export class UsersignupComponent implements OnInit {
 
 
   }
- 
+
 
   states(zip) {
     //alert('hello');
@@ -159,7 +160,7 @@ export class UsersignupComponent implements OnInit {
 
     headers.append('Content-Type', 'application/json');
     // this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),http://192.168.30.237:9000/choice/
-    this.http.get(Config.api+'zipcodewith_country_city/' + zip, { headers: headers })
+    this.http.get(Config.api + 'zipcodewith_country_city/' + zip, { headers: headers })
 
       .subscribe(data => {
         console.log(data);
@@ -168,7 +169,7 @@ export class UsersignupComponent implements OnInit {
         console.log(data['country'], 'hhhhhhhhhhhhhhh')
         console.log(data['city'], 'hhhhhhhhhhhhhhh')
         // if ( this.usernameexist=false){
-       // this.model['zip'] = data['zipcode']
+        // this.model['zip'] = data['zipcode']
         this.model['service_state'] = data[0]['country']
         this.model['service_city'] = data[0]['city']
         // }
@@ -233,44 +234,46 @@ export class UsersignupComponent implements OnInit {
     });
   }
 
-  clear(){
+  clear() {
     this.model['service_state'].clear();
   }
   signupuserdata() {
-     
+
     //console.log("main form",this.signupForm.value)
-    console.log("CHOICE GENIE", this.model);
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    // http://192.168.30.237:9000/choice/
-    this.http.post(Config.api+ 'Usersignup/', this.model, { headers: headers })
-      .subscribe(Res => {
-        console.log(Res);
-        // alert('hello');
-        console.log(this.model);
-        swal({
-          text: "Register Successflluy!",
-          title: "Choice Genie",
-          type: "success",
-          showConfirmButton: false,
-          //     confirmButtonColor: "#DD6B55",
-          timer: 1200,
-          confirmButtonText: "OK",
+    if (this.captcha.getResponse()) {
+      this.isequal = true;
+      console.log("CHOICE GENIE", this.model);
+      let headers = new HttpHeaders();
+      headers.append('Content-Type', 'application/json');
+      this.http.post(Config.api + 'Usersignup/', this.model, { headers: headers })
+        .subscribe(Res => {
+          console.log(Res);
+          // alert('hello');
+          console.log(this.model);
+          swal({
+            text: "Register Successflluy!",
+            title: "Choice Genie",
+            type: "success",
+            showConfirmButton: false,
+            timer: 1200,
+            confirmButtonText: "OK",
 
-        })
-        //  f.resetForm();
-        this.router.navigate(['/userlogin'])
-      },
-        error => {
-          this.validateAllFormFields(this.model);
-          console.log(error);
+          })
+          //  f.resetForm();
+          this.router.navigate(['/userlogin'])
+        },
+          error => {
+            this.validateAllFormFields(this.model);
+            console.log(error);
+          });
 
-          //     //    this.state = Res[0].state;
-          //     //this.sg['products'] = Res.json()['Results'];
-          //     //this.data.changeProducts(this.sg['products']);
-          //   f.resetForm();
-        });
+    }
 
+    else {
+      this.captcha.reset();
+      this.isequal = false;
+      // this.islogin = true;
+    }
   }
 
 
