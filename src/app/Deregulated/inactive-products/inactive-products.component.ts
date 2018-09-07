@@ -17,6 +17,7 @@ import swal from 'sweetalert2';
 // import {Config} from "../Config";
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
 import { jsonpCallbackContext } from '@angular/common/http/src/module';
+import * as moment from 'moment';
 
 import { PageEvent } from '@angular/material';
 @Component({
@@ -129,18 +130,20 @@ export class InactiveProductsComponent implements OnInit {
       });
 
   }
+  noresult;
   search(page:number) {
     this.title = localStorage.getItem('username');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     //   this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
     this.http.post(Config.api + 'vedor_product_search/' + this.title +'?page='+page, JSON.stringify({
-      "productinactive": this.Inactivedate,
-      "propublish": this.publishdate,
+      "productinactive": moment(this.Inactivedate).format('YYYY/MM/DD'),
+      "propublish": moment(this.publishdate).format('YYYY/MM/DD'),
       "state": this.name
     }), { headers: headers }).subscribe(Res => {
       console.log(Res);
       this.sg['products'] = Res.json()['Results'];
+      this.noresult = Res.json()['Total Result'];
       this.allItems = this.sg['products'];
       this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
     });
@@ -177,6 +180,7 @@ export class InactiveProductsComponent implements OnInit {
         this.prod_loaded = true;
         this.prods_loaded = true;
         this.allItems = this.sg['products'];
+        this.noresult = response.json()['Total Result'];
         console.log(response.json()['Total Result']);
         this.pager = this.pagerService.getPager(response.json()['Total Result'], page, 10);
       });

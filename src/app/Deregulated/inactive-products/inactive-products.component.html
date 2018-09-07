@@ -2,37 +2,32 @@
   <div class="row" style="width: 100%; margin: 0 auto;">
     <div class="search-bar1 col-lg-12">
 
-        <md-input-container class="block" hidden=true>
-            <input mdInput placeholder="Title" [ngModel]="Inactivedate | date:'yyyy-MM-dd'" >
-        </md-input-container>
-
 
         <div class="col-lg-3">
           <label _ngcontent-c10="" class="date-lable">Effective from Date</label>
-          <!-- <mat-form-field class="cus-font">
-            <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Inactive Date"/>
-            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle> <mat-datepicker #startPicker></mat-datepicker>
-          </mat-form-field> -->
-          <input type="date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="padding: 2px 0px; font-size: 16px; font-weight: bold;">
+          <mat-form-field >
+              <input matInput [matDatepicker]="startPicker1"  [(ngModel)]="Inactivedate" />
+              <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
+            </mat-form-field>
+          <!-- <input type="date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="padding: 2px 0px; font-size: 16px; font-weight: bold;"> -->
 
         </div>
-          <md-input-container class="block" hidden=true>
-              <input mdInput placeholder="Title" [ngModel]="publishdate | date:'yyyy-MM-dd'" >
-          </md-input-container>
+       
 
           <div class="col-lg-3">
-            <label _ngcontent-c10="" class="date-lable">Effective from Date</label>
-            <!-- <mat-form-field class="cus-font">
-              <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publishdate" placeholder="Publish Date"/>
-              <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
-            </mat-form-field> -->
-            <input type="date" required name="publishdate" [(ngModel)]="publishdate" style="padding: 2px 0px; font-size: 16px; font-weight: bold;">
+            <label class="date-lable">Effective from Date</label>
+            <mat-form-field>
+                <input matInput [matDatepicker]="startPicker" [(ngModel)]="publishdate" />
+                <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>               <mat-datepicker #startPicker></mat-datepicker>
+              </mat-form-field>
+            <!-- <input type="date" required name="publishdate" [(ngModel)]="publishdate" style="padding: 2px 0px; font-size: 16px; font-weight: bold;"> -->
           </div>
 
             <div class="col-lg-3">
-              <mat-form-field class="cus-font" style="margin-top: 12px;">
+                <label class="date-lable">Service Area Name</label>
+              <mat-form-field>
 
-                <mat-select class="search-select" placeholder="Service Area" required [(ngModel)]="name" name="name">
+                <mat-select class="search-select"  required [(ngModel)]="name" name="name">
                     <mat-option *ngFor="let data of states" [value]="data.serviceareaname">
                         {{data.serviceareaname}}
 
@@ -46,11 +41,18 @@
             <button class="col-lg-3 search-btn btn-fill" (click)="search(1)">Search</button>
     </div>
   </div>
+  <ng-template #no_data_temp2>
 
+      <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
+      <h1 style="height:1000px;width:1000px;padding:200px">
+
+        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Record Found</b>
+      </h1>
+    </ng-template>
 <!-- <div class="page-title">
   <span>Product Search</span>
 </div> -->
-<div class="products-area-products">
+<div class="products-area-products" *ngIf="noresult != '0';else no_data_temp2">
    <div class="custom card" *ngFor="let data of allItems; let i = index">
     <div class="row">
 

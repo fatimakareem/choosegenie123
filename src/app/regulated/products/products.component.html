@@ -442,9 +442,9 @@
                   <!-- <li *ngIf="(pager.totalPages - pager.startPage) > 3 ">
                     <a (click)="setPage(pager.startPage + 3)">...</a>
                   </li> -->
-                  <li *ngIf="(pager.totalPages - pager.startPage) > 3" >
+                  <!-- <li *ngIf="(pager.totalPages - pager.startPage) > 3" >
                     <a (click)="setPage(pager.totalPages)" class="view-plan-details">{{pager.totalPages}}</a>
-                  </li>
+                  </li> -->
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
                     <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
                       <i class="fa fa-angle-right"></i>

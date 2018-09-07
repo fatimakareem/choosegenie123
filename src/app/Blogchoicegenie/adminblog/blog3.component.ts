@@ -31,6 +31,7 @@ export class Blog3Component implements OnInit {
     ngOnInit() {
       this. profile();
     }
+    
     fun(heading){
       this.router.navigate(['/' + heading.split(' ').join('-')]);
       localStorage.setItem('heading', heading);

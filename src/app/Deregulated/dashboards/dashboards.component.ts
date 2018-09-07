@@ -17,6 +17,7 @@ import { PageEvent } from '@angular/material';
 import { DeleteService } from '../../regulated/dashboard/delete.service';
 import { EditService } from '../../regulated/dashboard/edit.service';
 import { DataService } from '../../data.service';
+import * as moment from 'moment';
 
 import { NgForm, FormBuilder, FormGroup, Validators, FormControl, AbstractControl, FormGroupDirective, RadioControlValueAccessor } from '@angular/forms';
 import swal from 'sweetalert2';
@@ -120,16 +121,18 @@ export class DashboardsComponent implements OnInit {
   }
   
   search(page:number) {
+    console.log(this.Inactivedate)
     this.title = localStorage.getItem('username');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     this.http.post(Config.api + 'vedor_product_search/' + this.title +'?page='+page, JSON.stringify({
-      "productinactive": this.Inactivedate,
-      "propublish": this.publishdate,
+      "productinactive":moment(this.Inactivedate).format('YYYY/MM/DD'),
+      "propublish":moment(this.publishdate).format('YYYY/MM/DD'),
       "state": this.name
     }), { headers: headers }).subscribe(Res => {
       console.log(Res);
       this.sg['products'] = Res.json()['Results']; 
+      this.noresult = Res.json()['Total Result'];
       this.allItems = this.sg['products'];
       this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
     });
@@ -147,6 +150,8 @@ export class DashboardsComponent implements OnInit {
       this.prod_loaded = true;
       this.prods_loaded = true;
       this.allItems = this.sg['products'];
+      this.noresult = Response.json()['Total Result'];
+
       console.log(Response.json()['Total Result']);
       this.pager = this.pagerService.getPager(Response.json()['Total Result'], page, 10);
     });

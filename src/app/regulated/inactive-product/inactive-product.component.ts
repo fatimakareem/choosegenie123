@@ -20,6 +20,7 @@ import { jsonpCallbackContext } from '@angular/common/http/src/module';
 // import { parent } from "../dashboard.class";
 import { PageEvent } from '@angular/material';
 // import { SSL_OP_NO_TICKET } from 'constants';
+import * as moment from 'moment';
 
 import swal from 'sweetalert2';
 @Component({
@@ -137,8 +138,8 @@ export class InactiveProductComponent implements OnInit {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         this.http.post(Config.api + 'search_by_vendor/' + this.title +'?page='+page, JSON.stringify({
-          "productinactive": this.Inactivedate,
-          "propublish": this.publishdate,
+          "productinactive":moment(this.Inactivedate).format('YYYY/MM/DD'),
+          "propublish":moment(this.publishdate).format('YYYY/MM/DD'),
           "utility": this.name
         }), { headers: headers }).subscribe(Res => {
           console.log(Res);
