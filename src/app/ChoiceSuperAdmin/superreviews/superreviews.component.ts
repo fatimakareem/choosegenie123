@@ -121,13 +121,15 @@ this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
 }
 
 //Event Binding of PopUp Delete Modal
-
+data;
 activeClick(uprate,upproid,upstatus,upzip,upcomt,upuser,updateduser) {
     console.log('edit' +uprate,upproid,upstatus,upzip,upcomt,upuser,updateduser);
 console.log("TS OBJECT",uprate,upproid,upstatus,upzip,upcomt,upuser,updateduser);
     //Calling Delete Service
-    this.serve.editTodoList( this.catagoryId,uprate,upproid,upstatus,upzip,upcomt,upuser,updateduser).subscribe(data => {
+    this.serve.editTodoList( this.catagoryId,uprate,upproid,true,upzip,upcomt,upuser,updateduser).subscribe(data => {
         console.log(data);
+        this.data=data['res'];
+        console.log(this.data,'rewiwwwwww');
         swal({
             type: 'success',
             title: 'Successfully updated',

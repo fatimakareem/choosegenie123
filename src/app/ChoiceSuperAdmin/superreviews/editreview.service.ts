@@ -15,8 +15,7 @@ editTodoList(id,uprate,upproid,upstatus,upzip,upcomt,upuser,updateduser) {
   headers.append('Content-Type', 'application/json');
   return this.http.put(Config.api + 'reviewchangestatus/'+ id , JSON.stringify({
    
-    
-    
+    "id":id,
       "rate": uprate,
       "productid": upproid,
       "zipcode": upzip,

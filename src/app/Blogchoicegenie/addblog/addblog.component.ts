@@ -93,7 +93,7 @@ export class AddblogComponent implements OnInit {
   }
 
   signupuserdata() {
-    console.log("CHOICE GENIE", this.model.Ch_image);
+    console.log("CHOICE GENIE", this.model.blog_image);
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     this.http.post(Config.api+'postingblog/', this.model, { headers: headers })

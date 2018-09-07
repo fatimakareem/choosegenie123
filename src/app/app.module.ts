@@ -101,8 +101,8 @@ import { UpdategetuserService } from './ChoiceSuperAdmin/supergetusers/updateget
 import { BlogssComponent } from './blogss/blogss.component';
 
 import { ExcelService } from './excel.service';
-
-
+// import {NotificationsService} from 'angular4-notify';
+import { NotifierService } from 'angular-notifier';
 
 @NgModule({
   exports: [
@@ -197,6 +197,7 @@ export class MaterialModule { }
   ],
   providers: [
     // CookieService
+    NotifierService,
     ExcelService,
     HomeService,
     HeaderService,
