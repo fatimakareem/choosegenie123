@@ -42,7 +42,8 @@ export class HomeComponent implements OnInit {
   model: any = {};
   zipcodeexist;
   public products: any;
-
+  public longi;
+  public lati;
   constructor(private obj: HomeService, private router: Router, private route: ActivatedRoute, private http: HttpClient, public sg: SimpleGlobal, private data: DataService, private Http: Http) {
 
   }
@@ -58,6 +59,7 @@ export class HomeComponent implements OnInit {
   public results: any;
   public zip;
   cord;
+ 
 
   promo = new FormControl('', [
     Validators.pattern(this.digitsOnly)
@@ -69,10 +71,7 @@ export class HomeComponent implements OnInit {
   postalCode;
   setPosition(position) {
     this.location = position.coords;
-//http://maps.googleapis.com/maps/api/geocode/json?latlng=
 this.Http.get('http://api.geonames.org/findNearbyPostalCodesJSON?lat=' + position.coords['latitude'] + '&lng=' + position.coords['longitude'] + '&username=usman.khanbrain &sensor=true&radius=1.5 &maxRows=1')
-// https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords['latitude'] + ',' + position.coords['longitude'] + '&key=AIzaSyBSZnUpk0c5IR_cQZ-meQ31bVnX8hzS15w
-    // this.Http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords['latitude'] + ',' + position.coords['longitude'] + '&key=AIzaSyBSZnUpk0c5IR_cQZ-meQ31bVnX8hzS15w')
 
       .subscribe(Res => {
         this.cord = Res.json()['postalCodes'][0]['postalCode'];
@@ -82,13 +81,19 @@ this.Http.get('http://api.geonames.org/findNearbyPostalCodesJSON?lat=' + positio
 
     console.log(position.coords);
   }
+  // getzip(position){
 
-  ngOnInit() {
+  // }
 
+  position:any;
+    ngOnInit() {
+  
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));
+      // navigator.geolocation.getCurrentPosition(this.getzipcode.bind(this));
     };
     this.premiseIdData();
+    
     $('.slick-date').slick({
       slidesToShow: 5,
       slidesToScroll: 5,
