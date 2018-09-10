@@ -103,7 +103,47 @@ import { BlogssComponent } from './blogss/blogss.component';
 import { ExcelService } from './excel.service';
 // import {NotificationsService} from 'angular4-notify';
 import { NotifierService } from 'angular-notifier';
-
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
+const customNotifierOptions: NotifierOptions = {
+  position: {
+		horizontal: {
+			position: 'left',
+			distance: 12
+		},
+		vertical: {
+			position: 'bottom',
+			distance: 12,
+			gap: 10
+		}
+	},
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 4
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
 @NgModule({
   exports: [
     MatAutocompleteModule,
@@ -149,6 +189,7 @@ export class MaterialModule { }
   imports: [
     BrowserModule.withServerTransition({ appId: 'PlugExp' }),
     BrowserTransferStateModule,
+    NotifierModule.withConfig(customNotifierOptions),
     CommonModule,
     BrowserAnimationsModule,
     AngularcliStarRatingModule,
@@ -197,6 +238,7 @@ export class MaterialModule { }
   ],
   providers: [
     // CookieService
+    
     NotifierService,
     ExcelService,
     HomeService,
