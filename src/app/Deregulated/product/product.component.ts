@@ -22,6 +22,7 @@ import { PageEvent } from '@angular/material';
 // import { SSL_OP_NO_TICKET } from 'constants';
 import {ExcelService} from '../../excel.service';
 import swal from 'sweetalert2';
+import { NotifierService } from 'angular-notifier';
 
 import { error } from 'util';
 declare const $: any;
@@ -31,6 +32,7 @@ declare const $: any;
     styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
+    private notifier: NotifierService;
     pageSizeOptions;
     private sub: Subscription;
     private zip: any;
@@ -54,7 +56,7 @@ export class ProductComponent implements OnInit {
     max_price_1000;
     min_price_2000;
     max_price_2000;
-    constructor(private excelService:ExcelService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
+    constructor(notifier: NotifierService,private excelService:ExcelService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
         
     }
    
