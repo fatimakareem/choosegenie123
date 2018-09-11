@@ -110,7 +110,7 @@ body {
   opacity: 1;
   /* left: 0; */
   right: 0;
-  z-index: 3;
+  z-index: 10;
 }
 .signup-popup h1{
   font-size: 29px;
@@ -143,5 +143,6 @@ body {
   width: 80%;
 }
 /**/
-
-
+.btn:not(.btn-just-icon):not(.btn-fab) .fa, .navbar .navbar-nav > li > a.btn:not(.btn-just-icon):not(.btn-fab) .fa{
+  margin-top: -8px !important;
+}
