@@ -162,20 +162,20 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     ngOnInit() {
 
 
-        // var position = $(window).scrollTop(); 
+        // var position = $(window).scrollTop();
 
         // // should start at 0
-        
+
         // $(window).scroll(function() {
         //     var scroll = $(window).scrollTop();
         //     if(scroll > position) {
-              
+
         //         // $('div').text('Scrolling Down Scripts');
         //         this.myID.className = "bottomMenu show"
         //     } else {
-                
+
         //         //  $('div').text('Scrolling Up Scripts');
-               
+
         //         this.myID.className = "bottomMenu hide"
         //     }
         //     position = scroll;
@@ -266,7 +266,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         document.getElementById("mySidebar").style.display = "none";
       }
     pop_close() {
-        
+
         // this.myID.className = "bottomMenu hide";
        this.status=false;
 
@@ -397,22 +397,22 @@ export class ProductsComponent implements OnInit, AfterViewInit {
                         infinite: true,
                         slidesToShow: 5,
                         slidesToScroll: 1,
-                        autoplay: true,
-                        prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;left:  0;"><i class="fa fa-chevron-left"></i></button>',
-                        nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;right:  0;"><i class="fa fa-chevron-right"></i></button>',
+                        autoplay: false,
+                        prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
+                        nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
                         responsive: [
                             {
-                                breakpoint: 1024,
+                                breakpoint: 1281,
                                 settings: {
-                                    slidesToShow: 3,
-                                    slidesToScroll: 3,
+                                    slidesToShow: 4,
+                                    slidesToScroll: 2,
                                     infinite: true
                                 }
                             },
                             {
-                                breakpoint: 600,
+                                breakpoint: 768,
                                 settings: {
-                                    slidesToShow: 2,
+                                    slidesToShow: 3,
                                     slidesToScroll: 2
                                 }
                             },
@@ -1200,5 +1200,3 @@ export class plandetailDialog {
     //     this.router.navigate(['/signup/' + this.product_id]);
     //     this.dialogRef.close();
 }
-
-

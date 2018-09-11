@@ -22,8 +22,6 @@ import { PageEvent } from '@angular/material';
 // import { SSL_OP_NO_TICKET } from 'constants';
 import {ExcelService} from '../../excel.service';
 import swal from 'sweetalert2';
-import { NotifierService } from 'angular-notifier';
-
 import { error } from 'util';
 declare const $: any;
 @Component({
@@ -32,7 +30,6 @@ declare const $: any;
     styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-    private notifier: NotifierService;
     pageSizeOptions;
     private sub: Subscription;
     private zip: any;
@@ -56,10 +53,10 @@ export class ProductComponent implements OnInit {
     max_price_1000;
     min_price_2000;
     max_price_2000;
-    constructor(notifier: NotifierService,private excelService:ExcelService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
-        
+    constructor(private excelService:ExcelService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
+
     }
-   
+
     exportAsXLSX(){
         this.excelService.exportAsExcelFile( this.deproduct, 'ChoiceGenie Vendor Detail');
      }
@@ -140,7 +137,7 @@ export class ProductComponent implements OnInit {
     Items;
     myID;
     status:any=true;
-    
+
     ngOnInit() {
         this.myID = document.getElementById("myID");
 
@@ -153,7 +150,7 @@ export class ProductComponent implements OnInit {
             this.myID.className = "bottomMenu hide"
           }
         };
-        
+
         window.addEventListener("scroll", myScrollFunc);
 
       this.names=localStorage.getItem('name');
@@ -185,8 +182,8 @@ this. featuredplan();
 
 
     }
-   
-    
+
+
   w3_open() {
     document.getElementById("mySidebar").style.display = "block";
   }
@@ -214,21 +211,32 @@ this. featuredplan();
                         autoplay: true,
                         slidesToShow: 5,
                         slidesToScroll: 1,
-                        prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left" style="left:0;"><i class="fa fa-angle-left"></i></button>',
-                        nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" style="right:0;"><i class="fa fa-angle-right"></i></button>',
+                      prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
+                      nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
                       responsive: [
                         {
-                          breakpoint: 769,
+                          breakpoint: 1281,
                           settings: {
-                            slidesToShow: 3
+                            slidesToShow: 4,
+                            slidesToScroll: 2,
+                            infinite: true
                           }
                         },
                         {
-                          breakpoint: 500,
+                          breakpoint: 769,
                           settings: {
-                            slidesToShow: 1
+                            slidesToShow: 3,
+                            slidesToScroll: 2
+                          }
+                        },
+                        {
+                          breakpoint: 480,
+                          settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
                           }
                         }
+
                       ]
                     });
                 }, 1);
@@ -614,7 +622,7 @@ this. featuredplan();
             this.obj.searchProducts1(this.zip_code, page).subscribe(response => {
                 this.deproduct = response['Results'];
                 this.noresult = response['Total Result'];
-               
+
                 this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
 
             });
