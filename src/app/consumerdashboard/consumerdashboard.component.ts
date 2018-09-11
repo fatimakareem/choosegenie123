@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NotifierService } from 'angular-notifier';
 import { Headers, Response, Http } from "@angular/http"
+import { Config } from "../Config";
 
 @Component({
   selector: 'app-consumerdashboard',
@@ -25,7 +26,7 @@ export class ConsumerdashboardComponent implements OnInit {
     if (this.user) {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      this.http.get('http://192.168.30.238:9000/get_unread_notifications/' + this.user, { headers: headers }).subscribe(Res => {
+      this.http.get(Config.api + 'get_unread_notifications/' + this.user, { headers: headers }).subscribe(Res => {
 
 
         this.total = Res.json()['Total Result']
