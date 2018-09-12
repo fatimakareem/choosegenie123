@@ -29,6 +29,8 @@ export class Blog3Component implements OnInit {
   constructor(private serve:EditBlogService,private newService:DeleteBlogService,private https:Http,public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
   data:any=[];
   myDiv;
+  save;
+  heading1;
     ngOnInit() {
       this. profile();
     }
