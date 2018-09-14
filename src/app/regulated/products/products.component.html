@@ -911,7 +911,7 @@
           </ng-template>
         </span>
 
-        <div class="sh-btm-pagination card container">
+        <div class="sh-btm-pagination card ">
           <div class="product-page-bar row">
 
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 align padding">
@@ -959,9 +959,9 @@
               <li *ngIf="(pager.totalPages - pager.startPage) > 3 ">
                 <a (click)="setPage(pager.startPage + 3)">...</a>
               </li>
-              <li *ngIf="(pager.totalPages - pager.startPage) > 3" >
+              <!-- <li *ngIf="(pager.totalPages - pager.startPage) > 3" >
                 <a (click)="setPage(pager.totalPages)" class="view-plan-details">{{pager.totalPages}}</a>
-              </li>
+              </li> -->
               <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
                 <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
                   <i class="fa fa-angle-right"></i>
