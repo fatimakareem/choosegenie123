@@ -482,6 +482,25 @@ this. featuredplan();
         }
         console.log(this.months1)
     }
+checkprice(min, max) {
+        if (min && max) {
+            this.min = min;
+            this.max = max;
+           
+            this.setPage(1);
+        }
+        else {
+            localStorage.removeItem('min');
+            localStorage.removeItem('max');
+         
+            delete this.min;
+            delete this.max;
+         
+            this.setPage(1);
+        }
+
+        console.log()
+    }
     checked2(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
@@ -605,8 +624,8 @@ this. featuredplan();
         }
         //alert( this.noresult);
         const Results = {}
-        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.sort || this.names || this.item) {
-      this.obj.deregulatedfilter(page, this.zip_code, this.months1, this.months2, this.months3, this.months5, this.months6, this.item, this.sort, this.names).subscribe(response => {
+        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.sort || this.names || this.item || this.min || this.max) {
+      this.obj.deregulatedfilter(page, this.zip_code, this.months1, this.months2, this.months3, this.months5, this.months6, this.item, this.sort, this.names,this.min,this.max).subscribe(response => {
 
                 this.deproduct = response['Results'];
                 this.noresult = response['Total Result'];

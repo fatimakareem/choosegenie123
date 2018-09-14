@@ -84,32 +84,33 @@
         </mat-form-field>
 
       </li> -->
-      <!-- <li>
-        <div class="panel-title">
-          <a>
-            <h5 class="cat-title color-red" style="margin-bottom: 15px;margin-top: -36px;"> Price Range
-              <i class="color-black fa fa-info-circle float" aria-hidden="true" title="Price per kilowatt hour: A kilowatt hour is equal to 1 kilowatt (1kW) of power used for 1 hour (1h) of time."></i>
-            </h5>
-          </a>
-        </div>
+      <li style="margin-bottom: 0px;">
+          <div class="panel-title">
+            <a>
+              <h5 class="color-red"> Price Range
+                <i class="color-black fa fa-info-circle float" aria-hidden="true" title="Price per kilowatt hour: A kilowatt hour is equal to 1 kilowatt (1kW) of power used for 1 hour (1h) of time."></i>
+              </h5>
+            </a>
+          </div>
 
 
 
-        <div class="pric-range-box">
-          <span>�</span>
-          <input type="text" class="ng-valid ng-dirty ng-touched" required name="min" [(ngModel)]="min" style="font-size: 20px;border-radius: 5px;">
-          <span>to</span>
-          <span>�</span>
-          <input type="text" class="ng-valid ng-dirty ng-touched" required name="max" [(ngModel)]="max" style="font-size:20px;border-radius: 5px;">
+          <div  style="border-top: 0px !important;" class="pric-range-box">
 
-          <button class="price-range-submit btn-fill" (click)="pricerate(min,max,price)">
-            <i class="fa fa-chevron-right" style="color: #ffffff"></i>
-          </button>
+            <input type="text" class="ng-valid ng-dirty ng-touched" required name="min" [(ngModel)]="min"  style="font-size: 20px;border-radius: 5px;">
+            <span>¢</span>
+            <span>to</span>
 
-        </div>
-        <hr style="margin-top: 20px !important; background: #000000">
-      </li> -->
+            <input type="text" class="ng-valid ng-dirty ng-touched" required name="max" [(ngModel)]="max" style="font-size:20px;border-radius: 5px;">
+            <span>¢</span>
 
+            <button class="price-range-submit btn-fill" (click)="checkprice(min,max)">
+              <i class="fa fa-chevron-right" style="color: #ffffff"></i>
+            </button>
+
+          </div>
+          <hr style="margin-top: 10px !important; background: #000000">
+        </li>
 
       <li>
         <div class="panel-title">
