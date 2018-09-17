@@ -4,16 +4,16 @@
       <strong>Yourself</strong>
     </h3>
 
-    <div class="vander-signup-heading" data-notify="container">
+    <!-- <div class="vander-signup-heading" data-notify="container">
       <span data-notify="message">Any Enrollment Request including move-in or a switch can only be made by service applicant or the applicant's authorized
         agent.
         <br> If you are not an authorized individual, please do not submit your request using this portal.
       </span>
-    </div>
+    </div> -->
 
 
 
-    <div class="card-content card-content-fixed" style="padding-top: 10px; margin-top: 13px;">
+    <div class="card-content card-content-fixed" style="padding-top: 1px;">
       <form [formGroup]="signupForm" *ngIf="signupForm">
 
         <!-- <div class="signup-form-fixed" data-background-color="rose">
@@ -29,7 +29,7 @@
 
           <div class="row">
             <div class="col-sm-6">
-              <div class="form-group">
+              <div class="">
 
                 <mat-form-field>
                   <input matInput placeholder="  Name" [formControl]="signupForm.controls['name']" required [(ngModel)]="model.name">
@@ -40,7 +40,7 @@
             </div>
             <br class="clearfix" />
             <div class="col-sm-6">
-              <div class="form-group">
+              <div class="">
 
                 <mat-form-field>
                   <input matInput placeholder="Service ZipCode" maxlength="5" (ngModelChange)="states(zip.value)" #zip [formControl]="signupForm.controls['service_zip']"

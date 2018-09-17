@@ -64,8 +64,8 @@
       <div class="blog-layout-content">
         <h2>{{data.heading}}</h2>
         <div [innerHTML]="data.content1 | slice:0:130"></div>
-        <a (click)="fun(data.heading)">
-        <button class="btn btn-fill margin-zero1" type="submit">Read more</button></a>
+        <a (click)="fun(data.heading)"  target="_blank"  >
+        <button class="btn btn-fill margin-zero1" type="submit"  target="_blank" >Read more</button></a>
       </div>
     </div>
   </div>

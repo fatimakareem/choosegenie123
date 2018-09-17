@@ -1460,8 +1460,13 @@ app-residential-dialog2 .forgot-pass {
 input.mat-input-element,
 input.mat-input-element::-webkit-input-placeholder {
   font-size: 18px !important;
+  /* line-height: 33px; */
+  line-height: 34px !important;
+    font-weight: 700 !important;
+}
+.mat-form-field-flex{
   line-height: 33px;
-  font-weight: 700 !important; }
+}
 
 .btn {
   font-size: 17px !important;
@@ -3889,9 +3894,11 @@ h1, .entry-title-2 {
 
 /*vanders signup css start*/
 .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder, .mat-form-field-empty.mat-form-field-placeholder, mat-form-field.mat-form-field {
-  font-size: 27px;
+  /* font-size: 27px; */
+  font-size: 21px;
   font-weight: 700;
   color: #333;
+  margin-top: 10px !important;
 }
 .vander-signup-heading {
   background: #cc0000 !important;
