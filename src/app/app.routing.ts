@@ -11,11 +11,15 @@ import { AuthguardService } from './_guards/authguard.service';
 import { ConsumeradminComponent } from './layouts/consumeradmin/consumeradmin.component';
 import { Authgaurd2Service } from './_guards/authgaurd2.service';
 import { Authgaurd3Service } from './_guards/authgaurd3.service';
-
+import { ProductComponent } from './Deregulated/product/product.component';
+import {ProductsComponent} from './regulated/products/products.component'
 export const AppRoutes: Routes = [
    
     {path: "", component: HomeComponent},
-    
+    // {
+    //     path: 'products/:zipCode',
+    //     component:ProductsComponent
+    // },
  
 
     {

@@ -137,7 +137,7 @@ export class ProductComponent implements OnInit {
     Items;
     myID;
     status:any=true;
-
+    slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};
     ngOnInit() {
         this.myID = document.getElementById("myID");
 
@@ -166,7 +166,7 @@ export class ProductComponent implements OnInit {
 
         const Results = {};
         this.val = "methodName($event[0])"
-this. featuredplan();
+this.featuredplan();
         this.profile()
         this.companytitle()
 
@@ -206,40 +206,7 @@ this. featuredplan();
                 // this.data.changeProducts(this.sg['plan']);
                 this.Items = this.sg['plan'];
 
-                setTimeout(function () {
-                    $('.autoplay').slick({
-                        autoplay: true,
-                        slidesToShow: 5,
-                        slidesToScroll: 1,
-                      prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
-                      nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
-                      responsive: [
-                        {
-                          breakpoint: 1281,
-                          settings: {
-                            slidesToShow: 4,
-                            slidesToScroll: 2,
-                            infinite: true
-                          }
-                        },
-                        {
-                          breakpoint: 769,
-                          settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 2
-                          }
-                        },
-                        {
-                          breakpoint: 480,
-                          settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                          }
-                        }
-
-                      ]
-                    });
-                }, 1);
+               
             });
     }
     submit(id, title) {

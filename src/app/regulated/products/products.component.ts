@@ -84,7 +84,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     constructor(private excelService:ExcelService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService) {
 
     }
-
+    slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};
     // array of all items to be paged
     // pager object
     private allItems: any[];
@@ -158,7 +158,8 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     modal: any = [];
     myID;
     close;
-    status:any=true
+    status:any=true;
+    slider;
     ngOnInit() {
 
 
@@ -181,7 +182,41 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         //     position = scroll;
         // });
 
+    //   this.slider=  setTimeout(function () {
+    //         $('.homeSlider').slick({
+    //             infinite: true,
+    //             slidesToShow: 5,
+    //             slidesToScroll: 1,
+    //             autoplay: false,
+    //             prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
+    //             nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
+    //             responsive: [
+    //                 {
+    //                     breakpoint: 1281,
+    //                     settings: {
+    //                         slidesToShow: 4,
+    //                         slidesToScroll: 2,
+    //                         infinite: true
+    //                     }
+    //                 },
+    //                 {
+    //                     breakpoint: 768,
+    //                     settings: {
+    //                         slidesToShow: 3,
+    //                         slidesToScroll: 2
+    //                     }
+    //                 },
+    //                 {
+    //                     breakpoint: 480,
+    //                     settings: {
+    //                         slidesToShow: 1,
+    //                         slidesToScroll: 1
+    //                     }
+    //                 }
 
+    //             ]
+    //         });
+    //     }, 0);
 
         this.myID = document.getElementById("myID");
         var myScrollFunc = function () {
@@ -253,7 +288,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         this.val = "methodName($event[0])"
         this.companytitle();
 
-        this.featuredplan();
+        // this.featuredplan();
 
     }
     exportAsXLSX(){
@@ -392,41 +427,42 @@ export class ProductsComponent implements OnInit, AfterViewInit {
             .subscribe(Res => {
 
                 this.sg['plan'] = Res.json()['Results'];
-                setTimeout(function () {
-                    $('.homeSlider').slick({
-                        infinite: true,
-                        slidesToShow: 5,
-                        slidesToScroll: 1,
-                        autoplay: false,
-                        prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
-                        nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
-                        responsive: [
-                            {
-                                breakpoint: 1281,
-                                settings: {
-                                    slidesToShow: 4,
-                                    slidesToScroll: 2,
-                                    infinite: true
-                                }
-                            },
-                            {
-                                breakpoint: 768,
-                                settings: {
-                                    slidesToShow: 3,
-                                    slidesToScroll: 2
-                                }
-                            },
-                            {
-                                breakpoint: 480,
-                                settings: {
-                                    slidesToShow: 1,
-                                    slidesToScroll: 1
-                                }
-                            }
-
-                        ]
-                    });
-                }, 0);
+            //   this.slider=   setTimeout(function () {
+            //        $('.homeSlider').slick({
+            //             infinite: true,
+            //             slidesToShow: 5,
+            //             slidesToScroll: 1,
+            //             autoplay: false,
+            //             prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
+            //             nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
+            //             responsive: [
+            //                 {
+            //                     breakpoint: 1281,
+            //                     settings: {
+            //                         slidesToShow: 4,
+            //                         slidesToScroll: 2,
+            //                         infinite: true
+            //                     }
+            //                 },
+            //                 {
+            //                     breakpoint: 768,
+            //                     settings: {
+            //                         slidesToShow: 3,
+            //                         slidesToScroll: 2
+            //                     }
+            //                 },
+            //                 {
+            //                     breakpoint: 480,
+            //                     settings: {
+            //                         slidesToShow: 1,
+            //                         slidesToScroll: 1
+            //                     }
+            //                 }
+        
+            //             ]
+            //         });
+            //     }, 0);
+        
                 // this.data.changeProducts(this.sg['plan']);
                 this.Items = this.sg['plan'];
                 for (let prod of this.sg['plan']) {
@@ -488,7 +524,9 @@ export class ProductsComponent implements OnInit, AfterViewInit {
 
 
     ngAfterViewInit() {
-        this.profile()
+        this.profile();
+        this.featuredplan();
+
         this.data.currentProducts.subscribe(products => this.sg['products'] = products)
         this.data.currentProducts
         this.sub = this.route.params.subscribe(params => {
@@ -527,7 +565,6 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         table.on('click', '.like', function () {
             alert('You clicked on Like button');
         });
-
     }
     companytitle() {
         let headers = new Headers();

@@ -13,7 +13,7 @@
   </a>
 </div>
 <div class="container-fluid sh-pd-0">
-  <div class="row" style="width: 100%;">
+  <div class="row product-body">
 
 
   <div class="col-lg-2">
@@ -447,7 +447,7 @@
 
                 </ul>
 
-                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 prod-select-list sec-list">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 prod-select-list sec-list">
                   <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
                   <mat-form-field>
 
@@ -463,7 +463,7 @@
 
 
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 compare-print">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 compare-print">
 
                   <button class="print btn-fill" title="Print plan results" onclick="window.print();">
                     <i class="fa fa-print"></i>
@@ -488,7 +488,22 @@
           <div style="padding: 0px; text-align:center;">
             <h1 class="hd-most-popular-plans">Most Popular Plans</h1>
           </div>
-          <div class="homeSlider" *ngIf="sg['plan']">
+          <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+              <div class="mustafa" style="width:1100px;border-radius:20px" ngxSlickItem *ngFor="let data of sg['plan']; let i = index" class="slide">
+                  <div class="prod-slide">  
+                <a (click)="move(data.title)">
+                      <img class="img2" src="{{data.profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" alt="Card image cap" />
+                    </a>
+                    <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
+                        data-toggle="modal" data-target="#myModal2">Plan Information
+                    </h2>
+                    <h2 class="view-plan-details" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo)" data-toggle="modal"
+                        data-target="#myModal3"> Leave a Review
+                    </h2>
+                  </div>
+              </div>
+          </ngx-slick>
+          <!-- <div class="homeSlider" *ngIf="sg['plan']">
             <div class="mustafa" style="width:1100px;border-radius:20px" *ngFor="let data of sg['plan']; let i = index">
               <div class="prod-slide">
                 <a (click)="move(data.title)">
@@ -504,7 +519,7 @@
 
 
             </div>
-          </div>
+          </div> -->
         </div>
 
         <div class="col-md-12" style="padding: 0px; text-align:center;">
@@ -911,7 +926,7 @@
           </ng-template>
         </span>
 
-        <div class="sh-btm-pagination card ">
+        <div class="card custom-width">
           <div class="product-page-bar row">
 
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 align padding">
@@ -970,7 +985,7 @@
 
             </ul>
 
-            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 prod-select-list sec-list">
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 prod-select-list sec-list">
               <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
               <mat-form-field>
 
@@ -987,7 +1002,7 @@
 
             </div>
 
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 compare-print">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 compare-print">
               <button class="print btn-fill">
                 <i class="fa fa-print"></i>
               </button>

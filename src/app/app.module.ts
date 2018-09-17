@@ -99,6 +99,7 @@ import { DeletegetuserService } from './ChoiceSuperAdmin/supergetusers/deleteget
 import { UpdategetuserService } from './ChoiceSuperAdmin/supergetusers/updategetuser.service';
 // import { CookieService } from 'ngx-cookie-service';
 import { BlogssComponent } from './blogss/blogss.component';
+import {ProductsComponent} from './regulated/products/products.component'
 
 import { ExcelService } from './excel.service';
 // import {NotificationsService} from 'angular4-notify';
@@ -230,6 +231,7 @@ export class MaterialModule { }
     // ChangePasswordComponent,
     StepperOverviewExample,
     // UsersdashboardComponent
+    // ProductsComponent
 
 
 
