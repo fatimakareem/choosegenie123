@@ -37,6 +37,7 @@ public username;
   filter(page,id,months1,months2,months3,months4,months5,months6,months7,fixed,vari,market,notprepaid,prepaid,planmin,time,nottime,renewable,name,price,sort,item,min,max) {
  console.log(price)
     if(price == undefined){
+    
       console.log(page,id,months1,months2,months3,months4,months5,months6,months7,fixed,vari,market,notprepaid,prepaid,planmin,time,nottime,renewable,name,price,sort,item,min,max)
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
@@ -57,7 +58,7 @@ public username;
         "notime":nottime,
         "renewablerate":renewable,
         "company":name,
-        "itemsperpage":item,
+        "itemsperpage":"10",
         "dsc":sort
 
        }), 
@@ -84,7 +85,7 @@ public username;
       "notime":nottime,
       "renewablerate":renewable,
       "company":name,
-      "itemsperpage":item,
+      "itemsperpage":"10",
       "price_500_kwh_min_price": min,
       "price_500_kwh_max_price": max,
       "dsc":sort
@@ -113,7 +114,7 @@ public username;
       "notime":nottime,
       "renewablerate":renewable,
       "company":name,
-      "itemsperpage":item,
+      "itemsperpage":"10",
       "price_1000_kwh_min_price": min,
       "price_1000_kwh_max_price": max,
       "dsc":sort
@@ -142,7 +143,7 @@ public username;
       "notime":nottime,
       "renewablerate":renewable,
       "company":name,
-      "itemsperpage":item,
+      "itemsperpage":"10",
         "price_2000_kwh_min_price": min,
         "price_2000_kwh_max_price": max,
       "dsc":sort
@@ -151,7 +152,7 @@ public username;
     }
  
   }
-  deregulatedfilter(page,zip_code,months1,months2,months3,months5,months6,items,dsc,com) {
+  deregulatedfilter(page,zip_code,months1,months2,months3,months5,months6,items,dsc,com,min,max) {
     // console.log(price)
       if(items==undefined){
         this.items="10";
@@ -168,7 +169,9 @@ public username;
            "plan_information4": months6,
              "company":com,
            "itemsperpage": this.items,
-           "dsc":dsc
+           "dsc":dsc,
+           "min_price":min,
+            "max_price":max,
           }), 
          {headers: headers}).map((response: Response) => response.json());
          } else{
@@ -176,7 +179,8 @@ public username;
           const headers = new Headers();
           headers.append('Content-Type', 'application/json');
           return this.http.post(Config.api+'deregulated_genericfilter/'+zip_code +'?page='+page, JSON.stringify({
-           
+            "min_price":min,
+            "max_price":max,
            "plan_information5": months1,
             "plan_information1": months2,
             "plan_information2": months3,

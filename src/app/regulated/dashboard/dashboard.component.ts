@@ -111,6 +111,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         this.http.post(Config.api + 'search_by_vendor/' + this.title + '?page=' + page, JSON.stringify({
+            
             "productinactive":moment(this.Inactivedate).format('YYYY/MM/DD'),
             "propublish":moment(this.publishdate).format('YYYY/MM/DD'),
             "utility": this.name
