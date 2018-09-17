@@ -12,6 +12,7 @@ import {ProductRoutes} from './product.routing';
 //import {  plandetailDialog} from './products.component';
 import { AngularcliStarRatingModule } from 'angularcli-star-rating'
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { SlickModule } from 'ngx-slick';
 
 import { HomeService } from '../../home/home.service';
 import { SimpleGlobal } from 'ng2-simple-global';
@@ -60,6 +61,7 @@ const customNotifierOptions: NotifierOptions = {
 @NgModule({
     imports: [
         CommonModule,
+        SlickModule.forRoot(),
         RouterModule.forChild(ProductRoutes),
         FormsModule,
         AngularcliStarRatingModule,

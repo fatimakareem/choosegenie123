@@ -15,10 +15,12 @@ import { AngularcliStarRatingModule } from 'angularcli-star-rating'
 
 import { HomeService } from '../../home/home.service';
 import { SimpleGlobal } from 'ng2-simple-global';
+import { SlickModule } from 'ngx-slick';
 // import { Pipe, PipeTransform } from "@angular/core";
 // import { HttpClientModule } from '@angular/common/http'
 @NgModule({
     imports: [
+        SlickModule.forRoot(),
         CommonModule,
         RouterModule.forChild(ProductsRoutes),
         FormsModule,

@@ -7201,7 +7201,8 @@
    border-radius: 30px !important;
    transition: all .3s;
    padding: 0px 9px !important;
-   margin: 0 3px;
+   /*margin: 0 3px;*/
+   margin: 0 1px !important;
    min-width: 30px;
    height: 30px;
    line-height: 30px;
