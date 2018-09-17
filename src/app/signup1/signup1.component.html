@@ -3,16 +3,16 @@
     <h3 class="text-center" style="margin: 0px !important;">Tell Us About
       <strong>Yourself</strong></h3>
 
-    <div class="vander-signup-heading" data-notify="container">
+    <!-- <div class="vander-signup-heading" data-notify="container">
       <span data-notify="message">Any Enrollment Request including move-in or a switch can only be made by service applicant or the applicant's authorized
       agent.
       <br> If you are not an authorized individual, please do not submit your request using this portal.
     </span>
-    </div>
+    </div> -->
 
 
 
-<div class="card-content card-content-fixed" style="padding-top: 10px; margin-top: 13px;">
+<div class="card-content card-content-fixed" style="padding-top: 1px;">
   <form [formGroup]="signupForm" *ngIf="signupForm">
 
     <!-- <div class="signup-form-fixed" data-background-color="rose">
@@ -29,7 +29,7 @@
       <div class="row">
 
         <div class="col-sm-6">
-          <div class="form-group">
+          <div class="">
             <mat-form-field>
               <input matInput placeholder="REP Name" [formControl]="signupForm.controls['repname']" #repname required [(ngModel)]="model.repname">
               <mat-error *ngIf="signupForm.controls['repname'].value == '' || !signupForm.controls['repname'].value"><strong>This Field cannot be empty</strong></mat-error>
@@ -39,7 +39,7 @@
         </div>
         <br class="clearfix" />
         <div class="col-sm-6">
-          <div class="form-group ">
+          <div class="">
             <mat-form-field>
               <input matInput placeholder="REP Certificate #" [formControl]="signupForm.controls['repid']" #REP_certificate_id1 (ngModelChange)="Checkzipcode(REP_certificate_id1.value)" required [(ngModel)]="model.repid">
               <mat-error *ngIf="signupForm.controls['repid'].value == '' || !signupForm.controls['repid'].value"><strong>This Field cannot be empty</strong></mat-error>
