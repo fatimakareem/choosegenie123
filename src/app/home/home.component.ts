@@ -12,7 +12,7 @@ import swal from 'sweetalert2';
 import { SimpleGlobal } from 'ng2-simple-global';
 import { DataService } from '../data.service';
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
-import { google } from '@agm/core/services/google-maps-types';
+// import { google } from '@agm/core/services/google-maps-types';
  
 declare var $;
 
