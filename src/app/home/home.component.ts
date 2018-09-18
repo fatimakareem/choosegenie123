@@ -12,6 +12,7 @@ import swal from 'sweetalert2';
 import { SimpleGlobal } from 'ng2-simple-global';
 import { DataService } from '../data.service';
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
+import { google } from '@agm/core/services/google-maps-types';
  
 declare var $;
 
@@ -51,6 +52,10 @@ export class HomeComponent implements OnInit {
   }
 
 
+  // googleTranslateElementInit() {
+  //   new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+  // }
+  
 
   onSubmit(f: NgForm) {
 
@@ -99,6 +104,8 @@ export class HomeComponent implements OnInit {
 
   position:any;
     ngOnInit() {
+
+      //this.googleTranslateElementInit();
   
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));

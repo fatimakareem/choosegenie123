@@ -16,6 +16,7 @@ import { RecaptchaComponent } from 'recaptcha-blackgeeks';
 import { HeaderService } from './header.service';
 import { DataService } from '../data.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { google } from '@agm/core/services/google-maps-types';
 
 declare var $: any;
 
@@ -36,7 +37,20 @@ export class HeaderComponent implements OnInit {
   record: any = []
   zipCode;
   admin;
+  // google:any = []
   constructor(private router: Router, private _serv: HeaderService, private data: DataService, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
+
+//  googleTranslateElementInit() {
+//   new this.google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+// }
+googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+}
+
+  
+  
+  
+  
   checked_login() {
     if (localStorage.getItem('custum')) {
       let local = localStorage.getItem('custum');
