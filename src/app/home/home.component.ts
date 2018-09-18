@@ -45,7 +45,9 @@ export class HomeComponent implements OnInit {
   public products: any;
   public longi;
   public lati;
-  constructor(private obj: HomeService, private router: Router, private route: ActivatedRoute, private http: HttpClient, public sg: SimpleGlobal, private data: DataService, private Http: Http) {
+  dataa;
+  slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};
+  constructor(private obj: HomeService, private router: Router, private route: ActivatedRoute,private https: HttpClient, private http: HttpClient, public sg: SimpleGlobal, private data: DataService, private Http: Http) {
 
   }
 
@@ -75,16 +77,26 @@ export class HomeComponent implements OnInit {
   location = {};
   postalCode;
   setPosition(position) {
-    this.location = position.coords;
-this.Http.get('http://api.geonames.org/findNearbyPostalCodesJSON?lat=' + position.coords['latitude'] + '&lng=' + position.coords['longitude'] + '&username=usman.khanbrain &sensor=true&radius=1.5 &maxRows=1')
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.http.get(Config.api+'get_location/'+position.coords['latitude'] +'/'+position.coords['longitude']).subscribe(Res => {
+      console.log(Res);
+  this.cord=Res['postalCodes'][0]['postalCode'];
 
-      .subscribe(Res => {
-        this.cord = Res.json()['postalCodes'][0]['postalCode'];
-        console.log(this.cord);
+      // this.Conversation();
+      console.log(this.cord)
+    });
+  
+//     this.location = position.coords;
+// this.Http.get('http://api.geonames.org/findNearbyPostalCodesJSON?lat=' + position.coords['latitude'] + '&lng=' + position.coords['longitude'] + '&username=usman.khanbrain &sensor=true&radius=1.5 &maxRows=1')
 
-      })
+//       .subscribe(Res => {
+//         this.cord = Res.json()['postalCodes'][0]['postalCode'];
+//         console.log(this.cord,'locationsss');
 
-    console.log(position.coords);
+//       })
+
+//     console.log(position.coords);
   }
   // getzip(position){
 
@@ -101,42 +113,6 @@ this.Http.get('http://api.geonames.org/findNearbyPostalCodesJSON?lat=' + positio
     };
     this.premiseIdData();
     
-    $('.slick-date').slick({
-      slidesToShow: 5,
-      slidesToScroll: 5,
-      autoplaySpeed: 1500,
-      autoplay: true,
-      prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left"><i class="fa fa-angle-left"></i></button>',
-      nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right"><i class="fa fa-angle-right"></i></button>',
-      responsive: [
-        {
-          breakpoint: 427,
-          settings: {
-            slidesToShow: 1
-          }
-        }
-      ]
-    });
-
-
-    $('.slick-testimonal').slick({
-      slidesToShow: 1,
-      autoplay: true,
-      autoplaySpeed: 7000,
-      pauseOnFocus: false,
-      pauseOnHover: false,
-      fade: true,
-      prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left"><i class="fa fa-angle-left"></i></button>',
-      nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right"><i class="fa fa-angle-right"></i></button>'
-    });
-
-    $('.slick-testimonal').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-      $('.slider-tagline').hide(10);
-      $('.slider-tagline').show(5);
-    });
-
-
-
 
   }
   
@@ -309,16 +285,7 @@ this.state=data['state'];
           this.resulttaxes= Res.json()['Vendors2'];
           this.resultderegulated= Res.json()['Vendors1'];
         
- setTimeout(function () {
-                $('.autoplay').slick({
-                  slidesToShow: 5,
-                  slidesToScroll: 5,
-                  autoplaySpeed: 1500,
-                  autoplay: true,
-                    prevArrow: '<button class="slick-arrow leftArrow btn-slider btn-slider-left" ><i class="fa fa-angle-left"></i></button>',
-                    nextArrow: '<button class="slick-arrow rightArrow btn-slider btn-slider-right" ><i class="fa fa-angle-right"></i></button>'
-                });
-            }, 1);
+ 
         });
 }
 // derugu(name){

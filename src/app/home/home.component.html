@@ -118,22 +118,23 @@
 
 
     <div class="content-box-02">
-      <div class="container-fluid space-up slider-pad">
+      <div class="container-fluid space-up slider-pad" *ngIf="resulttaxes && resultderegulated">
         <div class="text-center">
           <h3 class="title-04 wow slideInLeft padding-zero-i" style="margin-top: 0px !important;">Top Rated Energy Vendors</h3>
         </div>
-        <div class="autoplay" *ngIf="resulttaxes && resultderegulated">
-          <div class="mustafa" style="width:1100px;border-radius:20px" *ngFor="let data of resulttaxes; let i = index">
-            <div class="prod-slide">
-              <a (click)="move(data.title)">
-                <img class="img1" src="{{data.profile_logo}}" alt="{{data.title}}" alt="Card image cap" />
-              </a>
-
-            </div>
-
-
-          </div>
-          <div class="mustafa" style="width:1100px;border-radius:20px" *ngFor="let data of resultderegulated; let i = index">
+        <div  >
+            <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+                <div class="mustafa" style="width:1100px;border-radius:20px" ngxSlickItem *ngFor="let data of resulttaxes; let i = index" class="slide">
+                    <div class="prod-slide">
+                        <a (click)="move(data.title)">
+                          <img class="img1" src="{{data.profile_logo}}" alt="{{data.title}}" alt="Card image cap" />
+                        </a>
+          
+                      </div>
+                </div>
+   
+         
+          <div class="mustafa" style="width:1100px;border-radius:20px" ngxSlickItem *ngFor="let data of resultderegulated; let i = index" class="slide">
               <div class="prod-slide">
                 <a (click)="move(data.title)">
                   <img class="img1" src="{{data.profile_logo}}" alt="{{data.title}}" alt="Card image cap" />
@@ -143,6 +144,7 @@
   
   
             </div>
+          </ngx-slick>
         </div>
         <!-- <div class="slick-date normal-slider owl-option-01 owl-theme-01">
           <div class="owl-theme-01__item box-bg">

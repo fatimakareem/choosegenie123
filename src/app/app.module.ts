@@ -11,8 +11,11 @@ import { DeleteBlogService } from './Blogchoicegenie/adminblog/delete-blog.servi
 import { EditBlogService } from './Blogchoicegenie/adminblog/edit-blog.service';
 import { AngularcliStarRatingModule } from 'angularcli-star-rating'
 import { LoaderModule } from './loader/loader.module';
+import { SlickModule } from 'ngx-slick';
+
 
 import {
+  
   MatAutocompleteModule,
   MatButtonModule,
   MatButtonToggleModule,
@@ -188,6 +191,7 @@ export class MaterialModule { }
 
 @NgModule({
   imports: [
+    SlickModule.forRoot(),
     BrowserModule.withServerTransition({ appId: 'PlugExp' }),
     BrowserTransferStateModule,
     NotifierModule.withConfig(customNotifierOptions),

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {Routes,RouterModule } from '@angular/router';
 import {HomeComponent} from './home.component';
 import {LoaderModule} from '../loader/loader.module';
+import { SlickModule } from 'ngx-slick';
 
 const MainpageRoutes: Routes = [ 
  { path: '', redirectTo: 'home', pathMatch: 'full' },  
@@ -12,6 +13,7 @@ const MainpageRoutes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    SlickModule.forRoot(),
     LoaderModule,
     RouterModule.forChild(MainpageRoutes)
 

@@ -12,7 +12,7 @@
 </div>
 
 <div class="container-fluid sh-pd-0">
-<div class="row" style="width: 100%;">
+<div class="row product-body">
 
 
 <div class="col-lg-2">
@@ -366,19 +366,19 @@
     <ng-template #no_data_temp2>
 
       <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
-      <h1 style="height:1000px;width:1000px;padding:200px">
+      <h1 class="result-not-found">
 
-        <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Record Found</b>
+        <b>No Record Found</b>
       </h1>
     </ng-template>
     <div class=" product-main ">
       <div class="products-area-products">
 
-          <div class="position sh-dr-position">
+          <div class="position">
             <div class="card">
               <div class="product-page-bar">
                 <div class="row sh-top-pagination">
-                <div class=" col-lg-5 col-md-6 col-sm-5 col-xs-12 align padding">
+                <div class=" col-lg-5 col-md-5 col-sm-5 col-xs-12 align padding">
                   <label class="product-label ">SORT BY:</label>
                   <button class="sort-btn " [(ngModel)]=sort name="sort" value="sort" type="button" (click)="checked20($event,i)">
                     RENEWABLE
@@ -396,9 +396,6 @@
 
                   </button>
                 </div>
-
-
-
                 <ul class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
                   <!-- <li [ngClass]="{hide:pager.currentPage === 1}">
     <a (click)="setPage(1)" class="view-plan-details">
@@ -435,8 +432,7 @@
                   </li>
 
                 </ul>
-
-                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 prod-select-list sec-list">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 prod-select-list sec-list">
                   <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
                   <mat-form-field>
 
@@ -452,7 +448,7 @@
 
 
                 </div>
-                <div class="col-lg-2 col-md-3 col-sm-2 col-xs-12 compare-print">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 compare-print">
                   <button class="print btn-fill" title="Print plan results" onclick="window.print();">
                     <i class="fa fa-print"></i>
                   </button>
@@ -497,7 +493,7 @@
         </div> -->
 
 
-        <div *ngIf="sg['plan']" class="slidr-m sh-single-prod-fix">
+        <div *ngIf="sg['plan']" class="slidr-m sh-fix">
           <div style="padding: 0px; text-align:center;" >
             <h1 class="hd-most-popular-plans">Most Popular Plans</h1>
           </div>
@@ -509,14 +505,14 @@
                       </a>
                       <h2 class="view-plan-details" (click)="btnderagulateClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_rate,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                           data-toggle="modal" data-target="#myModal6" style="    padding-bottom: 0px; margin-bottom: 0px;">Plan Information</h2>
-      
+
                       <h2 class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;" (click)="btnratingClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
                           data-toggle="modal" data-target="#myModal4"> Leave a Review
                       </h2>
                     </div>
               </div>
           </ngx-slick>
-          
+
           <!-- <div class="autoplay sh-fix" *ngIf="sg['plan']">
             <div class="mustafa" style="width:1100px;border-radius:20px" *ngFor="let data of sg['plan']; let i = index">
               <div class="prod-slide">
@@ -872,17 +868,17 @@
             <ng-template #no_data_templ>
 
               <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
-              <h1 style="height:1000px;width:1000px;padding:200px">
+              <h1 class="result-not-found">
 
-                <!-- <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Record Found</b> -->
+                <!-- <b>No Record Found</b> -->
               </h1>
             </ng-template>
           </span>
 
-        <div class="sh-btm-pagination card ">
+        <div class="card custom-width">
           <div class="product-page-bar">
             <div class="row sh-top-pagination">
-              <div class=" col-lg-5 col-md-6 col-sm-5 col-xs-12 align padding">
+              <div class=" col-lg-5 col-md-5 col-sm-5 col-xs-12 align padding">
                 <label class="product-label ">SORT BY:</label>
                 <button class="sort-btn " [(ngModel)]=sort name="sort" value="sort" type="button" (click)="checked20($event,i)">
                   RENEWABLE
@@ -940,7 +936,7 @@
 
               </ul>
 
-              <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 prod-select-list sec-list">
+              <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 prod-select-list sec-list">
                 <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
                 <mat-form-field>
 
@@ -956,7 +952,7 @@
 
 
               </div>
-              <div class="col-lg-2 col-md-3 col-sm-2 col-xs-12 compare-print">
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 compare-print">
                 <button class="print btn-fill" title="Print plan results" onclick="window.print();">
                   <i class="fa fa-print"></i>
                 </button>
