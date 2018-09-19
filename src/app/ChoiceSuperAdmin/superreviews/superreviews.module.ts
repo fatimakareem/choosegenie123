@@ -7,6 +7,7 @@ import { MaterialModule } from '../../app.module';
 import { SuperreviewsRoutes } from './superreviews.routing';
 import { SuperreviewsComponent } from './superreviews.component';
 
+import { NeutronRatingModule } from 'neutron-star-rating';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SuperreviewsComponent } from './superreviews.component';
         RouterModule.forChild(SuperreviewsRoutes),
         FormsModule,
         ReactiveFormsModule,
+        NeutronRatingModule,
         // MdModule,
         MaterialModule,
      

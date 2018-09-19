@@ -9,9 +9,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { GetreviewComponent } from './getreview.component';
 import { GetreviewRoutes } from './getreview.routing';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import { NeutronRatingModule } from 'neutron-star-rating';
+
 @NgModule({
     imports: [
         CommonModule,
+        NeutronRatingModule,
         RouterModule.forChild(GetreviewRoutes),
         // MdModule,
         MaterialModule,

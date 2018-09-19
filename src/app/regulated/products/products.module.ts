@@ -12,7 +12,7 @@ import {ProductsRoutes} from './products.routing';
 import {PremiseDialog} from './products.component';
 //import {  plandetailDialog} from './products.component';
 import { AngularcliStarRatingModule } from 'angularcli-star-rating'
-
+import { NeutronRatingModule } from 'neutron-star-rating';
 import { HomeService } from '../../home/home.service';
 import { SimpleGlobal } from 'ng2-simple-global';
 import { SlickModule } from 'ngx-slick';
@@ -21,6 +21,7 @@ import { SlickModule } from 'ngx-slick';
 @NgModule({
     imports: [
         SlickModule.forRoot(),
+        NeutronRatingModule,
         CommonModule,
         RouterModule.forChild(ProductsRoutes),
         FormsModule,
