@@ -109,6 +109,7 @@ import { ExcelService } from './excel.service';
 // import {NotificationsService} from 'angular4-notify';
 import { NotifierService } from 'angular-notifier';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
+import { MyfilterPipe } from './myfilter.pipe';
 const customNotifierOptions: NotifierOptions = {
   position: {
 		horizontal: {
@@ -215,6 +216,7 @@ export class MaterialModule { }
     // CarouselModule.forRoot(),
     BrowserModule,
     LoaderModule,
+    // MyfilterPipe,
     //IonicModule.forRoot(AppRoutes),
     //  HttpClientModule
   ],
@@ -237,7 +239,7 @@ export class MaterialModule { }
     StepperOverviewExample,
     // UsersdashboardComponent
     // ProductsComponent
-
+    // MyfilterPipe,
 
 
 
@@ -281,6 +283,7 @@ export class MaterialModule { }
     RandomService,
     DeletegetuserService,
     UpdategetuserService,
+    // MyfilterPipe,
   ],
   bootstrap: [AppComponent],
   schemas: [

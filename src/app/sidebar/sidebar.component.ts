@@ -146,6 +146,7 @@ export const ROUTES: RouteInfo[] = [{
 
 export class SidebarComponent implements OnInit {
     public menuItems: any[];
+    routerLink: any;
     constructor(private route: ActivatedRoute, private https: HttpClient, private newService: DeleteService,private serve:EditService,
         private location: Location, private router: Router, private http: Http, private pagerService: PagerService, private homeService: HomeService, public sg: SimpleGlobal, private obj: HomeService, private dialog: MatDialog, private dataa: DataService, private companyService: CompanyService) {
 
@@ -185,9 +186,9 @@ export class SidebarComponent implements OnInit {
       }
       pro() {
         if(localStorage.getItem('massage') == "Successfully Login As Not Deregulatedstate vendor"){
-          this.router.navigate(['/new-product']);}
+          this.routerLink.navigate(['/new-product']);}
           else if(localStorage.getItem('massage') == "Successfully Login As Deregulatedstate vendor"){
-              this.router.navigate(['/new-products']);
+              this.routerLink.navigate(['/new-products']);
           }
       }
       moving() {

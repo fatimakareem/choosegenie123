@@ -9,6 +9,7 @@ import {MatDatepickerModule} from "@angular/material";
 import { HttpClientModule } from '@angular/common/http';
 import { SupergetusersRoutes } from './supergetusers.routing';
 import { SupergetusersComponent } from './supergetusers.component';
+import { MyfilterPipe } from '../../myfilter.pipe';
  
  
  
@@ -21,10 +22,12 @@ import { SupergetusersComponent } from './supergetusers.component';
         FormsModule,
         ReactiveFormsModule,
         MatDatepickerModule,
-        HttpClientModule
+        HttpClientModule,
+        // MyfilterPipe,
     ],
     declarations: [
-        SupergetusersComponent
+        SupergetusersComponent,
+        MyfilterPipe
     ],
     providers: [
 
