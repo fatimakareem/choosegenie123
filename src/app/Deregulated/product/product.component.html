@@ -374,7 +374,7 @@
     <div class=" product-main ">
       <div class="products-area-products">
 
-          <div class="position">
+          <div class="position" *ngIf="deproduct">
             <div class="card">
               <div class="product-page-bar">
                 <div class="row sh-top-pagination">
@@ -537,7 +537,7 @@
         <div class="col-md-12" style="  padding: 0px; text-align:center;">
           <!-- <h1 style="margin:-7px 0px; font-size: 45px;">Search Plans</h1> -->
         </div>
-        <div class="found-div sh-products-fix">
+        <div class="found-div sh-products-fix" *ngIf="deproduct">
           We found <strong >{{noresult}}</strong> residential plans for <strong>{{zip_code}}</strong>
 
 
@@ -874,7 +874,7 @@
             </ng-template>
           </span>
 
-        <div class="card custom-width">
+        <div class="card custom-width" *ngIf="deproduct">
           <div class="product-page-bar">
             <div class="row sh-top-pagination">
               <div class=" col-lg-5 col-md-5 col-sm-5 col-xs-12 align padding">
