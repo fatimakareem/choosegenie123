@@ -70,6 +70,7 @@ pager: any = {};
 home: any = {};
 id: number;
 page: any[];
+queryString;
 
 // paged items
 pagedItems: any[];

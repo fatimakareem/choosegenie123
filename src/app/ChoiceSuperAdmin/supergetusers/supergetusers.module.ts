@@ -27,7 +27,7 @@ import { MyfilterPipe } from '../../myfilter.pipe';
     ],
     declarations: [
         SupergetusersComponent,
-        // MyfilterPipe
+        MyfilterPipe
     ],
     providers: [
 
