@@ -3,34 +3,34 @@
 
     <div class="row">
         <div class="search-bar1 col-lg-12">
-           
+
             <div class="col-lg-3">
-                <label class="date-lable">Effective from date</label>
+                <!--<label class="date-lable">Effective from date</label>-->
 
               <mat-form-field>
-                <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate"/>
+                <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Effective from date"/>
                 <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle> <mat-datepicker #startPicker></mat-datepicker>
               </mat-form-field>
               <!-- <input type="date" placeholder="Inactive Date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="    padding: 2px 0px; font-size: 16px;    font-weight: bold;"> -->
 
             </div>
-             
+
               <div class="col-lg-3">
-                  <label class="date-lable">Effective to date</label>
+                  <!--<label class="date-lable">Effective to date</label>-->
                 <mat-form-field >
-                  <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publishdate"/>
+                  <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publishdate" placeholder="Effective to date"/>
                   <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
                 </mat-form-field>
 
-                
+
                 <!-- <input type="date" placeholder="Publish Date" required name="publishdate" [(ngModel)]="publishdate" style="    padding: 2px 0px; font-size: 16px; font-weight: bold;"> -->
 
               </div>
 
                 <div class="col-lg-3 cus-font">
                   <mat-form-field >
-                      <label class="date-lable">Service Area Name</label>
-                    <mat-select class="search-select" required [(ngModel)]="name" name="name">
+                      <!--<label class="date-lable">Service Area Name</label>-->
+                    <mat-select class="search-select" placeholder="Service Area Name" required [(ngModel)]="name" name="name">
                       <mat-option value="AEP TEXAS NORTH DIVISION" style="font-size: 20px">AEP TEXAS NORTH DIVISION</mat-option>
                       <mat-option value="CENTERPOINT ENERGY HOUSTON ELECTRIC LLC" style="font-size: 20px">CENTERPOINT ENERGY HOUSTON ELECTRIC LLC</mat-option>
                       <mat-option value="TEXAS-NEW MEXICO POWER COMPANY" style="font-size: 20px">TEXAS-NEW MEXICO POWER COMPANY</mat-option>
@@ -44,7 +44,7 @@
                 <button class="col-lg-3 search-btn btn-fill" (click)="search(1)">Search</button>
         </div>
         <div class="found-div" style="    margin-bottom: 9px; width: 100%;">
-          We found <strong style="display: inline-block">{{noresult}}</strong> residential plans 
+          We found <strong style="display: inline-block">{{noresult}}</strong> residential plans
           <!-- “<strong style="display: inline-block">{{zipdet}}</strong>” -->
 
 
@@ -54,7 +54,7 @@
 
             <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
             <h1 style="height:1000px;width:1000px;padding:200px">
-        
+
               <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Record Found</b>
             </h1>
           </ng-template>
@@ -192,9 +192,9 @@
                     <b> Price Detail</b>
                   </h3>
 
-                  <div style="text-align:center; font-weight: bold;">
+                  <div class="sh-top-price">
                     Price 500 kwh
-                    <span class="price-style"> {{data.price_500_kwh}}</span>
+                    <span class="price-style-1"> {{data.price_500_kwh}}</span>
 
                   </div>
                   <div class="add-price grid-element">
@@ -408,7 +408,7 @@
                           <button class="btn btn-fill">Order Online</button>
                         </a>
                         <div style="display:inline-block; padding:24px;">
-                          <span style="font-size:24px; font-weight:600px">OR 
+                          <span style="font-size:24px; font-weight:600px">OR
                               <a href="tel:{{data.phone}}" style="display: block">
                                   <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
                                   {{data.phone}}</a>
@@ -522,7 +522,7 @@
                           </tr>
                         </tbody>
                       </table>
-                      
+
                     </div>
                     <div class="col-lg-6 col-md-7 col-sm-7 col-xs-7">
                       <div class="plan-description">
@@ -539,17 +539,17 @@
                         <div class="plan-description">
                             <div class="plan-description__heading">Cancelation Fee</div>
                             <div class="plan-description__content">
-    
+
                               <h4 *ngIf="cancelation_fee;else no_data_temp2">
                                 <!-- &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee.split(' ',3000)[6]}} -->
                                 &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee}}
                               </h4>
-    
+
                               <ng-template #no_data_temp2>
-    
+
                                 <h4>&nbsp;&nbsp;&nbsp;&nbsp; ---</h4>
                               </ng-template>
-    
+
                             </div>
                           </div>
                     </div>

@@ -137,7 +137,30 @@ export class ProductComponent implements OnInit {
     Items;
     myID;
     status:any=true;
-    slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};
+    slideConfig = {
+      "slidesToShow": 4,
+      "slidesToScroll": 4,
+      prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
+      nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
+      responsive: [
+        {
+          breakpoint: 778,
+          settings: {
+            arrows: true,
+            // centerMode: true,
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: true,
+            // centerMode: true,
+            slidesToShow: 1
+          }
+        }
+      ]
+    };
     ngOnInit() {
         this.myID = document.getElementById("myID");
 
@@ -206,7 +229,7 @@ this.featuredplan();
                 // this.data.changeProducts(this.sg['plan']);
                 this.Items = this.sg['plan'];
 
-               
+
             });
     }
     submit(id, title) {
@@ -453,16 +476,16 @@ checkprice(min, max) {
         if (min && max) {
             this.min = min;
             this.max = max;
-           
+
             this.setPage(1);
         }
         else {
             localStorage.removeItem('min');
             localStorage.removeItem('max');
-         
+
             delete this.min;
             delete this.max;
-         
+
             this.setPage(1);
         }
 

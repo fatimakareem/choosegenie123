@@ -21,6 +21,7 @@ import { PasswordValidation } from './password-validator.component';
   styleUrls: ['./changepassword.component.scss']
 })
 export class ChangepasswordComponent implements OnInit {
+  hide = true;
 public username;
   constructor(private fb: FormBuilder,private serve:ChangepasswordService) { }
   oldpass;
@@ -34,7 +35,7 @@ public username;
       'oldpass': ['', Validators.compose([Validators.required])],
       'pass1': ['', Validators.compose([Validators.required])],
       'pass2': ['', Validators.compose([Validators.required])],
-      
+
     },{
       validator: PasswordValidation.MatchPassword // your validation method
     });
@@ -51,7 +52,7 @@ console.log("TS OBJECT",);
             timer: 1500
           })
     }, error => {
-     
+
     });
 
 }

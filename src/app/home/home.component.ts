@@ -12,8 +12,8 @@ import swal from 'sweetalert2';
 import { SimpleGlobal } from 'ng2-simple-global';
 import { DataService } from '../data.service';
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
-// import { google } from '@agm/core/services/google-maps-types';
- 
+import { google } from '@agm/core/services/google-maps-types';
+
 declare var $;
 
 export class errorMatcher implements ErrorStateMatcher {
@@ -46,7 +46,30 @@ export class HomeComponent implements OnInit {
   public longi;
   public lati;
   dataa;
-  slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};
+  slideConfig = {
+    "slidesToShow": 5,
+    "slidesToScroll": 5,
+    prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
+    nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
+    responsive: [
+      {
+        breakpoint: 778,
+        settings: {
+          arrows: true,
+          // centerMode: true,
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: true,
+          // centerMode: true,
+          slidesToShow: 1
+        }
+      }
+    ]
+  };
   constructor(private obj: HomeService, private router: Router, private route: ActivatedRoute,private https: HttpClient, private http: HttpClient, public sg: SimpleGlobal, private data: DataService, private Http: Http) {
 
   }
@@ -55,7 +78,7 @@ export class HomeComponent implements OnInit {
   // googleTranslateElementInit() {
   //   new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
   // }
-  
+
 
   onSubmit(f: NgForm) {
 
@@ -66,7 +89,7 @@ export class HomeComponent implements OnInit {
   public results: any;
   public zip;
   cord;
- 
+
 
   promo = new FormControl('', [
     Validators.pattern(this.digitsOnly)
@@ -86,7 +109,7 @@ export class HomeComponent implements OnInit {
       // this.Conversation();
       console.log(this.cord)
     });
-  
+
 //     this.location = position.coords;
 // this.Http.get('http://api.geonames.org/findNearbyPostalCodesJSON?lat=' + position.coords['latitude'] + '&lng=' + position.coords['longitude'] + '&username=usman.khanbrain &sensor=true&radius=1.5 &maxRows=1')
 
@@ -106,16 +129,16 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
 
       //this.googleTranslateElementInit();
-  
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.setPosition.bind(this));
       // navigator.geolocation.getCurrentPosition(this.getzipcode.bind(this));
     };
     this.premiseIdData();
-    
+
 
   }
-  
+
   onKeydown(event,zipcode1) {
     if (event.key === "Enter") {
       //alert("enter the zip code")
@@ -162,11 +185,11 @@ this.state=data['state'];
           })
 
         });
-  
+
       //this.router.navigate(['/product/' + this.zipCode]);
     }
   }
- 
+
 
   Checkzipcode(event,zipcode1) {
 
@@ -258,14 +281,14 @@ this.state=data['state'];
 
         });
   }
-  
+
   keyPress(event: any) {
     const pattern = /[0-9\+\-\ ]/;
 
     let inputChar = String.fromCharCode(event.charCode);
     if (event.keyCode != 8 && !pattern.test(inputChar)) {
       event.preventDefault();
-      
+
     }
   }
   mess;
@@ -284,8 +307,8 @@ this.state=data['state'];
             this.notmess = Res.json()['Results_Deregulated'];
           this.resulttaxes= Res.json()['Vendors2'];
           this.resultderegulated= Res.json()['Vendors1'];
-        
- 
+
+
         });
 }
 // derugu(name){
@@ -302,13 +325,13 @@ this.state=data['state'];
 //       showConfirmButton: false,
 //       timer: 1200,
 //       confirmButtonText: "OK",
-  
+
 //     })
 //   }
 // }
 // move(name){
 //   if(this.zipCode && this.state == "Yes"){
-  
+
 //     this.router.navigate(['/products/' + this.zipCode]);
 //     localStorage.setItem('zip', this.zipCode);
 //     localStorage.setItem('name', name.trim());
@@ -321,7 +344,7 @@ this.state=data['state'];
 //       showConfirmButton: false,
 //       timer: 1200,
 //       confirmButtonText: "OK",
-  
+
 //     })
 //   }
 //    }
@@ -351,13 +374,13 @@ this.state=data['state'];
           this.router.navigate(['/product/' + this.zipCode]);
           localStorage.setItem('zip', this.zipCode);
     localStorage.setItem('name', name);
-  
+
         }
         else if(this.state == "notderegulatedstate" ){
           this.router.navigate(['/products/' + this.zipCode]);
           localStorage.setItem('zip', this.zipCode);
           localStorage.setItem('name', name.trim());
-    
+
         }
       },
         error => {

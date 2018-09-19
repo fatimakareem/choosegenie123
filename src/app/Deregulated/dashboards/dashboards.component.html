@@ -3,34 +3,34 @@
 
   <div class="row" style="width: 100%; margin: 0 auto;">
     <div class="search-bar1 col-lg-12">
-      
+
         <!-- <md-input-container class="block" >
             <input mdInput placeholder="Title" [ngModel]="Inactivedate | date:'yyyy-MM-dd'" >
         </md-input-container> -->
 
 
         <div class="col-lg-3">
-          <label class="date-lable">Effective from Date</label>
+          <!--<label class="date-lable">Effective from Date</label>-->
           <mat-form-field>
-              <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" />
+              <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Effective from Date"/>
               <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>               <mat-datepicker #startPicker></mat-datepicker>
             </mat-form-field>
-          
+
         </div>
-          
+
           <div class="col-lg-3">
-              <label class="date-lable">Effective to Date</label>
+              <!--<label class="date-lable">Effective to Date</label>-->
             <mat-form-field >
-              <input matInput [matDatepicker]="startPicker1"  [(ngModel)]="publishdate" />
+              <input matInput [matDatepicker]="startPicker1"  [(ngModel)]="publishdate" placeholder="Effective to Date"/>
               <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
             </mat-form-field>
           </div>
 
             <div class="col-lg-3">
-                <label class="date-lable">Service Area Name</label>
+                <!--<label class="date-lable">Service Area Name</label>-->
               <mat-form-field>
 
-                <mat-select class="search-select"  required [(ngModel)]="name" name="name">
+                <mat-select class="search-select" placeholder="Service Area Name"  required [(ngModel)]="name" name="name">
                     <mat-option *ngFor="let data of states" [value]="data.serviceareaname">
                         {{data.serviceareaname}}
 
@@ -45,7 +45,7 @@
     </div>
   </div>
   <div class="found-div" style="margin-bottom: 9px; width: 100%;">
-    We found <strong style="display: inline-block">{{noresult}}</strong> residential plans 
+    We found <strong style="display: inline-block">{{noresult}}</strong> residential plans
     <!-- “<strong style="display: inline-block">{{zipdet}}</strong>” -->
 
 
@@ -533,7 +533,7 @@
 
                       <ng-template #no_data_temp2>
 
-                  
+
                         <h4>&nbsp;&nbsp;&nbsp;&nbsp; ---</h4>
                       </ng-template>
                       <!-- <p class="ng-binding">A great low rate with guaranteed price protection for 1 full year. Exclusive online offer available to new customers.</p> -->

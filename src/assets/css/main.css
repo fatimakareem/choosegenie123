@@ -1463,6 +1463,7 @@ input.mat-input-element::-webkit-input-placeholder {
   /* line-height: 33px; */
   line-height: 34px !important;
     font-weight: 700 !important;
+  text-transform: capitalize;
 }
 .mat-form-field-flex{
   line-height: 33px;
@@ -1771,7 +1772,7 @@ padding: 7px 0px 7px 10px !important;
   .list-contact a {
     font-weight: bold;
     color: #7c7c7c;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 28px;
     text-transform: capitalize;
   }
@@ -5090,7 +5091,7 @@ section#boody{
 .sidebar-profile-img{
   width: 55%;
   /* height: 55%; */
-  padding: 60px 0px;
+  /*padding: 60px 0px;*/
   text-align: center;
   margin: 0 auto;
   border-radius: 100%;
@@ -5100,9 +5101,10 @@ section#boody{
   /*margin-top: 25px !important;*/
 }
 .sidebar-profile-img >a >img{
-  width: 90%;
+  width: 77%;
   /* margin: 36% 5%; */
-  height: 32px;
+  /*height: 32px;*/
+  margin: 38px auto;
 }
 #mainnav >ul >li >input{
   font-size: 25px;
@@ -5636,11 +5638,12 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .prod-slide {
   background: #fff;
-  width: 95% !important;
+  width: 90% !important;
   border-radius: 10px;
   -webkit-transition: all .3s ease-out;
   -o-transition: all .3s ease-out;
   transition: all .3s ease-out;
+  margin: 10px;
 }
 .prod-slide:hover{
   cursor: pointer;
@@ -6350,6 +6353,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   color: #c00;
   font-weight: 400;
   margin-top: 10px;
+  margin-bottom: 0px;
   font-weight: bold;
 }
 .inactive{
@@ -6407,6 +6411,14 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 .mat-tabs-bar2 .mat-step-header.cdk-keyboard-focused, .mat-step-header.cdk-program-focused, .mat-step-header:hover{
   background: none !important;
 }
+.margin-upper2{
+  margin-top: -21px !important;
+}
+.form-width form{
+  width: 27%;
+}
+
+
 /*End Dashboards */
 /*Start product*/
 .card .card-header{
@@ -6463,9 +6475,6 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 /* max-width */
 @media (max-width: 425px) {
   /* Small devices (575px and down) */
-  .prod-slide{
-    margin: 0 auto;
-  }
   .appio-center-heading p {
     font-size: 19px;
     line-height: 27px;
@@ -7053,7 +7062,8 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 .arrow-absolute{
   position: absolute;
-  right: 10px;
+  /*right: 10px;*/
+  right: 0px;
   top: 43px;
 }
 
@@ -7264,10 +7274,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     font-size: 37px;
   }
   .btn-slider-left {
-    left: -10.5%;
+    left: 0.5%;
   }
   .btn-slider-right {
-    right: -9.5% !important;
+    right: 0.5% !important;
   }
   .sh-fix {
     margin: -32px 40px 0px 42px !important;
@@ -7292,6 +7302,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
   .footer-upper h2 {
     font-size: 20px;
+  }
+  .prod-slide{
+    margin: 10px auto;
+    width: 55% !important;
   }
 }
 @media (max-width: 375px) {
@@ -7362,6 +7376,15 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .custom-width {
     max-width: 291px;
   }
+  .prod-slide {
+    width: 76% !important;
+  }
+  .btn-slider-left {
+    left: -5.5%;
+  }
+  .btn-slider-right {
+    right: -5.5% !important;
+  }
 }
                                                             /*New Qureies Start*/                                                            /*
                                                             ##Device = Desktops
@@ -7391,7 +7414,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   max-width: 97.5% !important;
 }
 .position {
-  margin: -37px 12px 0 17px;
+  margin: -37px 15px 0 20px;
   padding: 0 !important;
 }
 .sh-products-fix {

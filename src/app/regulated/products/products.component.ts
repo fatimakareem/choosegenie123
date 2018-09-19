@@ -84,7 +84,30 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     constructor(private excelService:ExcelService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService) {
 
     }
-    slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};
+    slideConfig = {
+      "slidesToShow": 4,
+      "slidesToScroll": 4,
+      prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
+      nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
+      responsive: [
+        {
+          breakpoint: 778,
+          settings: {
+            arrows: true,
+            // centerMode: true,
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: true,
+            // centerMode: true,
+            slidesToShow: 1
+          }
+        }
+      ]
+    };
     // array of all items to be paged
     // pager object
     private allItems: any[];
@@ -458,11 +481,11 @@ export class ProductsComponent implements OnInit, AfterViewInit {
             //                         slidesToScroll: 1
             //                     }
             //                 }
-        
+
             //             ]
             //         });
             //     }, 0);
-        
+
                 // this.data.changeProducts(this.sg['plan']);
                 this.Items = this.sg['plan'];
                 for (let prod of this.sg['plan']) {
@@ -1029,7 +1052,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
 
         const Results = {}
         if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "prepaid" || this.prepaid == "prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.names || this.sort == "dsc" || this.item || this.price) {
-          
+
             console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.names, this.price, this.sort, this.price, 'tttttttttttt');
             this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.names, this.price, this.sort, this.item, this.min, this.max).subscribe(response => {
 

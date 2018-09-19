@@ -1,22 +1,22 @@
 <div class="products-area">
   <div class="row" style="width: 100%; margin: 0 auto;">
     <div class="search-bar1 col-lg-12">
-       
+
         <div class="col-lg-3">
-          <label class="date-lable">Effective from Date</label>
+          <!--<label class="date-lable">Effective from Date</label>-->
           <mat-form-field class="cus-font">
-            <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate"/>
+            <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Effective from Date"/>
             <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle> <mat-datepicker #startPicker></mat-datepicker>
           </mat-form-field>
           <!-- <input type="date" placeholder="Inactive Date" required name="Inactivedate" [(ngModel)]="Inactivedate" style="padding: 2px 0px; font-size: 16px; font-weight: bold;"> -->
 
         </div>
-       
+
 
           <div class="col-lg-3">
-            <label class="date-lable">Effective to Date</label>
+            <!--<label class="date-lable">Effective to Date</label>-->
             <mat-form-field class="cus-font">
-              <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publishdate" />
+              <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publishdate" placeholder="Effective to Date"/>
               <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
             </mat-form-field>
             <!-- <input type="date"  placeholder="Publish Date" required name="publishdate" [(ngModel)]="publishdate" style="padding: 2px 0px; font-size: 16px; font-weight: bold;"> -->
@@ -25,8 +25,8 @@
 
             <div class="col-lg-3">
               <mat-form-field class="cus-font" style="margin-top: 12px;">
-                  <label class="date-lable">Service Area Name</label>
-                <mat-select class="search-select" required [(ngModel)]="name" name="name">
+                  <!--<label class="date-lable">Service Area Name</label>-->
+                <mat-select class="search-select" placeholder="Service Area Name" required [(ngModel)]="name" name="name">
                   <mat-option value="AEP TEXAS NORTH DIVISION" style="font-size: 20px">AEP TEXAS NORTH DIVISION</mat-option>
                   <mat-option value="CENTERPOINT ENERGY HOUSTON ELECTRIC LLC" style="font-size: 20px">CENTERPOINT ENERGY HOUSTON ELECTRIC LLC</mat-option>
                   <mat-option value="TEXAS-NEW MEXICO POWER COMPANY" style="font-size: 20px">TEXAS-NEW MEXICO POWER COMPANY</mat-option>
@@ -150,7 +150,7 @@
 
                     </div>
                   </div>
-                  <div class="modal-footer">
+                  <div class="modal-footer form-width">
                     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
                         <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate">
@@ -223,7 +223,7 @@
               <div class="text-center">
                 <button class="edit-del-btn1" type="submit" type="submit" (click)="btnactiveClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                         data-toggle="modal" data-target="#myModal3">
-                  
+
                   <span style="font-size: 19px;"> Activate </span>
                   <i class="fa fa-times inactive"></i>
                 </button>

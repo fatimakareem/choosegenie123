@@ -720,14 +720,13 @@
                     <h3 class="text-center" style="margin-top: -11px !important;">
                       <b> Call Now</b>
                     </h3>
-                    <p class="text-center" *ngIf="data.phone">
+                    <h3 class="text-center font" *ngIf="data.phone">
                       <!-- <a href="tel:1-832-975-1000"> -->
-                      <a href="tel:{{data.phone}}">
+                      <a href="tel:{{data.phone}}" style="display: block">
                         <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
                         {{data.phone}}</a>
-                      <br/>
                       <span>OR</span>
-                    </p>
+                    </h3>
                     <p class="text-center" *ngIf="!data.phone">
                       <!-- <a href="tel:1-832-975-1000"> -->
                       <a>
