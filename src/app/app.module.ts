@@ -239,7 +239,7 @@ export class MaterialModule { }
     StepperOverviewExample,
     // UsersdashboardComponent
     // ProductsComponent
-    // MyfilterPipe,
+    MyfilterPipe,
 
 
 
