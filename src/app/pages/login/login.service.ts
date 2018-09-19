@@ -19,9 +19,10 @@ export class LoginService {
     loaded: boolean = false;
     currentUser;
     massage;
+    private authentication: string | any;
     login(username: string, password: string) {
         const headers = new Headers();
-      
+        headers.append('Authorization', 'JWT ' +  this.authentication);
         headers.append('Content-Type', 'application/json');
        
         return this._http5.post(Config.api + 'loginCompany/',

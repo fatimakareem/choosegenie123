@@ -70,6 +70,7 @@ import { BrowserModule, BrowserTransferStateModule } from "@angular/platform-bro
 import { DataService } from './data.service';
 import { Authgaurd2Service } from './_guards/authgaurd2.service';
 import { Authgaurd3Service } from './_guards/authgaurd3.service';
+import { Authgaurd4Service } from './_guards/authgaurd4.service';
 
 import { LoginService } from './pages/login/login.service';
 import { ResidentialService } from './residential/residential-dialog2/residential.service';
@@ -244,7 +245,7 @@ export class MaterialModule { }
   ],
   providers: [
     // CookieService
-    
+    Authgaurd4Service,
     NotifierService,
     ExcelService,
     HomeService,

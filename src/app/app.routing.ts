@@ -11,6 +11,8 @@ import { AuthguardService } from './_guards/authguard.service';
 import { ConsumeradminComponent } from './layouts/consumeradmin/consumeradmin.component';
 import { Authgaurd2Service } from './_guards/authgaurd2.service';
 import { Authgaurd3Service } from './_guards/authgaurd3.service';
+import { Authgaurd4Service } from './_guards/authgaurd4.service';
+
 import { ProductComponent } from './Deregulated/product/product.component';
 import {ProductsComponent} from './regulated/products/products.component'
 export const AppRoutes: Routes = [
@@ -131,15 +133,15 @@ export const AppRoutes: Routes = [
         //     loadChildren: './admin/new-product/new-product.module#NewProductModule'
         //   },
            {
-            path: 'adminlogin',
+            path: 'adminlogin',canActivate: [Authgaurd4Service],
             loadChildren: './pages/superlogin/superlogin.module#LoginModule'
           },
           {
-            path: 'login',
+            path: 'login',canActivate: [Authgaurd4Service],
             loadChildren: './pages/login/login.module#LoginModule'
           },
            {
-            path: 'userlogin',
+            path: 'userlogin',canActivate: [Authgaurd4Service],
             loadChildren: './pages/userlogin/userlogin.module#LoginModule'
           },
           {

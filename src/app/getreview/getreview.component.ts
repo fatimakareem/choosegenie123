@@ -13,7 +13,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 import { Headers, Http, Response } from '@angular/http';
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
 import { jsonpCallbackContext } from '@angular/common/http/src/module';
-
+import { NeutronRatingModule } from 'neutron-star-rating';
 import { PageEvent } from '@angular/material';
 import swal from 'sweetalert2';
 @Component({

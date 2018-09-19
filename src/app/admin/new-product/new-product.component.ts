@@ -75,8 +75,8 @@ title;
       'cancelation_fee': ['', Validators.compose([Validators.required])],
     });
     this.thirdFormGroup = this.fb.group({
-     // 'fact_sheet': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
-      //'terms_of_service': ['', Validators.compose([Validators.required, Validators.pattern(this.normalPattern)])],
+     'fact_sheet': ['', Validators.compose([Validators.required])],
+      'terms_of_service': ['', Validators.compose([Validators.required])],
       'phone': ['', Validators.compose([Validators.required])],
       'minimum_usage_fee': ['', Validators.compose([Validators.required])],
       'renewable': ['', Validators.compose([Validators.required])],
