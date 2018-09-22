@@ -9,7 +9,6 @@ import {MatDatepickerModule} from "@angular/material";
 import { HttpClientModule } from '@angular/common/http';
 import { ContactRoutes } from './superviewcontact.routing';
 import { SuperviewcontactComponent } from './superviewcontact.component';
-import { MyfilterPipe } from '../../myfilter.pipe';
 
 @NgModule({
     imports: [

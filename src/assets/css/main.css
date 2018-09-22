@@ -66,6 +66,9 @@
   padding-right: 81px;
   padding-left: 40px;
 }
+.text-transform{
+  text-transform: capitalize;
+}
 .form-group{
   padding:0px !important;
 }
@@ -1463,7 +1466,7 @@ input.mat-input-element::-webkit-input-placeholder {
   /* line-height: 33px; */
   line-height: 34px !important;
     font-weight: 700 !important;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 .mat-form-field-flex{
   line-height: 33px;
@@ -5509,6 +5512,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   z-index: 2;
   padding: 0px 16px;
   margin: -37px 0 0 0;
+  width: 82%;
 }
 .margin-up{
   margin-top: -6px !important;
@@ -5797,8 +5801,8 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   width: 80%;
 }
 .custom-width{
-  width: 98% !important;
-  margin-left: 22px !important;
+  width: 100% !important;
+  /* margin-left: 22px !important; */
 }
 
 
@@ -6473,7 +6477,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   /* X-Large devices (1200px and up) */
 }
 /* max-width */
-@media (max-width: 425px) {
+@media (max-width: 426px) {
   /* Small devices (575px and down) */
   .appio-center-heading p {
     font-size: 19px;
@@ -6539,6 +6543,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
   .position{
     z-index: 1;
+    width: 100%;
   }
   .view-plan-details{
     font-size: 16px;
@@ -6685,6 +6690,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 @media (max-width: 426px) {
   /* Small devices (425px and down) */
+  .custom-width {
+    max-width: 393px;
+  }
   .compare-button {
     margin-top: -15px;
   }
@@ -6885,6 +6893,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .card img {
     display: block;
     margin: 0 auto;
+  }
+  .product-page-bar {
+    padding: 2px 13px;
+    min-height: 115px;
   }
 
 }
@@ -7235,7 +7247,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     font-size: 30px;
   }
 }
-@media (max-width: 425px) {
+@media (max-width: 426px) {
   .pagination > li > a, .pagination > li > span {
     padding: 4px 5px !important;
     margin: 0 0px !important;
@@ -7307,8 +7319,14 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     margin: 10px auto;
     width: 55% !important;
   }
+  .hd-most-popular-plans {
+    font-size: 37px;
+  }
 }
 @media (max-width: 375px) {
+
+}
+@media (max-width: 376px) {
   .appio-center-heading >h2 {
     font-size: 34px;
   }
@@ -7330,19 +7348,27 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     font-size: 34px;
   }
   .product-page-bar {
-    min-height: 127px;
+    min-height: 111px;
   }
   .hd-most-popular-plans {
     font-size: 27px;
   }
-  .custom-width {
-    max-width: 345px;
-  }
+ 
   .bottomMenu {
     width: 84%;
   }
+  .sort-btn {
+    font-size: 13px;
+    margin-left: 6px;
+}
+.custom-width {
+  max-width: 342px;
+}
 }
 @media (max-width: 320px) {
+  .product-page-bar {
+    min-height: 127px;
+}
   .margintop {
     margin-top: 60px !important;
   }
@@ -7392,7 +7418,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 @media (min-width: 1368px) {
   .position{
-    margin: -37px 14px 0 0;
+    margin: -37px 14px 0 1px;
     padding: 0 !important;
   }
   .sh-btm-pagination {
@@ -7551,8 +7577,13 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .custom-width {
     margin-left: 17px !important;
   }
-
-
+  .position {
+    padding: 0px 12px 0px 17px;
+    width: 83%;
+  }
+  .custom-width {
+    width: 98% !important;
+  }
 
 
 
