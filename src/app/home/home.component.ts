@@ -104,7 +104,7 @@ export class HomeComponent implements OnInit {
     headers.append('Content-Type', 'application/json');
     this.http.get(Config.api+'get_location/'+position.coords['latitude'] +'/'+position.coords['longitude']).subscribe(Res => {
       console.log(Res);
-  this.cord=Res['postalCodes'][0]['postalCode'];
+      this.zipCode=Res['postalCodes'][0]['postalCode'];
 
       // this.Conversation();
       console.log(this.cord)
@@ -127,7 +127,7 @@ export class HomeComponent implements OnInit {
 
   position:any;
     ngOnInit() {
-
+     this.zipCode= localStorage.getItem('zip');
       //this.googleTranslateElementInit();
 
     if (navigator.geolocation) {

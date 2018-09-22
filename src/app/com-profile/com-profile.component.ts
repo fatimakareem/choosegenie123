@@ -12,20 +12,26 @@ import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
  import swal from 'sweetalert2'; 
 import { MatSelect } from '@angular/material'; 
 import { ProfileService } from './profile.service';
+import * as JWT from 'jwt-decode';
 
 @Component({
   selector: 'app-com-profile',
   templateUrl: './com-profile.component.html',
   styleUrls: ['./com-profile.component.scss']
 })
-export class ComProfileComponent implements OnInit {
+export class ComProfileComponent implements OnInit { 
 public username;
 data:any=[];
-private authentication=localStorage.getItem('token');
+private authentication
 
-  constructor(private serve:ProfileService,private https:Http,public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
+  constructor(private serve:ProfileService,private https:Http,public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { 
+     this.authentication=JSON.parse(localStorage.getItem('currentUser'));
+      console.log("token",this.authentication)
+
+  }
 
   ngOnInit() { this.username = localStorage.getItem('username');
+  // this.gettoken = JSON.parse(localStorage.getItem('currentUser'));
   this.profile();
   console.log(this.username)
   this. fetchProducts();
@@ -34,7 +40,7 @@ private authentication=localStorage.getItem('token');
        
     let headers = new Headers();
     // headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'JWT ' +  this.authentication);
+    headers.append('Authorization', 'JWT ' +  this.authentication.token);
 
     
     this.https.get(Config.api +'mydata/'+ this.username +'/' ,{ headers: headers })
@@ -45,9 +51,9 @@ private authentication=localStorage.getItem('token');
     
     } 
   profile() {
-    console.log(this.authentication)
+ 
     let headers = new Headers();
-    // headers.append('Content-Type', 'application/json');
+    headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'JWT ' +  this.authentication);
 
     this.https.get(Config.api + 'comprofile/' + this.username + '/', { headers: headers })

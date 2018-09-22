@@ -25,7 +25,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  private authentication=localStorage.getItem('token');
+  private authentication;
   public username;
   state: any = [];
   city;
@@ -51,7 +51,7 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private https: Http, public router: Router, private fb: FormBuilder, private http: HttpClient,
     private route: ActivatedRoute, private sg: SimpleGlobal,
-    private serve: UpdateService, private dialog: MatDialog, private dataa: DataService) {
+    private serve: UpdateService, private dialog: MatDialog, private dataa: DataService) {this.authentication=localStorage.getItem('token');
 
 
     //   if (localStorage.getItem('username')) {

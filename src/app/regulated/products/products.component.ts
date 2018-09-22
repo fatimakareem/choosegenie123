@@ -1,5 +1,5 @@
 // IMPORTANT: this is a plugin which requires jQuery for initialisation and data manipulation
-import { Component, OnInit, AfterViewInit, Inject } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Inject,OnDestroy } from '@angular/core';
 import { Config } from "../../Config";
 import { Subscription } from 'rxjs/Subscription';
 import { HomeService } from "../../home/home.service";
@@ -56,7 +56,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 })
 
-export class ProductsComponent implements OnInit, AfterViewInit {
+export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
     today = Date.now();
     value1 = "500";
     date;
@@ -84,6 +84,23 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     constructor(private excelService:ExcelService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService) {
 
     }
+    ngOnDestroy() {
+        localStorage.removeItem('min');
+        localStorage.removeItem('max');
+        localStorage.removeItem('price');
+        localStorage.removeItem('names');
+        localStorage.removeItem('market');
+        localStorage.removeItem('fixed');
+        localStorage.removeItem('vari');
+        localStorage.removeItem('months1');
+        localStorage.removeItem('months2');
+        localStorage.removeItem('months3');
+        localStorage.removeItem('months4');
+        localStorage.removeItem('months5');
+        localStorage.removeItem('months6');
+        localStorage.removeItem('months7');
+        localStorage.removeItem('name');
+      }
     slideConfig = {
       "slidesToShow": 4,
       "slidesToScroll": 4,
@@ -186,60 +203,6 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     ngOnInit() {
 
 
-        // var position = $(window).scrollTop();
-
-        // // should start at 0
-
-        // $(window).scroll(function() {
-        //     var scroll = $(window).scrollTop();
-        //     if(scroll > position) {
-
-        //         // $('div').text('Scrolling Down Scripts');
-        //         this.myID.className = "bottomMenu show"
-        //     } else {
-
-        //         //  $('div').text('Scrolling Up Scripts');
-
-        //         this.myID.className = "bottomMenu hide"
-        //     }
-        //     position = scroll;
-        // });
-
-    //   this.slider=  setTimeout(function () {
-    //         $('.homeSlider').slick({
-    //             infinite: true,
-    //             slidesToShow: 5,
-    //             slidesToScroll: 1,
-    //             autoplay: false,
-    //             prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
-    //             nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
-    //             responsive: [
-    //                 {
-    //                     breakpoint: 1281,
-    //                     settings: {
-    //                         slidesToShow: 4,
-    //                         slidesToScroll: 2,
-    //                         infinite: true
-    //                     }
-    //                 },
-    //                 {
-    //                     breakpoint: 768,
-    //                     settings: {
-    //                         slidesToShow: 3,
-    //                         slidesToScroll: 2
-    //                     }
-    //                 },
-    //                 {
-    //                     breakpoint: 480,
-    //                     settings: {
-    //                         slidesToShow: 1,
-    //                         slidesToScroll: 1
-    //                     }
-    //                 }
-
-    //             ]
-    //         });
-    //     }, 0);
 
         this.myID = document.getElementById("myID");
         var myScrollFunc = function () {

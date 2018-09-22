@@ -16,7 +16,7 @@ export class ChangepasswordService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'JWT ' +  this.authentication.toString());
-    return this.http.put(Config.api+'change_password/'+ username 
+    return this.http.put(Config.api+'change_password/'+ 'usamaali' 
     +'/' , JSON.stringify({
      
       "currentPassword":oldpass,
