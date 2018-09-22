@@ -19,12 +19,7 @@ export class LoginService {
     loaded: boolean = false;
     currentUser;
     massage;
-<<<<<<< HEAD
-    private authentication: string | any;
-    // asa
-=======
  
->>>>>>> 778cbc58dd62b7a497220a64055ad5b2bcffee4b
     login(username: string, password: string) {
         const headers = new Headers();
         

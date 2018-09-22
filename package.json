@@ -60,6 +60,7 @@
     "jquery": "1.12.4",
     "jquery-validation": "1.17.0",
     "jvectormap": "2.0.4",
+    "jwt-decode": "^2.2.0",
     "mdbootstrap": "^4.4.4",
     "moment": "2.18.1",
     "moment-timezone": "0.4.0",

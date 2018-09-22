@@ -9,6 +9,7 @@ import 'rxjs/add/operator/map';
 import { NgForm } from "@angular/forms";
 import { Config } from '../../Config';
 //import { HttpService } from './../serv/http-service';
+import * as JWT from 'jwt-decode';
 @Injectable()
 export class UserLoginService {
 
@@ -17,18 +18,27 @@ export class UserLoginService {
     loaded: boolean = false;
     login(username: string, password: string) {
         const headers = new Headers();
+
         headers.append('Content-Type', 'application/json');
         //return this.http.get(Config.api+'data_against_zipcode/'+id+'?page='+page).map((response: Response) => response.json());
         // return this._http5.post(Config.api+'user-token-auth/',
         return this._http5.post(Config.api + 'usersignin/',
             JSON.stringify({ username: username, password: password }), { headers: headers })
             .map((response: Response) => {
-                let user = { username: username, token: response.json().token };
+                let decoded = JWT(response.json().token);
+        // let user = { username: decoded.username, token: res.json().token, user_id: decoded.user_id };
+        // if (user && user.token) {
+        //   if (isPlatformBrowser(this.platformId)) {
+        //     localStorage.setItem('currentUser', JSON.stringify(user));
+        //   }
+        // }
+                let user = { username:decoded.username, token: response.json().token };
 
                 if (user && user.token) {
                     localStorage.setItem('currentcustomer', JSON.stringify(user));
                     localStorage.setItem('token', response.json().token);
-                    // console.log ("junaid",localStorage.getItem('currentUser'))
+                    let xyz =localStorage.getItem('currentUser');
+                    console.log ("usman",xyz)
                 }
             });
     }
