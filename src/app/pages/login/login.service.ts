@@ -19,10 +19,10 @@ export class LoginService {
     loaded: boolean = false;
     currentUser;
     massage;
-    private authentication: string | any;
+ 
     login(username: string, password: string) {
         const headers = new Headers();
-        headers.append('Authorization', 'JWT ' +  this.authentication);
+        
         headers.append('Content-Type', 'application/json');
        
         return this._http5.post(Config.api + 'loginCompany/',
@@ -36,9 +36,11 @@ export class LoginService {
                 this.tit = this.hel[0];
                 console.log(this.tit);
                 this.word = this.tit.title;
-                console.log(this.word,'fatttttttttttimmmmmmmmmmmmaaaaaaaaaaaaa');
+                console.log(this.word);
                 localStorage.setItem('user', this.word);
                 localStorage.setItem('username', this.word.trim());
+                localStorage.setItem('token', response.json()['token']);
+               
                 if(this.massage == "Successfully Login As Not Deregulatedstate vendor"){
                     this._nav.navigate(['/dashboard/' + username]);
                     localStorage.setItem('change', username);
@@ -47,12 +49,15 @@ export class LoginService {
                     else if(this.massage == "Successfully Login As Deregulatedstate vendor"){
                       this._nav.navigate(['/dashboards/' + username]);
                       localStorage.setItem('change', username);
+                      localStorage.setItem('custum', username);
+                      
                       localStorage.setItem('username', this.word);
                     }
-                let user = { username: username, token: response.json().token };
+                let user =  response.json().token;
 
-                if (user && user.token) {
+                if (user) {
                     localStorage.setItem('currentUser', JSON.stringify(user));
+                   
                     // console.log ("junaid",localStorage.getItem('currentUser'))
                 }
             });

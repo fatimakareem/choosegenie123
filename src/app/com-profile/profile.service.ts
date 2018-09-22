@@ -5,6 +5,7 @@ import {Config} from "../Config";
 
 @Injectable()
 export class ProfileService {
+  private authentication=localStorage.getItem('token');
 
   constructor(private http: Http) { }
   updata(updatedid,updatedREP,updatedREPid,updatedName,updatedphone,updatedmarket,updatedstatus,updateduser) {
@@ -12,6 +13,8 @@ export class ProfileService {
     console.log()
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT ' +  this.authentication.toString());
+
     return this.http.put(Config.api + 'upcomprofile/'+ updatedREP +'/' , JSON.stringify({
      
       "id": updatedid,

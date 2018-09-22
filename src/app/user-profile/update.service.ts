@@ -5,6 +5,7 @@ import {Config} from "../Config";
 @Injectable()
 export class UpdateService {
 public username;
+private authentication=localStorage.getItem('token');
   constructor(private http: Http) { 
     this.username = localStorage.getItem('custum');
   }
@@ -18,6 +19,7 @@ editTodoList(updateid,updatename,updatecontact,updateserviceaddress,updateservic
   updateauthenticationcode,updateacountactive,updateuserid)
   const headers = new Headers();
   headers.append('Content-Type', 'application/json');
+  headers.append('Authorization', 'JWT ' +  this.authentication);
   return this.http.put(Config.api + 'user_profile/'+ this.username + '/' , JSON.stringify({
 
    

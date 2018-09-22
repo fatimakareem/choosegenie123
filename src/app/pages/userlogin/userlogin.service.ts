@@ -27,6 +27,7 @@ export class UserLoginService {
 
                 if (user && user.token) {
                     localStorage.setItem('currentcustomer', JSON.stringify(user));
+                    localStorage.setItem('token', response.json().token);
                     // console.log ("junaid",localStorage.getItem('currentUser'))
                 }
             });

@@ -29,6 +29,7 @@ public username;
   pass2;
   signupForm: FormGroup;
   ngOnInit() {
+    this.username = localStorage.getItem('custum')
     this.username = localStorage.getItem('change')
     console.log(this.username)
     this.signupForm = this.fb.group({
