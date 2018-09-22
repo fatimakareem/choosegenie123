@@ -151,6 +151,8 @@ export class SidebarComponent implements OnInit {
         private location: Location, private router: Router, private http: Http, private pagerService: PagerService, private homeService: HomeService, public sg: SimpleGlobal, private obj: HomeService, private dialog: MatDialog, private dataa: DataService, private companyService: CompanyService) {
 
     }
+    private authentication=localStorage.getItem('token');
+
     backClicked() {
         this.location.back();
     }
@@ -209,7 +211,8 @@ export class SidebarComponent implements OnInit {
        
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        
+        headers.append('Authorization', 'JWT ' +  this.authentication.toString());
+
         
         this.http.get(Config.api +'mydata/'+ this.username +'/' ,{ headers: headers })
         .subscribe(Res => {

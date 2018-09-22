@@ -96,11 +96,13 @@ title;
   prourl;
   prologo;
   sign;
+  private authentication=localStorage.getItem('token');
+
   fetchProducts() {
        
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    
+    headers.append('Authorization', 'JWT ' +  this.authentication);
     this.https.get(Config.api+'mydata/'+ this.username +'/' ,{ headers: headers })
     .subscribe(Res => {
     this.sg['products'] = Res.json()['Results'];

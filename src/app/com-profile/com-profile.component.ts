@@ -21,6 +21,8 @@ import { ProfileService } from './profile.service';
 export class ComProfileComponent implements OnInit {
 public username;
 data:any=[];
+private authentication=localStorage.getItem('token');
+
   constructor(private serve:ProfileService,private https:Http,public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
 
   ngOnInit() { this.username = localStorage.getItem('username');
@@ -31,8 +33,9 @@ data:any=[];
   fetchProducts() {
        
     let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    
+    // headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT ' +  this.authentication);
+
     
     this.https.get(Config.api +'mydata/'+ this.username +'/' ,{ headers: headers })
     .subscribe(Res => {
@@ -42,9 +45,11 @@ data:any=[];
     
     } 
   profile() {
-    
+    console.log(this.authentication)
     let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
+    // headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT ' +  this.authentication);
+
     this.https.get(Config.api + 'comprofile/' + this.username + '/', { headers: headers })
     
     .subscribe(Res => {
