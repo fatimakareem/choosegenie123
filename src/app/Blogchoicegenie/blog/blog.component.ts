@@ -19,13 +19,15 @@ export class BlogComponent implements OnInit {
   data: any = [];
   content;
   con;
+  private authentication: string | any;
   ngOnInit() {
     this.profile();
     
   }
   profile() {
 
-    let headers = new Headers();
+    const headers = new Headers();
+    headers.append('Authorization', 'JWT ' +  this.authentication);
     headers.append('Content-Type', 'application/json');
     this.https.get(Config.api + 'gettingblog_all/', { headers: headers })
       .subscribe(Res => {

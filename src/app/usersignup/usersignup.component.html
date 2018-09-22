@@ -32,7 +32,7 @@
               <div class="">
 
                 <mat-form-field>
-                  <input matInput placeholder="  Name" [formControl]="signupForm.controls['name']" required [(ngModel)]="model.name">
+                  <input matInput placeholder="  Name" [formControl]="signupForm.controls['name']" required [(ngModel)]="model.name" class="text-transform">
                   <mat-error *ngIf="signupForm.controls['name'].value == '' || !signupForm.controls['name'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                 </mat-form-field>
