@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, Inject } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Inject,OnDestroy} from '@angular/core';
 import { Config } from "../../Config";
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute, Router } from "@angular/router";
@@ -29,7 +29,7 @@ declare const $: any;
     templateUrl: './product.component.html',
     styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit,OnDestroy {
     pageSizeOptions;
     private sub: Subscription;
     private zip: any;
@@ -206,7 +206,16 @@ this.featuredplan();
 
     }
 
-
+    ngOnDestroy() {
+        localStorage.removeItem('months1');
+        localStorage.removeItem('months2');
+        localStorage.removeItem('months3');
+        localStorage.removeItem('months4');
+        localStorage.removeItem('months5');
+        localStorage.removeItem('months6');
+        localStorage.removeItem('months7');
+        localStorage.removeItem('name');
+      }
   w3_open() {
     document.getElementById("mySidebar").style.display = "block";
   }

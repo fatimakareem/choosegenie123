@@ -73,7 +73,7 @@
                   <h4 class="zip-code-heading">Enter Zip Code</h4>
                   <!-- <mat-form-field> -->
 
-                  <input class="zip-inputs" placeholder="Zip Code" maxlength="5" [formControl]="zip_code" value="{{cord}}" [(ngModel)]=zipCode #zipcode1
+                  <input class="zip-inputs" placeholder="Zip Code" maxlength="5" [formControl]="zip_code" value="{{zipCode}}" [(ngModel)]=zipCode #zipcode1
                     name="zipCode"  (keypress)="keyPress($event)" (keydown)=" onKeydown($event,zipcode1.value)"   />
                   <!-- {{cord.postalCode}} -->
                   <!-- (keydown)="Checkzipcode($event,zipcode1.value)" -->
