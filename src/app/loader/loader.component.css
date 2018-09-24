@@ -20,7 +20,7 @@
   background-repeat: no-repeat;
   background-position: 22px 30px;
   background-size: 96px 96px;
-  animation: spin 5s ease-in-out infinite, delay 3s ease-in-out 1 ;
+  animation: spin 5s ease-in-out infinite, delay 2s ease-in-out 1 ;
   text-align:center;
 }
 @-webkit-keyframes spin {

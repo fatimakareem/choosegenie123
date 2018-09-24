@@ -112,32 +112,35 @@
           </a>
         </li>
         <li class="vanders" style="border-right: 2px solid #ccc; padding-right: 10px;" *ngIf="!check_login() && !checked_login() && !check_login1()">
-          <a >
-            <i class="material-icons">fingerprint</i>
-            Login
+          <!-- <a > -->
+            <!-- <i class="material-icons">fingerprint</i>
+            Sign IN -->
+            <a onclick="topFunction()" routerLink="/userlogin">
+              <i class="material-icons">fingerprint</i> SignIN
+            </a>
             <!-- <i class="fa fa-caret-down"></i> -->
-          </a>
-          <div class="drop-downs-l">
-            <ul class="nav-vanders">
-              <li class="/login">
+          <!-- </a> -->
+          <!-- <div class="drop-downs-l"> -->
+            <!-- <ul class="nav-vanders"> -->
+              <!-- <li class="/login">
                 <a onclick="topFunction()" routerLink="/login">
                   <i class="material-icons">face</i> Vendor
                 </a>
-              </li>
-              <li class="">
+              </li> -->
+              <!-- <li class="">
                 <a onclick="topFunction()" routerLink="/userlogin">
                   <i class="material-icons">face</i> User
                 </a>
-              </li>
-            </ul>
-          </div>
+              </li> -->
+            <!-- </ul> -->
+          <!-- </div> -->
         </li>
         <li class="vanders" *ngIf="!check_login() && !checked_login() && !check_login1()">
           <a>
             <i class="material-icons">
               lock_open
             </i>
-            Signup
+            SignUp
             <!-- <i class="fa fa-caret-down"></i> -->
           </a>
           <div class="drop-downs-l">

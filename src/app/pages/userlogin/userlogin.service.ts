@@ -18,34 +18,37 @@ export class UserLoginService {
     loaded: boolean = false;
     login(username: string, password: string) {
         const headers = new Headers();
-
         headers.append('Content-Type', 'application/json');
         //return this.http.get(Config.api+'data_against_zipcode/'+id+'?page='+page).map((response: Response) => response.json());
         // return this._http5.post(Config.api+'user-token-auth/',
-        return this._http5.post(Config.api + 'usersignin/',
+        return this._http5.post(Config.api + 'api/token/',
             JSON.stringify({ username: username, password: password }), { headers: headers })
             .map((response: Response) => {
-                let decoded = JWT(response.json().token);
-        // let user = { username: decoded.username, token: res.json().token, user_id: decoded.user_id };
-        // if (user && user.token) {
-        //   if (isPlatformBrowser(this.platformId)) {
-        //     localStorage.setItem('currentUser', JSON.stringify(user));
-        //   }
-        // }
-                let user = { username:decoded.username, token: response.json().token };
+                // let decoded = JWT(response.json().token);
 
+                // let user = { username: username, token: response.json().token };
+                let user = { username:username, token: response.json()['access']};
+                        console.log( user);
+                
                 if (user && user.token) {
                     localStorage.setItem('currentcustomer', JSON.stringify(user));
-                    localStorage.setItem('token', response.json().token);
+                    localStorage.setItem('token', response.json()['access']);
+                    // console.log("asda", localStorage.setItem('token', response.json().access))
                     let xyz =localStorage.getItem('currentUser');
-                    console.log ("usman",xyz)
+                    // console.log ("usman",decoded)
+                }
+                else{
+                    localStorage.setItem('currentcustomer', JSON.stringify(user));
+                    localStorage.setItem('token', response.json()['refresh']);
+                    // console.log("asda", localStorage.setItem('token', response.json().access))
+                    let xyz =localStorage.getItem('currentUser');
                 }
             });
     }
 
 
     login_authenticate(username: string, password: string) {
-        return this._http5.post(Config.api + 'usersignin/', {
+        return this._http5.post(Config.api + 'api/token/', {
             'username': username,
             'password': password
         }).map((res: Response) => res.json())

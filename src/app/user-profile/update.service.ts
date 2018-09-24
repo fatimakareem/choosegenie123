@@ -19,7 +19,9 @@ editTodoList(updateid,updatename,updatecontact,updateserviceaddress,updateservic
   updateauthenticationcode,updateacountactive,updateuserid)
   const headers = new Headers();
   headers.append('Content-Type', 'application/json');
-  headers.append('Authorization', 'JWT ' +  this.authentication);
+  // headers.append('Authorization', 'JWT ' +  this.authentication);
+  headers.append('Authorization', 'Bearer ' +  localStorage.getItem('token'));
+  console.log("userupdate", localStorage.getItem('token'));
   return this.http.put(Config.api + 'user_profile/'+ this.username + '/' , JSON.stringify({
 
    
