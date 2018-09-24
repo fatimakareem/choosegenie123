@@ -51,7 +51,8 @@ export class UserProfileComponent implements OnInit {
 
   constructor(private https: Http, public router: Router, private fb: FormBuilder, private http: HttpClient,
     private route: ActivatedRoute, private sg: SimpleGlobal,
-    private serve: UpdateService, private dialog: MatDialog, private dataa: DataService) {this.authentication=localStorage.getItem('token');
+    private serve: UpdateService, private dialog: MatDialog, private dataa: DataService) {
+    this.authentication = localStorage.getItem('token');
 
 
     //   if (localStorage.getItem('username')) {
@@ -74,7 +75,7 @@ export class UserProfileComponent implements OnInit {
 
 
   ngOnInit() {
-  this.username = localStorage.getItem('custum');
+    this.username = localStorage.getItem('custum');
     this.fetchzip();
     this.signupForm = this.fb.group({
       'name': ['', Validators.compose([Validators.required])],
@@ -122,38 +123,38 @@ export class UserProfileComponent implements OnInit {
 
   //Event Binding of PopUp Delete Modal
   // item.id,item.zipcode,item.utilityarea,item.title,item.Phone,item.state,item.country,item.status,item.user
-  editClick(updateid,updatename,updatecontact,updateserviceaddress,updateservicestate,updateservicecity,updateservicezipcode,
-    updateauthenticationcode,updateacountactive,updateuserid) {
-    console.log('edit' + updateid,updatename,updatecontact,updateserviceaddress,updateservicestate,updateservicecity,updateservicezipcode,
-    updateauthenticationcode,updateacountactive,updateuserid);
-    console.log("TS OBJECT", updateid,updatename,updatecontact,updateserviceaddress,updateservicestate,updateservicecity,updateservicezipcode,
-    updateauthenticationcode,updateacountactive,updateuserid);
+  editClick(updateid, updatename, updatecontact, updateserviceaddress, updateservicestate, updateservicecity, updateservicezipcode,
+    updateauthenticationcode, updateacountactive, updateuserid) {
+    console.log('edit' + updateid, updatename, updatecontact, updateserviceaddress, updateservicestate, updateservicecity, updateservicezipcode,
+      updateauthenticationcode, updateacountactive, updateuserid);
+    console.log("TS OBJECT", updateid, updatename, updatecontact, updateserviceaddress, updateservicestate, updateservicecity, updateservicezipcode,
+      updateauthenticationcode, updateacountactive, updateuserid);
     //Calling Delete Service
-    this.serve.editTodoList(updateid,updatename,updatecontact,updateserviceaddress,updateservicestate,updateservicecity,updateservicezipcode,
-      updateauthenticationcode,updateacountactive,updateuserid).subscribe(data => {
+    this.serve.editTodoList(updateid, updatename, updatecontact, updateserviceaddress, updateservicestate, updateservicecity, updateservicezipcode,
+      updateauthenticationcode, updateacountactive, updateuserid).subscribe(data => {
         console.log(data);
-       this.fetchzip();
-         swal({
+        this.fetchzip();
+        swal({
           type: 'success',
           title: 'Updated Your Profile',
           showConfirmButton: false,
           timer: 1500
 
         })
-       
+
 
 
       }, error => {
       });
-   // window.location.reload();
-   
+    // window.location.reload();
+
   }
   fetchzip() {
-console.log(this.username)
+    console.log(this.username)
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'Bearer ' +  localStorage.getItem('token'));
-     console.log('user_profile', localStorage.getItem('token'));
+    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    console.log('user_profile', localStorage.getItem('token'));
     this.https.get(Config.api + 'user_profile/' + this.username + '/', { headers: headers })
 
       .subscribe(Res => {
