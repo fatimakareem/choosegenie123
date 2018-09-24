@@ -202,7 +202,7 @@ country;
     status:any=true;
     slider;
     model: any = {};
-    country;
+   
     ngOnInit() {
   this.myID = document.getElementById("myID");
         var myScrollFunc = function () {
@@ -273,12 +273,7 @@ country;
         const Results = {};
         this.val = "methodName($event[0])"
         this.companytitle();
-<<<<<<< HEAD
        this.zipwithcity();
-=======
-        this.state();
-       
->>>>>>> 5c6dcb6fb75a127f0c6773f608f6291cc062dd54
 
         // this.featuredplan();
 
