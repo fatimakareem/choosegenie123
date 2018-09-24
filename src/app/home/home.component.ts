@@ -100,6 +100,7 @@ export class HomeComponent implements OnInit {
   location = {};
   postalCode;
   setPosition(position) {
+    if(!localStorage.getItem('zip')){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     this.http.get(Config.api+'get_location/'+position.coords['latitude'] +'/'+position.coords['longitude']).subscribe(Res => {
@@ -109,6 +110,8 @@ export class HomeComponent implements OnInit {
       // this.Conversation();
       console.log(this.cord)
     });
+  } 
+ 
 
 //     this.location = position.coords;
 // this.Http.get('http://api.geonames.org/findNearbyPostalCodesJSON?lat=' + position.coords['latitude'] + '&lng=' + position.coords['longitude'] + '&username=usman.khanbrain &sensor=true&radius=1.5 &maxRows=1')
@@ -379,7 +382,7 @@ this.state=data['state'];
         else if(this.state == "notderegulatedstate" ){
           this.router.navigate(['/products/' + this.zipCode]);
           localStorage.setItem('zip', this.zipCode);
-          localStorage.setItem('name', name.trim());
+          localStorage.setItem('name', name);
 
         }
       },

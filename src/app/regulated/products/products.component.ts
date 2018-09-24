@@ -88,7 +88,7 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
         localStorage.removeItem('min');
         localStorage.removeItem('max');
         localStorage.removeItem('price');
-        localStorage.removeItem('names');
+        // localStorage.removeItem('names');
         localStorage.removeItem('market');
         localStorage.removeItem('fixed');
         localStorage.removeItem('vari');
@@ -128,7 +128,8 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
     // array of all items to be paged
     // pager object
     private allItems: any[];
-
+city;
+country;
     home: any = {};
     private id: any[];
     page: any[];
@@ -162,7 +163,7 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
     items;
     Items: any = [];
     comp = '';
-    names;
+  
     months1;
     months2;
     months3;
@@ -201,10 +202,7 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
     status:any=true;
     slider;
     ngOnInit() {
-
-
-
-        this.myID = document.getElementById("myID");
+  this.myID = document.getElementById("myID");
         var myScrollFunc = function () {
             var y = window.scrollY;
             if (y >= 500) {
@@ -251,7 +249,7 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
         });
         console.log(this.today = Date.now())
         this.state = localStorage.getItem('state')
-        this.names = localStorage.getItem('name')
+        this.name = localStorage.getItem('name')
         this.price = localStorage.getItem('price')
         this.fixed = localStorage.getItem('fixed')
         this.vari = localStorage.getItem('vari')
@@ -273,6 +271,7 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
         const Results = {};
         this.val = "methodName($event[0])"
         this.companytitle();
+       this.zipwithcity();
 
         // this.featuredplan();
 
@@ -311,6 +310,22 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
         else {
             return false;
         }
+    }
+    zipwithcity() {
+
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json')
+        this.http.get(Config.api + 'zipcodewith_country_city/'+ this.zip_code, { headers: headers })
+
+            .subscribe(Res => {
+
+                this.city = Res.json()[0].city;
+                this.country = Res.json()[0].country;
+                // this.data.changeProducts(this.sg['plan']);
+                this.Items = this.sg['plan'];
+
+
+            });
     }
     profile() {
         let headers = new Headers();
@@ -560,6 +575,7 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
         }
         console.log(this.months2)
     }
+    
     checked3(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
@@ -780,17 +796,17 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
     checked17(event, i, name) {
         if (name) {
             console.log(name);
-            this.names = name.trim();
+            this.name = name;
             console.log(this.name)
             this.setPage(1);
         }
         else {
             console.log()
-            delete this.names;
+            delete this.name;
             localStorage.removeItem('name');
 
         }
-        console.log(this.names)
+        console.log(this.name)
     }
     checked18(event, i, item) {
         if (item) {
@@ -837,8 +853,10 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
         this.setPage(1);
     }
     move(name) {
-
-        this.names = name.trim();
+       
+        this.name = name;
+        console.log(this.name)
+       
         //   this.router.navigate(['/products/' + this.zip_code]);
         //   localStorage.setItem('zip', this.zip_code);
         //   localStorage.setItem('name', name.trim());
@@ -846,10 +864,10 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
     }
 
     Checkzipcode() {
+        this.zipwithcity();
         localStorage.removeItem('min');
         localStorage.removeItem('max');
         localStorage.removeItem('price');
-        localStorage.removeItem('names');
         localStorage.removeItem('market');
         localStorage.removeItem('fixed');
         localStorage.removeItem('vari');
@@ -864,7 +882,7 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
         delete this.min;
         delete this.max;
         delete this.price;
-        delete this.names;
+        delete this.name;
         delete this.market;
         delete this.vari;
         delete this.fixed;
@@ -913,7 +931,7 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
                 else if (this.state == "notderegulatedstate") {
 
                     this.router.navigate(['/products/' + this.zip_code]);
-                    delete this.names;
+                    delete this.name;
                     localStorage.setItem('zip', this.zip_code);
                     // window.location.reload()
                 }
@@ -967,8 +985,8 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
         if (this.price == null) {
             delete this.price;
         }
-        if (this.names == null) {
-            delete this.names;
+        if (this.name == null) {
+            delete this.name;
         }
         if (this.min == null) {
             delete this.min;
@@ -978,10 +996,10 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
         }
 
         const Results = {}
-        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "prepaid" || this.prepaid == "prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.names || this.sort == "dsc" || this.item || this.price) {
+        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "prepaid" || this.prepaid == "prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.name || this.sort == "dsc" || this.item || this.price) {
 
-            console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.names, this.price, this.sort, this.price, 'tttttttttttt');
-            this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.names, this.price, this.sort, this.item, this.min, this.max).subscribe(response => {
+            console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.price, this.sort, this.price, 'tttttttttttt');
+            this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.name.trim(), this.price, this.sort, this.item, this.min, this.max).subscribe(response => {
 
                 this.product = response['Results'];
                 this.noresult = response['Total Result'];

@@ -41,7 +41,7 @@ export class ProductComponent implements OnInit,OnDestroy {
     closeResult: string;
     stars;
     record: any = [];
-    names;
+    name;
     index;
     renewablerate;
     renewable;
@@ -70,6 +70,8 @@ export class ProductComponent implements OnInit,OnDestroy {
     public username;
     public customer;
     i;
+    city;
+    country;
     nottime;
     price;
     min;
@@ -90,7 +92,7 @@ export class ProductComponent implements OnInit,OnDestroy {
     notprepaid;
     time;
     energy;
-    name;
+   
     sort;
     checked4;
     checked9;
@@ -176,7 +178,7 @@ export class ProductComponent implements OnInit,OnDestroy {
 
         window.addEventListener("scroll", myScrollFunc);
 
-      this.names=localStorage.getItem('name');
+      this.name=localStorage.getItem('name');
         this.username = localStorage.getItem('username');
         this.zip_code = localStorage.getItem('zip');
         this.customer = localStorage.getItem('custum')
@@ -192,7 +194,7 @@ export class ProductComponent implements OnInit,OnDestroy {
 this.featuredplan();
         this.profile()
         this.companytitle()
-
+this.zipwithcity();
         this.data.currentProducts.subscribe(products => this.sg['products'] = products)
         this.data.currentProducts
 
@@ -235,6 +237,22 @@ this.featuredplan();
             .subscribe(Res => {
 
                 this.sg['plan'] = Res.json()['Results'];
+                // this.data.changeProducts(this.sg['plan']);
+                this.Items = this.sg['plan'];
+
+
+            });
+    }
+    zipwithcity() {
+
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json')
+        this.http.get(Config.api + 'zipcodewith_country_city/'+ this.zip_code, { headers: headers })
+
+            .subscribe(Res => {
+
+                this.city = Res.json()[0].city;
+                this.country = Res.json()[0].country;
                 // this.data.changeProducts(this.sg['plan']);
                 this.Items = this.sg['plan'];
 
@@ -419,6 +437,7 @@ this.featuredplan();
     }
 
     Checkzipcode() {
+        this.zipwithcity();
         delete this.months1;
         delete this.months2;
         delete this.months3;
@@ -426,7 +445,7 @@ this.featuredplan();
         delete this.months5;
         delete this.months6;
         delete this.months7;
-        delete this.names;
+        delete this.name;
         localStorage.removeItem('months1');
         localStorage.removeItem('months2');
         localStorage.removeItem('months3');
@@ -581,19 +600,19 @@ checkprice(min, max) {
     checked17(event, i, name) {
         if (name) {
             console.log(name);
-            this.names = name;
+            this.name = name;
             console.log(this.name)
             this.setPage(1);
         }
         else {
             console.log()
-            delete this.names;
+            delete this.name;
         }
-        console.log(this.names)
+        console.log(this.name)
     }
     move(name){
 
-        this.names=name;
+        this.name=name;
 
          this.setPage(1);
        }
@@ -618,13 +637,13 @@ checkprice(min, max) {
         }
         if (this.months7 == null) {
             delete this.months7;
-        } if (this.names == null) {
-            delete this.names;
+        } if (this.name == null) {
+            delete this.name;
         }
         //alert( this.noresult);
         const Results = {}
-        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.sort || this.names || this.item || this.min || this.max) {
-      this.obj.deregulatedfilter(page, this.zip_code, this.months1, this.months2, this.months3, this.months5, this.months6, this.item, this.sort, this.names,this.min,this.max).subscribe(response => {
+        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.sort || this.name || this.item || this.min || this.max) {
+      this.obj.deregulatedfilter(page, this.zip_code, this.months1, this.months2, this.months3, this.months5, this.months6, this.item, this.sort, this.name,this.min,this.max).subscribe(response => {
 
                 this.deproduct = response['Results'];
                 this.noresult = response['Total Result'];
