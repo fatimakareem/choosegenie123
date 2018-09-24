@@ -275,6 +275,7 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
         const Results = {};
         this.val = "methodName($event[0])"
         this.companytitle();
+        this.state();
        
 
         // this.featuredplan();

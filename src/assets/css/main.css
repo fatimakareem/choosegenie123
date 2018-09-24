@@ -3884,7 +3884,7 @@ h1, .entry-title-2 {
 .slick-slide .img2{
   border-radius: 10px;
   border:none !important;
-  width: 96% !important;
+  width: 70% !important;
   height: 70px;
   margin: 0 auto;
   /*webkit-transition: all 0.3s ease-out;*/
@@ -5435,7 +5435,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   height: auto;
 }
 .plan-detail{
-  /* min-height: 205px !important; */
+  min-height: 184px !important;
     border-right: 1px solid #ccc;
 }
 .min-hight{
@@ -7090,7 +7090,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 .hd-most-popular-plans{
   margin:0px 0px -5px;
-  font-size: 45px;
+  font-size: 36px;
   padding: 0;
 }
 .sh-fix {

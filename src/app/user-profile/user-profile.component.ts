@@ -25,7 +25,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  private authentication;
+  private authentication = localStorage.getItem('token');
   public username;
   state: any = [];
   city;
@@ -152,8 +152,8 @@ export class UserProfileComponent implements OnInit {
 console.log(this.username)
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'JWT ' +  this.authentication);
-
+    headers.append('Authorization', 'Bearer ' +  localStorage.getItem('token'));
+     console.log('user_profile', localStorage.getItem('token'));
     this.https.get(Config.api + 'user_profile/' + this.username + '/', { headers: headers })
 
       .subscribe(Res => {
