@@ -200,6 +200,8 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
     close;
     status:any=true;
     slider;
+    model: any = {};
+    country;
     ngOnInit() {
 
 
@@ -273,6 +275,7 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
         const Results = {};
         this.val = "methodName($event[0])"
         this.companytitle();
+       
 
         // this.featuredplan();
 
@@ -293,6 +296,46 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
 
     }
 
+    
+  states() {
+    //alert('hello');
+    console.log("CHOICE GENIE",this.zip_code);
+    alert("REP_certificate_id1"+this.zip_code);
+
+    let headers = new Headers();
+
+
+    headers.append('Content-Type', 'application/json');
+    // this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),http://192.168.30.237:9000/choice/
+    this.http.get(Config.api + 'zipcodewith_country_city/' + this.zip_code, { headers: headers })
+
+      .subscribe(data => {
+        console.log(data);
+        // this.next = Res[0].next;
+        console.log(data['zipcode'], 'hhhhhhhhhhhhhhh')
+        console.log(data['country'], 'hhhhhhhhhhhhhhh')
+        console.log(data['city'], 'hhhhhhhhhhhhhhh')
+        // if ( this.usernameexist=false){
+        // this.model['zip'] = data['zipcode']
+        this.country = data[0]['country'];
+                // this.noresult = data['Total country'];
+               // this.zipdet = localStorage.getItem('zip');
+        // this.model['service_state'] = data[0]['country']
+        // this.model['service_city'] = data[0]['city']
+        // }
+        //  console.log(this.usernameexist);
+
+      },
+        error => {
+          //   this.usernameexist=error['status']
+          console.log(error);
+
+          //   f.resetForm();
+        });
+
+
+
+  }
 
     btnDeleteClick(id, title, profileurl, profile_logo, servicearea) {
         this.id = id;
