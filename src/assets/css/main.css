@@ -37,6 +37,9 @@
 .bd-color{
   background: #c00 !important;
 }
+.white-bg{
+  background: #ffffff;
+}
 .border-bottom-no{
   border-bottom: none !important;
 }
@@ -2835,7 +2838,8 @@ section {
 
 /*Login Form*/
 .login-form-1-img{
-  background-color: #f4f4f4;
+  /*background-color: #f4f4f4;*/
+  background-color: #ffffff;
 }
 
 .login-form-1-center{
@@ -2854,7 +2858,8 @@ section {
 
 .login-form-1-header{
   position: relative;
-  background: #cc0000;
+  /*background: #cc0000;*/
+  background: #000000;
   /* background: linear-gradient(-45deg, #25B7D3 0, #214 100%); */
   color: #fff;
   font-weight: bold;
@@ -2867,6 +2872,24 @@ section {
   margin-top: -60px;
   width: 100%;
   border-radius: 5px;
+}
+.signin-form-1-header{
+  position: relative;
+  /*background: #cc0000;*/
+  background: #000000;
+  /* background: linear-gradient(-45deg, #25B7D3 0, #214 100%); */
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: 0px 7px 15px #a5a5a5;
+  box-shadow: 0px 7px 15px #a5a5a5;
+  margin-top: -23px;
+  width: 100%;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .login-form-1-header h3{
@@ -4002,10 +4025,10 @@ h1, .entry-title-2 {
   background: #cc0000 !important;
 }
 .card-content-fixed{
-  padding:0px 20px;
+  padding:0px 20px 43px;
   margin-bottom: 20px;
-  -webkit-box-shadow: 0px -10px 15px #ccc;
-          box-shadow: 0px -10px 15px #ccc;
+  -webkit-box-shadow: 0px 0px 15px #ccc;
+          box-shadow: 0px 0px 15px #ccc;
   position: relative;
   background-color: #ffffff;
   border-radius: 5px
@@ -4037,6 +4060,11 @@ input[type=text]{
 .mat-form-field-suffix .mat-icon{
   font-size: 100% !important;
 }
+.recaptcha-top{
+  top: 30px;
+}
+
+
 /*Signup Form Fixeddd End*/
 
 /*sidebar css new*/
@@ -4437,7 +4465,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   color: #c00;
   font-family: "Open Sans",sans-serif;
   font-weight: 600;
-  font-size: 35px;
+  font-size: 32px;
   float: left;
   margin-bottom: 0px;
 
@@ -4926,12 +4954,12 @@ canvas {
 
 .ratingq > input:checked ~ label, /* show gold star when clicked */
 .ratingq:not(:checked) > label:hover, /* hover current star */
-.ratingq:not(:checked) > label:hover ~ label { color: red;  } /* hover previous stars in list */
+.ratingq:not(:checked) > label:hover ~ label { color: #f2b01e;  } /* hover previous stars in list */
 
 .ratingq > input:checked + label:hover, /* hover current star when changing rating */
 .ratingq > input:checked ~ label:hover,
 .ratingq > label:hover ~ input:checked ~ label, /* lighten current selection */
-.ratingq > input:checked ~ label:hover ~ label { color: red;  }
+.ratingq > input:checked ~ label:hover ~ label { color: #f2b01e;  }
 
 .ratingp > input { display: none; }
 .ratingp > label:before {
