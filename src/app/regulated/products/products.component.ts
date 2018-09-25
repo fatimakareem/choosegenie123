@@ -1052,7 +1052,7 @@ country;
 
                 }
 
-                this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
+                this.pager = this.pagerService.getPager(response['Total Result'], page);
 
             }
 
