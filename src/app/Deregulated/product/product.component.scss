@@ -27,12 +27,13 @@
 
 //
 .w3-sidebar {
-  height: 100%;
-  width: 214px;
+  height: 89%;
+  width: 100%;
   background-color: #fff;
   position: fixed!important;
   z-index: 2;
   overflow: auto;
+  padding: 0px;
 }
 .sidebar-cust{
    padding: 0px 10px;
@@ -78,3 +79,13 @@ body {
 
 /**/
 
+@media (max-width: 426px) {
+  .w3-sidebar{
+    width: 55% !important;
+  }
+}
+@media (max-width: 320px) {
+  .w3-sidebar{
+    width: 68% !important;
+  }
+}

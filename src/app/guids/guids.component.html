@@ -1,7 +1,7 @@
 <div class="new-product-holder">
   <div class="page-title">
 
-    <h3 class="text-center choiecegenie-offers" style="margin: 0px !important;">Narrow Your Search</h3>
+    <h3 class="text-center choiecegenie-offers font-media" style="margin: 0px !important;">Narrow Your Energy Shopping Search</h3>
 
   </div>
 
@@ -18,9 +18,9 @@
             <ng-template matStepLabel>Average Monthly Use</ng-template>
             <ng-template matStepLabel></ng-template>
             <div class="card tabs-content-box" style="padding: 15px;">
-            
+
               <div class="card-content">
-               
+
                 <h2 class="f-sackers-medium">
                   <span class="plansfound">15</span> PLANS FOUND FOR <span class="zipcode-edit" data-type="editable" data-for=".zipcode-input" style="display: inline;">75001</span>
                   <input class="zipcode-input" maxlength="5" style="display: none;">
@@ -33,16 +33,16 @@
                       <span>On average, how much electricity do you use in a month?</span>
                     </h3>
                     <div class="form-group">
-                     
+
                         <div class="panel-title">
                           <a>
                             <h5 class="color-red margin-zero padding-zero">Estimated Usage
-                            
+
                             </h5>
                           </a>
                         </div>
                         <mat-form-field class="margin-up" style="border-top: 0px !important;">
-                          
+
                           <mat-select required [(ngModel)]="price" formControlName="price">
 
                             <mat-option value="500" style="font-size: 20px">500 kWh</mat-option>
@@ -51,7 +51,7 @@
                           </mat-select>
                         </mat-form-field>
 
-                     
+
                     </div>
 
                     <div class="">
@@ -62,7 +62,7 @@
                     <a (click)="submit()" class="view-plans">
                       View Plans
                     </a>
-                    
+
                   </div>
                   <div class="col-sm-6 col-right">
                     <div class="">
@@ -90,7 +90,7 @@
             <ng-template matStepLabel>Plan Types</ng-template>
             <ng-template matStepLabel></ng-template>
             <div class="card tabs-content-box" style="padding: 15px;">
-           
+
               <div class="card-content">
                 <h2 class="f-sackers-medium">
                   <span class="plansfound">15</span> PLANS FOUND FOR <span class="zipcode-edit" data-type="editable" data-for=".zipcode-input" style="display: inline;">75001</span>
@@ -104,11 +104,11 @@
                       <span>WHAT PLAN TYPES ARE YOU INTERESTED IN?</span>
                     </h3>
                     <div class="form-group">
-                   
+
                       <div class="panel-title">
                         <a>
                           <h5 class="color-red margin-zero padding-zero">Plan Type
-                           
+
                           </h5>
                         </a>
                       </div>
@@ -131,7 +131,7 @@
                           <small>(market rate)</small>
                         </label>
                       </div>
-                     
+
                   </div>
                     <div class="">
                       <button mat-button matStepperPrevious class="btn btn-fill">
@@ -187,11 +187,11 @@
                       <span>HOW LONG DO YOU WANT YOUR PRICE RANGE?</span>
                     </h3>
                     <div class="form-group">
-                  
+
                       <div class="panel-title">
                         <a>
                           <h5 class="cat-title color-red margin-zero padding-zero"> Price Range
-                          
+
                           </h5>
                         </a>
                       </div>
@@ -206,7 +206,7 @@
                         <input type="text" class="ng-valid ng-dirty ng-touched" required formControlName="max" [(ngModel)]="max" style="text-align: left; font-size:20px;border-radius: 5px;">
 
                       </div>
-                    
+
                   </div>
 
                     <div class=""     >
@@ -242,7 +242,7 @@
           </div>
         </mat-step> -->
         <mat-step [stepControl]="fourthFormGroup">
-          <div [formGroup]="fourthFormGroup" style="padding: 10px;">
+          <div [formGroup]="fourthFormGroup" style="">
             <ng-template matStepLabel>Contract Length</ng-template>
             <ng-template matStepLabel></ng-template>
             <div class="card tabs-content-box" style="padding: 15px;">
@@ -261,7 +261,7 @@
                       <em>4.</em>
                       <span>HOW LONG DO YOU WANT YOUR CONTRACT TO LAST?</span>
                     </h3>
-                    <div class="form-group">
+                    <div class="">
                       <!--<li>-->
                         <div class="panel-title">
                           <a>
@@ -324,8 +324,8 @@
                       <!--</li>-->
 
                     </div>
-                    <div class="">
-                     
+                    <div class="margin-t-media">
+
                       <button type="submit" mat-button matStepperNext class="btn btn-fill" (click)="submit()">View Results</button>
                     </div>
                   </div>

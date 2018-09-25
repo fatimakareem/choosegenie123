@@ -1,3 +1,12 @@
+.w3-sidebar {
+  height: 89%;
+  width: 100% !important;
+  background-color: #fff;
+  position: fixed !important;
+  z-index: 2;
+  overflow: auto;
+  padding: 0px;
+}
 .bd-color{
   background: #c00 !important;
 }
@@ -92,4 +101,14 @@ body {
 /**/
 .btn:not(.btn-just-icon):not(.btn-fab) .fa, .navbar .navbar-nav > li > a.btn:not(.btn-just-icon):not(.btn-fab) .fa{
   margin-top: -8px !important;
+}
+@media (max-width: 426px) {
+  .w3-sidebar{
+    width: 55% !important;
+  }
+}
+@media (max-width: 320px) {
+  .w3-sidebar{
+    width: 68% !important;
+  }
 }
