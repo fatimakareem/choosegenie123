@@ -7,7 +7,7 @@ export class CompanyService {
 
 
 
-  constructor(private https: Http) {  this.username = localStorage.getItem('username');
+  constructor(private https: Http) {  this.username = localStorage.getItem('title');
 }
 private authentication=localStorage.getItem('token');
 id;
@@ -18,7 +18,7 @@ username;
    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
    console.log('dashboard', localStorage.getItem('token'));
   //  headers.append('Authorization', 'JWT ' +  localStorage.getItem('token').toString());
-    return this.https.get(Config.api + 'mydata/'+ this.username +'/'+'?page='+page, {headers: headers} ) .map((response: Response)  => response);
+    return this.https.get(Config.api + 'mydata/'+ this.username.trim() +'/'+'?page='+page, {headers: headers} ) .map((response: Response)  => response);
     }
     deregulatedsearch(title,page) {
       console.log(this.username)

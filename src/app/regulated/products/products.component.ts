@@ -587,7 +587,71 @@ country;
             });
 
     }
-
+    logo5;
+    logo4;
+    logo3;
+    logo2;
+    logo1;
+    star5(event,i){
+        if (event.target.checked == true) {
+            this.logo5 = "StarRating5.png";
+            this.setPage(1);
+        }
+        else if (event.target.checked == false) {
+            console.log(event.target.checked)
+            delete this.logo5;
+            this.setPage(1);
+        }
+        console.log(this.logo5)
+    }
+    star4(event,i){
+        if (event.target.checked == true) {
+            this.logo4 = "StarRating4.png";
+            this.setPage(1);
+        }
+        else if (event.target.checked == false) {
+            console.log(event.target.checked)
+            delete this.logo4;
+            this.setPage(1);
+        }
+        console.log(this.logo4)
+    }
+    star3(event,i){
+        if (event.target.checked == true) {
+            this.logo3 = "StarRating3.png";
+            this.setPage(1);
+        }
+        else if (event.target.checked == false) {
+            console.log(event.target.checked)
+            delete this.logo3;
+            this.setPage(1);
+        }
+        console.log(this.logo3)
+    }
+    star2(event,i){
+        if (event.target.checked == true) {
+            this.logo2 = "StarRating2.png";
+            this.setPage(1);
+        }
+        else if (event.target.checked == false) {
+            console.log(event.target.checked)
+            delete this.logo2;
+            this.setPage(1);
+        }
+        console.log(this.logo2)
+    }
+    star1(event,i){
+        if (event.target.checked == true) {
+            this.logo1 = "StarRating1.png";
+            this.setPage(1);
+        }
+        else if (event.target.checked == false) {
+            console.log(event.target.checked)
+            delete this.logo1;
+            this.setPage(1);
+        }
+        console.log(this.logo1)
+    }
     checked1(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
@@ -862,11 +926,12 @@ country;
             console.log(this.item)
         }
     }
-    pricerate(min, max, price) {
-        if (min && max && price) {
+    pricerate(min, max) {
+        console.log(min,max)
+        if (min && max ) {
             this.min = min;
             this.max = max;
-            this.price = price;
+           
             this.setPage(1);
         }
         else {
@@ -875,11 +940,11 @@ country;
             localStorage.removeItem('price');
             delete this.min;
             delete this.max;
-            delete this.price;
+            // delete this.price;
             this.setPage(1);
         }
 
-        console.log()
+        console.log(this.min,this.max)
     }
 
     checked20(event, i) {
@@ -1038,10 +1103,10 @@ country;
         }
 
         const Results = {}
-        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "prepaid" || this.prepaid == "prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.name || this.sort == "dsc" || this.item || this.price) {
+        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "prepaid" || this.prepaid == "prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.name || this.sort == "dsc" || this.item || this.min || this.max || this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5 ) {
 
-            console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.price, this.sort, this.price, 'tttttttttttt');
-            this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.name.trim(), this.price, this.sort, this.item, this.min, this.max).subscribe(response => {
+            console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.price, 'tttttttttttt');
+            this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.item, this.min, this.max,this.logo1,this.logo2,this.logo3,this.logo4,this.logo5).subscribe(response => {
 
                 this.product = response['Results'];
                 this.noresult = response['Total Result'];

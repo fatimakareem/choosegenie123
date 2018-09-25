@@ -13,6 +13,7 @@ editTodoList(mydate,updateddate,id,updatedtitle,updatedsign_up,updatedphone,upda
   console.log(" service object",mydate,updateddate,id,updatedtitle,updatedsign_up,updatedphone,updatedterms_of_service,updatedfact_sheet,updatedcancelation_fee,updatedprice500kwh,updatedprice1000kwh,updatedprice2000kwh,updatedplan_information,updatedrating_logo,updatedprofile_logo,updatedprofileurl,active)
   const headers = new Headers();
   headers.append('Content-Type', 'application/json');
+  
   return this.http.put(Config.api + 'dataup/'+ id , JSON.stringify({
    
     "cancelation_fee":updatedcancelation_fee,

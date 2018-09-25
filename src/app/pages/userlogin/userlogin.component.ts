@@ -64,6 +64,10 @@ export class UserloginComponent implements OnInit {
   role;
   data: any = [];
   Datarole: any;
+  hel: any = [];
+  currentUser;
+  massage;
+    tit: any = [];
   constructor(public router: Router, private element: ElementRef, private http: Http, private route: ActivatedRoute,
     private sg: SimpleGlobal, private _nav: Router, private _serv: UserLoginService, private formBuilder: FormBuilder, private https: HttpClient) {
     this.nativeElement = element.nativeElement;
@@ -122,6 +126,19 @@ export class UserloginComponent implements OnInit {
                     console.log(this.Datarole);
                     this.role = this.Datarole.Role;
                     localStorage.setItem('role', this.role);
+                    
+                console.log(Res.json()['Results']);
+                this.hel = Res.json()['Results'];
+                this.massage = Res.json()['Message'];
+                localStorage.setItem('massage', this.massage);
+                console.log(this.massage);
+                this.tit = this.hel[0];
+                console.log(this.tit);
+                this.word = this.tit.title;
+                console.log(this.word);
+                // localStorage.setItem('user', this.word);
+                // localStorage.setItem('username', this.word.trim());
+                // localStorage.setItem('token', Res.json()['token']);
                     if (this.role == "USER") {
                       this.router.navigate(['/userprofile']);
                       localStorage.setItem('custum', this.username);
@@ -132,6 +149,7 @@ export class UserloginComponent implements OnInit {
                       this.router.navigate(['/dashboard/' + this.username]);
                       // localStorage.setItem('change', this.username);
                       localStorage.setItem('username', this.username);
+                      localStorage.setItem('title', this.tit.title);
                     }
                     else if(this.role=="Deregulatedstate Vendor"){
     
