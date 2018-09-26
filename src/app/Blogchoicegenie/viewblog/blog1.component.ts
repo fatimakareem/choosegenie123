@@ -18,6 +18,7 @@ export class Blog1Component implements OnInit {
   constructor(private route: ActivatedRoute, private http: Http) { }
   private Sub: Subscription;
   public heading1;
+
   heading;
   text;
   image;
@@ -41,7 +42,7 @@ export class Blog1Component implements OnInit {
         this.image=Res.json()[0].blog_image;
         
         console.log(this.image);
-        $('#myDiv').html(this.data);
+     $('#myDiv').html(this.data);
         
       });
     

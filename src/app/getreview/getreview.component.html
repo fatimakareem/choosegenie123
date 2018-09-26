@@ -1,4 +1,4 @@
-<div class="" style="background: #fff">
+<div class="" style="background: #fff" *ngIf="deproduct || pro">
   <div class="container-fluid header-bar">
     <div class="container">
       <div class="row title-bar">
@@ -215,9 +215,9 @@
           <div class="clearfix" style="position: relative;">
 
             <div class="post-media clearfix text-center" style="background: #ffffff; padding: 0; ">
-
+                <a href="{{deproduct.sign_up}}" target="_blank" class="display-b margin-top">
               <img src="{{deproduct.profile_logo}}" alt="{{deproduct.title}}" />
-
+</a>
             </div>
           </div>
           <div class="widget custom-widget course-pricing clearfix" style="padding: 10px !important;">

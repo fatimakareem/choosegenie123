@@ -75,9 +75,9 @@ export class HomeComponent implements OnInit {
   }
 
 
-  // googleTranslateElementInit() {
-  //   new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-  // }
+  googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+  }
 
 
   onSubmit(f: NgForm) {

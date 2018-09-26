@@ -398,7 +398,7 @@
                   </button>
                 </div>
                 <ul class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
-               
+
                   <li [ngClass]="{hide:pager.currentPage === 1}">
                     <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
                       <i class="fa fa-angle-left"></i>
@@ -592,11 +592,9 @@
                                   </a>
                                 </div>
                               </div>
-                              <div>
+                              <div style="width: 100%">
 
-                                <h4 class="modal-title" style="text-align: center;
-
-                                              font-size: 30px;">Based on what you've seen so far, how would you rate this Product?</h4>
+                                <h4 class="modal-title body-heading">Based on what you've seen so far, how would you rate this Company?</h4>
 
                                 <div class="rating-starts">
                                   <fieldset class="ratingq move-to-center">
@@ -628,18 +626,16 @@
 
                             font-size: 30px;">Why Did You Leaving This Review?</h3>
                               </div>
-                              <br>
-                              <br>
                               <mat-form-field>
-                                  <textarea matInput placeholder="Share your Opinion about the quality of this product." matAutosizeMinRows="10" matAutosizeMaxRows="5"
-                                            style="height: 40px !important;width:920px !important;" name="comt" [(ngModel)]="comt">
+                                  <textarea matInput placeholder="Share your Opinion about this company." matAutosizeMinRows="10" matAutosizeMaxRows="5"
+                                            style="height: 130px !important;width:100% !important;" name="comt" [(ngModel)]="comt">
 
                                 </textarea>
 
                               </mat-form-field>
 
                             </div>
-                            <p>Your review will be publicly visible within 1 Second.</p>
+                            <!--<p>Your review will be publicly visible within 1 Second.</p>-->
                           </div>
 
                           <div class="modal-footer">
@@ -891,7 +887,7 @@
                 </button>
               </div>
               <ul class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
-               
+
                 <li [ngClass]="{hide:pager.currentPage === 1}">
                   <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
                     <i class="fa fa-angle-left"></i>
@@ -922,7 +918,7 @@
 
 
               <!-- <ul class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
-              
+
                 <li [ngClass]="{hide:pager.currentPage === 1}">
                   <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
                     <i class="fa fa-angle-left"></i>

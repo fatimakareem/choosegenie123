@@ -3903,25 +3903,28 @@ h1, .entry-title-2 {
 .slick-slide .img1{
   border-radius: 10px;
   border:none !important;
-  width: 95% !important;
-  height: 80px;
+  /*width: 95% !important;*/
+  /*height: 80px;*/
+  width: 80% !important;
+  height: 66px;
   margin: 0 auto;
   webkit-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
-.slick-slide .img1:hover{
-  -webkit-box-shadow: 0 3px 8px 0 rgba(64, 64, 64, 0.3);
-  box-shadow: 0 3px 8px 0 rgba(64, 64, 64, 0.3);
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
-}
+/*.slick-slide .img1:hover{*/
+  /*-webkit-box-shadow: 0 3px 8px 0 rgba(64, 64, 64, 0.3);*/
+  /*box-shadow: 0 3px 8px 0 rgba(64, 64, 64, 0.3);*/
+  /*-webkit-transform: scale(1.05);*/
+  /*-ms-transform: scale(1.05);*/
+  /*transform: scale(1.05);*/
+/*}*/
 .slick-slide .img2{
   border-radius: 10px;
   border:none !important;
-  width: 96% !important;
+  /*width: 96% !important;*/
+  width: 70% !important;
   height: 70px;
   margin: 0 auto;
   /*webkit-transition: all 0.3s ease-out;*/
@@ -4568,7 +4571,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
     text-align: left;
     padding: 0px 5px !important;
     height: 34px !important;
-    width: 36px !important;
+    width: 52px !important;
     font-family: FontAwesome, 'Roboto';
     font-size: 26px;
     border: solid 1px #bfbcbc !important;
@@ -4932,7 +4935,7 @@ canvas {
 
 .ratingq > input { display: none; }
 .ratingq > label:before {
-  margin: 5px;
+  margin:0px 5px;
   font-size: 3.25em;
   font-family: FontAwesome;
   display: inline-block;
@@ -5911,6 +5914,14 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .sort-bar-height{
   height: 39px;
+}
+.body-heading{
+  text-align: center;
+  font-size: 24px;
+  padding: 8px 0px 0px;
+}
+.sidrbar-rating{
+  width: 165px;
 }
 /* End Products */
 
@@ -7563,7 +7574,12 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 .sh-products-fix {
   margin: 10px 0 10px 0px !important;
 }
-
+.pric-range-box input{
+  width: 47px !important;
+}
+.sidrbar-rating{
+  width: 163px;
+}
 }
 
 /*
@@ -7572,6 +7588,12 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
+  .pric-range-box input{
+    width: 39px !important;
+  }
+  .sidrbar-rating {
+    width: 148px;
+  }
 
   .custom-width {
     width: 98% !important;
@@ -7710,6 +7732,12 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 @media (min-width: 992px) and (max-width: 1024px) {
   /* Large devices (maximam width 1024px and minimum width 768px) */
+  .nav-home ul {
+    margin-right: 0px !important;
+  }
+  .sidrbar-rating {
+    width: 109px;
+  }
 
   .product-body {
     /*margin-top: 60px !important;*/
@@ -7949,7 +7977,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     text-align: center;
     padding: 3px !important;
     height: 22px !important;
-    width: 22px !important;
+    width: 30px !important;
   }
   .price-range-submit{
     width: 13%;
@@ -8045,9 +8073,26 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 @media (min-width: 320px) and (max-width: 480px) {
 
-
+  .pric-range-box input{
+    width: 48px !important;
+  }
 }
-
+@media (min-width: 325px) and (max-width: 375px) {
+  .pric-range-box input {
+    width: 37px !important;
+  }
+  .sidrbar-rating {
+    width: 141px;
+  }
+}
+@media (max-width: 325px) {
+  .pric-range-box input {
+    width: 42px !important;
+  }
+  .sidrbar-rating {
+    width: 152px;
+  }
+}
                                                     /*New Quries End*/
 
 /*............Shahid Updated Code End..............*/

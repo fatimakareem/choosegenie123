@@ -1,4 +1,3 @@
-
 <div id="myID" *ngIf="status !=false" class="bottomMenu hide" >
     <button id="ID" class="w3-button pop-up-close" (click)="pop_close()">&times;</button>
   <a href="#" class="popo-up-logo">
@@ -13,9 +12,7 @@
 </div>
 <div class="container-fluid sh-pd-0">
   <div class="row product-body">
-
-
-  <div id="mySidebar" class="col-lg-2 col-md-4 position-fixed w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" pop_close pop_close pop_close data-spy="affix" data-offset-top="137">
+    <div id="mySidebar" class="col-lg-2 col-md-4 position-fixed w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left" pop_close pop_close pop_close data-spy="affix" data-offset-top="137">
     <div class="" >
       <button class="w3-bar-item w3-button w3-hide-large" (click)="w3_close()">&times;</button>
       <nav class="sidebar-cust">
@@ -87,7 +84,7 @@
           <li>
             <div class="panel-title">
               <a>
-                <h5 class="cat-title color-red" style="margin-bottom: 15px;margin-top: -36px;"> Price Range
+                <h5 class="cat-title color-red" style="margin-bottom: 15px;margin-top: -27px;"> Price Range
                   <i class="color-black fa fa-info-circle float" aria-hidden="true" title="Price per kilowatt hour: A kilowatt hour is equal to 1 kilowatt (1kW) of power used for 1 hour (1h) of time."></i>
                 </h5>
               </a>
@@ -329,7 +326,7 @@
                     <!-- <a  title="" data-original-title="Energy Companies:  Also called retail electric providers or REPs. They sell and bill electricity and provide customer service.">Info</a> -->
                     <h5 class="color-red">Company Rating
                       <i class="color-black fa fa-info-circle float" aria-hidden="true" title="Time-of-Use plans include incentives to use power during certain periods such as nights or weekends.  The average prices shown for Time-of-Use Plans are based on the REP’s estimate of energy used during discounted and non-discounted times.  Please note that the average price you pay will vary depending on your actual usage of energy during the discounted and non-discounted times.  See the glossary for details."></i>
-    
+
                     </h5>
                   </a>
               <!-- <a class="link-info tool-tip" href="javascript:" title="" data-original-title="The Company Rating is a measure of consumer complaints per 1,000 customers based on a 6-month rolling average. The PUC is legally prohibited from releasing the number of customers that each REP serves.">Info</a> -->
@@ -339,67 +336,67 @@
 
                     <div _ngcontent-c0="" class="checkbox">
                         <label _ngcontent-c0="" class="checkbox-font">
-          
+
                           <input name="logo5" type="checkbox" value="logo5" [(ngModel)]="logo5" ng-reflect-name="fixed" (change)="star5($event,i)" class="ng-untouched ng-pristine ng-valid">
-                          <span class="checkbox-material"></span> 
-                          <img src="../../assets/img/StarRating5.png" title="" style="width: 165px;">
+                          <span class="checkbox-material"></span>
+                          <img src="../../assets/img/StarRating5.png" class="sidrbar-rating" title="">
                         </label>
-                        
-                      </div>                     
+
+                      </div>
                 </li>
                 <li>
 
                     <div _ngcontent-c0="" class="checkbox">
                         <label _ngcontent-c0="" class="checkbox-font">
-          
+
                           <input name="logo4" type="checkbox" value="logo4" [(ngModel)]="logo4" ng-reflect-name="fixed" (change)="star4($event,i)" class="ng-untouched ng-pristine ng-valid">
-                          <span class="checkbox-material"></span> 
-                          <img src="../../assets/img/StarRating4.png" title="" style="width: 165px;">
+                          <span class="checkbox-material"></span>
+                          <img src="../../assets/img/StarRating4.png" title="" class="sidrbar-rating">
                         </label>
-                        
-                      </div>                     
+
+                      </div>
                 </li>
                 <li>
 
                     <div _ngcontent-c0="" class="checkbox">
                         <label _ngcontent-c0="" class="checkbox-font">
-          
+
                           <input  name="logo3" type="checkbox" value="logo3" [(ngModel)]="logo3" ng-reflect-name="fixed" (change)="star3($event,i)" class="ng-untouched ng-pristine ng-valid">
-                          <span class="checkbox-material"></span> 
-                          <img src="../../assets/img/StarRating3.png" title="" style="width: 165px;">
+                          <span class="checkbox-material"></span>
+                          <img src="../../assets/img/StarRating3.png" title="" class="sidrbar-rating">
                         </label>
-                        
-                      </div>                     
+
+                      </div>
                 </li>
                 <li>
 
                     <div _ngcontent-c0="" class="checkbox">
                         <label _ngcontent-c0="" class="checkbox-font">
-          
+
                           <input name="logo2" type="checkbox" value="logo2" [(ngModel)]="logo2" ng-reflect-name="fixed" (change)="star2($event,i)" class="ng-untouched ng-pristine ng-valid">
-                          <span class="checkbox-material"></span> 
-                          <img src="../../assets/img/StarRating2.png" title="" style="width: 165px;">
+                          <span class="checkbox-material"></span>
+                          <img src="../../assets/img/StarRating2.png" title="" class="sidrbar-rating">
                         </label>
-                        
-                      </div>                     
+
+                      </div>
                 </li>
                 <li>
 
                     <div _ngcontent-c0="" class="checkbox">
                         <label _ngcontent-c0="" class="checkbox-font">
-          
+
                           <input name="logo1" type="checkbox" value="logo1" [(ngModel)]="logo1" ng-reflect-name="fixed" (change)="star1($event,i)" class="ng-untouched ng-pristine ng-valid">
-                          <span class="checkbox-material"></span> 
-                          <img src="../../assets/img/StarRating1.png" title="" style="width: 165px;">
+                          <span class="checkbox-material"></span>
+                          <img src="../../assets/img/StarRating1.png" title="" class="sidrbar-rating">
                         </label>
-                        
-                      </div>                     
+
+                      </div>
                 </li>
-                
+
                 -->
               </ul>
               <input type="hidden" value="" id="rating_total" name="rating_total">
-            
+
           </li>
 
 
@@ -496,7 +493,7 @@
                 </div>
 
                 <!-- <ul class="col-lg-3 col-md-3 col-sm-12 pagination" *ngIf="pager.pages && pager.pages.length">
-               
+
                   <li [ngClass]="{hide:pager.currentPage === 1}">
                     <a (click)="setPage(pager.currentPage - 1)" class="view-plan-details" class="btn bd-color">
                       <i class="fa fa-angle-left"></i>
@@ -511,9 +508,9 @@
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
                     <a (click)="setPage(pager.currentPage + 3)">...</a>
                   </li>
-                  
+
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
-                
+
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
                     <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
                   </li>
@@ -525,7 +522,7 @@
 
                 </ul> -->
                 <ul class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
-               
+
                   <li [ngClass]="{hide:pager.currentPage === 1}">
                     <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
                       <i class="fa fa-angle-left"></i>
@@ -534,7 +531,7 @@
                   <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
                     <a (click)="setPage(page)" class="view-plan-details">{{page}}</a>
                   </li>
-  
+
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
                     <a (click)="setPage(pager.currentPage + 3)">...</a>
                   </li>
@@ -551,7 +548,7 @@
                       <i class="fa fa-angle-right top-set"></i>
                     </a>
                   </li>
-  
+
                 </ul>
 
                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 prod-select-list sec-list">
@@ -688,11 +685,7 @@
 
 
     </div> -->
-                          <div class="modal-body" style="font-size: 18px;
-    background: #ffffff;
-    padding: 20px;
-    margin: 15px;
-    position: relative;">
+                          <div class="modal-body" style="font-size: 18px; background: #ffffff; padding: 20px 20px 0px; margin: 15px; position: relative;">
                             <div class="popup-close-button" data-dismiss="modal">X</div>
                             <div class="row">
                               <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="border-bottom: 1px #4f4f4f solid;">
@@ -706,11 +699,9 @@
                                   </a>
                                 </div>
                               </div>
-                              <div>
+                              <div style="width: 100%;">
 
-                                <h4 class="modal-title" style="text-align: center;
-
-    font-size: 30px;">Based on what you've seen so far, how would you rate this Product?</h4>
+                                <h4 class="modal-title body-heading">Based on what you've seen so far, how would you rate this Company?</h4>
 
 
                                 <div class="rating-starts">
@@ -744,11 +735,10 @@
 
     font-size: 30px;">Why Did You Leaving This Review?</h3>
                               </div>
-                              <br>
-                              <br>
+
                               <mat-form-field>
-                                <textarea matInput placeholder="Share your Opinion about the quality of this product." matAutosizeMinRows="10" matAutosizeMaxRows="5"
-                                          style="height: 40px !important;width:920px !important;" name="comt" [(ngModel)]="comt">
+                                <textarea matInput placeholder="Share your Opinion about this company." matAutosizeMinRows="10" matAutosizeMaxRows="5"
+                                          style="height: 130px !important;width:100% !important;" name="comt" [(ngModel)]="comt">
 
     </textarea>
 
@@ -757,7 +747,7 @@
 
 
                             </div>
-                            <p>Your review will be publicly visible within 1 Second.</p>
+                            <!--<p>Your review will be publicly visible within 1 Second.</p>-->
                           </div>
 
                           <div class="modal-footer">
@@ -1057,7 +1047,7 @@
               </button>
             </div>
             <ul class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
-               
+
               <li [ngClass]="{hide:pager.currentPage === 1}">
                 <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
                   <i class="fa fa-angle-left"></i>
@@ -1100,7 +1090,7 @@
               <li *ngIf="(pager.totalPages - pager.startPage) > 3 ">
                 <a (click)="setPage(pager.startPage + 3)">...</a>
               </li>
-              
+
               <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
                 <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
                   <i class="fa fa-angle-right"></i>
