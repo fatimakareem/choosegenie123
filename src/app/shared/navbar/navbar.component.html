@@ -129,9 +129,9 @@
         <!-- </a> -->
 
         <!-- </li> -->
-        <li class="vanders" *ngIf="checked_login()">
-          <a (click)="movein()">
-            <i class="material-icons">account_circle</i> {{customer}}
+        <li class="vanders" *ngIf="check_login()">
+          <a (click)="moving()">
+            <i class="material-icons">account_circle</i> {{username}}
           </a>
           <div class="drop-downs">
             <ul class="nav-vanders  why-choiegenie-sublist">
@@ -156,7 +156,7 @@
                       </a>
                     </li> -->
               <li>
-                <a (click)="checked_logout()">
+                <a (click)="logout()">
                   <i class="material-icons">lock</i>Logout
                 </a>
               </li>
@@ -170,7 +170,7 @@
           </div>
         </li>
         <li class="vanders" *ngIf="check_login1()">
-            <a (click)="moving()">
+            <a (click)="moving1()">
               <i class="material-icons">account_circle</i> {{admin}}
             </a>
             <div class="drop-downs">
@@ -206,43 +206,7 @@
               </ul>
             </div>
           </li>
-        <li class="vanders" *ngIf="check_login()">
-          <a (click)="moving()">
-            <i class="material-icons">account_circle</i> {{username}}
-          </a>
-          <div class="drop-downs">
-            <ul class="nav-vanders  why-choiegenie-sublist">
-              <!-- <li>
-                        <a (click)=" move()">
-                          <i class="material-icons">unarchive</i> My Profile
-                        </a>
-                      </li> -->
-              <!-- <li>
-                <a style="display: flex;">
-                  <i class="material-icons" style="margin-top: 3px">account_circle</i>
-                
-                </a>
-              </li> -->
-
-              <!-- <li>
-                        <a routerLink="/ChangePassword">
-                          <i class=" fa fa-group"></i>Change Password
-                        </a>
-                      </li> -->
-              <li>
-                <a (click)="vendorlogout()">
-                  <i class="material-icons">lock</i>Logout
-                </a>
-              </li>
-
-              <!-- <li>
-                    <a routerLink="/mycourses">
-                      <i class="material-icons">library_books</i> My Library
-                    </a>
-                  </li> -->
-            </ul>
-          </div>
-        </li>
+       
       </ul>
     </div>
     <!-- </div> -->

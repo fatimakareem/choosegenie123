@@ -55,20 +55,10 @@ export class NavbarComponent implements OnInit {
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
     }
-    checked_login() {
-        if (localStorage.getItem('custum')) {
-          let local = localStorage.getItem('custum');
-          return true;
-        }
-        // else if(localStorage.getItem('custom')) {
-        //     return true;
-        // }
-          else {
-          return false;    }
-      }
+    
     check_login() {
-        if (localStorage.getItem('user')) {
-          let local = localStorage.getItem('user');
+        if (localStorage.getItem('username')) {
+          let local = localStorage.getItem('username');
           return true;
         }
         // else if(localStorage.getItem('custom')) {
@@ -90,14 +80,16 @@ export class NavbarComponent implements OnInit {
       moving1() {
         this.router.navigate(['/supermaindashboard']);
       }
-      movein() {
-        this.router.navigate(['/consumerdashboard/']);
-      }
+    
       moving() {
-          if(localStorage.getItem('massage') == "Successfully Login As Not Deregulatedstate vendor"){
-        this.router.navigate(['/dashboard/' + this.username]);}
-        else if(localStorage.getItem('massage') == "Successfully Login As Deregulatedstate vendor"){
-            this.router.navigate(['/dashboards/' + this.username]);
+        if (localStorage.getItem('role') == "Not Deregulatedstate Vendor") {
+          this.router.navigate(['/dashboard/' + this.username]);
+        }
+        else if (localStorage.getItem('role') == "Deregulatedstate Vendor") {
+          this.router.navigate(['/dashboards/' + this.username]);
+        }
+        else if(localStorage.getItem('role') =="USER"){
+          this.router.navigate(['/consumerdashboard/']);
         }
       }
       move(){
@@ -105,34 +97,19 @@ export class NavbarComponent implements OnInit {
         // this.router.navigate(['/company-profile/']);
       }
       logout() {
-        localStorage.removeItem('currentadmin');
+        localStorage.clear();
         this.router.navigate(['/']);
     
       }
-      vendorlogout() {
-        localStorage.removeItem('massage');
-        localStorage.removeItem('user');
-    
-        localStorage.removeItem('username');
-        localStorage.removeItem('change');
-        localStorage.removeItem('currentUser');
-    
-        this.router.navigate(['/']);
-    
-      }
-      checked_logout() {
-        localStorage.removeItem('custum');
-        localStorage.removeItem('currentcustomer');
-        this.router.navigate(['/']);
-      }
+     
      
     ngOnInit() {
         this.admin=localStorage.getItem('currentadmin')
 
-        this.massage = localStorage.getItem('massage')
-        this.username = localStorage.getItem('user')
+        this.massage = localStorage.getItem('role')
+        this.username = localStorage.getItem('username')
         console.log(this.username);
-this.customer=localStorage.getItem('custum')
+
         this.listTitles = ROUTES.filter(listTitle => listTitle);
 
         const navbar: HTMLElement = this.element.nativeElement;

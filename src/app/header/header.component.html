@@ -111,7 +111,7 @@
 
           </a>
         </li>
-        <li class="vanders" style="border-right: 2px solid #ccc; padding-right: 10px;" *ngIf="!check_login() && !checked_login() && !check_login1()">
+        <li class="vanders" style="border-right: 2px solid #ccc; padding-right: 10px;" *ngIf="!checked_login() && !check_login1()">
           <!-- <a > -->
             <!-- <i class="material-icons">fingerprint</i>
             Sign IN -->
@@ -135,7 +135,7 @@
             <!-- </ul> -->
           <!-- </div> -->
         </li>
-        <li class="vanders" *ngIf="!check_login() && !checked_login() && !check_login1()">
+        <li class="vanders" *ngIf="!checked_login() && !check_login1()">
           <a>
             <i class="material-icons">
               lock_open
@@ -177,10 +177,10 @@
             <i class="fa fa-apple"></i>
           </a>
         </li>
-        <li class="vanders" *ngIf="check_login()">
+        <!-- <li class="vanders" *ngIf="check_login()">
           <a>
             <i class="material-icons">account_circle</i>{{username}}
-            <!-- <input style="cursor: pointer;font-size: 20px; margin-left: 5px;" type="text" [value]="username" readonly> -->
+          
           </a>
           <div class="drop-downs">
             <ul class="nav-vanders  why-choiegenie-sublist">
@@ -196,7 +196,7 @@
               </li>
             </ul>
           </div>
-        </li>
+        </li> -->
         <li class="vanders" *ngIf="check_login1()">
             <a>
               <i class="material-icons">account_circle</i>{{admin}}
@@ -217,21 +217,21 @@
               </ul>
             </div>
           </li>
-        <li class="vanders" *ngIf="checked_login()">
+        <li class="vanders" *ngIf="checked_login()" >
           <a>
-            <i class="material-icons">account_circle</i>{{customer}}
+            <i class="material-icons">account_circle</i>{{username}}
             <!-- <input style="cursor: pointer;font-size: 20px; margin-left: 5px;" type="text" [value]="customer" readonly> -->
           </a>
           <div class="drop-downs">
             <ul class="nav-vanders  why-choiegenie-sublist">
               <li>
-                <a (click)="move()" style="cursor: pointer;">
+                <a (click)="moving()" style="cursor: pointer;">
                   Dashboard
                 </a>
               </li>
 
               <li>
-                <a (click)="checked_logout()">
+                <a (click)="logout()">
                   <i class="material-icons">lock</i>Logout
                 </a>
               </li>

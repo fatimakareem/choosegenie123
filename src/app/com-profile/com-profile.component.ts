@@ -40,8 +40,9 @@ private authentication
        
     let headers = new Headers();
     // headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'JWT ' +  this.authentication.token);
-
+    // headers.append('Authorization', 'JWT ' +  this.authentication.token);
+    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    console.log('pro', localStorage.getItem('token'));
     
     this.https.get(Config.api +'mydata/'+ this.username +'/' ,{ headers: headers })
     .subscribe(Res => {
@@ -54,7 +55,9 @@ private authentication
  
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'JWT ' +  this.authentication);
+    // headers.append('Authorization', 'JWT ' +  this.authentication);
+    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    console.log('pofile', localStorage.getItem('token'));
 
     this.https.get(Config.api + 'comprofile/' + this.username + '/', { headers: headers })
     

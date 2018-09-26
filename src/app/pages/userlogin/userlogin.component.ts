@@ -129,8 +129,8 @@ export class UserloginComponent implements OnInit {
                     
                 console.log(Res.json()['Results']);
                 this.hel = Res.json()['Results'];
-                this.massage = Res.json()['Message'];
-                localStorage.setItem('massage', this.massage);
+                // this.massage = Res.json()['Message'];
+                // localStorage.setItem('massage', this.massage);
                 console.log(this.massage);
                 this.tit = this.hel[0];
                 console.log(this.tit);
@@ -152,6 +152,11 @@ export class UserloginComponent implements OnInit {
                       localStorage.setItem('title', this.tit.title);
                     }
                     else if(this.role=="Deregulatedstate Vendor"){
+                      this.router.navigate(['/dashboards/' + this.username]);
+                      localStorage.setItem('username', this.username);
+                      localStorage.setItem('title', this.tit.title);
+  
+                      localStorage.setItem('username', this.word);
     
                     }
                   });
