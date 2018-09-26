@@ -269,7 +269,7 @@ export const AppRoutes: Routes = [
       //  canActivate: [AuthguardService], 
         children: [
             {
-                path: 'dashboard/:username',canActivate: [AuthguardService],
+                path: 'dashboard/:username',
                 loadChildren: './regulated/dashboard/dashboard.module#DashboardModule',
                // canActivate: [AuthguardService]
             },

@@ -25,6 +25,9 @@
   margin: 0;
   list-style: none;
  }
+.margin-nav70{
+  margin-top: -70px;
+}
 .body-margin{
   margin-top: 70px;
 }

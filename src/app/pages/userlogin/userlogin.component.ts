@@ -7,7 +7,8 @@ import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 import { SimpleGlobal } from 'ng2-simple-global';
 import { ResponseContentType } from '@angular/http/src/enums';
 import { Console } from '@angular/core/src/console';
-import {Observable} from "rxjs/Observable";
+import { Observable } from "rxjs/Observable";
+// import { Headers, Http, Response } from '@angular/http';
 import swal from 'sweetalert2';
 import { TOUCHEND_HIDE_DELAY } from '@angular/material';
 // import { HomeRoutes } from '../../home/home.routing';
@@ -41,11 +42,11 @@ declare interface User {
 })
 export class UserloginComponent implements OnInit {
   @ViewChild(RecaptchaComponent) captcha: RecaptchaComponent;
-  isCaptcha=false;
+  isCaptcha = false;
 
   public typeValidation: User;
   register: FormGroup;
-  staySignedIn:boolean=true;
+  staySignedIn: boolean = true;
   Email;
   login: FormGroup;
   type: FormGroup;
@@ -55,17 +56,25 @@ export class UserloginComponent implements OnInit {
   private nativeElement: Node;
   public username;
   password;
-  hide=true;
+  hide = true;
   islogin = true;
   i;
   isequal;
+  word;
+  role;
+  data: any = [];
+  Datarole: any;
+  hel: any = [];
+  currentUser;
+  massage;
+    tit: any = [];
   constructor(public router: Router, private element: ElementRef, private http: Http, private route: ActivatedRoute,
     private sg: SimpleGlobal, private _nav: Router, private _serv: UserLoginService, private formBuilder: FormBuilder, private https: HttpClient) {
     this.nativeElement = element.nativeElement;
     this.sidebarVisible = false;
 
   }
- 
+
   isFieldValid(form: FormGroup, field: string) {
     return !form.get(field).valid && form.get(field).touched;
   }
@@ -76,80 +85,135 @@ export class UserloginComponent implements OnInit {
       'has-feedback': this.isFieldValid(form, field)
     };
   }
+  fetchzip() {
+    console.log(this.username, "checl_role", localStorage.getItem('token'))
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    console.log('user_profile', localStorage.getItem('token'));
+    this.http.get(Config.api + 'check_role/' + this.username + '/', { headers: headers })
+
+      .subscribe(Res => {
+        this.data = Res.json();
+        console.log(this.data);
+        this.role = this.data.Role;
+        localStorage.setItem('role', this.role);
+      });
+
+  }
   onLogin() {
     if (this.captcha.getResponse()) {
       console.log('equ ok');
       // alert("login");
-      this.isequal=true;
-    if (this.username!='' || this.password!='') {
-     
-          this._serv.isactivated(this.login.value.username).subscribe(
-            data => {
-          this._serv.login(this.login.value.username, this.login.value.password).subscribe(
-            data => {
-              console.log(data);
-              swal({
-                type: 'success',
-                title: 'Successfully Logged in',
-                showConfirmButton: false,
-                timer: 1500
-                });
-             
-              this.router.navigate(['/userprofile']);
-             
-              localStorage.setItem('custum', this.username);
+      this.isequal = true;
+      if (this.username != '' || this.password != '') {
 
-            },
-            error => {
-              console.log(error);
-          
-              swal(
-                'Invalid',
-                'Username OR Password',
-                'error'
-              )
-           
-            });
+        this._serv.isactivated(this.login.value.username).subscribe(
+          data => {
+            this._serv.login(this.login.value.username, this.login.value.password).subscribe(
+              data => {
+                console.log(data);
+                // this.fetchzip();
+                console.log(this.username, "checl_role", localStorage.getItem('token'))
+                let headers = new Headers();
+                headers.append('Content-Type', 'application/json');
+                headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                console.log('user_profile', localStorage.getItem('token'));
+                this.http.get(Config.api + 'check_role/' + this.username + '/', { headers: headers })
+            
+                  .subscribe(Res => {
+                    this.Datarole = Res.json();
+                    console.log(this.Datarole);
+                    this.role = this.Datarole.Role;
+                    localStorage.setItem('role', this.role);
+                    
+                console.log(Res.json()['Results']);
+                this.hel = Res.json()['Results'];
+                this.massage = Res.json()['Message'];
+                localStorage.setItem('massage', this.massage);
+                console.log(this.massage);
+                this.tit = this.hel[0];
+                console.log(this.tit);
+                this.word = this.tit.title;
+                console.log(this.word);
+                // localStorage.setItem('user', this.word);
+                // localStorage.setItem('username', this.word.trim());
+                // localStorage.setItem('token', Res.json()['token']);
+                    if (this.role == "USER") {
+                      this.router.navigate(['/userprofile']);
+                      localStorage.setItem('custum', this.username);
+                    }
+                    else if(this.role=="Not Deregulatedstate Vendor"){
+                      // dashboard/:username
+                      // this.router.navigate(['/dashboard/:username']);
+                      this.router.navigate(['/dashboard/' + this.username]);
+                      // localStorage.setItem('change', this.username);
+                      localStorage.setItem('username', this.username);
+                      localStorage.setItem('title', this.tit.title);
+                    }
+                    else if(this.role=="Deregulatedstate Vendor"){
+    
+                    }
+                  });
+
+                swal({
+                  type: 'success',
+                  title: 'Successfully Logged in',
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              
+              },
+              error => {
+                console.log(error);
+
+                swal(
+                  'Invalid',
+                  'Username OR Password',
+                  'error'
+                )
+
+              });
           },
           error => {
-          
-           swal(
-             'Error',
-            'User does not exist Please Check Your email for activation registation',
-            'error'
-          )
+
+            swal(
+              'Error',
+              'User does not exist Please Check Your email for activation registation',
+              'error'
+            )
           }
         );
-      
+
+      }
+      else {
+        this.validateAllFormFields(this.login);
+      }
     }
     else {
-      this.validateAllFormFields(this.login);
+      this.captcha.reset();
+      this.isequal = false;
+      // this.islogin = true;
     }
-  }
-  else {
-    this.captcha.reset();
-    this.isequal = false;
-    // this.islogin = true;
-  }
-  if(this.staySignedIn == false){
-    localStorage.setItem('signed', 'false');
-    console.log(this.staySignedIn)
-  }
+    if (this.staySignedIn == false) {
+      localStorage.setItem('signed', 'false');
+      console.log(this.staySignedIn)
+    }
   }
   checked(event, i) {
     if (event.target.checked == true) {
-        console.log(event.target.checked)
-        this.staySignedIn=true;
+      console.log(event.target.checked)
+      this.staySignedIn = true;
     }
     else if (event.target.checked == false) {
-        console.log(event.target.checked)
-        this.staySignedIn=false;
+      console.log(event.target.checked)
+      this.staySignedIn = false;
 
     }
-   
-}
+
+  }
   foremail() {
-    
+
   }
   model: any = {};
   forgetpass(Email) {
@@ -160,20 +224,20 @@ export class UserloginComponent implements OnInit {
 
 
     headers.append('Content-Type', 'application/json');
-   
-    this.https.post(Config.api +'forget_password/' + this.username ,{ "email":Email}, { headers: headers })
-   
+
+    this.https.post(Config.api + 'forget_password/' + this.username, { "email": Email }, { headers: headers })
+
       .subscribe(Res => {
         this.router.navigate(['/forgetpassword/']);
         console.log(Res);
         // this.next = Res[0].next;
 
         console.log(this.username);
-       
+
       },
         error => {
           console.log(error);
-        //  this.toastr.error(error, null, {toastLife: 5000});
+          //  this.toastr.error(error, null, {toastLife: 5000});
           swal(
             'Invalid',
             'User Already Exist! or May be Some Error!',
@@ -181,11 +245,11 @@ export class UserloginComponent implements OnInit {
           )
 
         });
-    
+
 
   }
 
-  
+
   validateAllFormFields(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach(field => {
       // console.log(field);
@@ -201,18 +265,18 @@ export class UserloginComponent implements OnInit {
   resolved(captchaResponse: string) {
     console.log(`Resolved captcha with response ${captchaResponse}:`);
     this.recaptcha = captchaResponse;
-    }
+  }
   ngOnInit() {
     this.login = this.formBuilder.group({
       // To add a validator, we must first convert the string value into an array. The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.
       username: ['', Validators.compose([Validators.required])],
       // We can use more than one validator per field. If we want to use more than one validator we have to wrap our array of validators with a Validators.compose function. Here we are using a required, minimum length and maximum length validator.
       password: ['', Validators.compose([Validators.required])],
-      Email:['', Validators.compose([])],
-      staySignedIn:['', Validators.compose([])],
+      Email: ['', Validators.compose([])],
+      staySignedIn: ['', Validators.compose([])],
     });
 
-   
+
     var navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
 
@@ -221,7 +285,7 @@ export class UserloginComponent implements OnInit {
       $('.card').removeClass('card-hidden');
     }, 700);
   }
-  
+
   sidebarToggle() {
     var toggleButton = this.toggleButton;
     var body = document.getElementsByTagName('body')[0];

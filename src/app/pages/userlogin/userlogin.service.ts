@@ -27,25 +27,19 @@ export class UserLoginService {
                 // let decoded = JWT(response.json().token);
 
                 // let user = { username: username, token: response.json().token };
-                let user = { username:username, token: response.json()['access']};
-                        console.log( user);
-                
+                let user = { username: username, token: response.json()['access'] };
+                console.log(user);
+
                 if (user && user.token) {
                     localStorage.setItem('currentcustomer', JSON.stringify(user));
                     localStorage.setItem('token', response.json()['access']);
                     // console.log("asda", localStorage.setItem('token', response.json().access))
-                    let xyz =localStorage.getItem('currentUser');
+                    let xyz = localStorage.getItem('currentUser');
                     // console.log ("usman",decoded)
-                }
-                else{
-                    localStorage.setItem('currentcustomer', JSON.stringify(user));
-                    localStorage.setItem('token', response.json()['refresh']);
-                    // console.log("asda", localStorage.setItem('token', response.json().access))
-                    let xyz =localStorage.getItem('currentUser');
                 }
             });
     }
-
+   
 
     login_authenticate(username: string, password: string) {
         return this._http5.post(Config.api + 'api/token/', {
@@ -98,14 +92,14 @@ export class UserLoginService {
 
     activate(uid) {
         console.log(uid)
-       return this._http5.get(Config.api+'activate/' + uid ).map((response: Response) => response.json());
-       // return this.http.get('http://192.168.30.52:9000/choice/zipcodedata/'+id+'?page='+page).map((response: Response) => response.json());
-      }
-      isactivated(username) {
+        return this._http5.get(Config.api + 'activate/' + uid).map((response: Response) => response.json());
+        // return this.http.get('http://192.168.30.52:9000/choice/zipcodedata/'+id+'?page='+page).map((response: Response) => response.json());
+    }
+    isactivated(username) {
         console.log(username)
-       return this._http5.get(Config.api+'isactivated/' + username ).map((response: Response) => response.json());
-       // return this.http.get('http://192.168.30.52:9000/choice/zipcodedata/'+id+'?page='+page).map((response: Response) => response.json());
-      }
+        return this._http5.get(Config.api + 'isactivated/' + username).map((response: Response) => response.json());
+        // return this.http.get('http://192.168.30.52:9000/choice/zipcodedata/'+id+'?page='+page).map((response: Response) => response.json());
+    }
 
 
 }

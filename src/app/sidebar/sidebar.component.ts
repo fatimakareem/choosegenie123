@@ -211,10 +211,11 @@ export class SidebarComponent implements OnInit {
        
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        headers.append('Authorization', 'JWT ' +  this.authentication.toString());
+        // headers.append('Authorization', 'JWT ' +  this.authentication.toString());
+        headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
 
         
-        this.http.get(Config.api +'mydata/'+ this.username +'/' ,{ headers: headers })
+        this.http.get(Config.api +'mydata/'+ this.username.trim() +'/' ,{ headers: headers })
         .subscribe(Res => {
         this.sg['products'] = Res.json()['Results'];
         
