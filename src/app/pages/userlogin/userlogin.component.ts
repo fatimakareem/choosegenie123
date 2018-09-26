@@ -132,7 +132,7 @@ export class UserloginComponent implements OnInit {
                 // this.massage = Res.json()['Message'];
                 // localStorage.setItem('massage', this.massage);
                 console.log(this.massage);
-                this.tit = this.hel[0];
+                this.tit = this.hel;
                 console.log(this.tit);
                 this.word = this.tit.title;
                 console.log(this.word);
