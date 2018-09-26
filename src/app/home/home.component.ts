@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { HomeService } from "./home.service";
@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit {
   slideConfig = {
     "slidesToShow": 5,
     "slidesToScroll": 5,
+    autoplay:'true',
     prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
     nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
     responsive: [
@@ -71,7 +72,7 @@ export class HomeComponent implements OnInit {
     ]
   };
   constructor(private obj: HomeService, private router: Router, private route: ActivatedRoute,private https: HttpClient, private http: HttpClient, public sg: SimpleGlobal, private data: DataService, private Http: Http) {
-
+    
   }
 
 
@@ -99,6 +100,12 @@ export class HomeComponent implements OnInit {
   ]);
   location = {};
   postalCode;
+  @HostListener('window:beforeunload', ['$event'])
+beforeunloadHandler(event) {
+   
+    localStorage.removeItem('zip');
+}
+
   setPosition(position) {
     if(!localStorage.getItem('zip')){
     let headers = new Headers();
@@ -157,11 +164,12 @@ this.state=data['state'];
         this.zipcodeexist = data['message']
         if (this.zipcodeexist == "InValid Zipcode") {
           swal({
-            text: "Invalid Zipcode",
+            text: "Please Enter Valid Zipcode",
             title: "Choice Genie",
             type: "error",
             showConfirmButton: false,
             timer: 1200,
+            width: '512px',
             confirmButtonText: "OK",
 
           })
@@ -178,10 +186,11 @@ this.state=data['state'];
         error => {
           console.log(error);
           swal({
-            text: "Invalid Zipcode",
+            text: "Please Enter Valid Zipcode",
             title: "Choice Genie",
             type: "error",
             showConfirmButton: false,
+            width: '512px',
             timer: 1200,
             confirmButtonText: "OK",
 
@@ -207,11 +216,12 @@ this.state=data['state'];
         this.zipcodeexist = data['message']
         if (this.zipcodeexist == "InValid Zipcode") {
           swal({
-            text: "Invalid Zipcode",
+            text: "Please Enter Valid Zipcode",
             title: "Choice Genie",
             type: "error",
             showConfirmButton: false,
             timer: 1200,
+            width: '512px',
             confirmButtonText: "OK",
 
           })
@@ -228,11 +238,12 @@ this.state=data['state'];
         error => {
           console.log(error);
           swal({
-            text: "Invalid Zipcode",
+            text: "Please Enter Valid Zipcode",
             title: "Choice Genie",
             type: "error",
             showConfirmButton: false,
             timer: 1200,
+            width: '512px',
             confirmButtonText: "OK",
 
           })
@@ -252,11 +263,12 @@ this.state=data['state'];
         this.zipcodeexist = data['message']
         if (this.zipcodeexist == "InValid Zipcode") {
           swal({
-            text: "InValid Zipcode",
+            text: "Please Enter Valid Zipcode",
             title: "Choice Genie",
             type: "error",
             showConfirmButton: false,
             timer: 1200,
+            width: '512px',
             confirmButtonText: "OK",
 
           })
@@ -273,11 +285,12 @@ this.state=data['state'];
         error => {
           console.log(error);
           swal({
-            text: "InValid Zipcode",
+            text: "Please Enter Valid Zipcode",
             title: "Choice Genie",
             type: "error",
             showConfirmButton: false,
             timer: 1200,
+            width: '512px',
             confirmButtonText: "OK",
 
           })
@@ -362,13 +375,15 @@ this.state=data['state'];
         console.log(data['message'], 'hhhhhhhhhhhhhhh')
 this.state=data['state'];
         this.zipcodeexist = data['message']
+
         if (this.zipcodeexist == "InValid Zipcode") {
           swal({
-            text: "InValid Zipcode",
+            text: "Please Enter Valid Zipcode",
             title: "Choice Genie",
             type: "error",
             showConfirmButton: false,
             timer: 1200,
+            width: '512px',
             confirmButtonText: "OK",
 
           })
@@ -389,11 +404,12 @@ this.state=data['state'];
         error => {
           console.log(error);
           swal({
-            text: "InValid Zipcode",
+            text: "Please Enter Valid Zipcode",
             title: "Choice Genie",
             type: "error",
             showConfirmButton: false,
             timer: 1200,
+            width: '512px',
             confirmButtonText: "OK",
 
           })

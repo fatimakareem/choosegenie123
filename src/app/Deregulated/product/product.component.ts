@@ -142,6 +142,7 @@ export class ProductComponent implements OnInit,OnDestroy {
     slideConfig = {
       "slidesToShow": 4,
       "slidesToScroll": 4,
+      autoplay:'true',
       prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
       nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
       responsive: [
@@ -324,14 +325,14 @@ this.zipwithcity();
             console.log(id)
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
-            this.http.post(Config.api + 'reviews/' + this.zip_code + '/' + this.user, JSON.stringify({
+            this.http.post(Config.api + 'reviews/' + this.comtitle , JSON.stringify({
 
                 "rate": this.rate,
                 "company_name": this.comtitle,
                 "comment": comt,
                 "user": this.user,
                 "servicearea": this.servicearea,
-                "profile": this.profile_logo
+                // "profile": this.profile_logo
             }
 
             ), { headers: headers })

@@ -5509,10 +5509,12 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   background: none;
     border: none;
     /* margin: 0px 40px; */
-    font-size: 16px;
+    /*font-size: 16px;*/
+    font-size: 15px;
     font-weight: bold;
     margin: 0px;
-    margin-left: 19px;
+    /*margin-left: 19px;*/
+  margin-left: 6px;
 }
 .sort-btn:focus{
   color: #c00;
@@ -6589,13 +6591,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 
 
-  .product-label {
-    font-size: 11px;
-  }
-  .sort-btn {
-    font-size: 11px;
-    margin-left: 5px;
-  }
+
   .print {
     margin-right: 3px;
     padding: 5px 5px;
@@ -7353,10 +7349,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .product-label {
     font-size: 14px;
   }
-  .sort-btn {
-    font-size: 14px;
-    margin-left: 12px;
-  }
+
   .custom-width {
     max-width: 392px;
   }
@@ -7462,10 +7455,6 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .bottomMenu {
     width: 84%;
   }
-  .sort-btn {
-    font-size: 13px;
-    margin-left: 6px;
-}
 .custom-width {
   max-width: 342px;
 }
@@ -7531,9 +7520,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .mat-horizontal-content-container {
     padding: 0 19px 19px 19px;
   }
-  .sort-bar-height {
-    height: 131px;
-  }
+
   .product-main{
     overflow-x: hidden;
   }
@@ -7546,6 +7533,14 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 */
 @media (min-width: 1368px) {
+  .sort-btn {
+  font-size: 14px;
+  }
+  .product-labe{
+    font-size: 15px;
+  }
+
+
   .position{
     margin: -37px 14px 0 1px;
     padding: 0 !important;
@@ -7565,6 +7560,14 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 /* ##Screen = 1281px to higher resolution desktops */
 
 @media (min-width: 1281px) and (max-width: 1366px){
+  .sort-btn {
+    font-size: 14px;
+  }
+  .product-label {
+    font-size: 14px;
+  }
+
+
 .sh-btm-pagination {
   margin: 10px 0px 10px 20px !important;
   max-width: 97.5% !important;
@@ -7705,7 +7708,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
   .sort-btn{
     font-size: 14px;
-    margin-left: 10px;
+    margin-left: 3px;
+  }
+  .product-label {
+    font-size: 14px;
   }
   .sort-btn i {
     vertical-align: top;
@@ -7821,8 +7827,8 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     font-size: 12px;
   }
   .sort-btn{
-    font-size: 12px;
-    margin-left: 9px;
+    font-size: 11px;
+    margin-left: 0px;
   }
   .pagination > li > a, .pagination > li > span {
     padding: 0px 5px !important;
@@ -8063,10 +8069,23 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   ##Screen = B/w 481px to 767px
 */
 
-@media (min-width: 481px) and (max-width: 767px) {
+@media (min-width: 481px) and (max-width: 768px) {
 
-
-
+  .sort-bar-height {
+    height: 74px;
+  }
+  .prod-select-list {
+    padding: 0px 16px !important;
+  }
+  .compare-print{
+    padding: 0px 16px !important;
+  }
+  .sort-btn {
+    font-size: 14px;
+  }
+  .product-label {
+    font-size: 14px;
+  }
 }
 
 /*
@@ -8081,6 +8100,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
 }
 @media (min-width: 325px) and (max-width: 375px) {
+  .sort-btn {
+    font-size: 13px;
+    margin-left: 5px;
+  }
   .pric-range-box input {
     width: 37px !important;
   }
@@ -8094,6 +8117,27 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
   .sidrbar-rating {
     width: 152px;
+  }
+  .sort-btn {
+    font-size: 11px;
+    margin-left: 4px;
+  }
+  .product-label {
+    font-size: 11px;
+  }
+  .pagination > li > a, .pagination > li > span {
+    padding: 2px 5px !important;
+    min-width: 24px !important;
+    height: 26px !important;
+  }
+  .pagination > li > a, .pagination > li > span{
+    font-size: 14px !important;
+  }
+  .sort-bar-height {
+    height: 119px;
+  }
+  .product-main {
+    margin-top: 0px;
   }
 }
                                                     /*New Quries End*/

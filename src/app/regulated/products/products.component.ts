@@ -410,7 +410,7 @@ country;
                 "comment": comt,
                 "user": this.user,
                 "servicearea": this.servicearea,
-                "profile": this.profile_logo
+                // "profile": this.profile_logo
             }
 
             ), { headers: headers })

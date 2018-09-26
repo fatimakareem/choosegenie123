@@ -471,9 +471,9 @@
 
           <div class="position" *ngIf="product" >
             <div class="card sort-bar-height" >
-              <div class="product-page-bar">
-                <div class="sh-top-pagination" >
-                <div class=" col-lg-5 col-md-5 col-sm-5 col-xs-12 align padding">
+              <div class="product-page-bar row sh-top-pagination">
+
+                <div class="col-lg-4 col-md-6 col-sm-5 col-xs-12 align padding">
                   <label class="product-label ">SORT BY:</label>
                   <button class="sort-btn " [(ngModel)]=sort name="sort" value="sort" type="button" (click)="checked20($event,i)">
                     RENEWABLE
@@ -491,37 +491,7 @@
 
                   </button>
                 </div>
-
-                <!-- <ul class="col-lg-3 col-md-3 col-sm-12 pagination" *ngIf="pager.pages && pager.pages.length">
-
-                  <li [ngClass]="{hide:pager.currentPage === 1}">
-                    <a (click)="setPage(pager.currentPage - 1)" class="view-plan-details" class="btn bd-color">
-                      <i class="fa fa-angle-left"></i>
-                    </a>
-                  </li>
-
-
-                  <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                    <a (click)="setPage(page)" class="view-plan-details">{{page}}</a>
-                  </li>
-
-                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
-                    <a (click)="setPage(pager.currentPage + 3)">...</a>
-                  </li>
-
-                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
-
-                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
-                  </li>
-                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
-                      <i class="fa fa-angle-right"></i>
-                    </a>
-                  </li>
-
-                </ul> -->
-                <ul class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
+                <ul class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
 
                   <li [ngClass]="{hide:pager.currentPage === 1}">
                     <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
@@ -550,8 +520,31 @@
                   </li>
 
                 </ul>
+                <!-- <ul class="col-lg-3 col-md-3 col-sm-12 pagination" *ngIf="pager.pages && pager.pages.length">
+                  <li [ngClass]="{hide:pager.currentPage === 1}">
+                    <a (click)="setPage(pager.currentPage - 1)" class="view-plan-details" class="btn bd-color">
+                      <i class="fa fa-angle-left"></i>
+                    </a>
+                  </li>
 
-                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 prod-select-list sec-list">
+
+                  <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                    <a (click)="setPage(page)" class="view-plan-details">{{page}}</a>
+                  </li>
+
+                  <li *ngIf="(pager.totalPages - pager.startPage) > 3 ">
+                    <a (click)="setPage(pager.startPage + 3)">...</a>
+                  </li>
+
+                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
+                      <i class="fa fa-angle-right"></i>
+                    </a>
+                  </li>
+
+                </ul> -->
+
+                <div class="col-lg-2 col-md-6 col-sm-4 col-xs-6 prod-select-list sec-list">
                   <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
                   <mat-form-field>
 
@@ -567,22 +560,21 @@
 
 
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 compare-print">
 
-                  <button class="print btn-fill" title="Print plan results" onclick="window.print();">
+                <div class="col-lg-2 col-md-6 col-sm-2 col-xs-6 compare-print">
+                  <button class="print btn-fill">
                     <i class="fa fa-print"></i>
                   </button>
                   <button class="print btn-fill"  title="Export results to Excel" (click)="exportAsXLSX()">
-                      <i class="fa fa-file-excel-o" style="color:white"></i>
-                    </button>
+                    <i class="fa fa-file-excel-o" style="color:white"></i>
+                  </button>
                   <button class="Compare btn-fill" (click)="Comapreproduct(1)">Compare</button>
 
 
 
                 </div>
-                <!-- <a target="_blank"   onclick="window.print();" class="print-grid-temp" title="Print plan results">
-    <img alt="print" src="/Content/images/printer.png" width="16" height="16"></a> -->
-                </div>
+
+
               </div>
 
             </div>
@@ -1028,7 +1020,7 @@
         <div class="card custom-width sort-bar-height" *ngIf="product">
           <div class="product-page-bar row sh-top-pagination">
 
-            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 align padding">
+            <div class="col-lg-4 col-md-6 col-sm-5 col-xs-12 align padding">
               <label class="product-label ">SORT BY:</label>
               <button class="sort-btn " [(ngModel)]=sort name="sort" value="sort" type="button" (click)="checked20($event,i)">
                 RENEWABLE
@@ -1046,7 +1038,7 @@
 
               </button>
             </div>
-            <ul class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
+            <ul class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
 
               <li [ngClass]="{hide:pager.currentPage === 1}">
                 <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
@@ -1099,7 +1091,7 @@
 
             </ul> -->
 
-            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 prod-select-list sec-list">
+            <div class="col-lg-2 col-md-6 col-sm-4 col-xs-6 prod-select-list sec-list">
               <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
               <mat-form-field>
 
@@ -1116,7 +1108,7 @@
 
             </div>
 
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 compare-print">
+            <div class="col-lg-2 col-md-6 col-sm-2 col-xs-6 compare-print">
               <button class="print btn-fill">
                 <i class="fa fa-print"></i>
               </button>
