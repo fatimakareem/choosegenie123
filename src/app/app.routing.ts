@@ -192,15 +192,15 @@ export const AppRoutes: Routes = [
         component: ConsumeradminComponent,
         children: [
             {
-                path: 'consumerdashboard',canActivate: [Authgaurd2Service],
+                path: 'consumerdashboard',canActivate: [AuthguardService],
                 loadChildren: './consumerdashboard/consumerdashboard.module#ConsumerDashboardModule'
             },
             {
-                path: 'userprofile',canActivate: [Authgaurd2Service],
+                path: 'userprofile',canActivate: [AuthguardService],
                 loadChildren: './user-profile/user-profile.module#UserModule'
             },
             {
-                path: 'ChangePassword',canActivate: [Authgaurd2Service],
+                path: 'ChangePassword',canActivate: [AuthguardService],
                 loadChildren: './changepassword/changepassword.module#ChangePasswordModule'
             },
             // {
@@ -269,37 +269,37 @@ export const AppRoutes: Routes = [
       //  canActivate: [AuthguardService], 
         children: [
             {
-                path: 'dashboard/:username',
+                path: 'dashboard/:username',canActivate: [AuthguardService],
                 loadChildren: './regulated/dashboard/dashboard.module#DashboardModule',
                // canActivate: [AuthguardService]
             },
             {
-                path: 'dashboards/:username',
+                path: 'dashboards/:username',canActivate: [AuthguardService],
                 loadChildren: './Deregulated/dashboards/dashboards.module#DashboardsModule',
                // canActivate: [AuthguardService]
             },
             {
-                path: "new-product", 
+                path: "new-product", canActivate: [AuthguardService],
                 loadChildren: './admin/new-product/new-product.module#NewProductModule'
             },
             {
-                path: "new-products", 
+                path: "new-products", canActivate: [AuthguardService],
                 loadChildren: './Deregulated/new-products/new-products.module#NewProductsModule'
             },
             {
-                path: "inactive-product", 
+                path: "inactive-product", canActivate: [AuthguardService],
                 loadChildren: './regulated/inactive-product/inactive-product.module#InactiveProductModule'
             },
             {
-                path: "inactive-products", 
+                path: "inactive-products", canActivate: [AuthguardService],
                 loadChildren: './Deregulated/inactive-products/inactive-products.module#InactiveProductsModule'
             },
             {
-                path: 'company-profile', 
+                path: 'company-profile', canActivate: [AuthguardService],
                 loadChildren: './com-profile/com-profile.module#ComProfileModule'
             },
             {
-                path: 'ChangePassword1', 
+                path: 'ChangePassword1', canActivate: [AuthguardService],
                 loadChildren: './changepassword/changepassword.module#ChangePasswordModule'
             },
             {

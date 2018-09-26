@@ -6,7 +6,7 @@ export class Authgaurd4Service {
   constructor(private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (!localStorage.getItem('currentcustomer') && !localStorage.getItem('currentadmin') && !localStorage.getItem('currentUser')) {
+    if (!localStorage.getItem('username') && !localStorage.getItem('currentadmin')) {
 // logged in so return true
       return true;
     }
