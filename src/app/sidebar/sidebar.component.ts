@@ -187,23 +187,23 @@ export class SidebarComponent implements OnInit {
     
       }
       pro() {
-        if(localStorage.getItem('massage') == "Successfully Login As Not Deregulatedstate vendor"){
+        if(localStorage.getItem('role') == "Not Deregulatedstate Vendor"){
           this.routerLink.navigate(['/new-product']);}
-          else if(localStorage.getItem('massage') == "Successfully Login As Deregulatedstate vendor"){
+          else if(localStorage.getItem('role') == "Deregulatedstate Vendor"){
               this.routerLink.navigate(['/new-products']);
           }
       }
       moving() {
-        if(localStorage.getItem('massage') == "Successfully Login As Not Deregulatedstate vendor"){
+        if(localStorage.getItem('role') == "Not Deregulatedstate Vendor"){
           this.router.navigate(['/dashboard/' + this.username]);}
-          else if(localStorage.getItem('massage') == "Successfully Login As Deregulatedstate vendor"){
+          else if(localStorage.getItem('role') == "Deregulatedstate Vendor"){
               this.router.navigate(['/dashboards/' + this.username]);
           }
       }
       move(){
-        if(localStorage.getItem('massage') == "Successfully Login As Not Deregulatedstate vendor"){
+        if(localStorage.getItem('role') == "Not Deregulatedstate Vendor"){
             this.router.navigate(['/inactive-product']);}
-            else if(localStorage.getItem('massage') == "Successfully Login As Deregulatedstate vendor"){
+            else if(localStorage.getItem('role') == "Deregulatedstate Vendor"){
                 this.router.navigate(['/inactive-products']);
             }
       }
@@ -230,7 +230,7 @@ export class SidebarComponent implements OnInit {
     //   }
     public user;
     ngOnInit() {
-        this.massage = localStorage.getItem('massage')
+        this.massage = localStorage.getItem('role')
        
         this.user = localStorage.getItem('user')
         this.username = localStorage.getItem('username')

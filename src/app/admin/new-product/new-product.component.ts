@@ -102,7 +102,9 @@ title;
        
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'JWT ' +  this.authentication);
+    // headers.append('Authorization', 'JWT ' +  this.authentication);
+    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    console.log('new product', localStorage.getItem('token'));
     this.https.get(Config.api+'mydata/'+ this.username +'/' ,{ headers: headers })
     .subscribe(Res => {
     this.sg['products'] = Res.json()['Results'];

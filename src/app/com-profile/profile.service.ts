@@ -13,7 +13,9 @@ export class ProfileService {
     console.log()
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'JWT ' +  this.authentication.toString());
+    // headers.append('Authorization', 'JWT ' +  this.authentication.toString());
+    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    console.log('pofile', localStorage.getItem('token'));
 
     return this.http.put(Config.api + 'upcomprofile/'+ updatedREP +'/' , JSON.stringify({
      

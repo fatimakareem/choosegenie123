@@ -274,32 +274,32 @@ export const AppRoutes: Routes = [
                // canActivate: [AuthguardService]
             },
             {
-                path: 'dashboards/:username',canActivate: [AuthguardService],
+                path: 'dashboards/:username',
                 loadChildren: './Deregulated/dashboards/dashboards.module#DashboardsModule',
                // canActivate: [AuthguardService]
             },
             {
-                path: "new-product",canActivate: [AuthguardService],
+                path: "new-product", 
                 loadChildren: './admin/new-product/new-product.module#NewProductModule'
             },
             {
-                path: "new-products",canActivate: [AuthguardService],
+                path: "new-products", 
                 loadChildren: './Deregulated/new-products/new-products.module#NewProductsModule'
             },
             {
-                path: "inactive-product",canActivate: [AuthguardService],
+                path: "inactive-product", 
                 loadChildren: './regulated/inactive-product/inactive-product.module#InactiveProductModule'
             },
             {
-                path: "inactive-products",canActivate: [AuthguardService],
+                path: "inactive-products", 
                 loadChildren: './Deregulated/inactive-products/inactive-products.module#InactiveProductsModule'
             },
             {
-                path: 'company-profile',canActivate: [AuthguardService],
+                path: 'company-profile', 
                 loadChildren: './com-profile/com-profile.module#ComProfileModule'
             },
             {
-                path: 'ChangePassword1',canActivate: [AuthguardService],
+                path: 'ChangePassword1', 
                 loadChildren: './changepassword/changepassword.module#ChangePasswordModule'
             },
             {

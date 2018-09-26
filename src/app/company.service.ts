@@ -25,7 +25,7 @@ username;
      let headers = new Headers();
     //  headers.append('Authorization', 'JWT ' +  localStorage.getItem('token').toString());
     headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
-    console.log('user_profile', localStorage.getItem('token'));
+    console.log('deregulatedstate', localStorage.getItem('token'));
       return this.https.get(Config.api + 'titlescompanies/'+ this.username +'?page='+page, {headers: headers} ) .map((response: Response)  => response);
   
       }
