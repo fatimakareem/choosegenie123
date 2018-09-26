@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
 //   new this.google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
 // }
 googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.VERTICAL}, 'google_translate_element');
 }
 
   
@@ -52,48 +52,40 @@ googleTranslateElementInit() {
   
   
   checked_login() {
-    if (localStorage.getItem('custum')) {
-      let local = localStorage.getItem('custum');
+    if (localStorage.getItem('username')) {
+      let local = localStorage.getItem('username');
       return true;
     }
-    else {
+    else if(!localStorage.getItem('username')){
       return false;
     }
+    
   }
-  check_login() {
-    if (localStorage.getItem('user')) {
-      let local = localStorage.getItem('user');
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
+  
   check_login1() {
     if (localStorage.getItem('currentadmin')) {
       let local = localStorage.getItem('currentadmin');
       return true;
     }
-    else {
-      return false;
-    }
+   
   }
-  move() {
-    this.router.navigate(['/consumerdashboard/']);
-  }
+  
   moving() {
-    if (localStorage.getItem('massage') == "Successfully Login As Not Deregulatedstate vendor") {
+    if (localStorage.getItem('role') == "Not Deregulatedstate Vendor") {
       this.router.navigate(['/dashboard/' + this.username]);
     }
-    else if (localStorage.getItem('massage') == "Successfully Login As Deregulatedstate vendor") {
+    else if (localStorage.getItem('role') == "Deregulatedstate Vendor") {
       this.router.navigate(['/dashboards/' + this.username]);
+    }
+    else if(localStorage.getItem('role') =="USER"){
+      this.router.navigate(['/consumerdashboard/']);
     }
   }
   moving1() {
     this.router.navigate(['/supermaindashboard']);
   }
   ngOnInit() {
-    this.massage = localStorage.getItem('massage')
+    
     const mainSearch = $('.main-search');
     const formSearch = $('.form-search');
 
@@ -114,31 +106,16 @@ googleTranslateElementInit() {
       $(formSearch).removeClass('flipInX');
     });
 this.admin=localStorage.getItem('currentadmin')
-    this.username = localStorage.getItem('user')
+    this.username = localStorage.getItem('username')
     console.log(this.username);
-    this.customer = localStorage.getItem('custum')
+
   }
   logout() {
-    localStorage.removeItem('currentadmin');
+    localStorage.clear();
     this.router.navigate(['/']);
 
   }
-  vendorlogout() {
-    localStorage.removeItem('massage');
-    localStorage.removeItem('user');
-
-    localStorage.removeItem('username');
-    localStorage.removeItem('change');
-    localStorage.removeItem('currentUser');
-
-    this.router.navigate(['/']);
-
-  }
-  checked_logout() {
-    localStorage.removeItem('custum');
-    localStorage.removeItem('currentcustomer');
-    this.router.navigate(['/']);
-  }
+ 
   submit(event, query) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');

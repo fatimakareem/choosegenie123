@@ -189,6 +189,7 @@ console.log(this.tit)
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     
+    
     this.http.get(Config.api +'companytitle/', { headers: headers })
 
     
