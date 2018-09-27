@@ -89,7 +89,7 @@ export class UserloginComponent implements OnInit {
     console.log(this.username, "checl_role", localStorage.getItem('token'))
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('user_profile', localStorage.getItem('token'));
     this.http.get(Config.api + 'check_role/' + this.username + '/', { headers: headers })
 
@@ -117,7 +117,8 @@ export class UserloginComponent implements OnInit {
                 console.log(this.username, "checl_role", localStorage.getItem('token'))
                 let headers = new Headers();
                 headers.append('Content-Type', 'application/json');
-                headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+               headers.append('Authorization', 'JWT ' +  localStorage.getItem('token'));
+                // headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
                 console.log('user_profile', localStorage.getItem('token'));
                 this.http.get(Config.api + 'check_role/' + this.username + '/', { headers: headers })
             
@@ -131,19 +132,20 @@ export class UserloginComponent implements OnInit {
                 this.hel = Res.json()['Results'];
                 // this.massage = Res.json()['Message'];
                 // localStorage.setItem('massage', this.massage);
-                console.log(this.massage);
-                this.tit = this.hel;
-                console.log(this.tit);
-                this.word = this.tit.title;
-                console.log(this.word);
+              
                 // localStorage.setItem('user', this.word);
                 // localStorage.setItem('username', this.word.trim());
                 // localStorage.setItem('token', Res.json()['token']);
                     if (this.role == "USER") {
                       this.router.navigate(['/userprofile']);
-                      localStorage.setItem('custum', this.username);
+                      localStorage.setItem('username', this.username);
                     }
                     else if(this.role=="Not Deregulatedstate Vendor"){
+                      console.log(this.massage);
+                      this.tit = this.hel[0];
+                      console.log(this.tit);
+                      this.word = this.tit.title;
+                      console.log(this.word);
                       // dashboard/:username
                       // this.router.navigate(['/dashboard/:username']);
                       this.router.navigate(['/dashboard/' + this.username]);
@@ -152,6 +154,11 @@ export class UserloginComponent implements OnInit {
                       localStorage.setItem('title', this.tit.title);
                     }
                     else if(this.role=="Deregulatedstate Vendor"){
+                      console.log(this.massage);
+                      this.tit = this.hel[0];
+                      console.log(this.tit);
+                      this.word = this.tit.title;
+                      console.log(this.word);
                       this.router.navigate(['/dashboards/' + this.username]);
                       localStorage.setItem('username', this.username);
                       localStorage.setItem('title', this.tit.title);

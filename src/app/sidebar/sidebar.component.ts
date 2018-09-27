@@ -125,7 +125,7 @@ export class SidebarComponent implements OnInit {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         // headers.append('Authorization', 'JWT ' +  this.authentication.toString());
-        headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+        headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
 
         
         this.http.get(Config.api +'mydata/'+ this.username.trim() +'/' ,{ headers: headers })

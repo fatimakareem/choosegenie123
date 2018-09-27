@@ -7,7 +7,7 @@ export class UpdateService {
   public username;
   private authentication = localStorage.getItem('token');
   constructor(private http: Http) {
-    this.username = localStorage.getItem('custum');
+    this.username = localStorage.getItem('username');
   }
 
   // item.id,item.zipcode,item.utilityarea,item.title,item.Phone,item.state,item.country,item.status,item.user
@@ -20,7 +20,7 @@ export class UpdateService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     // headers.append('Authorization', 'JWT ' +  this.authentication);
-    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log("userupdate", localStorage.getItem('token'));
     return this.http.put(Config.api + 'user_profile/' + this.username + '/', JSON.stringify({
 

@@ -75,7 +75,7 @@ export class UserProfileComponent implements OnInit {
 
 
   ngOnInit() {
-    this.username = localStorage.getItem('custum');
+    this.username = localStorage.getItem('username');
     this.fetchzip();
     this.signupForm = this.fb.group({
       'name': ['', Validators.compose([Validators.required])],
@@ -153,7 +153,7 @@ export class UserProfileComponent implements OnInit {
     console.log(this.username)
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('user_profile', localStorage.getItem('token'));
     this.https.get(Config.api + 'user_profile/' + this.username + '/', { headers: headers })
 

@@ -15,7 +15,7 @@ username;
   searchProduct(title,page) {
     console.log(this.username)
    const headers = new Headers();
-   headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+   headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
    console.log('dashboard', localStorage.getItem('token'));
   //  headers.append('Authorization', 'JWT ' +  localStorage.getItem('token').toString());
     return this.https.get(Config.api + 'mydata/'+ this.username.trim() +'/'+'?page='+page, {headers: headers} ) .map((response: Response)  => response);
@@ -24,9 +24,9 @@ username;
       console.log(this.username)
      let headers = new Headers();
     //  headers.append('Authorization', 'JWT ' +  localStorage.getItem('token').toString());
-    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('deregulatedstate', localStorage.getItem('token'));
-      return this.https.get(Config.api + 'titlescompanies/'+ this.username +'?page='+page, {headers: headers} ) .map((response: Response)  => response);
+      return this.https.get(Config.api + 'titlescompanies/'+ this.username.trim() +'?page='+page, {headers: headers} ) .map((response: Response)  => response);
   
       }
    

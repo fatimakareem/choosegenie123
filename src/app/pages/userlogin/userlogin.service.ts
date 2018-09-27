@@ -21,18 +21,18 @@ export class UserLoginService {
         headers.append('Content-Type', 'application/json');
         //return this.http.get(Config.api+'data_against_zipcode/'+id+'?page='+page).map((response: Response) => response.json());
         // return this._http5.post(Config.api+'user-token-auth/',
-        return this._http5.post(Config.api + 'api/token/',
+        return this._http5.post(Config.api + 'usersignin/',
             JSON.stringify({ username: username, password: password }), { headers: headers })
             .map((response: Response) => {
-                // let decoded = JWT(response.json().token);
+                let decoded = JWT(response.json()['token']);
 
                 // let user = { username: username, token: response.json().token };
-                let user = { username: username, token: response.json()['access'] };
-                console.log(user);
+                let user = { username: username, token: response.json()['token'] };
+                console.log("usernameshow",user);
 
                 if (user && user.token) {
                     localStorage.setItem('currentcustomer', JSON.stringify(user));
-                    localStorage.setItem('token', response.json()['access']);
+                    localStorage.setItem('token', response.json()['token']);
                     // console.log("asda", localStorage.setItem('token', response.json().access))
                     let xyz = localStorage.getItem('currentUser');
                     // console.log ("usman",decoded)

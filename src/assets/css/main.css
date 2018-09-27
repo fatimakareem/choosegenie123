@@ -1826,6 +1826,9 @@ padding: 7px 0px 7px 10px !important;
   display: inline-block;
   vertical-align: top;
   /* margin: 0 10px 0 0; */
+    list-style: none;
+    float: left;
+    width: 56px;
   }
 
   .list-social li a {
@@ -3401,7 +3404,7 @@ li.pinterest:hover {
 
 /* header css fixed start*/
 .navbar-nav > li > a {
-  font-size:19px;
+  font-size:18px;
 }
 .nav-home ul li :hover {
   color: #e53935;
@@ -3945,7 +3948,7 @@ h1, .entry-title-2 {
   font-size: 21px;
   font-weight: 700;
   color: #333;
-  margin-top: 10px !important;
+  /*margin-top: 10px !important;*/
 }
 .vander-signup-heading {
   background: #cc0000 !important;
@@ -4372,7 +4375,7 @@ article .article-info a {
 
 /** footer **/
 .list-social li a img{
-  width: 75%;
+  width: 86%;
 }
 footer {
   padding:20px 0px;
@@ -4851,7 +4854,7 @@ canvas {
   font-size: 45px;
   }
   .rating-box{
-  padding:20px;
+  /*padding:20px;*/
   border:1px solid #B0AFAF;
   border-radius:10px;
   text-align:center;
@@ -4860,6 +4863,7 @@ canvas {
   }
   .rating-box h2{
   color:#CC0000;
+    margin-top: 5px 0px 0px;
   }
   .plan-info-box{
   text-align:center;
@@ -5763,6 +5767,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .sidebar-cust ul li{
   list-style: none;
+  margin-bottom: 0px;
 }
 .w3-teal, .w3-hover-teal{
   color: #fff!important;
@@ -7561,7 +7566,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 @media (min-width: 1281px) and (max-width: 1366px){
   .sort-btn {
-    font-size: 14px;
+    font-size: 13px;
   }
   .product-label {
     font-size: 14px;
@@ -7581,10 +7586,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   margin: 10px 0 10px 0px !important;
 }
 .pric-range-box input{
-  width: 47px !important;
+  width: 45px !important;
 }
 .sidrbar-rating{
-  width: 163px;
+  width: 135px;
 }
 }
 

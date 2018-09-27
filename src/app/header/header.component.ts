@@ -78,7 +78,7 @@ googleTranslateElementInit() {
       this.router.navigate(['/dashboards/' + this.username]);
     }
     else if(localStorage.getItem('role') =="USER"){
-      this.router.navigate(['/consumerdashboard/']);
+      this.router.navigate(['/userprofile/']);
     }
   }
   moving1() {
