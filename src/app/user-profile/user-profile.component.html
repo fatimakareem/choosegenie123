@@ -5,10 +5,10 @@
       <div  class="page-title">
 
           <h3 _ngcontent-c0="" class="text-center choiecegenie-offers wow fadeInLeft">Tell Us About Yourself</h3>
-      
+
         </div>
 
-    
+
     <div class="vander-signup-heading" data-notify="container">
       <span data-notify="message">Any Enrollment Request including move-in or a switch can only be made by service applicant or the applicant's authorized
       agent.
@@ -18,10 +18,10 @@
 
 
 
-<div class="card-content card-content-fixed" style="margin-top: 20px; padding-top: 20px;">
+<div class="card-content card-content-fixed card-content-dash" style="margin-top: 20px; padding-top: 4px;">
   <form [formGroup]="signupForm" *ngIf="signupForm">
 
-    
+
 
 
     <div class="card-content">
@@ -35,7 +35,6 @@
           <div class="form-group">
             <mat-form-field>
               <input matInput placeholder="Name"  value = "{{data.Name}}" #updatename required >
-          
             </mat-form-field>
           </div>
         </div>
@@ -44,28 +43,28 @@
           <div class="form-group">
             <mat-form-field>
               <input matInput placeholder="Contact #" value = "{{data.phone_no}}" #updatecontact required>
- 
+
             </mat-form-field>
           </div>
         </div>
- 
+
 
 
 
         <br class="clearfix" />
         <div class="col-sm-6">
-          <div class="form-group">
+          <div class="form-group margin-up">
             <mat-form-field>
               <input matInput placeholder="Service Address" value = "{{data.service_address}}" #updateserviceaddress required  >
-              
+
             </mat-form-field>
           </div>
         </div>
-         
+
         <!-- <input matInput placeholder="status" [formControl]="signupForm.controls['status']" required [value]="status" [(ngModel)]="model.status" hidden="true"> -->
         <br class="clearfix" />
         <div class="col-sm-6">
-          <div class="form-group">
+          <div class="form-group margin-up">
             <mat-form-field>
               <input matInput placeholder="Service State "  value = "{{data.service_state}}" #updateservicestate  required>
               <!-- <mat-error *ngIf="secondFormGroup.controls.Country.dirty && !secondFormGroup.controls.Country.value"> Special characters not allowed</mat-error> -->
@@ -75,7 +74,7 @@
         </div>
         <br class="clearfix" />
         <div class="col-sm-6">
-          <div class="form-group">
+          <div class="form-group margin-up">
             <mat-form-field>
               <input matInput placeholder="Service city " value = "{{data.service_city}}" #updateservicecity  required  >
               <!-- <mat-error *ngIf="secondFormGroup.controls.Country.dirty && !secondFormGroup.controls.Country.value"> Special characters not allowed</mat-error> -->
@@ -85,7 +84,7 @@
         </div>
         <br class="clearfix" />
         <div class="col-sm-6">
-          <div class="form-group">
+          <div class="form-group margin-up">
             <mat-form-field>
               <input matInput placeholder="Service Zip " value = "{{data.service_zip}}" #updateservicezipcode    required  >
               <!-- <mat-error *ngIf="secondFormGroup.controls.Country.dirty && !secondFormGroup.controls.Country.value"> Special characters not allowed</mat-error> -->

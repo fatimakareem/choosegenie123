@@ -19,12 +19,15 @@ export class ConsumeradminComponent implements OnInit {
  private _router: Subscription;
  url: string;
  location: Location;
+//  w3_close;
 
  @ViewChild('sidebar') sidebar: any;
  @ViewChild(NavbarComponent) navbar: NavbarComponent;
  constructor( private router: Router, location: Location ) {
    this.location = location;
  }
+ w3_open;
+ w3_close;
  ngOnInit() {
      const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
      const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');

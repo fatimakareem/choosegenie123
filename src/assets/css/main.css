@@ -1,3 +1,10 @@
+.row:after, .row:before{
+  display: none;
+}
+.main-bg{
+  background: #f9f9f9;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -66,6 +73,9 @@
 }
 .padding-zero{
   padding: 0px;
+}
+.padding-box{
+  padding: 0px 20px;
 }
 .margin-t{
   margin-top: 20px;
@@ -148,7 +158,9 @@ p {
 
 .wrapper {
   height: auto !important;
-  min-height: 100vh !important; }
+  min-height: 100vh !important;
+  background: #f9f9f9;
+}
 .color-red{
   color: #CC0000;
   color: #CC0000;
@@ -3945,7 +3957,7 @@ h1, .entry-title-2 {
 /*vanders signup css start*/
 .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder, .mat-form-field-empty.mat-form-field-placeholder, mat-form-field.mat-form-field {
   /* font-size: 27px; */
-  font-size: 21px;
+  font-size: 16px;
   font-weight: 700;
   color: #333;
   /*margin-top: 10px !important;*/
@@ -4041,6 +4053,10 @@ h1, .entry-title-2 {
   position: relative;
   background-color: #ffffff;
   border-radius: 5px
+}
+.card-content-dash{
+  padding: 0px 20px 14px;
+  margin-bottom: -3px;
 }
 .card-title-fixed{
   display:inline-block;
@@ -5593,7 +5609,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   font-size: 18px !important;
 }
 .logo-div{
-  height: 139px;
+  /*height: 139px;*/
   margin-top: -6px;
   /* display: flex;
   align-items: center;
@@ -5625,7 +5641,8 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   padding: 5px 5px;
   border-radius: 4px;
   margin-right: 5px;
-  font-size: 13px;
+  font-size: 16px;
+  font-weight: bold;
 }
 .Compare:hover{
   background: #c00;
@@ -6488,7 +6505,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 .form-width form{
   width: 27%;
 }
-
+.dash-icons{
+  vertical-align: bottom;
+}
 
 /*End Dashboards */
 /*Start product*/
@@ -7128,7 +7147,8 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     font-size: 28px;
     font-weight: 300;
     height: auto;
-    line-height: 40px;
+    padding: 11px;
+    /*line-height: 40px;*/
     text-align: center;
     /*margin: 50px 0 10px;*/
     position: relative;
@@ -7168,8 +7188,8 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   left: 0px;
 }
 .hd-most-popular-plans{
-  margin: 28px 0px -12px;
-  font-size: 45px;
+  margin: 15px 0px -19px;
+  font-size: 40px;
   padding: 0;
 }
 .sh-fix {
@@ -7583,7 +7603,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   width: 80%;
 }
 .sh-products-fix {
-  margin: 10px 0 10px 0px !important;
+  margin: -11px 0 21px 0px !important;
 }
 .pric-range-box input{
   width: 45px !important;

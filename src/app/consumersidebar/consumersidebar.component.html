@@ -19,26 +19,39 @@
                     <input type="text" [value]="user" readonly>
                 </li>
                 <li>
+
                     <a routerLink="/">
+                      <i class="material-icons dash-icons">
+                        web
+                      </i>
                         Dashboard
                     </a>
                 </li>
                 <li>
                     <a routerLink="/userprofile">
+                      <i class="material-icons dash-icons">
+                        account_circle
+                      </i>
                         My Profile
                     </a>
                 </li>
                 <li>
                     <a routerLink="/ChangePassword">
+                      <i class="material-icons dash-icons">
+                        edit
+                      </i>
                       Change Password
                     </a>
                   </li>
                 <li>
                     <a (click)="logout()">
+                      <i class="material-icons dash-icons">
+                        arrow_back
+                      </i>
                         Logout
                     </a>
                 </li>
-                
+
             </ul>
         </nav>
     </aside>
