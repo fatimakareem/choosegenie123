@@ -50,6 +50,7 @@ export class Signup1Component implements OnInit {
       'repid': ['', Validators.compose([Validators.required, Validators.pattern(this.digitsOnly)])],
       'repname': ['', Validators.compose([Validators.required])],
       'email': ['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
+      'contact_email': ['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
       'username': ['', Validators.compose([Validators.required, Validators.pattern(this.useronly)])],
       'contactphone': ['', Validators.compose([Validators.required])],
       //  'Market': ['', Validators.compose([Validators.required])],

@@ -79,7 +79,23 @@
           </div>
         </div>
 
+        <br class="clearfix" />
+        <div class="col-sm-6">
+          <div class="form-group margin-t">
 
+            <mat-form-field>
+              <input matInput placeholder="Contact Email" required [formControl]="signupForm.controls['contact_email']" [(ngModel)]="model.contact_email" />
+              <mat-icon matSuffix (click)="hide = !hide" >email</mat-icon>
+                <mat-error *ngIf="signupForm.controls['contact_email'].value == '' || !signupForm.controls['contact_email'].value"><strong>This Field cannot be empty</strong></mat-error>
+                <mat-error *ngIf="signupForm.controls['contact_email'].invalid"><strong>Please enter a valid email address</strong></mat-error>
+
+            </mat-form-field>
+            <!-- <div *ngIf="emailexist!=true" class="alert alert-danger">
+              This email already exist.
+            </div> -->
+
+          </div>
+        </div>
 
         <br class="clearfix" />
         <div class="col-sm-6">

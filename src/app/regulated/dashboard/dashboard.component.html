@@ -4,10 +4,10 @@
     <div class="row">
         <div class="search-bar1 col-lg-12">
 
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-xs-12">
                 <!--<label class="date-lable">Effective from date</label>-->
 
-              <mat-form-field>
+              <mat-form-field class="margin-t-15">
                 <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Effective from date"/>
                 <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle> <mat-datepicker #startPicker></mat-datepicker>
               </mat-form-field>
@@ -15,9 +15,9 @@
 
             </div>
 
-              <div class="col-lg-3">
+              <div class="col-lg-3 col-xs-12">
                   <!--<label class="date-lable">Effective to date</label>-->
-                <mat-form-field >
+                <mat-form-field class="margin-t-15">
                   <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publishdate" placeholder="Effective to date"/>
                   <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
                 </mat-form-field>
@@ -27,8 +27,8 @@
 
               </div>
 
-                <div class="col-lg-3 cus-font">
-                  <mat-form-field >
+                <div class="col-lg-3 cus-font col-xs-12">
+                  <mat-form-field class="margin-t-15">
                       <!--<label class="date-lable">Service Area Name</label>-->
                     <mat-select class="search-select" placeholder="Service Area Name" required [(ngModel)]="name" name="name">
                       <mat-option value="AEP TEXAS NORTH DIVISION" style="font-size: 20px">AEP TEXAS NORTH DIVISION</mat-option>
@@ -41,7 +41,7 @@
                 </div>
 
 
-                <button class="col-lg-3 search-btn btn-fill" (click)="search(1)">Search</button>
+                <button class="col-lg-3 col-xs-12 search-btn btn-fill" (click)="search(1)">Search</button>
         </div>
         <div class="found-div" style="    margin-bottom: 9px; width: 100%;">
           We found <strong style="display: inline-block">{{noresult}}</strong> residential plans
@@ -66,7 +66,7 @@
                 <h4 class="card-title" style="padding: 0px;">{{data.title}} </h4>
               </div>
               <div class="card-content">
-                <div class="col-md-3  col-sm-3 col-xs-5 plan-detail text-center display">
+                <div class="col-md-3  col-sm-3 col-xs-12 plan-detail text-center display">
                   <a href="{{data.profileurl}}" target="_blank" class="margin-top">
 
                     <img src="{{data.profile_logo}}" alt="{{data.title}}" />
@@ -187,7 +187,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-3 col-sm-5 col-xs-5 rate margin-up" style="text-align:center">
+                <div class="col-md-3 col-sm-5 col-xs-12 rate margin-up" style="text-align:center">
                   <h3 style=" text-align: center">
                     <b> Price Detail</b>
                   </h3>
@@ -421,7 +421,7 @@
                 </div>
 
                 <br>
-                <div class="col-md-3 col-sm-3 col-xs-7 term text-center">
+                <div class="col-md-3 col-sm-3 col-xs-12 term text-center">
 
                   <h3 class="text-center">
                     <b> Call now</b>
