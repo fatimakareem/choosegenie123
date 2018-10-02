@@ -2,33 +2,33 @@
 
 
   <div class="row" style="width: 100%; margin: 0 auto;">
-    <div class="search-bar1 col-lg-12">
+    <div class="search-bar1 col-lg-12 sh-signup-form-fix">
 
         <!-- <md-input-container class="block" >
             <input mdInput placeholder="Title" [ngModel]="Inactivedate | date:'yyyy-MM-dd'" >
         </md-input-container> -->
 
 
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-xs-12">
           <!--<label class="date-lable">Effective from Date</label>-->
-          <mat-form-field>
+          <mat-form-field class="margin-t-15">
               <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Effective from Date"/>
               <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>               <mat-datepicker #startPicker></mat-datepicker>
             </mat-form-field>
 
         </div>
 
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-xs-12">
               <!--<label class="date-lable">Effective to Date</label>-->
-            <mat-form-field >
+            <mat-form-field class="margin-t-15">
               <input matInput [matDatepicker]="startPicker1"  [(ngModel)]="publishdate" placeholder="Effective to Date"/>
               <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
             </mat-form-field>
           </div>
 
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-xs-12">
                 <!--<label class="date-lable">Service Area Name</label>-->
-              <mat-form-field>
+              <mat-form-field class="margin-t-15">
 
                 <mat-select class="search-select" placeholder="Service Area Name"  required [(ngModel)]="name" name="name">
                     <mat-option *ngFor="let data of states" [value]="data.serviceareaname">
@@ -41,7 +41,7 @@
             </div>
 
 
-            <button class="col-lg-3 search-btn btn-fill" (click)="search(1)">Search</button>
+            <button class="col-lg-3 search-btn btn-fill col-xs-12" (click)="search(1)">Search</button>
     </div>
   </div>
   <div class="found-div" style="margin-bottom: 9px; width: 100%;">
@@ -54,7 +54,7 @@
   <ng-template #no_data_temp2>
 
       <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
-      <h1 style="height:1000px;width:1000px;padding:200px">
+      <h1 class="result-not-found">
 
         <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Record Found</b>
       </h1>
@@ -67,7 +67,7 @@
           <h4 class="card-title" style="padding: 0px;">{{data.title}} </h4>
         </div>
         <div class="card-content">
-          <div class="col-md-3  col-sm-3 col-xs-5 plan-detail text-center display">
+          <div class="col-md-3  col-sm-3 col-xs-12 plan-detail text-center display">
             <a href="{{data.sign_up}}" target="_blank" class="margin-top">
 
               <img src="{{data.profile_logo}}"   onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" />
@@ -401,7 +401,7 @@
                   </a>
                   <div style="display:inline-block; padding:24px;">
                     <span style="font-size:24px; font-weight:600px">OR CALL
-                        <a href="tel:{{data.phone}}" style="display: block">
+                        <a href="tel:{{data.phone}}">
                             <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
                             {{data.phone}}</a>
                       <!-- <b> {{data.phone}} </b> -->
@@ -413,7 +413,7 @@
           </div>
 
           <br>
-          <div class="col-md-3 col-sm-3 col-xs-7 term text-center">
+          <div class="col-md-3 col-sm-3 col-xs-12 term text-center">
 
             <h3 class="text-center">
               <b> Call now</b>

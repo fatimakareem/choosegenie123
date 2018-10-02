@@ -294,46 +294,6 @@ country;
 
     }
 
-    
-  states() {
-    //alert('hello');
-    console.log("CHOICE GENIE",this.zip_code);
-    alert("REP_certificate_id1"+this.zip_code);
-
-    let headers = new Headers();
-
-
-    headers.append('Content-Type', 'application/json');
-    // this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),http://192.168.30.237:9000/choice/
-    this.http.get(Config.api + 'zipcodewith_country_city/' + this.zip_code, { headers: headers })
-
-      .subscribe(data => {
-        console.log(data);
-        // this.next = Res[0].next;
-        console.log(data['zipcode'], 'hhhhhhhhhhhhhhh')
-        console.log(data['country'], 'hhhhhhhhhhhhhhh')
-        console.log(data['city'], 'hhhhhhhhhhhhhhh')
-        // if ( this.usernameexist=false){
-        // this.model['zip'] = data['zipcode']
-        this.country = data[0]['country'];
-                // this.noresult = data['Total country'];
-               // this.zipdet = localStorage.getItem('zip');
-        // this.model['service_state'] = data[0]['country']
-        // this.model['service_city'] = data[0]['city']
-        // }
-        //  console.log(this.usernameexist);
-
-      },
-        error => {
-          //   this.usernameexist=error['status']
-          console.log(error);
-
-          //   f.resetForm();
-        });
-
-
-
-  }
 
     btnDeleteClick(id, title, profileurl, profile_logo, servicearea) {
         this.id = id;
@@ -360,9 +320,11 @@ country;
         this.http.get(Config.api + 'zipcodewith_country_city/'+ this.zip_code, { headers: headers })
 
             .subscribe(Res => {
+                this.city= Res.json();
+                console.log(this.city);
 
-                this.city = Res.json()[0].city;
-                this.country = Res.json()[0].country;
+                // this.city = Res.json()[0].city;
+                // this.country = Res.json()[0].country;
                 // this.data.changeProducts(this.sg['plan']);
                 this.Items = this.sg['plan'];
 
@@ -541,37 +503,37 @@ country;
             this.setPage(1);
         });
 
-        $('#datatables').DataTable({
-            'pagingType': 'full_numbers',
-            'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, 'All']],
-            responsive: true,
-            language: {
-                search: '_INPUT_',
-                searchPlaceholder: 'Search records',
-            }
-        });
+        // $('#datatables').DataTable({
+        //     'pagingType': 'full_numbers',
+        //     'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, 'All']],
+        //     responsive: true,
+        //     language: {
+        //         search: '_INPUT_',
+        //         searchPlaceholder: 'Search records',
+        //     }
+        // });
 
-        const table = $('#datatables').DataTable();
+        // const table = $('#datatables').DataTable();
 
-        // Edit record
-        table.on('click', '.edit', function () {
-            const $tr = $(this).closest('tr');
+        // // Edit record
+        // table.on('click', '.edit', function () {
+        //     const $tr = $(this).closest('tr');
 
-            const data = table.row($tr).data();
-            alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
-        });
+        //     const data = table.row($tr).data();
+        //     alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
+        // });
 
-        // Delete a record
-        table.on('click', '.remove', function (e: any) {
-            const $tr = $(this).closest('tr');
-            table.row($tr).remove().draw();
-            e.preventDefault();
-        });
+        // // Delete a record
+        // table.on('click', '.remove', function (e: any) {
+        //     const $tr = $(this).closest('tr');
+        //     table.row($tr).remove().draw();
+        //     e.preventDefault();
+        // });
 
-        // Like record
-        table.on('click', '.like', function () {
-            alert('You clicked on Like button');
-        });
+        // // Like record
+        // table.on('click', '.like', function () {
+        //     alert('You clicked on Like button');
+        // });
     }
     companytitle() {
         let headers = new Headers();

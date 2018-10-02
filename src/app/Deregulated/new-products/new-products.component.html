@@ -30,10 +30,10 @@
                         <input matInput placeholder="Utility Area" required [(ngModel)]="utilityarea" formControlName="utilityarea">
                         <mat-error *ngIf="signupForm.controls['utilityarea'].value == '' || !signupForm.controls['utilityarea'].value"><strong>This Field cannot be empty</strong></mat-error>
                       </mat-form-field>
-                     
+
                       <!-- <mat-error *ngIf="signupForm.controls['utilityarea'].invalid"><strong>Utility Area cannot be empty</strong></mat-error> -->
                     </div>
-                   
+
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
@@ -185,12 +185,12 @@
                   <div class="col-sm-4">
                     <div class="form-group">
                         <!-- <input class="input-phone" type='text' phone-input ng-model="phone"/> -->
-               
-                   
+
+
                       <mat-form-field>
                         <input matInput [textMask]="{mask: phoneMask}" placeholder="Contact Number" required [(ngModel)]="phone" formControlName="phone">
                         <mat-error *ngIf="thirdFormGroup.controls['phone'].value == '' || !thirdFormGroup.controls['phone'].value"><strong>This Field cannot be empty</strong></mat-error>
-                        
+
                       </mat-form-field>
                     </div>
 

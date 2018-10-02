@@ -1,11 +1,11 @@
 <div class="products-area">
   <div class="row" style="width: 100%; margin: 0 auto;">
-    <div class="search-bar1 col-lg-12">
+    <div class="search-bar1 col-lg-12 sh-signup-form-fix">
 
 
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-xs-12">
           <!--<label _ngcontent-c10="" class="date-lable">Effective from Date</label>-->
-          <mat-form-field>
+          <mat-form-field class="margin-t-15">
               <input matInput [matDatepicker]="startPicker1"  [(ngModel)]="Inactivedate" placeholder="Effective from Date" />
               <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
             </mat-form-field>
@@ -14,18 +14,18 @@
         </div>
 
 
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-xs-12">
             <!--<label class="date-lable">Effective from Date</label>-->
-            <mat-form-field>
+            <mat-form-field class="margin-t-15">
                 <input matInput [matDatepicker]="startPicker" [(ngModel)]="publishdate" placeholder="Effective to Date"/>
                 <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>               <mat-datepicker #startPicker></mat-datepicker>
               </mat-form-field>
             <!-- <input type="date" required name="publishdate" [(ngModel)]="publishdate" style="padding: 2px 0px; font-size: 16px; font-weight: bold;"> -->
           </div>
 
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-xs-12">
                 <!--<label class="date-lable">Service Area Name</label>-->
-              <mat-form-field>
+              <mat-form-field class="margin-t-15">
 
                 <mat-select class="search-select" placeholder="Service Area Name"  required [(ngModel)]="name" name="name">
                     <mat-option *ngFor="let data of states" [value]="data.serviceareaname">
@@ -38,7 +38,7 @@
             </div>
 
 
-            <button class="col-lg-3 search-btn btn-fill" (click)="search(1)">Search</button>
+            <button class="col-lg-3 search-btn btn-fill col-xs-12" (click)="search(1)">Search</button>
     </div>
 
 

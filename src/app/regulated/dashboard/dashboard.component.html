@@ -2,7 +2,7 @@
 
 
     <div class="row">
-        <div class="search-bar1 col-lg-12">
+        <div class="search-bar1 col-lg-12 sh-signup-form-fix">
 
             <div class="col-lg-3 col-xs-12">
                 <!--<label class="date-lable">Effective from date</label>-->
@@ -53,9 +53,9 @@
         <ng-template #no_data_temp2>
 
             <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
-            <h1 style="height:1000px;width:1000px;padding:200px">
+            <h1 class="result-not-found">
 
-              <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Record Found</b>
+              <b>No Record Found</b>
             </h1>
           </ng-template>
         <div *ngIf="noresult != '0';else no_data_temp2">
@@ -409,7 +409,7 @@
                         </a>
                         <div style="display:inline-block; padding:24px;">
                           <span style="font-size:24px; font-weight:600px">OR
-                              <a href="tel:{{data.phone}}" style="display: block">
+                              <a href="tel:{{data.phone}}">
                                   <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
                                   {{data.phone}}</a>
                             <!-- <b> {{data.phone}} </b> -->
