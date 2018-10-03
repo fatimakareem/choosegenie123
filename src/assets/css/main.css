@@ -1,3 +1,6 @@
+/*.nav-home ul a i:lang(es){*/
+  /*width: 17px;*/
+/*}*/
 .row:after, .row:before{
   display: none;
 }
@@ -2856,7 +2859,7 @@ section {
   background-color: #ffffff;
 }
 .about-title {
-  font-size: 50px;
+  font-size: 35px;
   color: #f80000;
   text-align: center;
   font-weight: 700;
@@ -2873,6 +2876,8 @@ section {
   font-weight: 500;
   /*padding-left: 20px;*/
   width: 100%;
+  margin: 0px;
+  line-height: 27px;
 }
 .about-section >p {
   margin: 0 0 10px;
@@ -7962,6 +7967,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 @media (min-width: 992px) and (max-width: 1024px) {
   /* Large devices (maximam width 1024px and minimum width 768px) */
+  .product-main{
+    margin-top: 15px;
+  }
   .vanders:hover .drop-downs-l{
     right: -72px;
   }
@@ -8315,6 +8323,13 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 481px) and (max-width: 768px) {
+
+  .why-our .leftSideContent p{
+   margin: 0 auto;
+  }
+  .found-div{
+    font-size: 26px;
+  }
   .why-our .content {
     display: block;
   }
@@ -8364,6 +8379,12 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .about-title{
+    font-size: 36px;
+    line-height: 33px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
   .why-our .mainPage > p{
     line-height: 23px;
     text-align: justify;
@@ -8454,6 +8475,12 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
 }
 @media (max-width: 325px){
+  .Compare{
+    font-size: 15px;
+  }
+  .signup-popup h1 {
+    font-size: 22px;
+  }
   .why-our .mainPage h2{
     font-size: 34px;
   }
@@ -8512,6 +8539,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
   .product-main {
     margin-top: 0px;
+  }
+  .become > h1 {
+    font-size: 35px !important;
   }
 }
                                                     /*New Quries End*/
