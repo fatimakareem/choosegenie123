@@ -70,7 +70,7 @@ export class HomeComponent implements OnInit {
         }
       }
     ]
-  };
+  }
   constructor(private obj: HomeService, private router: Router, private route: ActivatedRoute, private https: HttpClient, private http: HttpClient, public sg: SimpleGlobal, private data: DataService, private Http: Http) {
 
   }
@@ -117,23 +117,18 @@ export class HomeComponent implements OnInit {
         // this.Conversation();
         console.log(this.cord)
       });
+     
+      }
+      // else{
+      //   this.zipCode="75001";
+      // }
+     
     }
 
 
-    //     this.location = position.coords;
-    // this.Http.get('http://api.geonames.org/findNearbyPostalCodesJSON?lat=' + position.coords['latitude'] + '&lng=' + position.coords['longitude'] + '&username=usman.khanbrain &sensor=true&radius=1.5 &maxRows=1')
+   
 
-    //       .subscribe(Res => {
-    //         this.cord = Res.json()['postalCodes'][0]['postalCode'];
-    //         console.log(this.cord,'locationsss');
 
-    //       })
-
-    //     console.log(position.coords);
-  }
-  // getzip(position){
-
-  // }
 
   position: any;
   ngOnInit() {

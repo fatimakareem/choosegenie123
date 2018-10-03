@@ -182,7 +182,7 @@ country;
     renewablerate;
     renewable;
     com;
-    item;
+    item ;
     price;
     min;
     max;
@@ -204,6 +204,7 @@ country;
     model: any = {};
    
     ngOnInit() {
+        this.item="10";
   this.myID = document.getElementById("myID");
         var myScrollFunc = function () {
             var y = window.scrollY;
@@ -1103,7 +1104,7 @@ country;
                 }
 
 
-                this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
+                this.pager = this.pagerService.getPager(response['Total Result'], page, this.item);
 
             }
 

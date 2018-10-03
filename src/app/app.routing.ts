@@ -89,10 +89,10 @@ export const AppRoutes: Routes = [
             path: 'blog',
             loadChildren: './Blogchoicegenie/blog/blog.module#BlogModule'
         },
-        {
-            path: 'blogss',
-            loadChildren: './blogss/blogss.module#BecomeapartnerModule'
-        },
+        // {
+        //     path: 'blogss',
+        //     loadChildren: './blogss/blogss.module#BecomeapartnerModule'
+        // },
        
     
     

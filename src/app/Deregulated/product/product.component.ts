@@ -92,7 +92,7 @@ export class ProductComponent implements OnInit,OnDestroy {
     notprepaid;
     time;
     energy;
-   
+    className;
     sort;
     checked4;
     checked9;
@@ -251,15 +251,33 @@ this.zipwithcity();
         this.http.get(Config.api + 'zipcodewith_country_city/'+ this.zip_code, { headers: headers })
 
             .subscribe(Res => {
+                this.city= Res.json();
+                console.log(this.city);
 
-                this.city = Res.json()[0].city;
-                this.country = Res.json()[0].country;
+                // this.city = Res.json()[0].city;
+                // this.country = Res.json()[0].country;
                 // this.data.changeProducts(this.sg['plan']);
                 this.Items = this.sg['plan'];
 
 
             });
     }
+    // zipwithcity() {
+
+    //     let headers = new Headers();
+    //     headers.append('Content-Type', 'application/json')
+    //     this.http.get(Config.api + 'zipcodewith_country_city/'+ this.zip_code, { headers: headers })
+
+    //         .subscribe(Res => {
+
+    //             this.city = Res.json()[0].city;
+    //             this.country = Res.json()[0].country;
+    //             // this.data.changeProducts(this.sg['plan']);
+    //             this.Items = this.sg['plan'];
+
+
+    //         });
+    // }
     submit(id, title) {
         console.log(title.trim())
         this.router.navigate(['/Review/' + id]);
@@ -652,7 +670,7 @@ checkprice(min, max) {
                 console.log(this.RFP,'usman');
 
                 this.prod_loaded = true;
-                this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
+                this.pager = this.pagerService.getPager(response['Total Result'], page, this.item);
 
             });
         }

@@ -338,7 +338,7 @@
             <mat-option value="10" selected="true">10 PER PAGE</mat-option>
             <mat-option value="20">20 PER PAGE</mat-option>
             <mat-option value="40">40 PER PAGE</mat-option>
-            <mat-option value="556">SEE ALL</mat-option>
+            <!-- <mat-option value="556">SEE ALL</mat-option> -->
           </mat-select>
         </mat-form-field>
 
@@ -459,7 +459,7 @@
                       <mat-option value="10" selected="true">10 PER PAGE</mat-option>
                       <mat-option value="20">20 PER PAGE</mat-option>
                       <mat-option value="40">40 PER PAGE</mat-option>
-                      <mat-option value="556">SEE ALL</mat-option>
+                      <!-- <mat-option value="556">SEE ALL</mat-option> -->
                     </mat-select>
                   </mat-form-field>
 
@@ -554,9 +554,12 @@
           <!-- <h1 style="margin:-7px 0px; font-size: 45px;">Search Plans</h1> -->
         </div>
         <div class="found-div sh-products-fix" *ngIf="deproduct">
-          We found <strong >{{noresult}}</strong> residential plans for “
+            We found <strong>{{noresult}}</strong> residential plans for “
+            <strong>{{city?.City}} </strong>, &nbsp;&nbsp;<strong>{{city?.State}} </strong>, &nbsp;&nbsp;<strong>{{zip_code}}</strong>”
+            <small *ngIf="name"> for </small><strong> {{name}}</strong>
+          <!-- We found <strong >{{noresult}}</strong> residential plans for “
           <strong>{{zip_code}}</strong>, &nbsp;&nbsp;<strong>{{city}}</strong>, &nbsp;&nbsp;<strong>{{country}}</strong>” <small *ngIf="name"> for </small><strong> {{name}}</strong>
-
+ -->
 
 
         </div>
@@ -970,7 +973,7 @@
                   <mat-option value="10" selected="true">10 PER PAGE</mat-option>
                   <mat-option value="20">20 PER PAGE</mat-option>
                   <mat-option value="40">40 PER PAGE</mat-option>
-                  <mat-option value="556">SEE ALL</mat-option>
+                  <!-- <mat-option value="556">SEE ALL</mat-option> -->
                 </mat-select>
               </mat-form-field>
 

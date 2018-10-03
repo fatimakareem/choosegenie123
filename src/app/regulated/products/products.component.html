@@ -443,7 +443,7 @@
               <mat-form-field class="margin-up">
                 <mat-select class="" placeholder="" selected="10" (change)="checked18($event,i,items)" value="item"
                   required [(ngModel)]="items" name="items">
-                  <mat-option value="10" selected="true">10 PER PAGE</mat-option>
+                  <mat-option value="10"  selected="true">10 PER PAGE</mat-option>
                   <mat-option value="20">20 PER PAGE</mat-option>
                   <mat-option value="40">40 PER PAGE</mat-option>
                   <!-- <mat-option value="556">SEE ALL</mat-option> -->
@@ -647,7 +647,7 @@
           </div>
           <div class="found-div sh-products-fix" *ngIf="product">
             We found <strong>{{noresult}}</strong> residential plans for “
-            <strong>{{city?.Res[0].city}} </strong>, &nbsp;&nbsp;<strong>{{city?.State}} </strong>, &nbsp;&nbsp;<strong>{{zip_code}}</strong>”
+            <strong>{{city?.City}} </strong>, &nbsp;&nbsp;<strong>{{city?.State}} </strong>, &nbsp;&nbsp;<strong>{{zip_code}}</strong>”
             <small *ngIf="name"> for </small><strong> {{name}}</strong>
 
 
