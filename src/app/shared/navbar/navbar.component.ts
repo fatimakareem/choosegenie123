@@ -20,6 +20,7 @@ import { SimpleGlobal } from 'ng2-simple-global';
 // import { ValueUnwrapper } from '@angular/core/src/change_detection/change_detection_util';
 //import { Http } from '@angular/http/src/http';
 import { PageEvent } from '@angular/material';
+import { google } from '@agm/core/services/google-maps-types';
  
 declare const $: any;
 const misc: any = {
@@ -56,6 +57,9 @@ export class NavbarComponent implements OnInit {
         this.sidebarVisible = false;
     }
     
+    googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.VERTICAL}, 'google_translate_element');
+      }
     check_login() {
         if (localStorage.getItem('username')) {
           let local = localStorage.getItem('username');
