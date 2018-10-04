@@ -155,6 +155,7 @@ country;
     profileurl = '';
     rating_logo = '';
     sign_up = '';
+    className;
     terms_of_service = '';
     price_1000_kwh = '';
     price_500_kwh = '';
@@ -290,7 +291,7 @@ country;
       }
     pop_close() {
 
-        // this.myID.className = "bottomMenu hide";
+
        this.status=false;
 
     }
@@ -690,6 +691,7 @@ country;
     checked6(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
+            alert(this.months6)
             this.months6 = "6 Months";
             this.setPage(1);
         }
@@ -1067,7 +1069,7 @@ country;
         }
 
         const Results = {}
-        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "prepaid" || this.prepaid == "prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.name || this.sort == "dsc" || this.item || this.min || this.max || this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5 ) {
+        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "prepaid" || this.prepaid == "prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.name || this.sort == "dsc" || this.item || this.min || this.max || this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5 ) {
 
             console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.price,this.item, 'tttttttttttt');
             this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.item, this.min, this.max,this.logo1,this.logo2,this.logo3,this.logo4,this.logo5).subscribe(response => {
