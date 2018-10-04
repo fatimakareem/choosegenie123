@@ -6916,7 +6916,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     padding: 0px;
   }
   .choiecegenie-offers{
-    font-size: 35px !important;
+    font-size: 32px !important;
     padding-bottom: 0px;
   }
   .texas-heading{
@@ -7619,9 +7619,6 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .hd-most-popular-plans {
     font-size: 37px;
   }
-  .mat-tabs-bar .mat-horizontal-stepper-header-container {
-    width: 89%;
-  }
   .tabs-content-box {
     width: 100% !important;
   }
@@ -7740,7 +7737,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     font-size: 17px !important;
   }
   .f-sackers-medium {
-    font-size: 18px;
+    font-size: 16px;
   }
   .mat-horizontal-content-container {
     padding: 0 19px 19px 19px;
@@ -8323,6 +8320,12 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 481px) and (max-width: 768px) {
+  .mat-tabs-bar .mat-horizontal-stepper-header-container {
+    width: 93%;
+  }
+  .tabs-content-box {
+    width: 100% !important;
+  }
 
   .why-our .leftSideContent p{
    margin: 0 auto;
@@ -8379,6 +8382,24 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .mat-tabs-bar .mat-horizontal-stepper-header-container {
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+  }
+  .mat-tabs-bar .mat-horizontal-stepper-header-container .mat-horizontal-stepper-header {
+    height: 37px;
+  }
+  .mat-tabs-bar .mat-horizontal-stepper-header-container {
+    width: 100%;
+  }
+  .mat-tabs-bar {
+    padding: 15px 20px;
+  }
+  .mat-tabs-bar .mat-horizontal-content-container {
+    padding: 0px;
+  }
   .about-title{
     font-size: 36px;
     line-height: 33px;
