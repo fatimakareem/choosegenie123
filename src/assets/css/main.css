@@ -96,6 +96,9 @@
 .padding-box{
   padding: 0px 20px;
 }
+.padding-L-R{
+  padding: 0 20px;
+}
 .margin-t{
   margin-top: 20px;
 }
@@ -157,11 +160,6 @@ img {
   width: 100%;
   display: block;
   clear: both; }
-
-.bg-white {
-  background: #ffffff;
-  padding: 30px 9999px;
-  margin: 20px -9999px; }
 
 .required {
   color: #e53935; }
@@ -1273,7 +1271,7 @@ background: goldenrod;
       height: auto; }
 .residential-main h2{
   font-weight: 700 !important;
-  text-shadow: 0px 6px 10px #aeaeae;
+  /*text-shadow: 0px 6px 10px #aeaeae;*/
   color: #414142;
   margin: 0px;
 }
@@ -1698,7 +1696,7 @@ h3 {
 }
 /* footer css start */
 .input-group-btn .btn{
-  margin: 3px 0 0 0 !important;
+  margin: 4px 0 0 0 !important;
 }
 .footer-align{
   text-align: left;
@@ -2242,9 +2240,12 @@ section {
 
   .bg-white {
   background: #ffffff;
-  padding: 8px 9999px;
-  margin: 20px -9999px; }
-
+  padding: 10px 20px;
+  margin: 0px auto; }
+.residential-main{
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
   .required {
   color: #e53935; }
 
@@ -3066,13 +3067,13 @@ blackgeeks-recaptcha p{
   font-size: 25px !important;
 }
 .login-form-1-body > div > a{
-  color: #3f51b5;
+  color: #CC0000;
 }
 .margin-right-bottom{
   margin: 0 20px 20px 0;
 }
 .login-form-1-body > div > a:hover{
-  color: #25B7D3;
+  /*color: #25B7D3;*/
   text-decoration: underline;
 }
 
@@ -3235,11 +3236,11 @@ li.pinterest:hover {
   padding-bottom: 20px;
 }
 .com-table table th {
-  background-color: #cc0000;
+  background-color: #000000;
   color: #fff;
   font-size: 1.25em !important;
   /*padding: 25px 0 !important;*/
-  font-weight: 300 !important;
+  font-weight: 700 !important;
 }
 .com-table-2 table th {
   background-color: #cc0000;
@@ -4551,26 +4552,27 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
   font-size: 40px
 }
 .popup-close-button {
-  width: 76px;
-  height: 76px;
+  width: 50px;
+  height: 50px;
   border-radius: 38px;
-  background: #cc0000;
+  background: #000000;
   position: absolute;
-  top: -44px;
-  right: -44px;
+  top: -30px;
+  right: -30px;
   cursor: pointer;
   -webkit-transition: all .1s ease-in-out;
   -o-transition: all .1s ease-in-out;
   transition: all .1s ease-in-out;
   color: #fff;
-  font-size: 40px;
+  font-size: 26px;
   font-family: "Open Sans",sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   text-align: center;
-  line-height: 1.9;
+  line-height: 50px;
+  z-index: 1;
 }
 .popup-close-button:hover{
-  background-color:#ff1b1b ;
+  background-color:#CC0000;
 }
 .plan-details-button {
   background-color: #cc0000;
@@ -5156,8 +5158,8 @@ canvas {
 /*commercial form css start */
 .form-group.label-floating label.control-label, .form-group.label-placeholder label.control-label{
   color: #333333;
-  font-size: 23px !important;
-  font-weight: 500;
+  font-size: 16px !important;
+  font-weight: bold;
   line-height: 0.428571 !important;
 }
 .font-style{
@@ -5561,6 +5563,46 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   margin-bottom: 10px;
 }
 /*End Home*/
+
+
+/*Start Compercial*/
+.business-input .mat-select-value{
+  overflow: unset;
+}
+.commercial-main .font-style{
+  margin: 10px 0px 0px;
+  padding: 0px;
+}
+.commercial-main .custom-font{
+  margin: 0px !important;
+  padding: 0px;
+}
+.cm-detail p{
+  margin: 5px 0 0;
+  line-height: 30px;
+}
+.cm-detail h3{
+  margin: 0px !important;
+  padding: 0px;
+}
+/*End Compercial*/
+
+/*Start Comparision*/
+.comparison-box{
+  overflow: hidden;
+  overflow-x: scroll;
+}
+.comparison-box h2{
+  margin: 0px;
+  padding: 0px;
+}
+.comparison-box p{
+  font-weight: 700;
+  line-height: 22px;
+  margin-top: 10px;
+}
+/*Start Comparision*/
+
 
 /*Start mat tabs*/
 .mat-tabs-bar{
@@ -6037,6 +6079,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   float: right;
   font-size: 30px;
   font-weight: bold;
+  padding: 0px !important;
 }
 .pop-up-close:hover{
   background: none !important;
@@ -6064,7 +6107,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 
 .bottomMenu {
   position: fixed;
-  bottom: 0;
+  bottom: 70;
   width: 24%;
   height: auto;
   background: #fff;
@@ -6114,7 +6157,8 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   display: inline-block;
 }
 .popo-up-logo img{
-  width: 80%;
+  width: 69%;
+  margin-top: -24px;
 }
 .result-not-found{
   text-align: center;
@@ -6130,6 +6174,18 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 .sidrbar-rating{
   width: 165px;
 }
+.modal-dialog .modal-content{
+  background: #ffffff !important;
+  border-radius: 10px !important;
+}
+.model-box{
+  font-size: 18px;
+  background: #ffffff;
+  padding: 0px !important;
+  margin: 15px;
+  position: relative !important;
+}
+
 /* End Products */
 
 /* Start user Sidebar */
@@ -6910,7 +6966,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     font-size: 14px !important;
   }
   .popupmodel {
-    width: 682px !important;
+    width: 100% !important;
+    margin: 0 auto;
+    right: 0;
   }
   .pw-solutions{
     padding: 0px;
@@ -7964,6 +8022,12 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 @media (min-width: 992px) and (max-width: 1024px) {
   /* Large devices (maximam width 1024px and minimum width 768px) */
+  .info-bar{
+    font-size: 13px;
+  }
+  .top-icon li a {
+    font-size: 13px;
+  }
   .product-main{
     margin-top: 15px;
   }
@@ -8382,6 +8446,17 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .popup-image img{
+    width: 50% !important;
+  }
+  .modal-v2__main-heading{
+    font-size: 30px;
+    line-height: 30px;
+  }
+  .cm-detail h3 {
+    font-size: 22px !important;
+    text-align: center;
+  }
   .mat-tabs-bar .mat-horizontal-stepper-header-container {
     width: 100%;
     margin: 0 auto;

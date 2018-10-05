@@ -5661,7 +5661,9 @@
    float: none;
    box-shadow: none;
    border-radius: 0;
-   font-weight: 400; }
+   font-weight: 400;
+   font-size: 20px;
+ }
    .form-control::-moz-placeholder,
    .form-group .form-control::-moz-placeholder {
      color: #AAAAAA;
