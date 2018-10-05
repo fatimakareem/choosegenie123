@@ -704,7 +704,7 @@
 
 
     </div> -->
-                            <div class="modal-body" style="font-size: 18px; background: #ffffff; padding: 20px 20px 0px; margin: 15px; position: relative;">
+                            <div class="modal-body model-box">
                               <div class="popup-close-button" data-dismiss="modal">X</div>
                               <div class="row">
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="border-bottom: 1px #4f4f4f solid;">
@@ -756,7 +756,7 @@
     font-size: 30px;">Why Did You Leaving This Review?</h3>
                                 </div>
 
-                                <mat-form-field>
+                                <mat-form-field class="padding-L-R">
                                   <textarea matInput placeholder="Share your Opinion about this company."
                                     matAutosizeMinRows="10" matAutosizeMaxRows="5" style="height: 130px !important;width:100% !important;"
                                     name="comt" [(ngModel)]="comt">
@@ -776,19 +776,8 @@
 
                             <div class="modal-footer">
 
-                              <button type="button" class="btn btn-fill" data-dismiss="modal" style="
-    color: white;
-
-    width: 20%;
-    height: 45px;
-    font-size: 18px;">Cancel</button>
-                              <button type="button" style="
-    color: white;
-
-    width: 20%;
-    height: 45px;
-    font-size: 18px;"
-                                class="btn btn-fill" (click)="reviews(rating,comt,id,date.value)" data-dismiss="modal">Done</button>
+                              <button type="button" class="btn btn-fill" data-dismiss="modal" >Cancel</button>
+                              <button type="button" class="btn btn-fill" (click)="reviews(rating,comt,id,date.value)" data-dismiss="modal">Done</button>
 
                             </div>
                           </div>
@@ -932,25 +921,21 @@
                   <!-- Modal content-->
                   <div class="modal-content popupmodel">
 
-                    <div class="modal-body" style="font-size: 18px;
-    background: #ffffff;
-    padding: 20px;
-    margin: 15px;
-    position: relative;">
+                    <div class="modal-body model-box">
                       <div class="popup-close-button" data-dismiss="modal">X</div>
                       <div class="row">
-                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 " style="border-bottom: 1px #4f4f4f solid;">
+                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 " style="border-bottom: 1px #4f4f4f solid;">
                           <p class=" modal-v2__main-heading"> {{comtitle}}</p>
 
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border-bottom: 1px #4f4f4f solid;">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="border-bottom: 1px #4f4f4f solid;">
                           <div class="popup-image">
                             <a href="{{profileurl}}" target="_blank" class="display-b margin-top">
                               <img src="{{profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" />
                             </a>
                           </div>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                           <div class="plan-information__heading">Price Rate</div>
                           <table>
                             <tbody>
@@ -992,7 +977,7 @@
 
 
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                           <div class="plan-description">
                             <div class="plan-description__heading">Plan Information</div>
                             <div class="plan-description__content">
