@@ -49,14 +49,14 @@
 
 <app-loader></app-loader>
 
-<div class="container">
-  <div  class="page-title">
+<div class="container-fluid padding-l-r-70">
+  <div  class="">
 
-    <h3  class="text-center choiecegenie-offers l-height">The ChoiceGenie Blog <br/> Where You Save Money On Electricity Rates</h3>
+    <h3  class="text-center blog-heading"><span style="color: #333">ChoiceGenie Blog</span><br> Where You Save Money On Electricity Rates</h3>
 
   </div>
 <div class="row">
-  <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 margin-b mydiv" *ngFor="let data of data;let i=index">
+  <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 margin-b mydiv" *ngFor="let data of data;let i=index">
     <div class="layer-content">
       <div>
         <img src="https://storage.choicegenie.com/images/{{data.blog_image}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"  alt="ChoiceGenie">

@@ -102,8 +102,8 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
         localStorage.removeItem('name');
       }
     slideConfig = {
-      "slidesToShow": 4,
-      "slidesToScroll": 4,
+      "slidesToShow": 5,
+      "slidesToScroll": 1,
       prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
       nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
       responsive: [
@@ -1025,6 +1025,7 @@ country;
     }
 
     setPage(page: number) {
+        
         if (this.months1 == null) {
             delete this.months1;
         }
