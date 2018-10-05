@@ -62,6 +62,7 @@ if(name){
       "plan_information4": months4,
       "plan_information5": months5,
       "plan_information6": months6,
+      "plan_information7": months7,
       "prepaid": prepaid,
       "noprepaid": notprepaid,
       "planmin": planmin,
@@ -79,6 +80,8 @@ if(name){
       "logo3":logo3,
       "logo4":logo4,
       "logo5":logo5
+
+      
       
 
      }), 
