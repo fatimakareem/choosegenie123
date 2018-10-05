@@ -106,7 +106,8 @@
 
 
     <div class="content-box-02">
-      <div class="container-fluid space-up slider-pad" *ngIf="resulttaxes && resultderegulated">
+        <!-- *ngIf="resulttaxes && resultderegulated" -->
+      <div class="container-fluid space-up slider-pad"*ngIf="resulttaxes " >
         <div class="text-center">
           <h3 class="title-04 wow slideInLeft padding-zero-i" style="margin-top: 0px !important;">Top Rated Energy Vendors</h3>
         </div>
@@ -123,7 +124,7 @@
                 </div>
               </div>
 
-              <div class="mustafa">
+              <!-- <div class="mustafa">
           <div class="slide" ngxSlickItem *ngFor="let data of resultderegulated; let i = index" >
               <div class="prod-slide">
                 <a (click)="move(data.title)">
@@ -134,7 +135,7 @@
 
 
             </div>
-              </div>
+              </div> -->
           </ngx-slick>
         </div>
         <!-- <div class="slick-date normal-slider owl-option-01 owl-theme-01">

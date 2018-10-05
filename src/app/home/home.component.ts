@@ -13,6 +13,7 @@ import { SimpleGlobal } from 'ng2-simple-global';
 import { DataService } from '../data.service';
 import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
 import { google } from '@agm/core/services/google-maps-types';
+import { HttpService } from '../serv/http-service';
 
 declare var $;
 
@@ -71,7 +72,7 @@ export class HomeComponent implements OnInit {
       }
     ]
   }
-  constructor(private obj: HomeService, private router: Router, private route: ActivatedRoute, private https: HttpClient, private http: HttpClient, public sg: SimpleGlobal, private data: DataService, private Http: Http) {
+  constructor(private obj: HomeService, private router: Router, private route: ActivatedRoute,  private http: HttpClient, public sg: SimpleGlobal, private data: DataService, private Http: Http,private https: HttpService) {
 
   }
 
@@ -311,13 +312,13 @@ export class HomeComponent implements OnInit {
 
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    this.Http.get(Config.api + 'combine_vendors/', { headers: headers })
+    this.https.get(Config.api + 'combine_vendors/', { headers: headers })
       .subscribe(Res => {
         console.log(Res);
         this.mess = Res.json()['Results_Texas'];
-        this.notmess = Res.json()['Results_Deregulated'];
-        this.resulttaxes = Res.json()['Vendors2'];
-        this.resultderegulated = Res.json()['Vendors1'];
+        // this.notmess = Res.json()['Results_Deregulated'];
+        this.resulttaxes = Res.json()['Vendors1'];
+        // this.resultderegulated = Res.json()['Vendors2'];
 
 
       });
@@ -362,9 +363,9 @@ export class HomeComponent implements OnInit {
   move(name) {
 
     console.log("CHOICE GENIE", this.model.zipcode1);
-    let headers = new HttpHeaders();
+    let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    this.http.get(Config.api + 'zipcodecheck/' + this.zipCode, { headers: headers })
+    this.https.get(Config.api + 'zipcodecheck/' + this.zipCode, { headers: headers })
       .subscribe(data => {
         console.log(data);
         console.log(data['message'], 'hhhhhhhhhhhhhhh')

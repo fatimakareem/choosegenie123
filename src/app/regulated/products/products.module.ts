@@ -26,6 +26,7 @@ import { SlickModule } from 'ngx-slick';
         CommonModule,
         RouterModule.forChild(ProductsRoutes),
         FormsModule,
+        
         AngularcliStarRatingModule,
         // MdModule,
         MaterialModule,

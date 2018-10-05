@@ -1,3 +1,4 @@
+<!-- <app-loader></app-loader> -->
 <div id="myID" *ngIf="status !=false" class="bottomMenu hide">
   <button id="ID" class="w3-button pop-up-close" (click)="pop_close()">&times;</button>
   <a href="#" class="popo-up-logo">
@@ -326,14 +327,15 @@
               <!-- <div class="select-f-sackers-heavy select-area" style="width: 160px;"> -->
               <!-- <span class="left"></span> -->
               <mat-form-field class="margin-up">
-
+                  <!-- <mat-option (click)="setPage(1);refresh()" >ALL</mat-option> -->
                 <mat-select (change)="checked17($event,i,name)" value="name" required [(ngModel)]="name" name="name">
 
-
+                    <mat-option  (click)="checked17($event,i,name)"  >ALL</mat-option>
                   <mat-option *ngFor="let data of title" [value]="data.title">
-                    {{data.title}}
+                    {{data.title}}                
 
                   </mat-option>
+                  
 
                 </mat-select>
               </mat-form-field>

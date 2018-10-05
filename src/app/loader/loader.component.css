@@ -30,7 +30,7 @@
   100% { transform: rotate(360deg); transition:ease-in-out}
 
 }
-@-webkit-keyframes spin {
+@-webkit-keyframes delay {
 
   0% { opacity: 0;}
   50% { opacity: 0;}

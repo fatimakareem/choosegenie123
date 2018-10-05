@@ -57,6 +57,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 
 export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
+    [x: string]: any;
     today = Date.now();
     value1 = "500";
     date;
@@ -872,13 +873,21 @@ country;
             this.setPage(1);
         }
         else {
+            // alert("usamn")
             console.log()
             delete this.name;
-            localStorage.removeItem('name');
+            localStorage.removeItem('name');  
+            this.refresh();
+          this.setPage(1) ;
 
         }
         console.log(this.name)
     }
+    refresh(): void {
+       // this.setPage(1);
+      window.location.reload();
+    }
+    
     checked18(event, i, item) {
         if (item) {
             console.log(item);
