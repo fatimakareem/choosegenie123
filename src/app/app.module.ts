@@ -109,6 +109,7 @@ import { ExcelService } from './excel.service';
 import { NotifierService } from 'angular-notifier';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { MyfilterPipe } from './myfilter.pipe';
+import { UserguideComponent } from './userguide/userguide.component';
 const customNotifierOptions: NotifierOptions = {
   position: {
 		horizontal: {

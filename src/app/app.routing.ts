@@ -154,6 +154,10 @@ export const AppRoutes: Routes = [
             loadChildren: './terms/terms.module#termsModule'
           },
           {
+            path: 'User-guide',
+            loadChildren: './userguide/userguide.module#termsModule'
+          },
+          {
             path: 'features-comparison',
             loadChildren: './features-comparison/features.module#FeatureModule'
         },

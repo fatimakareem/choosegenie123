@@ -692,7 +692,7 @@ country;
     checked6(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
-            alert(this.months6)
+          //  alert(this.months6)
             this.months6 = "6 Months";
             this.setPage(1);
         }
@@ -891,7 +891,7 @@ country;
     checked18(event, i, item) {
         if (item) {
             console.log(item);
-            alert(item)
+           // alert(item)
             this.item = item;
             this.setPage(1);
         }
