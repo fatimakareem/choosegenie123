@@ -3,16 +3,18 @@
   <div class="search-holder">
     <div class="container">
       <div class="form-search animated">
-        <input  ngAutoFocus type="text" placeholder="Search with a Zip Code" class="search-input" name="search" [(ngModel)]="search" #query (ngModelChange)="searchuserdata(query.value)" (keydown)="submit($event,query.value)">
+        <input ngAutoFocus type="text" placeholder="Search with a Zip Code" class="search-input" name="search"
+          [(ngModel)]="search" #query (ngModelChange)="searchuserdata(query.value)" (keydown)="submit($event,query.value)">
         <button (click)="searchuserdata(query.value)" style="display: none;">hi</button>
       </div>
       <div class="hint-box" *ngIf="record">
-          <ul class="list-normal" *ngFor="let data of record; let i = index">
-              <li>
-                <a style="cursor:pointer" (click) = "singlerfp(data.zipcode)">
-                  <i class="material-icons">arrow_forward</i> {{data.zipcode}}   &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{data.country}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {{data.city}}</a>
-              </li>
-            </ul>
+        <ul class="list-normal" *ngFor="let data of record; let i = index">
+          <li>
+            <a style="cursor:pointer" (click)="singlerfp(data.zipcode)">
+              <i class="material-icons">arrow_forward</i> {{data.zipcode}} &nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{data.country}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{data.city}}</a>
+          </li>
+        </ul>
       </div>
 
     </div>
@@ -21,27 +23,27 @@
 
 
 <div class="top-bar container-fluid main-bg">
-    <div class="pull-left">
-      <p  class="info-bar">
-        <i class="fa fa-phone"></i>    CALL TOLL FREE:
-        <a href="tel:+1-888-764-0100" >
-       +1 (888) 764-0100 </a> Email: info@choicegenie.com
-      </p>
-    </div>
+  <div class="pull-left">
+    <p class="info-bar">
+      <i class="fa fa-phone"></i> CALL TOLL FREE:
+      <a href="tel:+1-888-764-0100">
+        +1 (888) 764-0100 </a> Email: info@choicegenie.com
+    </p>
+  </div>
   <div class="pull-right">
     <ul class="top-icon">
       <li>
-        <a onclick="topFunction()"  routerLink="/contactus">
+        <a onclick="topFunction()" routerLink="/contactus">
           Contact Us
         </a>
       </li>
       <li>
-        <a onclick="topFunction()"  routerLink="/Faqs">
+        <a onclick="topFunction()" routerLink="/Faqs">
           Help
         </a>
       </li>
       <li>
-        <a onclick="topFunction()" routerLink="/userlogin" >
+        <a onclick="topFunction()" routerLink="/userlogin">
           My Account
         </a>
       </li>
@@ -51,25 +53,25 @@
         </a>
       </li>
       <li>
-        <a onclick="topFunction()"  href="https://twitter.com/Choicegenie1/"  target="_blank">
+        <a onclick="topFunction()" href="https://twitter.com/Choicegenie1/" target="_blank">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
       <li>
-        <a  onclick="topFunction()" href="https://www.pinterest.com/95e02068dbf471424b31ea58b84a02/" target="_blank">
+        <a onclick="topFunction()" href="https://www.pinterest.com/95e02068dbf471424b31ea58b84a02/" target="_blank">
           <i class="fab fa-pinterest-p"></i>
         </a>
       </li>
       <li>
 
 
-        <a  onclick="topFunction()" href="https://www.instagram.com/choicegenie772/" target="_blank">
+        <a onclick="topFunction()" href="https://www.instagram.com/choicegenie772/" target="_blank">
           <i class="fab fa-instagram"></i>
 
         </a>
       </li>
     </ul>
-  <div id="google_translate_element" class="g-translate pull-right"></div>
+    <div id="google_translate_element" class="g-translate pull-right"></div>
   </div>
 </div>
 
@@ -146,7 +148,7 @@
           </div>
         </li>
         <li>
-          <a onclick="topFunction()" routerLink="">
+          <a onclick="topFunction()" routerLink="/User-guide">
             <i class="fa fa-th-large"></i> User Guide
           </a>
         </li>
@@ -155,7 +157,7 @@
             <i class="fa fa-th-large"></i> Residential
           </a>
         </li>
-   <li class="">
+        <li class="">
           <a onclick="topFunction()" routerLink="/commercial">
             <i class="fa fa-users"></i> Commercial
           </a>
@@ -174,26 +176,26 @@
         </li>
         <li class="vanders" style="border-right: 2px solid #ccc; padding-right: 10px;" *ngIf="!checked_login() && !check_login1()">
           <!-- <a > -->
-            <!-- <i class="material-icons">fingerprint</i>
+          <!-- <i class="material-icons">fingerprint</i>
             Sign IN -->
-            <a onclick="topFunction()" routerLink="/userlogin">
-              <i class="fas fa-fingerprint"></i> Sign in
-            </a>
-            <!-- <i class="fa fa-caret-down"></i> -->
+          <a onclick="topFunction()" routerLink="/userlogin">
+            <i class="fas fa-fingerprint"></i> Sign in
+          </a>
+          <!-- <i class="fa fa-caret-down"></i> -->
           <!-- </a> -->
           <!-- <div class="drop-downs-l"> -->
-            <!-- <ul class="nav-vanders"> -->
-              <!-- <li class="/login">
+          <!-- <ul class="nav-vanders"> -->
+          <!-- <li class="/login">
                 <a onclick="topFunction()" routerLink="/login">
                   <i class="material-icons">face</i> Vendor
                 </a>
               </li> -->
-              <!-- <li class="">
+          <!-- <li class="">
                 <a onclick="topFunction()" routerLink="/userlogin">
                   <i class="material-icons">face</i> User
                 </a>
               </li> -->
-            <!-- </ul> -->
+          <!-- </ul> -->
           <!-- </div> -->
         </li>
         <li class="vanders" *ngIf="!checked_login() && !check_login1()">
@@ -232,7 +234,8 @@
           </a>
         </li>
         <li class="">
-          <a href="https://itunes.apple.com/us/app/choicegenie/id1391027521?platform=ipad&preserveScrollPosition=true&platform=ipad#platform/ipad&platform=ipad" target="_blank">
+          <a href="https://itunes.apple.com/us/app/choicegenie/id1391027521?platform=ipad&preserveScrollPosition=true&platform=ipad#platform/ipad&platform=ipad"
+            target="_blank">
             <i class="fab fa-apple"></i>
           </a>
         </li>
@@ -257,26 +260,26 @@
           </div>
         </li> -->
         <li class="vanders" *ngIf="check_login1()">
-            <a>
-              <i class="material-icons">account_circle</i>{{admin}}
-              <!-- <input style="cursor: pointer;font-size: 20px; margin-left: 5px;" type="text" [value]="username" readonly> -->
-            </a>
-            <div class="drop-downs">
-              <ul class="nav-vanders  why-choiegenie-sublist">
-                <li>
-                  <a (click)="moving1()" style="cursor: pointer;">
-                    Dashboard
-                  </a>
-                </li>
-   <li>
-                  <a (click)="logout()">
-                    <i class="fas fa-lock"></i>Logout
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-        <li class="vanders" *ngIf="checked_login()" >
+          <a>
+            <i class="material-icons">account_circle</i>{{admin}}
+            <!-- <input style="cursor: pointer;font-size: 20px; margin-left: 5px;" type="text" [value]="username" readonly> -->
+          </a>
+          <div class="drop-downs">
+            <ul class="nav-vanders  why-choiegenie-sublist">
+              <li>
+                <a (click)="moving1()" style="cursor: pointer;">
+                  Dashboard
+                </a>
+              </li>
+              <li>
+                <a (click)="logout()">
+                  <i class="fas fa-lock"></i>Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="vanders" *ngIf="checked_login()">
           <a>
             <i class="material-icons">account_circle</i>{{username}}
             <!-- <input style="cursor: pointer;font-size: 20px; margin-left: 5px;" type="text" [value]="customer" readonly> -->
@@ -301,5 +304,3 @@
     </div>
   </nav>
 </div>
-
-
