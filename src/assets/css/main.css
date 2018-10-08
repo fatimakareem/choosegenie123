@@ -3247,7 +3247,8 @@ li.pinterest:hover {
   color: #fff;
   font-size: 1.25em !important;
   padding: 25px 0 !important;
-  font-weight: 300 !important;
+  font-weight: 700 !important;
+  word-wrap: break-word;
 }
 .com-table-2 strong {
   font-weight: 700 !important;
@@ -4640,7 +4641,8 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 
 /*Dashboard front page*/
 table.table thead th{
-  background: #CC0000;
+  background: #000000;
+
 }
 
 
@@ -6762,6 +6764,12 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   width: 40%;
   margin: 0 auto;
 }
+
+.scroll-table{
+  overflow: hidden;
+  overflow-x: scroll;
+  margin-bottom: 10px;
+}
 /*End Dashboards */
 /*Start product*/
 .card .card-header{
@@ -7351,6 +7359,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 }
 .table > tbody > tr > td, .table > tfoot > tr > td{
   padding: 0px !important;
+  word-wrap: break-word;
 }
 .prod-select-list {
   padding: 0px !important;
@@ -8024,6 +8033,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 @media (min-width: 992px) and (max-width: 1024px) {
   /* Large devices (maximam width 1024px and minimum width 768px) */
+  .easypiechart-panel h4 {
+    font-size: 19px;
+    line-height: 21px;
+  }
   .info-bar{
     font-size: 13px;
   }
@@ -8386,6 +8399,13 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 481px) and (max-width: 768px) {
+  .easypiechart-panel h4 {
+    font-size: 23px;
+    line-height: 25px;
+  }
+  .panel-heading{
+    padding: 8px 0px 0px 15px !important;
+  }
   .mat-tabs-bar .mat-horizontal-stepper-header-container {
     width: 93%;
   }
@@ -8448,6 +8468,12 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .large{
+    font-size: 25px !important;
+  }
+  .panel-heading{
+    padding: 8px 0px 0px 15px !important;
+  }
   .popup-image img{
     width: 50% !important;
   }
@@ -8538,6 +8564,12 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
 }
 @media (min-width: 325px) and (max-width: 375px) {
+  .large{
+    font-size: 25px !important;
+  }
+  .panel-heading{
+    padding: 8px 0px 0px 15px !important;
+  }
   .why-our .content {
     display: block;
   }
@@ -8573,6 +8605,16 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
 }
 @media (max-width: 325px){
+  .blog3-read-btn{
+    font-size: 14px !important;
+  }
+  .large{
+    font-size: 25px !important;
+  }
+  .panel-heading{
+    padding: 8px 0px 0px 15px !important;
+    font-size: 22px !important;
+  }
   .Compare{
     font-size: 15px;
   }

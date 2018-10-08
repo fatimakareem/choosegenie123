@@ -21,14 +21,20 @@ export class SuperadminComponent implements OnInit , AfterViewInit {
   constructor( private router: Router, location: Location ) {
     this.location = location;
   }
+  w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+  }
+  w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+  }
   ngOnInit() {
       const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
       const elemSidebar = <HTMLElement>document.querySelector('.sidebar .sidebar-wrapper');
 
 
       this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
-    
-       
+
+
       });
   }
   ngAfterViewInit() {
@@ -44,7 +50,7 @@ export class SuperadminComponent implements OnInit , AfterViewInit {
   runOnRouteChange(): void {
     if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
       const elemMainPanel = <HTMLElement>document.querySelector('.main-panel');
-    
+
     }
   }
   isMac(): boolean {
