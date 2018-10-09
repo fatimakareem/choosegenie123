@@ -332,10 +332,10 @@
 
                     <mat-option  (click)="checked17($event,i,name)"  >ALL</mat-option>
                   <mat-option *ngFor="let data of title" [value]="data.title">
-                    {{data.title}}                
+                    {{data.title}}
 
                   </mat-option>
-                  
+
 
                 </mat-select>
               </mat-form-field>
@@ -611,10 +611,15 @@
               <div class="mustafa" style="width:1100px;border-radius:20px" ngxSlickItem *ngFor="let data of sg['plan']; let i = index"
                 class="slide">
                 <div class="prod-slide">
-                  <a (click)="move(data.title)">
-                    <img class="img2" src="{{data.profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"
-                      alt="Card image cap" />
-                  </a>
+                  <div class="slider-img">
+                    <a (click)="move(data.title)">
+                      <img class="img2" src="{{data.profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"
+                        alt="Card image cap" />
+                    </a>
+                  </div>
+                  <div class="text-center slider-price">
+                    <p><strong>9.7c</strong>per kwh</p>
+                  </div>
                   <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
                     data-toggle="modal" data-target="#myModal2">Plan Information
                   </h2>

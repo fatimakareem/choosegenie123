@@ -3979,8 +3979,8 @@ h1, .entry-title-2 {
   border-radius: 10px;
   border:none !important;
   /*width: 96% !important;*/
-  width: 70% !important;
-  height: 70px;
+  width: 63% !important;
+  /*height: 70px;*/
   margin: 0 auto;
   /*webkit-transition: all 0.3s ease-out;*/
   /*-o-transition: all 0.3s ease-out;*/
@@ -5955,7 +5955,15 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   -ms-transform: scale(1.05);
   transform: scale(1.05);
 }
-
+.prod-slide .slider-img{
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slider-price p{
+  margin: 0px;
+}
 
 .btn-slider-left-p{
   height: 47px;
