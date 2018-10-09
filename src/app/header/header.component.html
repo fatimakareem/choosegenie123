@@ -8,11 +8,14 @@
         <button (click)="searchuserdata(query.value)" style="display: none;">hi</button>
       </div>
       <div class="hint-box" *ngIf="record">
-        <ul class="list-normal" *ngFor="let data of record; let i = index">
-          <li>
-            <a style="cursor:pointer" (click)="singlerfp(data.zipcode)">
-              <i class="material-icons">arrow_forward</i> {{data.zipcode}} &nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{data.country}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{data.city}}</a>
+        <ul class="list-normal" *ngFor="let data of record;">
+          <li class="search-list">
+            <a style="cursor:pointer" (click)="singlerfp(data.zipcode)" >
+              <i class="material-icons">arrow_forward</i> 
+              <span>{{data.zipcode}}</span> 
+              <span class="margin-search"> {{data.country}}</span> 
+              <span> {{data.city}}</span>
+              </a>
           </li>
         </ul>
       </div>
@@ -20,7 +23,7 @@
     </div>
   </div>
 </div>
-
+<!-- (click)="singlerfp(data.zipcode)" -->
 
 <div class="top-bar container-fluid main-bg">
   <div class="pull-left">

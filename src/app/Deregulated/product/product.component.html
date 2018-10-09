@@ -4,10 +4,9 @@
       <img alt="ChoiceGenie" src="../../assets/img/ChoiceGenie-logo2.png">
   </a>
   <p >
-    Welcome to ChoiceGenie.ChoiceGenie is available to all electric providers to list their offers for free. To compare offers and to choose the electric plan please login with us.
-  </p>
+      Welcome to ChoiceGenie.com next line ChoiceGenie is available for all electric providers to list their offers for free. next line Compare offers and Choose the right electric plan. </p>
   <a href="/usersignup" class="signup-popup btn-fill">
-      <h1 class="btn-fill">SignUp Now</h1>
+      <h1 class="btn-fill">Sign Up Now</h1>
   </a>
 </div>
 
@@ -554,8 +553,11 @@
           <!-- <h1 style="margin:-7px 0px; font-size: 45px;">Search Plans</h1> -->
         </div>
         <div class="found-div sh-products-fix" *ngIf="deproduct">
-            We found <strong>{{noresult}}</strong> residential plans for “
+            <!-- We found <strong>{{noresult}}</strong> residential plans for “
             <strong>{{city?.City}} </strong>, &nbsp;&nbsp;<strong>{{city?.State}} </strong>, &nbsp;&nbsp;<strong>{{zip_code}}</strong>”
+            <small *ngIf="name"> for </small><strong> {{name}}</strong> -->
+            We found <strong>{{noresult}}</strong> residential plans for 
+            <strong>{{city?.City}}</strong>,<strong>{{city?.State}} </strong>&nbsp;<strong>{{zip_code}}</strong>
             <small *ngIf="name"> for </small><strong> {{name}}</strong>
           <!-- We found <strong >{{noresult}}</strong> residential plans for “
           <strong>{{zip_code}}</strong>, &nbsp;&nbsp;<strong>{{city}}</strong>, &nbsp;&nbsp;<strong>{{country}}</strong>” <small *ngIf="name"> for </small><strong> {{name}}</strong>
@@ -643,9 +645,9 @@
                                 </div>
                               </div>
                               <div class="modal-title" style="margin: 0 auto;">
-                                <h3 style="
+                                <!-- <h3 style="
 
-                            font-size: 30px;">Why Did You Leaving This Review?</h3>
+                            font-size: 30px;">Why Did You Leaving This Review?</h3> -->
                               </div>
                               <mat-form-field class="padding-L-R">
                                   <textarea matInput placeholder="Share your Opinion about this company." matAutosizeMinRows="10" matAutosizeMaxRows="5"
@@ -823,7 +825,7 @@
                       </div>
                       <div class="col-lg-12">
                         <div class="plan-description">
-                          <div class="plan-description__heading">Cancelation Fee</div>
+                          <div class="plan-description__heading">Cancellation Fee</div>
                           <div class="plan-description__content">
 
                             <h4 *ngIf="cancelation_fee;else no_data_temp2">

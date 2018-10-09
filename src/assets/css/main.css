@@ -5408,8 +5408,12 @@ section#boody{
 
 /*Start Home*/
 
-
-
+.margin-search{
+  margin: 0px 100px;
+}
+.search-list a:focus{
+  color: #c00;
+}
 .slider-pad{
   padding: 0px 100px !important;
 }
