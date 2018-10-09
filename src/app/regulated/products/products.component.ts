@@ -165,7 +165,7 @@ country;
     items;
     Items: any = [];
     comp = '';
-  
+
     months1;
     months2;
     months3;
@@ -204,7 +204,7 @@ country;
     status:any=true;
     slider;
     model: any = {};
-   
+
     ngOnInit() {
         this.item="10";
   this.myID = document.getElementById("myID");
@@ -435,7 +435,7 @@ country;
             .subscribe(Res => {
 
                 this.sg['plan'] = Res.json()['Results'];
-            
+
                 this.Items = this.sg['plan'];
                 for (let prod of this.sg['plan']) {
                     console.log(prod["plan_information"])
@@ -646,7 +646,7 @@ country;
         }
         console.log(this.months2)
     }
-    
+
     checked3(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
@@ -876,7 +876,7 @@ country;
             // alert("usamn")
             console.log()
             delete this.name;
-            localStorage.removeItem('name');  
+            localStorage.removeItem('name');
             this.refresh();
           this.setPage(1) ;
 
@@ -887,7 +887,7 @@ country;
        // this.setPage(1);
       window.location.reload();
     }
-    
+
     checked18(event, i, item) {
         if (item) {
             console.log(item);
@@ -906,7 +906,7 @@ country;
         if (min && max ) {
             this.min = min;
             this.max = max;
-           
+
             this.setPage(1);
         }
         else {
@@ -935,10 +935,10 @@ country;
         this.setPage(1);
     }
     move(name) {
-       
+
         this.name = name;
         console.log(this.name)
-       
+
         //   this.router.navigate(['/products/' + this.zip_code]);
         //   localStorage.setItem('zip', this.zip_code);
         //   localStorage.setItem('name', name.trim());
@@ -1034,7 +1034,7 @@ country;
     }
 
     setPage(page: number) {
-        
+
         if (this.months1 == null) {
             delete this.months1;
         }
