@@ -160,18 +160,42 @@ this.admin=localStorage.getItem('currentadmin')
   }
   searchuserdata(query) {
     console.log(query)
-    this._serv.searchrecord(query).subscribe(data => {
-      this.record = data
+    this._serv.searchrecord(query).subscribe(response => {
+      this.record = response;
 
       // this.sg['zip'] = Res.json()['Results'];
       // this.data.changezip(this.sg['zip']);
       console.log(this.record)
-    }, error => {
-
     })
 
   }
+//   setPage(page: number) {
+        
+  
 
+
+//         this.obj.searchProducts(this.zip_code, page).subscribe(response => {
+
+//             this.product = response['Results'];
+//             this.noresult = response['Total Result'];
+//             for (let prod of this.product) {
+//                 prod["plan_information"] = prod["plan_information"].split(',,', 3000);
+//                 prod["price_rate"] = prod["price_rate"].split('..', 3000);
+
+//             }
+
+
+//             this.pager = this.pagerService.getPager(response['Total Result'], page, this.item);
+
+//         }
+
+
+//         );
+
+    
+
+
+// }
   singlerfp(zipcode) {
     this.zipcode=zipcode;
     let headers = new HttpHeaders();
