@@ -10,12 +10,12 @@
         <div  class="row">
           <div  class=" col-md-12 ">
             <!-- <form  class="form-partnership ng-untouched ng-pristine ng-invalid become" [formGroup]="signupForm" *ngIf="signupForm"> -->
-  
+
               <div  class="contact_form">
-  
-  
+
+
                 <div  class="col-mat-12" >
-  
+
                     <form class="form-partnership ng-untouched ng-pristine ng-invalid become" [formGroup]="signupForm" *ngIf="signupForm" >
                       <h1 style="color: #fff; font-weight: 700; font-size: 55px; text-shadow: none;">Become a Partner</h1>
                       <p  class="lead" style="color: #fff;">Transform your collaborative dimension to a whole new level.</p>
@@ -24,19 +24,19 @@
                     <mat-error *ngIf="signupForm.controls['name'].value == '' || !signupForm.controls['name'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                   </mat-form-field>
-                  <mat-form-field>
+                  <mat-form-field class="margin-t-15">
                     <input matInput placeholder="Enter Your Email" formControlName="email"   [(ngModel)]="email">
                     <mat-error *ngIf="signupForm.controls['email'].value == '' || !signupForm.controls['email'].value"><strong>This Field cannot be empty</strong></mat-error>
                     <mat-error *ngIf="signupForm.controls['email'].hasError('pattern')">
                       Please enter a valid email address
                     </mat-error>
                   </mat-form-field>
-                  <mat-form-field>
+                  <mat-form-field class="margin-t-15">
                     <input matInput placeholder="Enter Company Name" formControlName="partnername"   [(ngModel)]="partnername">
                     <mat-error *ngIf="signupForm.controls['partnername'].value == '' || !signupForm.controls['partnername'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                   </mat-form-field>
-                  <mat-form-field>
+                  <mat-form-field class="margin-t-15">
                     <textarea matInput placeholder="How Can We Partner" formControlName="desc" [(ngModel)]="desc"></textarea>
                     <mat-error *ngIf="signupForm.controls['desc'].value == '' || !signupForm.controls['desc'].value"><strong>This Field cannot be empty</strong></mat-error>
 
@@ -44,8 +44,8 @@
                       <button class="btn btn-fill" style="float: right;" (click)="becomeapartnerdata(name, email, partnername, desc, date.value)">Send Messege</button>
                   </form>
                   <input matInput placeholder="date" hidden="true" value="{{today | date: 'yyyy-MM-dd'}}" #date name="date">
-  
-  
+
+
                 </div>
               </div>
             <!-- </form> -->
