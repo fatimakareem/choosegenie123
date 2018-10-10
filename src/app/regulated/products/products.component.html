@@ -617,7 +617,8 @@
                     </a>
                   </div>
                   <div class="text-center slider-price">
-                    <p><strong>9.7c</strong>per kwh</p>
+                    500 Kwh
+                    <p><strong>{{data.price_500_kwh }}¢</strong></p>
                   </div>
                   <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
                     data-toggle="modal" data-target="#myModal2">Plan Information
@@ -862,13 +863,22 @@
                         </p>
 
                       </div>
-
-                      <div>
+                      <!-- <div>
                         <a style="color:rgba(0,0,0, 0.87)" href="{{fact_sheet}}" target="_blank">
                           <i style="color:#c00" class="material-icons">picture_as_pdf</i>
                           <a>Fact Sheet</a>
                         </a>
                         <a style="color:rgba(0,0,0, 0.87)" href="{{terms_of_service}}" target="_blank">
+                          <i style="color:#c00" class="material-icons">picture_as_pdf</i>
+                          Terms of service
+                        </a>
+                      </div> -->
+                      <div>
+                        <a style="color:rgba(0,0,0, 0.87)" href="{{data.fact_sheet}}" target="_blank">
+                          <i style="color:#c00" class="material-icons">picture_as_pdf</i>
+                          <a>Fact Sheet</a>
+                        </a>
+                        <a style="color:rgba(0,0,0, 0.87)" href="{{data.terms_of_service}}" target="_blank">
                           <i style="color:#c00" class="material-icons">picture_as_pdf</i>
                           Terms of service
                         </a>

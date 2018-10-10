@@ -162,16 +162,16 @@ export class UsersignupComponent implements OnInit {
     // this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),http://192.168.30.237:9000/choice/
     this.http.get(Config.api + 'zipcodewith_country_city/' + zip, { headers: headers })
 
-      .subscribe(data => {
-        console.log(data);
+      .subscribe(Response => {
+        console.log(Response);
         // this.next = Res[0].next;
-        console.log(data['zipcode'], 'hhhhhhhhhhhhhhh')
-        console.log(data['country'], 'hhhhhhhhhhhhhhh')
-        console.log(data['city'], 'hhhhhhhhhhhhhhh')
+        console.log(Response['zipcode'], 'hhhhhhhhhhhhhhh')
+        console.log(Response['country'], 'hhhhhhhhhhhhhhh')
+        console.log(Response['city'], 'hhhhhhhhhhhhhhh')
         // if ( this.usernameexist=false){
         // this.model['zip'] = data['zipcode']
-        this.model['service_state'] = data[0]['country']
-        this.model['service_city'] = data[0]['city']
+        this.model['service_state'] = Response['State']
+        this.model['service_city'] = Response['City']
         // }
         //  console.log(this.usernameexist);
 
