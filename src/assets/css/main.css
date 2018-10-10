@@ -7855,6 +7855,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 */
 @media (min-width: 1368px) {
+  .popo-up-logo img {
+    margin-top: 0px;
+  }
   .sort-btn {
   font-size: 14px;
   }
