@@ -99,6 +99,9 @@
 .padding-L-R{
   padding: 0 20px;
 }
+.padding70-l-r{
+  padding: 0 70px !important;
+}
 .margin-t{
   margin-top: 20px;
 }
@@ -6622,7 +6625,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 /*start Blog3*/
 .blog-heading{
-  font-size: 32px !important;
+  font-size: 45px !important;
   font-weight: bold !important;
   margin: 5px 0 5px !important;
 }
@@ -6897,6 +6900,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
   .body-margin {
     margin-top: 0px;
+  }
+  .padding70-l-r{
+    padding: 20px !important;
   }
 
 
@@ -7850,6 +7856,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 */
 @media (min-width: 1368px) {
+  .popo-up-logo img {
+    margin-top: 0px;
+  }
   .sort-btn {
   font-size: 14px;
   }
@@ -8425,6 +8434,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 481px) and (max-width: 768px) {
+  .blog-heading {
+    font-size: 31px !important;
+  }
   .easypiechart-panel h4 {
     font-size: 23px;
     line-height: 25px;
@@ -8494,6 +8506,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .blog-heading {
+    font-size: 20px !important;
+  }
   .blog1-img{
     width: 100%;
   }
@@ -8593,6 +8608,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
 }
 @media (min-width: 325px) and (max-width: 375px) {
+  .blog-heading {
+    font-size: 14px !important;
+  }
   .large{
     font-size: 25px !important;
   }
@@ -8634,6 +8652,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
 }
 @media (max-width: 325px){
+  .blog-heading {
+    font-size: 14px !important;
+  }
   .blog3-read-btn{
     font-size: 14px !important;
   }
