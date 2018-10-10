@@ -3960,8 +3960,8 @@ h1, .entry-title-2 {
   border:none !important;
   /*width: 95% !important;*/
   /*height: 80px;*/
-  width: 80% !important;
-  height: 66px;
+  width: 85% !important;
+  /*height: 66px;*/
   margin: 0 auto;
   webkit-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
@@ -5966,6 +5966,12 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   align-items: center;
   justify-content: center;
 }
+.prod-slide .slider-img1{
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .slider-price p{
   margin: 0px;
 }
@@ -6615,10 +6621,17 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 
 /*start Blog3*/
+.blog-heading{
+  font-size: 32px !important;
+  font-weight: bold !important;
+  margin: 5px 0 5px !important;
+}
 .blog1-img{
-  width: 100%;
-  height: 360px;
-  overflow: hidden;
+  width: 50%;
+  float: left;
+  padding: 10px;
+  /*height: 360px;*/
+  /*overflow: hidden;*/
 }
 .blog1-img img{
   width: 100%;
@@ -8481,6 +8494,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .blog1-img{
+    width: 100%;
+  }
   .large{
     font-size: 25px !important;
   }
