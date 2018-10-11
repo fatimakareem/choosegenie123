@@ -2895,12 +2895,12 @@ section {
 /*Login Form*/
 .login-form-1-img{
   /*background-color: #f4f4f4;*/
-  background-color: #ffffff;
+  /*background-color: #ffffff;*/
   /*background: url("../../assets/img/White-Linen-Paper-Texture.jpg") no-repeat 0/cover;*/
 }
 
 .login-form-1-center{
-  width: 45%;
+  width: 42%;
   margin: 63px auto 25px;
 }
 
@@ -3982,7 +3982,7 @@ h1, .entry-title-2 {
   border-radius: 10px;
   border:none !important;
   /*width: 96% !important;*/
-  width: 84% !important;
+  width: 63% !important;
   /*height: 70px;*/
   margin: 0 auto;
   /*webkit-transition: all 0.3s ease-out;*/
@@ -3997,7 +3997,7 @@ h1, .entry-title-2 {
 /*vanders signup css start*/
 .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder, .mat-form-field-empty.mat-form-field-placeholder, mat-form-field.mat-form-field {
   /* font-size: 27px; */
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   color: #333;
   /*margin-top: 10px !important;*/
@@ -4599,7 +4599,7 @@ footer p a:hover { color:#333; border-bottom-color: #333; }
 }
 .view-plan-details{
   padding: 2px 0px;
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 800;
   cursor: pointer;
   color: #000;
@@ -5963,9 +5963,8 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   transform: scale(1.05);
 }
 .prod-slide .slider-img{
-  height: 82px;
+  height: 60px;
   display: flex;
-  padding-top: 5px;
   align-items: center;
   justify-content: center;
 }
@@ -6931,6 +6930,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .position{
     z-index: 1;
     width: 100%;
+    margin-top: 0px;
   }
   .view-plan-details{
     font-size: 16px;
@@ -6975,7 +6975,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     border-radius: 4px !important;
   }
   .product-main {
-    margin-top: 17px;
+    margin-top: 0px;
     margin-left: 0px;
   }
   .sh-top-menu-fix{
@@ -6984,7 +6984,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .hd-most-popular-plans {
     margin: 0px 0px -12px !important;
   }
-
+.sort-bar-height{
+  margin-top: 10px !important;
+}
 
 
 
@@ -7445,10 +7447,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     background: -o-linear-gradient(top,#354851,#2b3a42 60%);
     background: linear-gradient(to bottom,#354851,#2b3a42 60%);
     color: #fff;
-    font-size: 25px;
+    font-size: 28px;
     font-weight: 300;
     height: auto;
-    padding: 8px;
+    padding: 11px;
     /*line-height: 40px;*/
     text-align: center;
     /*margin: 50px 0 10px;*/
@@ -7489,8 +7491,8 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   left: 0px;
 }
 .hd-most-popular-plans{
-  margin: 15px 0px -14px;
-  font-size: 36px;
+  margin: 15px 0px -19px;
+  font-size: 40px;
   padding: 0;
 }
 .sh-fix {
@@ -7879,7 +7881,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   margin: 20px 60px 10px 60px;
 }
 .sh-products-fix {
-  margin: -5px 0 15px 0 !important;
+  margin: 20px 0 20px 0 !important;
 }
 
 }
@@ -8434,6 +8436,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 481px) and (max-width: 768px) {
+  .popo-up-logo img{
+    margin-top: 0px;
+  }
   .blog-heading {
     font-size: 31px !important;
   }
