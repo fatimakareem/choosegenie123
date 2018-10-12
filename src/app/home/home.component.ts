@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
   public longi;
   public lati;
   dataa;
+  Items: any = [];
   slideConfig = {
     "slidesToShow": 5,
     "slidesToScroll": 5,
@@ -141,6 +142,7 @@ export class HomeComponent implements OnInit {
       // navigator.geolocation.getCurrentPosition(this.getzipcode.bind(this));
     };
     this.premiseIdData();
+    // this.featuredplan();
 
 
   }
@@ -197,7 +199,26 @@ export class HomeComponent implements OnInit {
       //this.router.navigate(['/product/' + this.zipCode]);
     }
   }
+  featuredplan() {
 
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json')
+    this.https.get(Config.api + 'topproducts/', { headers: headers })
+
+        .subscribe(Res => {
+
+            this.sg['plan'] = Res.json()['Results'];
+
+            this.Items = this.sg['plan'];
+            for (let prod of this.sg['plan']) {
+                console.log(prod["plan_information"])
+                console.log(prod["price_rate"])
+                prod["plan_information"] = prod["plan_information"].split(',,', 3000);
+                prod["price_rate"] = prod["price_rate"].split('..', 3000);
+            }
+
+        });
+}
 
   Checkzipcode(event, zipcode1) {
 

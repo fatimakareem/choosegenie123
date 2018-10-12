@@ -31,6 +31,8 @@ public username;
   ngOnInit() {
     this.username = localStorage.getItem('custum')
     this.username = localStorage.getItem('change')
+    this.username = localStorage.getItem('username')
+    
     console.log(this.username)
     this.signupForm = this.fb.group({
       'oldpass': ['', Validators.compose([Validators.required])],
@@ -42,7 +44,7 @@ public username;
     });
   }
   editClick(oldpass,pass1,pass2) {
-    console.log('edit',oldpass,pass1,pass2 );
+    console.log('edit',this.username,oldpass,pass1,pass2 );
 console.log("TS OBJECT",);
     this.serve.changepsd(this.username,oldpass,pass1,pass2 ).subscribe(data => {
         console.log(data);

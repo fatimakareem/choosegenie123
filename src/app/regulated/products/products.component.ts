@@ -336,13 +336,16 @@ country;
     }
     profile() {
         let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        this.http.get(Config.api + 'user_profile/' + this.customer + '/', { headers: headers })
+        // headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
+        console.log("userupdate", localStorage.getItem('token'));
+        this.http.get(Config.api + 'user_profile/' + this.username + '/', { headers: headers })
 
             .subscribe(Res => {
                 this.data = Res.json();
                 console.log(this.data);
-                this.user = this.data['user'].id;
+                this.user = this.data['user'];
+                localStorage.setItem('user',this.user);
                 console.log(this.user)
             });
     }
@@ -364,8 +367,10 @@ country;
         console.log(this.servicearea)
 
         console.log(this.title);
-        if (localStorage.getItem('custum')) {
+        if (localStorage.getItem('username')) {
+            console.log(localStorage.getItem('username'))
             console.log(id)
+            console.log(localStorage.getItem('user'))
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
             // this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
@@ -373,7 +378,7 @@ country;
                 "rate": this.rate,
                 "company_name": this.comtitle,
                 "comment": comt,
-                "user": this.user,
+                "user": localStorage.getItem('user'),
                 "servicearea": this.servicearea,
                 // "profile": this.profile_logo
             }
@@ -398,7 +403,7 @@ country;
                 'User must login First!',
                 'error'
             )
-            this.router.navigate(['/userlogin/']);
+            this.router.navigate(['/userlogin']);
         }
     }
 

@@ -217,6 +217,64 @@
         </div>
       </div>
     </div>
+
+
+<!-- <div *ngIf="sg['plan']" class="slidr-m sh-fix">
+            <div style="padding: 0px; text-align:center;">
+              <h1 class="hd-most-popular-plans">Most Popular Plans</h1>
+            </div>
+            <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+              <div class="mustafa" style="width:1100px;border-radius:20px" ngxSlickItem *ngFor="let data of sg['plan']; let i = index"
+                class="slide">
+                <div class="prod-slide">
+                  <div class="slider-img">
+                    <a (click)="move(data.title)">
+                      <img class="img2" src="{{data.profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"
+                        alt="Card image cap" />
+                    </a>
+                  </div>
+                  <div class="text-center slider-price">
+                    500 Kwh
+                    <p><strong>{{data.price_500_kwh }}¢</strong></p>
+                  </div>
+                  <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
+                    data-toggle="modal" data-target="#myModal2">Plan Information
+                  </h2>
+                  <h2 class="view-plan-details" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo)"
+                    data-toggle="modal" data-target="#myModal3"> Leave a Review
+                  </h2>
+                </div>
+              </div>
+            </ngx-slick>
+         
+          </div> -->
+
+    <!-- <div class="content-box-02"> -->
+      <!-- *ngIf="resulttaxes && resultderegulated" -->
+    <!-- <div class="container-fluid space-up slider-pad"*ngIf="resulttaxes " >
+      <div class="text-center">
+        <h3 class="title-04 wow slideInLeft padding-zero-i" style="margin-top: 0px !important;">Top Rated Energy Vendors</h3>
+      </div>
+      <div>
+          <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+            <div class="mustafa">
+              <div class="slide" ngxSlickItem *ngFor="let data of resulttaxes; let i = index">
+                  <div class="prod-slide">
+                    <div class="slider-img1">
+                      <a (click)="move(data.title)">
+                        <img class="img1" src="{{data.profile_logo}}" alt="{{data.title}}" alt="Card image cap" />
+                      </a>
+                    </div>
+                    </div>
+              </div>
+            </div>
+
+        
+        </ngx-slick>
+      </div>
+      
+    </div> -->
+  <!-- </div> -->
     <div class="main-bg">
       <div>
         <header class="entry-header contatiner-fluid" style="padding-top: 0px">
@@ -259,9 +317,7 @@
           <p >
             We, the engineers at ChoiceGenie have devised bleeding edge Machine Learning (ML) and proprietary Artificially
             Intelligent (AI) algorithms to bring you a next generation Artificially Intelligent Comparative Shopping Marketplace
-            for Energy Vendors/Products. Our technology is bleeding edge and was engineered with a singular goal: Save the
-            consumer Time & Money! .
-          </p>
+            for Energy Vendors/Products. Our technology is bleeding edge and was engineered with a singular goal: Save consumers Time & Money!          </p>
           <p >
             <b >We propel our customers to the next level up in Energy Automation &amp; Efficiency.</b>
           </p>
@@ -280,7 +336,7 @@
         <div  class="content background">
           <div  class="leftSideContent">
             <p >
-              <span >We leverage Cutting Edge Technologies to lower costs</span> This helps us our customers to save more money </p>
+              <span >We leverage Cutting Edge technologies to lower costs</span> This helps our customers to save more money </p>
           </div>
           <div  class="rightSideContent-image">
             <img  alt="logo" src="../assets/img/why2.png">
@@ -476,7 +532,7 @@
             <div class="how-it-works-box height">
               <img src="../../assets/img/2.png" style="width: 130px;">
               <h3 class="text-red">2. Search for Plans/Products</h3>
-              <p>Enter your Zipcode. ChoiceGenie will recommend the Top Vendors/Plans with the Best Options to SAVE you Hundreds
+              <p>By entering your Zipcode ChoiceGenie will recommend the Top Vendors/Plans with the Best Options to SAVE you Hundreds
                 of Dollars a Year! It hardly takes a few minutes.</p>
             </div>
           </div>
