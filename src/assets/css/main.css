@@ -3093,7 +3093,7 @@ mat-form-field.mat-form-field{
 }
 
 .mat-form-field-invalid .mat-form-field-placeholder{
-  color: #f44336 !important;
+  color: #333333 !important;
 }
                                                     /*Login Form End*/
 
