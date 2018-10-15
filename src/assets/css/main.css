@@ -7087,6 +7087,10 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
 }
 @media (max-width: 426px) {
+  .home-columns .home-column-title{
+    font-size: 14px;
+    padding: 5px;
+  }
   /* Small devices (425px and down) */
   .custom-width {
     max-width: 393px;
@@ -7180,9 +7184,22 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     text-align: center;
   }
   .home-columns .home-column{
-    margin: 24px 0px;
-    width: 100%;
+    margin: 33px auto;
+    width: 65%;
+    display: block;
   }
+  .home-columns .home-column-number{
+    font-size: 3rem;
+    padding: 0 11px;
+    top: -14px;
+  }
+  .home-columns .home-column-inner {
+    padding: 10px;
+}
+.home-columns .home-column-image {
+  height: auto;
+  width: 100%;
+}
   /*.card{*/
     /*display: none !important;*/
   /*}*/
@@ -7819,7 +7836,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     font-size: 19px;
 }
 .title-04 {
-  font-size: 16px !important;
+  font-size: 21px !important;
 }
   .slidr-m {
     margin-top: 145px;
@@ -8657,6 +8674,25 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
 }
 @media (max-width: 325px){
+  .compare-input{
+    margin-bottom: -23px;
+  }
+  .play-store-icons-wrapper{
+    display: none;
+  }
+  .intro-subtitle{
+    margin: -21px auto;
+  }
+
+  .zip-inputs {
+    font-size: 25px;
+  }
+  .compare-lable {
+    height: auto;
+  }
+  .space-up {
+    margin-top: 317px;
+}
   .blog-heading {
     font-size: 14px !important;
   }
