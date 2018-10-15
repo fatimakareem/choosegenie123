@@ -6878,9 +6878,6 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .play-store-icons-wrapper{
     display: none;
   }
-  .entry-header{
-    margin-top: 342px;
-  }
 }
 @media (max-width: 768px) {
   /* Medium devices (767px and down) */
@@ -8680,9 +8677,6 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
 }
 @media (max-width: 325px){
-  .entry-header {
-    margin-top: 293px;
-}
   .compare-input{
     margin-bottom: -23px;
   }
