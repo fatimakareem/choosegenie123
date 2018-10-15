@@ -1093,7 +1093,7 @@ country;
                 this.noresult = response['Total Result'];
                 this.zipdet = localStorage.getItem('zip');
                 for (let prod of this.product) {
-                    prod["plan_information"] = prod["plan_information"].split(',,', 3000);
+                    prod["plan_information"] = prod["plan_information"].split(',,', 300);
                     prod["price_rate"] = prod["price_rate"].split('..', 3000);
 
                 }

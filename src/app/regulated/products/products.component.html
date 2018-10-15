@@ -995,6 +995,7 @@
                           <div class="plan-description">
                             <div class="plan-description__heading">Plan Information</div>
                             <div class="plan-description__content">
+                                <!-- .split(',,', 3000) -->
                               <ul>
                                 <li *ngFor="let data of plan_information">{{data}}</li>
                               </ul>
@@ -1005,15 +1006,19 @@
 
                         <div class="col-lg-12">
                           <div class="plan-description">
-                            <div class="plan-description__heading">Cancellation Fee</div>
+                            <div class="plan-description__heading" *ngIf="cancelation;else no_data_temp2">Cancellation Fee: {{cancelation.split(' ',3000)[2]}}</div>
+                            
+                            <div *ngFor="let data of plan_information"> {{data}}</div><!-- <ul> -->
+                                <!-- <li *ngFor="let data of plan_information">{{data}}</li> -->
+                              <!-- </ul> -->
                             <div class="plan-description__content">
 
                               <!-- <h4 *ngIf="cancelation;else no_data_temp2">
     &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation.split(' ',3000)[2]}}
     </h4> -->
-                              <h4 *ngIf="cancelation;else no_data_temp2">
-                                {{cancelation}}
-                              </h4>
+                              <!-- <h4 *ngIf="cancelation;else no_data_temp2">
+                                {{cancelation.split(' ',3000)[2]}}
+                              </h4> -->
                               <ng-template #no_data_temp2>
 
                                 <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
