@@ -525,9 +525,9 @@
                   </li>
 
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
-                    <a (click)="setPage(pager.currentPage + 3)">...</a>
+                    <a (click)="setPage(pager.currentPage + 3)">OF</a>
                   </li>
-                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
+                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> </li>
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
                     <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
                   </li>
@@ -1008,7 +1008,8 @@
                           <div class="plan-description">
                             <div class="plan-description__heading" *ngIf="cancelation;else no_data_temp2">Cancellation Fee: {{cancelation.split(' ',3000)[2]}}</div>
                             
-                            <div *ngFor="let data of plan_information"> {{data}}</div><!-- <ul> -->
+                            <!-- <div *ngFor="let data of plan_information"> {{data}}</div> -->
+                            <!-- <ul> -->
                                 <!-- <li *ngFor="let data of plan_information">{{data}}</li> -->
                               <!-- </ul> -->
                             <div class="plan-description__content">
@@ -1099,9 +1100,10 @@
                 </li>
 
                 <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
-                  <a (click)="setPage(pager.currentPage + 3)">...</a>
+                  <a (click)="setPage(pager.currentPage + 3)">OF</a>
                 </li>
-                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
+                <!-- <a > Of</a> -->
+                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> </li>
                 <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
                   <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
                 </li>

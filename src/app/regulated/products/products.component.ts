@@ -304,6 +304,8 @@ country;
         this.profileurl = profileurl;
         this.profile_logo = profile_logo;
         this.servicearea = servicearea;
+        console.log(this.servicearea);
+        alert(this.servicearea)
         console.log('id : ' + this.id, this.title);
     }
 
@@ -344,8 +346,8 @@ country;
             .subscribe(Res => {
                 this.data = Res.json();
                 console.log(this.data);
-                this.user = this.data['user'];
-                localStorage.setItem('user',this.user);
+                // this.user = this.data['Name'];
+                this.user=localStorage.getItem('username');
                 console.log(this.user)
             });
     }
@@ -364,23 +366,34 @@ country;
 
     }
     reviews(rate, comt, id) {
+
+        
         console.log(this.servicearea)
 
         console.log(this.title);
         if (localStorage.getItem('username')) {
             console.log(localStorage.getItem('username'))
             console.log(id)
-            console.log(localStorage.getItem('user'))
+            console.log(localStorage.getItem('Name'))
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
             // this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
             this.http.post(Config.api + 'reviews/' + this.comtitle, JSON.stringify({
-                "rate": this.rate,
-                "company_name": this.comtitle,
-                "comment": comt,
-                "user": localStorage.getItem('user'),
-                "servicearea": this.servicearea,
-                // "profile": this.profile_logo
+                // {
+                    "company_name": this.comtitle,
+                    "servicearea": this.servicearea,
+                    "rate": this.rate,
+                    "comment": comt ,
+                    "user": localStorage.getItem('username') 
+                // }
+               
+               
+                // "rate": this.rate,
+                // "company_name": this.comtitle,
+                // "comment": comt,
+                // "user": localStorage.getItem('Name'),
+                // "servicearea": this.servicearea,
+                // // "profile": this.profile_logo
             }
 
             ), { headers: headers })
