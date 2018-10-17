@@ -49,7 +49,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     constructor(private route: ActivatedRoute, private https: HttpClient, private newService: DeleteService, private serve: EditService,
         private formBuilder: FormBuilder, private router: Router, private http: Http, private pagerService: PagerService, private homeService: HomeService, private sg: SimpleGlobal, private dialog: MatDialog, private dataa: DataService, private companyService: CompanyService) {
 
-        this.title = localStorage.getItem('username');
+        this.title = localStorage.getItem('title');
 
     }
     // date;
@@ -107,13 +107,17 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         localStorage.setItem('company', title.trim());
     }
     search(page: number) {
-        this.title = localStorage.getItem('username');
+        this.title = localStorage.getItem('title');
+        console.log(this.title,'search')
         let headers = new Headers();
+        headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
+        console.log('pofile', localStorage.getItem('token'));
         headers.append('Content-Type', 'application/json');
-        this.http.post(Config.api + 'search_by_vendor/' + this.title + '?page=' + page, JSON.stringify({
+
+        this.http.post(Config.api + 'search_by_vendor/' + this.title.trim() + '?page=' + page, JSON.stringify({
             
-            "productinactive":moment(this.Inactivedate).format('YYYY/MM/DD'),
-            "propublish":moment(this.publishdate).format('YYYY/MM/DD'),
+            "productinactive":moment(this.Inactivedate).format('YYYY-MM-DD'),
+            "propublish":moment(this.publishdate).format('YYYY-MM-DD'),
             "utility": this.name
         }), { headers: headers }).subscribe(Res => {
             console.log(Res);
@@ -132,7 +136,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     setPage(title, page: number) {
 
 
-        this.title = localStorage.getItem('username');
+        this.title = localStorage.getItem('title');
+
         console.log("usernameeeeeeeeeeeee", this.title)
 
         const Results = {};
@@ -300,7 +305,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
 
     public ngOnInit() {
-        this.title = localStorage.getItem('username')
+        this.title = localStorage.getItem('title')
         console.log(this.title, 'gggggggggggggggg')
         this.updataForm = this.formBuilder.group({
 

@@ -19,7 +19,7 @@ export class ConsumerdashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = localStorage.getItem('custum');
+    this.user = localStorage.getItem('username');
     this.fun()
 this.fetchzip();
   }

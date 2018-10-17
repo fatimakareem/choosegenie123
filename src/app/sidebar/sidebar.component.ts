@@ -113,6 +113,9 @@ export class SidebarComponent implements OnInit {
               this.router.navigate(['/dashboards/' + this.username]);
           }
       }
+      profilelink(){
+          this.router.navigate(['/company-profile']);
+      }
       move(){
         if(localStorage.getItem('role') == "Not Deregulatedstate Vendor"){
             this.router.navigate(['/inactive-product']);}
@@ -145,7 +148,7 @@ export class SidebarComponent implements OnInit {
     ngOnInit() {
         this.massage = localStorage.getItem('role')
        
-        this.user = localStorage.getItem('user')
+        this.user = localStorage.getItem('username')
         this.username = localStorage.getItem('username')
         console.log(this.username)
        this. fetchProducts()

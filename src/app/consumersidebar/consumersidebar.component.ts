@@ -98,7 +98,7 @@ export class ConsumersidebarComponent implements OnInit {
 
   ngOnInit() {
      
-          this.user = localStorage.getItem('custum')
+          this.user = localStorage.getItem('username')
        
       this.menuItems = ROUTES.filter(menuItem => menuItem);
       

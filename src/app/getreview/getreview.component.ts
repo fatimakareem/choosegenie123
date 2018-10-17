@@ -46,7 +46,7 @@ export class GetreviewComponent implements OnInit {
 
     ngOnInit() {
         this.title = localStorage.getItem('company');
-        this.customer = localStorage.getItem('custum')
+        this.customer = localStorage.getItem('username')
         this.zip_code = localStorage.getItem('zip');
         this.getreview()
         this.totalreview()
@@ -64,8 +64,8 @@ export class GetreviewComponent implements OnInit {
         });
     }
     checked_login() {
-        if (localStorage.getItem('custum')) {
-            let local = localStorage.getItem('custum');
+        if (localStorage.getItem('username')) {
+            let local = localStorage.getItem('username');
             return true;
         }
         else {
@@ -118,7 +118,9 @@ export class GetreviewComponent implements OnInit {
             .subscribe(Res => {
                 this.data = Res.json();
                 console.log(this.data);
-                this.user = this.data['user']
+                this.user = this.customer;
+                
+                // this.user = this.data['user']
             });
 
     }
@@ -202,7 +204,7 @@ export class GetreviewComponent implements OnInit {
         this.ratee = rating;
     }
     reviews(ratee, comt, id) {
-        if (localStorage.getItem('custum')) {
+        if (localStorage.getItem('username')) {
             console.log(id)
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
