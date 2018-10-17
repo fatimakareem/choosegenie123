@@ -7,6 +7,7 @@ import { ErrorStateMatcher, MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@an
 import { NgForm, FormControl, Validators, FormGroupDirective } from "@angular/forms";
 import { SimpleGlobal } from 'ng2-simple-global';
 import { DataService } from '../../data.service';
+
 import * as _ from 'underscore';
 import { PagerService } from '../../pager.service';
 import { Pipe, PipeTransform } from "@angular/core";
@@ -23,6 +24,7 @@ import { PageEvent } from '@angular/material';
 import {ExcelService} from '../../excel.service';
 import swal from 'sweetalert2';
 import { error } from 'util';
+import { HttpService } from '../../serv/http-service';
 declare const $: any;
 @Component({
     selector: 'app-product',
@@ -53,7 +55,7 @@ export class ProductComponent implements OnInit,OnDestroy {
     max_price_1000;
     min_price_2000;
     max_price_2000;
-    constructor(private excelService:ExcelService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
+    constructor(private excelService:ExcelService,private http: Http,private https: HttpService, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
 
     }
 
@@ -233,7 +235,7 @@ this.zipwithcity();
 
         let headers = new Headers();
         headers.append('Content-Type', 'application/json')
-        this.http.get(Config.api + 'topproducts_deregulated/', { headers: headers })
+        this.https.get(Config.api + 'topproducts_deregulated/', { headers: headers })
 
             .subscribe(Res => {
 
@@ -382,7 +384,7 @@ this.zipwithcity();
     companytitle() {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        this.http.get(Config.api + 'deregulated_companies/', { headers: headers })
+        this.https.get(Config.api + 'deregulated_companies/', { headers: headers })
 
             .subscribe(Res => {
 

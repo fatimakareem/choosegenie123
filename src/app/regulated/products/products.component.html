@@ -1,4 +1,4 @@
-<!-- <app-loader></app-loader> -->
+<app-loader></app-loader>
 <div id="myID" *ngIf="status !=false" class="bottomMenu hide">
   <button id="ID" class="w3-button pop-up-close" (click)="pop_close()">&times;</button>
   <a href="#" class="popo-up-logo">
@@ -621,7 +621,7 @@
                     500 Kwh
                     <p><strong>{{data.price_500_kwh }}¢</strong></p>
                   </div>
-                  <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
+                  <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl,data.specialterms); getreview(data.id); avereview(data.id)"
                     data-toggle="modal" data-target="#myModal2">Plan Information
                   </h2>
                   <h2 class="view-plan-details" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo)"
@@ -795,7 +795,7 @@
                     </div>
                     <div class="col-md-3  col-sm-6 col-xs-6 plan-detail text-center margin-up">
                       <h3 class="mob-view-hide" style=" text-align: center">
-                        <b> Price Details</b>
+                        <b> Price/KWh</b>
                       </h3>
 
                       <!-- <div class="holder white"> -->
@@ -807,38 +807,38 @@
                       </div>
                       <div style="text-align:center; font-weight: bold; margin:10px 0px 11px; font-size: 20px;" *ngIf="value1==1000">
                         {{value1}}Kwh
-                        <b class="price-style-1"> {{data.price_1000_kwh }}¢</b>
+                        <b class="price-style-1"> {{data.price_1000_kwh | slice:0:-1 }}¢</b>
 
                       </div>
                       <div style="text-align:center; font-weight: bold; margin:10px 0px 11px; font-size: 20px;" *ngIf="value1==2000">
                         {{value1}}Kwh
-                        <b class="price-style-1"> {{data.price_2000_kwh}}¢</b>
+                        <b class="price-style-1"> {{data.price_2000_kwh| slice:0:-1}}¢</b>
 
                       </div>
                       <div class="add-price grid-element" *ngIf="value1==500">
                         <div class="unit">1,000 kWh
-                          <span class="price-style"> {{data.price_1000_kwh}}¢ </span>
+                          <span class="price-style"> {{data.price_1000_kwh | slice:0:-1}}¢ </span>
                         </div>
                         <div class="unit">2,000 kWh
-                          <span class="price-style"> {{data.price_2000_kwh}}¢ </span>
+                          <span class="price-style"> {{data.price_2000_kwh | slice:0:-1 }}¢ </span>
                         </div>
 
                       </div>
                       <div class="add-price grid-element" *ngIf="value1==1000">
                         <div class="unit">500 kWh
-                          <span class="price-style"> {{data.price_500_kwh}}¢ </span>
+                          <span class="price-style"> {{data.price_500_kwh | slice:0:-1}}¢ </span>
                         </div>
                         <div class="unit">2,000 kWh
-                          <span class="price-style"> {{data.price_2000_kwh}}¢ </span>
+                          <span class="price-style"> {{data.price_2000_kwh | slice:0:-1}}¢ </span>
                         </div>
 
                       </div>
                       <div class="add-price grid-element" *ngIf="value1==2000">
                         <div class="unit">500 kWh
-                          <span class="price-style"> {{data.price_500_kwh}}¢ </span>
+                          <span class="price-style"> {{data.price_500_kwh | slice:0:-1}}¢ </span>
                         </div>
                         <div class="unit">1000 kWh
-                          <span class="price-style"> {{data.price_1000_kwh}}¢ </span>
+                          <span class="price-style"> {{data.price_1000_kwh | slice:0:-1}}¢ </span>
                         </div>
 
                       </div>
@@ -851,7 +851,7 @@
                         </a>
                       </h3>
                       <a>
-                        <label class="view-plan-details mob-view-hide" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
+                        <label class="view-plan-details mob-view-hide" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl,data.specialterms); getreview(data.id); avereview(data.id)"
                           data-toggle="modal" data-target="#myModal2" style=" padding-bottom: 0px; margin-bottom: 0px;">Plan
                           Information</label>
                       </a>
@@ -885,6 +885,7 @@
                           <i style="color:#c00" class="material-icons">picture_as_pdf</i>
                           <a>Fact Sheet</a>
                         </a>
+                        <!-- {{data.specialterms}} -->
                         <a style="color:rgba(0,0,0, 0.87)" href="{{data.terms_of_service}}" target="_blank">
                           <i style="color:#c00" class="material-icons">picture_as_pdf</i>
                           Terms of service
@@ -1021,26 +1022,30 @@
                             </div>
                           </div>
                         </div>
-
+                        <div class="col-lg-12">
+                            <div class="plan-description">
+                              <div class="plan-description__heading" >Special Terms</div>
+                              
+                              <div class="plan-description__content" *ngIf="specialterms;else no_data_temp2">
+                                  {{specialterms}}
+                            
+                                <ng-template #no_data_temp2>
+  
+                                  <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
+                                  <h4>&nbsp;&nbsp;&nbsp;&nbsp; There is no Special Term in this plan</h4>
+                                </ng-template>
+                                <!-- <p class="ng-binding">A great low rate with guaranteed price protection for 1 full year. Exclusive online offer available to new customers.</p> -->
+                              </div>
+                            </div>
+                          </div>
+                     
                         <div class="col-lg-12">
                           <div class="plan-description">
                             <div class="plan-description__heading" *ngIf="cancelation;else no_data_temp2">Cancellation Fee: {{cancelation.split(' ',3000)[6]}}</div>
                             
-                            <!-- <div *ngFor="let data of plan_information"> {{data}}</div> -->
-                            <!-- <ul> -->
-                                <!-- <li *ngFor="let data of plan_information">{{data}}</li> -->
-                              <!-- </ul> -->
                             <div class="plan-description__content">
 
-                              <!-- <h4 *ngIf="cancelation;else no_data_temp2">
-    &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation.split(' ',3000)[2]}}
-    </h4> -->
-                              <!-- <h4 *ngIf="cancelation;else no_data_temp2">
-                                {{cancelation}}
-                              </h4> -->
                               <ng-template #no_data_temp2>
-
-                                <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
                                 <h4>&nbsp;&nbsp;&nbsp;&nbsp; ---</h4>
                               </ng-template>
                               <!-- <p class="ng-binding">A great low rate with guaranteed price protection for 1 full year. Exclusive online offer available to new customers.</p> -->

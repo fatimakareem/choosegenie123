@@ -25,6 +25,7 @@ import { PageEvent } from '@angular/material';
 import swal from 'sweetalert2';
 import { error } from 'util';
 import { delay } from 'rxjs/operator/delay';
+import { HttpService } from '../../serv/http-service';
 import { ExcelService } from '../../excel.service';
 
 
@@ -82,7 +83,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     zipcodeexist;
     keyPress;
     //    setPage;
-    constructor(private excelService: ExcelService, private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService) {
+    constructor(private excelService: ExcelService, private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService,private https: HttpService) {
 
     }
     ngOnDestroy() {
@@ -417,7 +418,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
     //Event Binding of Delete Buttons
 
-    btnEditClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl) {
+    btnEditClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl,specialterms) {
         this.catagoryId = id;
 
         console.log(this.plan_information)
@@ -430,12 +431,13 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         this.price_1000_kwh = price_1000_kwh;
         this.plan_information = plan_information;
         this.rating_logo = rating_logo;
+        this.specialterms =specialterms;
 
         this.profile_logo = profile_logo;
         this.profileurl = profileurl;
         this.price_500_kwh = price_500_kwh;
         this.price_2000_kwh = price_2000_kwh;
-        console.log(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl)
+        console.log(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl,specialterms)
         console.log('id : ' + this.catagoryId);
     }
 
@@ -554,7 +556,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     companytitle() {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        this.http.get(Config.api + 'companytitle/', { headers: headers })
+        this.https.get(Config.api + 'companytitle/', { headers: headers })
 
             .subscribe(Res => {
 
