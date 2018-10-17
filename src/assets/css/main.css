@@ -7265,7 +7265,16 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
   .how-it-works-box{
     min-height: 100px;
+    width: 65%;
+    margin: 10px auto;
   }
+  .pw-solutions ul li .holder.icons {
+    width: 65%;
+    margin: 0 auto;
+}
+.txt-holder > p {
+  line-height: 22px;
+}
   .cg-offers{
     height: auto;
   }
@@ -8775,6 +8784,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
 }
 @media (max-width: 325px){
+  .pw-solutions ul li h3 {
+    font-size: 20px !important;
+}
   .modal-v2__main-heading{
     font-size: 15px;
     margin-top: 20px;
