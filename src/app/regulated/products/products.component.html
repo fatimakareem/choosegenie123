@@ -674,8 +674,8 @@
                   <!-- <input type="checkbox" name="comp"  #comp (change)="checked(data.id,i)">{{data.id}} -->
                   <div class="card-content row" style="padding: 0px; margin: 0 !important;">
 
-                    <div class="col-md-3  col-sm-6 col-xs-12 plan-detail text-center logo-div">
-                      <div class="check-box">
+                    <div class="col-md-3  col-sm-6 col-xs-6 plan-detail text-center logo-div">
+                      <div class="check-box mob-view-hide">
                         <input type="checkbox" (change)="checked($event,data.id,i);hits($event)">
 
                       </div>
@@ -696,7 +696,7 @@
                       <a>
 
 
-                        <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
+                        <label class="view-plan-details mob-view-hide" style="padding-bottom: 0px; margin-bottom: 0px;" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
                           data-toggle="modal" data-target="#myModal3"> Leave a Review
                         </label>
                       </a>
@@ -792,8 +792,8 @@
 
 
                     </div>
-                    <div class="col-md-3  col-sm-6 col-xs-12 plan-detail text-center margin-up">
-                      <h3 style=" text-align: center">
+                    <div class="col-md-3  col-sm-6 col-xs-6 plan-detail text-center margin-up">
+                      <h3 class="mob-view-hide" style=" text-align: center">
                         <b> Price Details</b>
                       </h3>
 
@@ -841,15 +841,21 @@
                         </div>
 
                       </div>
+                      <h3 class="text-center font " style="margin: 0px;">
+                        <!-- <a href="tel:1-832-975-1000"> -->
+
+                        <a href="tel:+1-{{data.phone}}" class="mob-v-call-no">
+                          <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
+                          +1-{{data.phone}}
+                        </a>
+                      </h3>
                       <a>
-                        <label class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
+                        <label class="view-plan-details mob-view-hide" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
                           data-toggle="modal" data-target="#myModal2" style=" padding-bottom: 0px; margin-bottom: 0px;">Plan
                           Information</label>
                       </a>
                     </div>
-
-
-                    <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail margin-up" style="text-align:center">
+                    <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail margin-up mob-view-hide" style="text-align:center">
                       <h3 style=" text-align: center">
                         <b> Plan Details</b>
                       </h3>
@@ -887,7 +893,7 @@
 
                     </div>
 
-                    <div class="col-md-3 col-sm-6 col-xs-12 term text-center">
+                    <div class="col-md-3 col-sm-6 col-xs-12 term text-center mob-view-hide">
 
                       <h3 class="text-center" style="margin-top: -7px !important;">
                         <b> Call Now</b>
@@ -913,6 +919,18 @@
                       </a>
 
 
+                    </div>
+
+                    <div class="mob-v-product col-xs-12">
+                    <a class="mob-v-btn-products btn-fill" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
+                          data-toggle="modal" data-target="#myModal3">Review
+                    </a>
+                    <!-- <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
+                    data-toggle="modal" data-target="#myModal2">Plan Information
+                  </h2> -->
+                    <a (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
+                    data-toggle="modal" data-target="#myModal2" class="mob-v-btn-products btn-fill">Detail</a>
+                    <a href="{{data.sign_up}}" target="_blank" class="mob-v-btn-products btn-fill">Signup</a>
                     </div>
                     <!-- <div class="col-md-3 col-sm-3 col-xs-7 term top-margin-25">
     (click)="signUp(data.product_id)"
@@ -995,7 +1013,6 @@
                           <div class="plan-description">
                             <div class="plan-description__heading">Plan Information</div>
                             <div class="plan-description__content">
-                                <!-- .split(',,', 3000) -->
                               <ul>
                                 <li *ngFor="let data of plan_information">{{data}}</li>
                               </ul>
@@ -1006,18 +1023,14 @@
 
                         <div class="col-lg-12">
                           <div class="plan-description">
-                            <div class="plan-description__heading" *ngIf="cancelation;else no_data_temp2">Cancellation Fee: {{cancelation.split(' ',3000)[2]}}</div>
-                            
-                            <div *ngFor="let data of plan_information"> {{data}}</div><!-- <ul> -->
-                                <!-- <li *ngFor="let data of plan_information">{{data}}</li> -->
-                              <!-- </ul> -->
+                            <div class="plan-description__heading" *ngIf="cancelation;else no_data_temp2">Cancellation Fee :{{cancelation.split(' ',3000)[6]}}</div>
                             <div class="plan-description__content">
 
                               <!-- <h4 *ngIf="cancelation;else no_data_temp2">
     &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation.split(' ',3000)[2]}}
     </h4> -->
                               <!-- <h4 *ngIf="cancelation;else no_data_temp2">
-                                {{cancelation.split(' ',3000)[2]}}
+                                {{cancelation}}
                               </h4> -->
                               <ng-template #no_data_temp2>
 

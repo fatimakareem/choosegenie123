@@ -5290,7 +5290,7 @@ section#boody{
   display: block;
   text-align: center;
   font: bold 30px/24px Georgia, "Times New Roman", Times, serif;
-  font-size: 30px;
+  font-size: 20px;
 }
 .add-price {
   width: 100%;
@@ -6210,7 +6210,12 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
   margin: 15px;
   position: relative !important;
 }
-
+.mob-v-product{
+  display: none;
+}
+.mob-v-call-no{
+  display: none !important;
+}
 /* End Products */
 
 /* Start user Sidebar */
@@ -6898,7 +6903,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     /*z-index: 2;*/
   /*}*/
   .card-content h3 {
-    font-size: 20px !important;
+    font-size: 18px !important;
   }
   .body-margin {
     margin-top: 0px;
@@ -7716,6 +7721,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
   .found-div{
     font-size: 20px;
+    margin-top: 10px !important;
   }
   .sub-input {
     width: 97% !important;
@@ -8531,6 +8537,78 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .mob-view-hide{
+    display: none;
+  }
+  .price-style-1{
+    display: inline-block;
+  }
+  .sh-top-price {
+    margin: 0px;
+    font-size: 13px;
+    color: #c00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.price-style-1 {
+  display: inline-block;
+  font: arial;
+  font-size: 14px;
+}
+.unit {
+  width: 100%;
+    color: #c00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+}
+.price-style {
+  display: flex;
+    text-align: center;
+    font: arial;
+    font-size: 14px;
+}
+.mob-v-call-no{
+  display: block !important;
+  font-size: 13px;
+    font-weight: bold;
+    color: #000;
+}
+.card-content h3 {
+  font-size: 17px !important;
+}
+.show{
+  display: none !important;
+}
+.product-icons {
+      width: 70% !important;
+    margin-top: 7px !important;
+}
+.rating-stars {
+  width: 65% !important;
+}
+.display-b {
+  display: block !important;
+  margin-top: 20px;
+  height: 55px;
+}
+.plan-detail{
+  margin-bottom: 0px;
+}
+.mob-v-product{
+  display: block;
+  display: flex;
+}
+.mob-v-btn-products{
+  font-size: 19px;
+    color: #fff !important;
+    width: 33%;
+    text-align: center;
+    padding: 4px;
+}
+
   .blog-heading {
     font-size: 20px !important;
   }
@@ -8677,6 +8755,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   }
 }
 @media (max-width: 325px){
+  .position {
+    margin-top: -17px;
+}
   .compare-input{
     margin-bottom: -23px;
   }

@@ -583,8 +583,8 @@
                 <!-- <input type="checkbox" name="comp"  #comp (change)="checked(data.id,i)">{{data.id}} -->
                 <div class="card-content" style="padding: 0px;">
 
-                  <div class="col-md-3  col-sm-6 col-xs-12 plan-detail min-hight text-center logo-div">
-                    <div class="check-box">
+                  <div class="col-md-3  col-sm-6 col-xs-6 plan-detail min-hight text-center logo-div">
+                    <div class="check-box mob-view-hide">
                       <input type="checkbox" (change)="checked($event,data.id,i);hits($event)">
                     </div>
                     <!-- <input type="checkbox" value="{{data.id}}" name="comp"  > -->
@@ -596,7 +596,7 @@
                     <a>
 
 
-                      <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;" (click)="btnratingClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
+                      <label class="view-plan-details mob-view-hide" style="padding-bottom: 0px; margin-bottom: 0px;" (click)="btnratingClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
                              data-toggle="modal" data-target="#myModal4"> Leave a Review
                       </label>
                     </a>
@@ -677,27 +677,29 @@
                     </div>
 
                   </div>
-                  <div class="col-md-3  col-sm-6 col-xs-12 plan-detail min-hight text-center margin-up">
-                    <h3 style=" text-align: center">
+                  <div class="col-md-3  col-sm-6 col-xs-16 plan-detail min-hight text-center margin-up">
+                    <h3 style=" text-align: center" class="mob-view-hide">
                       <b> Price Rate</b>
                     </h3>
 
                     <!-- <div class="holder white"> -->
                     <!--class="product-price"-->
-                    <div style="text-align:center;     margin-top: 18px;">
+                    <div class="sh-top-price ">
 
-                      <b class="price-style"> {{data.price_rate}}¢</b>
+                      <b class="price-style-1"> {{data.price_rate}}¢</b>
 
                     </div>
-
+                    <h3  class="text-center font " style="margin: 0px;">
+                      <a class="mob-v-call-no" href="tel:+1-(844) 463-8732">  
+                        +1-(844) 463-8732
+                      </a>
+                    </h3>
                     <a>
-                      <label class="view-plan-details" (click)="btnderagulateClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_rate,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
+                      <label class="view-plan-details mob-view-hide" (click)="btnderagulateClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_rate,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                              data-toggle="modal" data-target="#myModal6" style="    padding-bottom: 0px; margin-bottom: 0px;">Plan Information</label>
                     </a>
                   </div>
-
-
-                  <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail min-hight margin-up" style="text-align:center">
+                  <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail min-hight margin-up mob-view-hide" style="text-align:center">
                     <h3 style=" text-align: center">
                       <b> Plan Details</b>
                     </h3>
@@ -723,8 +725,7 @@
                     </a>
 
                   </div>
-
-                  <div class="col-md-3 col-sm-6 col-xs-12 term text-center">
+                  <div class="col-md-3 col-sm-6 col-xs-12 term text-center mob-view-hide">
 
                     <h3 class="text-center" style="margin-top: -11px !important;">
                       <b> Call Now</b>
@@ -754,7 +755,14 @@
 
 
                   </div>
-
+                  <div class="mob-v-product col-xs-12">
+                    <a class="mob-v-btn-products btn-fill" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
+                          data-toggle="modal" data-target="#myModal3">Review
+                    </a>
+                    <a (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
+                    data-toggle="modal" data-target="#myModal3" class="mob-v-btn-products btn-fill">Detail</a>
+                    <a href="{{data.sign_up}}" target="_blank" class="mob-v-btn-products btn-fill">Signup</a>
+                    </div>
                   <div class="col-sm-12">
 
                   </div>
