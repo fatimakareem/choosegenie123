@@ -7776,6 +7776,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 }
 @media (max-width: 376px) {
+  .sort-bar-height {
+    height: 128px;
+}
   .appio-center-heading >h2 {
     font-size: 34px;
   }
