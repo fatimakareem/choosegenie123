@@ -65,8 +65,10 @@ export class HomeComponent implements OnInit {
       },
       {
         breakpoint: 480,
+        // "slidesToScroll": 1,
         settings: {
           arrows: true,
+          slidesToScroll: 1,
           // centerMode: true,
           slidesToShow: 1
         }
