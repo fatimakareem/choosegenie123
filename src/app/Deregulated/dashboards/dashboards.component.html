@@ -160,7 +160,7 @@
                       <input matInput placeholder="price 2000 kwh" name="price_2000_kwh" value="{{price_2000_kwh}}" [hidden]="true" #updatedprice2000kwh/> -->
 
 
-                      <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" value="{{cancelation_fee}}" #updatedcancelation_fee/>
+                      <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" value="{{cancelation_fee}}" [hidden]="true" #updatedcancelation_fee/>
 
                       <input matInput placeholder="Fact Sheet" readonly name="fact_sheet" value="{{fact_sheet}}" [hidden]="true" #updatedfact_sheet/>
 
@@ -524,12 +524,14 @@
                 </div>
                 <div class="col-lg-12">
                   <div class="plan-description">
-                    <div class="plan-description__heading">Cancelation Fee</div>
+                      <div class="plan-description__heading"  *ngIf="cancelation_fee;else no_data_temp2">Cancellation Fee:  {{cancelation_fee}}</div>
+                          
+                     
                     <div class="plan-description__content">
-
+<!-- 
                       <h4 *ngIf="cancelation_fee;else no_data_temp2">
                         &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee}}
-                      </h4>
+                      </h4> -->
 
                       <ng-template #no_data_temp2>
 

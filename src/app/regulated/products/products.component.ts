@@ -1,5 +1,5 @@
 // IMPORTANT: this is a plugin which requires jQuery for initialisation and data manipulation
-import { Component, OnInit, AfterViewInit, Inject,OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Inject, OnDestroy } from '@angular/core';
 import { Config } from "../../Config";
 import { Subscription } from 'rxjs/Subscription';
 import { HomeService } from "../../home/home.service";
@@ -25,7 +25,7 @@ import { PageEvent } from '@angular/material';
 import swal from 'sweetalert2';
 import { error } from 'util';
 import { delay } from 'rxjs/operator/delay';
-import {ExcelService} from '../../excel.service';
+import { ExcelService } from '../../excel.service';
 
 
 
@@ -56,7 +56,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 })
 
-export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
+export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     [x: string]: any;
     today = Date.now();
     value1 = "500";
@@ -82,7 +82,7 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
     zipcodeexist;
     keyPress;
     //    setPage;
-    constructor(private excelService:ExcelService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService) {
+    constructor(private excelService: ExcelService, private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService) {
 
     }
     ngOnDestroy() {
@@ -101,36 +101,36 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
         localStorage.removeItem('months6');
         localStorage.removeItem('months7');
         localStorage.removeItem('name');
-      }
+    }
     slideConfig = {
-      "slidesToShow": 5,
-      "slidesToScroll": 1,
-      prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
-      nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
-      responsive: [
-        {
-          breakpoint: 778,
-          settings: {
-            arrows: true,
-            // centerMode: true,
-            slidesToShow: 3
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            arrows: true,
-            // centerMode: true,
-            slidesToShow: 1
-          }
-        }
-      ]
+        "slidesToShow": 5,
+        "slidesToScroll": 1,
+        prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
+        nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
+        responsive: [
+            {
+                breakpoint: 778,
+                settings: {
+                    arrows: true,
+                    // centerMode: true,
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: true,
+                    // centerMode: true,
+                    slidesToShow: 1
+                }
+            }
+        ]
     };
     // array of all items to be paged
     // pager object
     private allItems: any[];
-city;
-country;
+    city;
+    country;
     home: any = {};
     private id: any[];
     page: any[];
@@ -184,7 +184,7 @@ country;
     renewablerate;
     renewable;
     com;
-    item ;
+    item;
     price;
     min;
     max;
@@ -201,13 +201,13 @@ country;
     modal: any = [];
     myID;
     close;
-    status:any=true;
+    status: any = true;
     slider;
     model: any = {};
 
     ngOnInit() {
-        this.item="10";
-  this.myID = document.getElementById("myID");
+        this.item = "10";
+        this.myID = document.getElementById("myID");
         var myScrollFunc = function () {
             var y = window.scrollY;
             if (y >= 500) {
@@ -276,24 +276,24 @@ country;
         const Results = {};
         this.val = "methodName($event[0])"
         this.companytitle();
-       this.zipwithcity();
+        this.zipwithcity();
 
         // this.featuredplan();
 
     }
-    exportAsXLSX(){
-        this.excelService.exportAsExcelFile(  this.product, 'ChoiceGenie Vendor Detail');
-     }
+    exportAsXLSX() {
+        this.excelService.exportAsExcelFile(this.product, 'ChoiceGenie Vendor Detail');
+    }
     w3_open() {
         document.getElementById("mySidebar").style.display = "block";
-      }
-     w3_close() {
+    }
+    w3_close() {
         document.getElementById("mySidebar").style.display = "none";
-      }
+    }
     pop_close() {
 
 
-       this.status=false;
+        this.status = false;
 
     }
 
@@ -304,12 +304,14 @@ country;
         this.profileurl = profileurl;
         this.profile_logo = profile_logo;
         this.servicearea = servicearea;
+        console.log(this.servicearea);
+        // alert(this.servicearea)
         console.log('id : ' + this.id, this.title);
     }
 
     checked_login() {
-        if (localStorage.getItem('custum')) {
-            let local = localStorage.getItem('custum');
+        if (localStorage.getItem('username')) {
+            let local = localStorage.getItem('username');
             return true;
         }
         else {
@@ -320,10 +322,10 @@ country;
 
         let headers = new Headers();
         headers.append('Content-Type', 'application/json')
-        this.http.get(Config.api + 'zipcodewith_country_city/'+ this.zip_code, { headers: headers })
+        this.http.get(Config.api + 'zipcodewith_country_city/' + this.zip_code, { headers: headers })
 
             .subscribe(Res => {
-                this.city= Res.json();
+                this.city = Res.json();
                 console.log(this.city);
 
                 // this.city = Res.json()[0].city;
@@ -344,8 +346,9 @@ country;
             .subscribe(Res => {
                 this.data = Res.json();
                 console.log(this.data);
-                this.user = this.data['user'];
-                localStorage.setItem('user',this.user);
+                // this.user = this.data['Name'];
+                this.user = this.username;
+                // this.user=localStorage.getItem('username');
                 console.log(this.user)
             });
     }
@@ -364,23 +367,28 @@ country;
 
     }
     reviews(rate, comt, id) {
+
+
         console.log(this.servicearea)
 
         console.log(this.title);
         if (localStorage.getItem('username')) {
             console.log(localStorage.getItem('username'))
             console.log(id)
-            console.log(localStorage.getItem('user'))
+            // console.log(localStorage.getItem('Name'))
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
             // this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
             this.http.post(Config.api + 'reviews/' + this.comtitle, JSON.stringify({
-                "rate": this.rate,
+                // {
                 "company_name": this.comtitle,
-                "comment": comt,
-                "user": localStorage.getItem('user'),
                 "servicearea": this.servicearea,
-                // "profile": this.profile_logo
+                "rate": this.rate,
+                "comment": comt,
+                "user": this.username,
+                // "user": localStorage.getItem('username') 
+                // }
+
             }
 
             ), { headers: headers })
@@ -562,7 +570,7 @@ country;
     logo3;
     logo2;
     logo1;
-    star5(event,i){
+    star5(event, i) {
         if (event.target.checked == true) {
             this.logo5 = "StarRating5.png";
             this.setPage(1);
@@ -574,7 +582,7 @@ country;
         }
         console.log(this.logo5)
     }
-    star4(event,i){
+    star4(event, i) {
         if (event.target.checked == true) {
             this.logo4 = "StarRating4.png";
             this.setPage(1);
@@ -586,7 +594,7 @@ country;
         }
         console.log(this.logo4)
     }
-    star3(event,i){
+    star3(event, i) {
         if (event.target.checked == true) {
             this.logo3 = "StarRating3.png";
             this.setPage(1);
@@ -598,7 +606,7 @@ country;
         }
         console.log(this.logo3)
     }
-    star2(event,i){
+    star2(event, i) {
         if (event.target.checked == true) {
             this.logo2 = "StarRating2.png";
             this.setPage(1);
@@ -610,7 +618,7 @@ country;
         }
         console.log(this.logo2)
     }
-    star1(event,i){
+    star1(event, i) {
         if (event.target.checked == true) {
             this.logo1 = "StarRating1.png";
             this.setPage(1);
@@ -697,7 +705,7 @@ country;
     checked6(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
-          //  alert(this.months6)
+            //  alert(this.months6)
             this.months6 = "6 Months";
             this.setPage(1);
         }
@@ -883,20 +891,20 @@ country;
             delete this.name;
             localStorage.removeItem('name');
             this.refresh();
-          this.setPage(1) ;
+            this.setPage(1);
 
         }
         console.log(this.name)
     }
     refresh(): void {
-       // this.setPage(1);
-      window.location.reload();
+        // this.setPage(1);
+        window.location.reload();
     }
 
     checked18(event, i, item) {
         if (item) {
             console.log(item);
-           // alert(item)
+            // alert(item)
             this.item = item;
             this.setPage(1);
         }
@@ -907,8 +915,8 @@ country;
         }
     }
     pricerate(min, max) {
-        console.log(min,max)
-        if (min && max ) {
+        console.log(min, max)
+        if (min && max) {
             this.min = min;
             this.max = max;
 
@@ -924,7 +932,7 @@ country;
             this.setPage(1);
         }
 
-        console.log(this.min,this.max)
+        console.log(this.min, this.max)
     }
 
     checked20(event, i) {
@@ -1024,21 +1032,22 @@ country;
                 }
 
             },
-            error => {
-                swal({
-                    text: "Zipcode Dose Not Exist",
-                    title: "Choice Genie",
-                    type: "error",
-                    showConfirmButton: false,
-                    timer: 1200,
-                    confirmButtonText: "OK",
+                error => {
+                    swal({
+                        text: "Zipcode Dose Not Exist",
+                        title: "Choice Genie",
+                        type: "error",
+                        showConfirmButton: false,
+                        timer: 1200,
+                        confirmButtonText: "OK",
 
-                })
-            }
+                    })
+                }
             );
     }
 
     setPage(page: number) {
+        
 
         if (this.months1 == null) {
             delete this.months1;
@@ -1084,10 +1093,11 @@ country;
         }
 
         const Results = {}
-        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "prepaid" || this.prepaid == "prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.name || this.sort == "dsc" || this.item || this.min || this.max || this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5 ) {
+       
+        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "prepaid" || this.prepaid == "prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.name || this.sort == "dsc" || this.item || this.min || this.max || this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5) {
 
-            console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.price,this.item, 'tttttttttttt');
-            this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.item, this.min, this.max,this.logo1,this.logo2,this.logo3,this.logo4,this.logo5).subscribe(response => {
+            console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.price, this.item, 'tttttttttttt');
+            this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.item, this.min, this.max, this.logo1, this.logo2, this.logo3, this.logo4, this.logo5).subscribe(response => {
 
                 this.product = response['Results'];
                 this.noresult = response['Total Result'];
@@ -1098,7 +1108,7 @@ country;
 
                 }
 
-                this.pager = this.pagerService.getPager(response['Total Result'], page,this.item);
+                this.pager = this.pagerService.getPager(response['Total Result'], page, this.item);
 
             }
 
@@ -1110,6 +1120,10 @@ country;
 
 
         else {
+
+
+
+            
             this.obj.searchProducts(this.zip_code, page).subscribe(response => {
 
                 this.product = response['Results'];

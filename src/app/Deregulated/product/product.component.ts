@@ -182,7 +182,7 @@ export class ProductComponent implements OnInit,OnDestroy {
       this.name=localStorage.getItem('name');
         this.username = localStorage.getItem('username');
         this.zip_code = localStorage.getItem('zip');
-        this.customer = localStorage.getItem('custum')
+        this.customer = localStorage.getItem('username')
         this.months1 = localStorage.getItem('months1')
         this.months2 = localStorage.getItem('months2')
         this.months3 = localStorage.getItem('months3')
@@ -312,8 +312,8 @@ this.zipwithcity();
         console.log('id : ' + this.catagoryId);
     }
     checked_login() {
-        if (localStorage.getItem('custum')) {
-            let local = localStorage.getItem('custum');
+        if (localStorage.getItem('username')) {
+            let local = localStorage.getItem('username');
             return true;
         }
 
@@ -330,7 +330,8 @@ this.zipwithcity();
             .subscribe(Res => {
                 this.data = Res.json();
                 console.log(this.data);
-                this.user = this.data['user'].id
+                this.user=this.username;
+                // this.user = this.data['user'].id
             });
 
     }
@@ -339,8 +340,9 @@ this.zipwithcity();
         this.rate = rating;
     }
     reviews(rate, comt, id) {
-        if (localStorage.getItem('custum')) {
+        if (localStorage.getItem('username')) {
             console.log(id)
+            console.log(this.username)
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
             this.http.post(Config.api + 'reviews/' + this.comtitle , JSON.stringify({
@@ -348,7 +350,7 @@ this.zipwithcity();
                 "rate": this.rate,
                 "company_name": this.comtitle,
                 "comment": comt,
-                "user": this.user,
+                "user": this.username,
                 "servicearea": this.servicearea,
                 // "profile": this.profile_logo
             }

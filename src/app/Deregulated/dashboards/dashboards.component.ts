@@ -122,9 +122,11 @@ export class DashboardsComponent implements OnInit {
   
   search(page:number) {
     console.log(this.Inactivedate)
-    this.title = localStorage.getItem('username');
+    this.title = localStorage.getItem('title');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
+    console.log('pofile', localStorage.getItem('token'));
     this.http.post(Config.api + 'vedor_product_search/' + this.title +'?page='+page, JSON.stringify({
       "productinactive":moment(this.Inactivedate).format('YYYY/MM/DD'),
       "propublish":moment(this.publishdate).format('YYYY/MM/DD'),
@@ -139,7 +141,7 @@ export class DashboardsComponent implements OnInit {
   }
   
   setPage(title, page: number) {
-    this.title = localStorage.getItem('username');
+    this.title = localStorage.getItem('title');
     console.log("usernameeeeeeeeeeeee", this.title)
     const Results = {};
     this.companyService.deregulatedsearch(title, page).subscribe(Response => {
@@ -300,7 +302,7 @@ export class DashboardsComponent implements OnInit {
 
  
   public ngOnInit() {
-    this.title = localStorage.getItem('username')
+    this.title = localStorage.getItem('title')
     console.log(this.title, 'gggggggggggggggg')
     this.updataForm = this.formBuilder.group({
 

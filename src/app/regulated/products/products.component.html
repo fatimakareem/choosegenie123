@@ -198,6 +198,7 @@
               </div>
               <div class="radio">
                 <label class="checkbox-font">
+                  
                   <input type="radio" name="planmin" id="chckbx" checked="true" (change)="checkedall($event,i)">Show
                   All Plans
                 </label>
@@ -525,9 +526,9 @@
                   </li>
 
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
-                    <a (click)="setPage(pager.currentPage + 3)">...</a>
+                    <a (click)="setPage(pager.currentPage + 3)">OF</a>
                   </li>
-                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
+                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> </li>
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
                     <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
                   </li>
@@ -1023,7 +1024,16 @@
 
                         <div class="col-lg-12">
                           <div class="plan-description">
+<<<<<<< HEAD
                             <div class="plan-description__heading" *ngIf="cancelation;else no_data_temp2">Cancellation Fee :{{cancelation.split(' ',3000)[6]}}</div>
+=======
+                            <div class="plan-description__heading" *ngIf="cancelation;else no_data_temp2">Cancellation Fee: {{cancelation.split(' ',3000)[6]}}</div>
+                            
+                            <!-- <div *ngFor="let data of plan_information"> {{data}}</div> -->
+                            <!-- <ul> -->
+                                <!-- <li *ngFor="let data of plan_information">{{data}}</li> -->
+                              <!-- </ul> -->
+>>>>>>> a53cac7cce214eb54c50079edf5e5a771084889a
                             <div class="plan-description__content">
 
                               <!-- <h4 *ngIf="cancelation;else no_data_temp2">
@@ -1112,9 +1122,10 @@
                 </li>
 
                 <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
-                  <a (click)="setPage(pager.currentPage + 3)">...</a>
+                  <a (click)="setPage(pager.currentPage + 3)">OF</a>
                 </li>
-                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
+                <!-- <a > Of</a> -->
+                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> </li>
                 <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
                   <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
                 </li>

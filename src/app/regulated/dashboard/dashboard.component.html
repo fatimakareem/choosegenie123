@@ -22,7 +22,6 @@
                   <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
                 </mat-form-field>
 
-
                 <!-- <input type="date" placeholder="Publish Date" required name="publishdate" [(ngModel)]="publishdate" style="    padding: 2px 0px; font-size: 16px; font-weight: bold;"> -->
 
               </div>
@@ -159,7 +158,7 @@
                             <input matInput placeholder="price 2000 kwh" name="price_2000_kwh" value="{{price_2000_kwh}}" [hidden]="true" #updatedprice2000kwh/>
 
 
-                            <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" value="{{cancelation_fee}}" #updatedcancelation_fee/>
+                            <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" value="{{cancelation_fee}}"[hidden]="true" #updatedcancelation_fee/>
 
                             <input matInput placeholder="Fact Sheet" readonly name="fact_sheet" value="{{fact_sheet}}" [hidden]="true" #updatedfact_sheet/>
 
@@ -194,15 +193,15 @@
 
                   <div class="sh-top-price">
                     Price 500 kwh
-                    <span class="price-style-1"> {{data.price_500_kwh}}</span>
+                    <span class="price-style-1"> {{data.price_500_kwh}}¢</span>
 
                   </div>
                   <div class="add-price grid-element">
                     <div class="unit">Price 1000 kwh
-                      <span class="price-style"> {{data.price_1000_kwh}} </span>
+                      <span class="price-style"> {{data.price_1000_kwh}}¢ </span>
                     </div>
                     <div class="unit">Price 2000 kwh
-                      <span class="price-style"> {{data.price_2000_kwh}} </span>
+                      <span class="price-style"> {{data.price_2000_kwh}}¢ </span>
                     </div>
 
                   </div>
@@ -488,16 +487,17 @@
                       <table>
                         <tbody>
                           <tr class="plan-information__row">
+                            
                             <td class="plan-information__cell">Price 1000 kwh</td>
-                            <td class="plan-information__cell plan-information__cell--last ">{{price_1000_kwh}}</td>
+                            <td class="plan-information__cell plan-information__cell--last ">{{price_1000_kwh}}¢</td>
                           </tr>
                           <tr class="plan-information__row">
                             <td class="plan-information__cell">Price 500 kwh</td>
-                            <td class="plan-information__cell plan-information__cell--last ">{{price_500_kwh}}</td>
+                            <td class="plan-information__cell plan-information__cell--last ">{{price_500_kwh}}¢</td>
                           </tr>
                           <tr class="plan-information__row">
                             <td class="plan-information__cell">Price 2000 kwh</td>
-                            <td class="plan-information__cell plan-information__cell--last ">{{price_2000_kwh}}</td>
+                            <td class="plan-information__cell plan-information__cell--last ">{{price_2000_kwh}}¢</td>
                           </tr>
                         </tbody>
                       </table>
@@ -537,13 +537,14 @@
 
                     <div class="col-lg-12">
                         <div class="plan-description">
-                            <div class="plan-description__heading">Cancelation Fee</div>
+                            <div class="plan-description__heading"  *ngIf="cancelation_fee;else no_data_temp2">Cancellation Fee:  {{cancelation_fee.split(' ',3000)[6]}}</div>
                             <div class="plan-description__content">
 
-                              <h4 *ngIf="cancelation_fee;else no_data_temp2">
-                                <!-- &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee.split(' ',3000)[6]}} -->
-                                &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee}}
-                              </h4>
+                              <!-- <h4 *ngIf="cancelation_fee;else no_data_temp2">
+                                &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee.split(' ',3000)[6]}}
+                                </h4> -->
+                                <!-- &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee.split(' ',3000)[2]}} -->
+                              <!-- </h4> -->
 
                               <ng-template #no_data_temp2>
 
