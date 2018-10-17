@@ -772,21 +772,12 @@
 
 
 
-<<<<<<< HEAD
-                  </div>
-                  <div class="mob-v-product col-xs-12">
-                    <a class="mob-v-btn-products btn-fill" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
-                       data-toggle="modal" data-target="#myModal3">Review
-                    </a>
-                    <a (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
-                       data-toggle="modal" data-target="#myModal2" class="mob-v-btn-products btn-fill">Detail</a>
-                    <a href="{{data.sign_up}}" target="_blank" class="mob-v-btn-products btn-fill">Signup</a>
-=======
->>>>>>> 2e43ad16fffb571a90d9b21d8ceb93e842df91b7
                     </div>
                     <div class="mob-v-product col-xs-12">
                         <!-- (click)="btnratingClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
                         data-toggle="modal" data-target="#myModal4" -->
+                        <!-- <a class="mob-v-btn-products btn-fill" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
+                        data-toggle="modal" data-target="#myModal3"> -->
                       <a class="mob-v-btn-products btn-fill" (click)="btnratingClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
                       data-toggle="modal" data-target="#myModal4">Review
                       </a>
@@ -808,27 +799,12 @@
                   <!-- Modal content-->
                   <div class="modal-content popupmodel">
 
-<<<<<<< HEAD
-                  <div class="modal-body model-box">
-                    <div class="popup-close-button" data-dismiss="modal">X</div>
-                    <div class="row">
-                      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-8 " style="border-bottom: 1px #4f4f4f solid;">
-                        <p class=" modal-v2__main-heading"> {{comtitle}}</p>
-
-                      </div>
-                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4" style="border-bottom: 1px #4f4f4f solid;">
-                        <div class="popup-image">
-                          <a href="{{sign_up}}" target="_blank" class="display-b margin-top">
-                            <img src="{{profile_logo}}" />
-                          </a>
-=======
                     <div class="modal-body model-box">
                       <div class="popup-close-button" data-dismiss="modal">X</div>
                       <div class="row">
                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 " style="border-bottom: 1px #4f4f4f solid;">
                           <p class=" modal-v2__main-heading"> {{comtitle}}</p>
 
->>>>>>> 2e43ad16fffb571a90d9b21d8ceb93e842df91b7
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="border-bottom: 1px #4f4f4f solid;">
                           <div class="popup-image">
@@ -906,21 +882,12 @@
                       </div>
                     </div>
 
-<<<<<<< HEAD
-                  <div style="display:inline-block; text-align:center;">
-                    <a *ngIf="sign_up" href="{{sign_up}}" target="_blank">
-                      <button class="btn btn-fill">Signup Now</button>
-                    </a>
-                    <div *ngIf="phone" style="display:inline-block; padding:24px;">
-                        <span style="font-size:21px; font-weight:600px">OR CALL
-=======
                     <div style="display:inline-block; text-align:center;">
                       <a *ngIf="sign_up" href="{{sign_up}}" target="_blank">
                         <button class="btn btn-fill">Signup Now</button>
                       </a>
                       <div *ngIf="phone" style="display:inline-block; padding:24px;">
                         <span style="font-size:24px; font-weight:600px">OR CALL
->>>>>>> 2e43ad16fffb571a90d9b21d8ceb93e842df91b7
                           <b>
                             <a href="tel:{{phone}}" style="display: inline-block">
                               <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
