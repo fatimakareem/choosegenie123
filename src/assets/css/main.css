@@ -8537,6 +8537,20 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
+  .body-heading {
+    font-size: 17px;
+  }
+  .rating-starts fieldset label {
+    font-size: 9px;
+  }
+  .txt-area .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder, .mat-form-field-empty.mat-form-field-placeholder, mat-form-field.mat-form-field{
+    font-size: 15px;
+  }
+  .modal-open .modal{
+    padding-left: 0px !important;
+  }
+
+
   .mob-view-hide{
     display: none;
   }
@@ -8622,11 +8636,11 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     padding: 8px 0px 0px 15px !important;
   }
   .popup-image img{
-    width: 50% !important;
+    width: 100% !important;
   }
   .modal-v2__main-heading{
-    font-size: 30px;
-    line-height: 30px;
+    font-size: 18px;
+    margin-top: 11px;
   }
   .cm-detail h3 {
     font-size: 22px !important;
@@ -8745,16 +8759,29 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     margin-left: 5px;
   }
   .pric-range-box input {
-    width: 37px !important;
+    width: 32px !important;
   }
   .sidrbar-rating {
-    width: 141px;
+    width: 132px;
   }
   .margin-t-70{
     margin-top: 70px;
   }
 }
 @media (max-width: 325px){
+  .modal-v2__main-heading{
+    font-size: 15px;
+    margin-top: 20px;
+  }
+  .plan-information__cell{
+    font-size: 15px;
+  }
+
+
+
+
+
+
   .position {
     margin-top: -17px;
 }
@@ -8794,7 +8821,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     font-size: 15px;
   }
   .signup-popup h1 {
-    font-size: 22px;
+    font-size: 21px;
   }
   .why-our .mainPage h2{
     font-size: 34px;
