@@ -5409,6 +5409,90 @@ section#boody{
 /*End Top Bar Google Translate*/
 
 
+
+
+/*Start header*/
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 38px;
+  box-shadow: 1px 1px 8px 2px #ccc;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #000000;
+    font-weight: bold;
+    display: block;
+    transition: 0.3s;
+    width: 100%;
+    border-top: 1px solid #ccc;
+}
+
+.sidenav a:hover {
+  color: #c00;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  font-size: 36px;
+  color: #000;
+}
+.menu-btn{
+  display: none;
+  font-size: 20px;
+}
+.dropdown{
+  list-style: none;
+  border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+.dropdown i{
+  color: #c00;
+}
+.sidenav a i{
+  color: #c00;
+}
+.dropdown button{
+  background: #ffffff;
+  border: none;
+  color: #000000;
+  font-size: 20px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+.dropdown-menu{
+  background: #dcdada !important;
+    width: 90%;
+    margin: 0 13px !important;
+}
+.dropdown-menu li > a {
+  font-size: 17px !important;
+  padding: 0px !important;
+}
+.caret {
+  margin-left: 5px !important;
+  border-top: 6px dashed !important;
+  border-top: 6px solid \9 !important;
+  border-right: 6px solid transparent !important;
+  border-left: 6px solid transparent !important;
+}
+
+/*End header*/
+
+
+
 /*Start Home*/
 
 .margin-search{
@@ -7333,6 +7417,16 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 }
 @media (max-width: 991px) {
+  .menu-btn{
+    display: block;
+    float: right;
+    margin: 22px 10px;
+    font-weight: bold;
+    color: #c00;
+  }
+  .nav-home{
+    float: left;
+  }
   /* Large devices (992px and down) */
   .info-box-02__box-02{
     padding: 8px 0px 24px !important;
@@ -8447,6 +8541,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 769px) and (max-width: 991px) {
+  
+
+
   .margin-nav70{
     margin-top: -77px;
   }
