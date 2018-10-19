@@ -207,7 +207,7 @@
             Sign up
             <!-- <i class="fa fa-caret-down"></i> -->
           </a>
-          <div class="drop-downs-l">
+          <div class="drop-downs-l right-drop">
             <ul class="nav-vanders">
               <li class="/userlogin">
                 <a onclick="topFunction()" routerLink="/register">
@@ -267,7 +267,7 @@
             <i class="material-icons">account_circle</i>{{admin}}
             <!-- <input style="cursor: pointer;font-size: 20px; margin-left: 5px;" type="text" [value]="username" readonly> -->
           </a>
-          <div class="drop-downs">
+          <div class="drop-downs right-drop">
             <ul class="nav-vanders  why-choiegenie-sublist">
               <li>
                 <a (click)="moving1()" style="cursor: pointer;">
@@ -287,7 +287,7 @@
             <i class="material-icons">account_circle</i>{{username}}
             <!-- <input style="cursor: pointer;font-size: 20px; margin-left: 5px;" type="text" [value]="customer" readonly> -->
           </a>
-          <div class="drop-downs">
+          <div class="drop-downs right-drop">
             <ul class="nav-vanders  why-choiegenie-sublist">
               <li>
                 <a (click)="moving()" style="cursor: pointer;">
@@ -308,6 +308,12 @@
   </nav>
   <span class="menu-btn fas fa-bars" (click)="openNav()"></span>
   <div id="mySidenav" class="sidenav">
+    <div class="sidebar-header">
+        <!-- <a class="sidebar-logo" onclick="topFunction()" routerlink="/" ng-reflect-router-link="/" href="/"> -->
+          <!-- <img class="sidebar-logo" alt="ChoiceGenie" src="../../assets/img/ChoiceGenie-logo2.png"> -->
+        <!-- </a> -->
+        <h2 class="sidebar-heading">ChoiceGenie</h2>
+    </div>
       <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
       <li class="dropdown">
           <button class="" type="button" data-toggle="dropdown"><i class="fa fa-home"></i> Why ChoiceGenie
