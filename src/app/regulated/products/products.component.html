@@ -192,14 +192,14 @@
               </div>
               <div class="radio">
                 <label class="checkbox-font">
-                  <input type="radio" name="planmin" id="chckbx" [(ngModel)]=planmin value="planmin" (change)="checked13($event,i)">
+                  <input type="radio" name="planmin" id="chckbx" [(ngModel)]=planmin  [value]="planmin" (change)="checked13($event,i)">
                   Plans without minimum usage Fee/Credits
                 </label>
               </div>
               <div class="radio">
                 <label class="checkbox-font">
-                  
-                  <input type="radio" name="planmin" id="chckbx" checked="true" (change)="checkedall($event,i)">Show
+                  <!-- checked8 -->
+                  <input type="radio" name="planmin" id="chckbx" checked="true"  value="allplan"   (change)="checkshowallplan($event,i,1)">Show
                   All Plans
                 </label>
               </div>
@@ -217,8 +217,11 @@
               </div>
               <div class="checkbox">
                 <label class="checkbox-font">
+                    <!-- [(ngModel)]=fixed value="fixed" -->
+                    <!-- [(ngModel)]=fixed value="fixed" -->
+                    <!-- checked="true" -->
 
-                  <input type="checkbox" name="fixed" [(ngModel)]=fixed value="fixed" (change)="checked8($event,i)">
+                  <input type="checkbox" name="fixed" [checked]='true' value="fixed"   (change)="checked8($event,i)">
                   Fixed Rate
 
                 </label>
@@ -654,7 +657,7 @@
           </div>
           <div class="found-div sh-products-fix" *ngIf="product">
             We found <strong>{{noresult}}</strong> residential plans for 
-            <strong>{{city?.City}} </strong>,<strong>{{city?.State}} </strong>&nbsp;<strong>{{zip_code}}</strong>
+            <strong>{{city?.City}} </strong>,<strong>{{city?.State}} </strong>&nbsp;<strong>{{city?.Res.zipcode}}</strong>
             <small *ngIf="name"> for </small><strong> {{name}}</strong>
 
 
@@ -1041,7 +1044,7 @@
                      
                         <div class="col-lg-12">
                           <div class="plan-description">
-                            <div class="plan-description__heading" *ngIf="cancelation;else no_data_temp2">Cancellation Fee: {{cancelation.split(' ',3000)[6]}}</div>
+                            <div class="plan-description__heading" *ngIf="cancelation;else no_data_temp2">Cancellation Fee: {{cancelation.split(' ',3000)[2]}}</div>
                             
                             <div class="plan-description__content">
 

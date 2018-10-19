@@ -64,7 +64,7 @@
         <img src="https://storage.choicegenie.com/images/{{data.blog_image}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"  alt="ChoiceGenie">
       </div>
       <div class="blog-layout-content">
-        <h2>{{data.heading}}</h2>
+        <a (click)="fun(data.heading)"  target="_blank"  ><h2>{{data.heading}}</h2></a>
         <div [innerHTML]="data.content1 | slice:0:130"></div>
         <a (click)="fun(data.heading)"  target="_blank"  >
         <button class="btn btn-fill margin-zero1" type="submit"  target="_blank" >Read more</button></a>

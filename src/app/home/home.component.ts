@@ -386,9 +386,9 @@ export class HomeComponent implements OnInit {
   move(name) {
 
     console.log("CHOICE GENIE", this.model.zipcode1);
-    let headers = new Headers();
+    let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    this.https.get(Config.api + 'zipcodecheck/' + this.zipCode, { headers: headers })
+    this.http.get(Config.api + 'zipcodecheck/' + this.zipCode, { headers: headers })
       .subscribe(data => {
         console.log(data);
         console.log(data['message'], 'hhhhhhhhhhhhhhh')
