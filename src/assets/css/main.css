@@ -5418,7 +5418,7 @@ section#boody{
   position: fixed;
   z-index: 2;
   top: 0;
-  right: 0;
+  right: -5px;
   background-color: #ffffff;
   overflow-x: hidden;
   transition: 0.5s;
@@ -5473,13 +5473,20 @@ section#boody{
   font-weight: bold;
 }
 .dropdown-menu{
-  background: #dcdada !important;
-    width: 90%;
-    margin: 0 13px !important;
+  background: #fff !important;
+  width: 90%;
+  margin: 0 13px !important;
+  padding: 0px !important;
+  box-shadow: 0px 0px 9px 3px #eae9e9;
+}
+.dropdown-menu li{
+  margin: 0px;
+  padding: 0px;
 }
 .dropdown-menu li > a {
   font-size: 17px !important;
-  padding: 0px !important;
+  padding: 7px !important;
+  margin: 0px !important;
 }
 .caret {
   margin-left: 5px !important;
@@ -7420,7 +7427,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .menu-btn{
     display: block;
     float: right;
-    margin: 22px 10px;
+    margin: 29px 10px 0px;
     font-weight: bold;
     color: #c00;
   }
@@ -8541,8 +8548,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 769px) and (max-width: 991px) {
-  
-
+  .search-bg__title {
+    font-size: 26px;
+  }
 
   .margin-nav70{
     margin-top: -77px;
