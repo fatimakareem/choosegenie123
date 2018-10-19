@@ -82,8 +82,9 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     market;
     zipcodeexist;
     keyPress;
+
     //    setPage;
-    constructor(private excelService: ExcelService, private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService,private https: HttpService) {
+    constructor(private excelService: ExcelService, private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService, private https: HttpService) {
 
     }
     ngOnDestroy() {
@@ -179,7 +180,9 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     index;
     notprepaid;
     prepaid;
-    planmin;
+    planmin = "NULL";
+    allplan;
+    showallplan: any[];
     time;
     nottime;
     renewablerate;
@@ -207,8 +210,10 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     model: any = {};
 
     ngOnInit() {
+
         this.item = "10";
         this.myID = document.getElementById("myID");
+        
         var myScrollFunc = function () {
             var y = window.scrollY;
             if (y >= 500) {
@@ -279,6 +284,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         this.companytitle();
         this.zipwithcity();
 
+
         // this.featuredplan();
 
     }
@@ -319,6 +325,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
             return false;
         }
     }
+    usman;
     zipwithcity() {
 
         let headers = new Headers();
@@ -327,6 +334,8 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
             .subscribe(Res => {
                 this.city = Res.json();
+                
+// this.usman=Res.json()[0].zipcode;
                 console.log(this.city);
 
                 // this.city = Res.json()[0].city;
@@ -418,7 +427,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
     //Event Binding of Delete Buttons
 
-    btnEditClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl,specialterms) {
+    btnEditClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl, specialterms) {
         this.catagoryId = id;
 
         console.log(this.plan_information)
@@ -431,13 +440,13 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         this.price_1000_kwh = price_1000_kwh;
         this.plan_information = plan_information;
         this.rating_logo = rating_logo;
-        this.specialterms =specialterms;
+        this.specialterms = specialterms;
 
         this.profile_logo = profile_logo;
         this.profileurl = profileurl;
         this.price_500_kwh = price_500_kwh;
         this.price_2000_kwh = price_2000_kwh;
-        console.log(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl,specialterms)
+        console.log(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl, specialterms)
         console.log('id : ' + this.catagoryId);
     }
 
@@ -818,14 +827,40 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
         console.log(this.planmin)
     }
+    checkshowallplan(event, i, page: number) {
+
+        this.obj.searchProducts(this.zip_code, page).subscribe(response => {
+
+            this.product = response['Results'];
+            this.noresult = response['Total Result'];
+            for (let prod of this.product) {
+                prod["plan_information"] = prod["plan_information"].split(',,', 3000);
+                prod["price_rate"] = prod["price_rate"].split('..', 3000);
+
+            }
+
+
+            this.pager = this.pagerService.getPager(response['Total Result'], page, this.item);
+
+        }
+
+
+        );
+    }
     checkedall(event, i) {
+        // delete this.planmin;
         if (event.target.checked == true) {
             console.log(event.target.checked);
             delete this.planmin;
+            //  this.planmin = this.fixed;
             this.setPage(1);
+            // event.target.checked == false
+
+            // this.allplan="";
+            // alert(this.allplan)
         }
 
-        console.log(this.planmin)
+        console.log(this.planmin, "checkallremove ni howa ")
     }
     checked14(event, i) {
         if (event.target.checked == true) {
@@ -1049,7 +1084,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     setPage(page: number) {
-        
+
 
         if (this.months1 == null) {
             delete this.months1;
@@ -1093,9 +1128,12 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.max == null) {
             delete this.max;
         }
+        if (this.planmin == null) {
+            delete this.planmin;
+        }
 
         const Results = {}
-       
+
         if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "prepaid" || this.prepaid == "prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.name || this.sort == "dsc" || this.item || this.min || this.max || this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5) {
 
             console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.price, this.item, 'tttttttttttt');
@@ -1125,7 +1163,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
 
-            
+
             this.obj.searchProducts(this.zip_code, page).subscribe(response => {
 
                 this.product = response['Results'];

@@ -17,6 +17,8 @@ import { HomeService } from '../../home/home.service';
 import { SimpleGlobal } from 'ng2-simple-global';
 import { SlickModule } from 'ngx-slick';
 import { LoaderModule } from '../../loader/loader.module';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 
 // import { Pipe, PipeTransform } from "@angular/core";
 // import { HttpClientModule } from '@angular/common/http'
@@ -28,7 +30,7 @@ import { LoaderModule } from '../../loader/loader.module';
         RouterModule.forChild(ProductsRoutes),
         FormsModule,
         LoaderModule,
-        
+        MatSlideToggleModule,
         AngularcliStarRatingModule,
         // MdModule,
         MaterialModule,
