@@ -259,7 +259,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
             $(formSearch).removeClass('flipInX');
         });
         $( "#number" ).on( "click", function() {
-            if($( ".number:checked" ).length = 1)
+            if($( ".number:checked" ))
             {
                 $('#btn').prop('disabled', false);
             }
@@ -800,6 +800,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
             console.log(event.target.checked)
             this.notprepaid = "noprepaid";
             delete this.prepaid;
+            // delete this.planmin;
             this.setPage(1);
 
             console.log(this.notprepaid);
@@ -840,7 +841,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         console.log(this.planmin)
     }
     checkshowallplan(event, i, page: number) {
-
+        delete this.planmin;
         this.obj.searchProducts(this.zip_code, page).subscribe(response => {
 
             this.product = response['Results'];
@@ -1140,9 +1141,9 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.max == null) {
             delete this.max;
         }
-        if (this.planmin == null) {
-            delete this.planmin;
-        }
+        // if (this.planmin == null) {
+        //     delete this.planmin;
+        // }
 
         const Results = {}
 
@@ -1177,7 +1178,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
             this.obj.searchProducts(this.zip_code, page).subscribe(response => {
-
+                console.log(this.product = response['Results'])
                 this.product = response['Results'];
                 this.noresult = response['Total Result'];
                 for (let prod of this.product) {

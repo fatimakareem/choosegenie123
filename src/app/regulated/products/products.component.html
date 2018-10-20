@@ -199,7 +199,7 @@
               <div class="radio">
                 <label class="checkbox-font">
                   <!-- checked8 -->
-                  <input type="radio" name="planmin" id="chckbx" checked="true"  value="allplan"   (change)="checkshowallplan($event,i,1)">Show
+                  <input type="radio" name="planmin" id="chckbx" checked="true"  value="allplan"   (change)="checkshowallplan($event,i)">Show
                   All Plans
                 </label>
               </div>
@@ -252,7 +252,9 @@
               </div>
               <div class="radio">
                 <label class="checkbox-font">
-                  <input type="radio" name="prepaid" checked="true" (change)="checkedpre($event,i)"> Show All Plans
+                    <!-- checkedpre -->
+                    <!-- (change)="checkedpre($event,i) -->
+                  <input type="radio" name="prepaid" checked="true" (change)="checkshowallplan($event,i,1)"> Show All Plans
                 </label>
               </div>
               <div class="radio">
@@ -279,7 +281,8 @@
               </div>
               <div class="radio">
                 <label class="checkbox-font">
-                  <input type="radio" name="time" checked="true" (change)="checkedtime($event,i)"> Show All Plans
+                  <!-- checkedtime -->
+                  <input type="radio" name="time" checked="true" (change)="checkshowallplan($event,i,1)"> Show All Plans
                 </label>
               </div>
               <div class="radio">
@@ -594,7 +597,7 @@
                   <button class="print btn-fill" title="Export results to Excel" (click)="exportAsXLSX()">
                     <i class="far fa-file-excel" style="color:white"></i>
                   </button>
-                  <button class="Compare btn-fill"   (click)="Comapreproduct(1)" disabled id ="btn" >Compare</button>
+                  <button class="Compare btn-fill"   (click)="Comapreproduct(1)"  >Compare</button>
 
 
 
@@ -680,7 +683,7 @@
 
                     <div class="col-md-3  col-sm-6 col-xs-6 plan-detail text-center logo-div">
                       <div class="check-box mob-view-hide">
-                        <input type="checkbox" (change)="checked($event,data.id,i);hits($event)" id="number">
+                        <input type="checkbox" (change)="checked($event,data.id,i);hits($event)" >
 
                       </div>
                       <!-- <input type="checkbox" value="{{data.id}}" name="comp"  > -->
