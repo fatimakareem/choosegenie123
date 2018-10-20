@@ -22,7 +22,7 @@ export class HeaderService {
        console.log(search)
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post(Config.api+'search/'+search , JSON.stringify({
+        return this._http5.post(Config.api+'search/' , JSON.stringify({
           "search": search }), 
         {headers: headers}).map((response: Response) => response.json());
         }

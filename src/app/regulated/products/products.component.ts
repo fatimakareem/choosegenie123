@@ -258,6 +258,17 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
             $('body').removeClass('noScroll');
             $(formSearch).removeClass('flipInX');
         });
+        $( "#number" ).on( "click", function() {
+            if($( ".number:checked" ).length = 1)
+            {
+                $('#btn').prop('disabled', false);
+            }
+            else
+            {
+                $('#btn').prop('disabled', true);
+            }  
+          });
+          
         console.log(this.today = Date.now())
         this.state = localStorage.getItem('state')
         this.name = localStorage.getItem('name')
@@ -784,10 +795,10 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         }
         console.log(this.market)
     }
-    checked11(event, i) {
+    checked11(event) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
-            this.notprepaid = "prepaid";
+            this.notprepaid = "noprepaid";
             delete this.prepaid;
             this.setPage(1);
 
@@ -809,7 +820,8 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     checkedpre(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked);
-
+            this.prepaid=event.target.checked==false
+            alert(delete this.prepaid)
             delete this.notprepaid;
             delete this.prepaid;
             this.setPage(1);
@@ -1134,7 +1146,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
         const Results = {}
 
-        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "prepaid" || this.prepaid == "prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.name || this.sort == "dsc" || this.item || this.min || this.max || this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5) {
+        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "noprepaid" || this.prepaid == "prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.name || this.sort == "dsc" || this.item || this.min || this.max || this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5) {
 
             console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.price, this.item, 'tttttttttttt');
             this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.item, this.min, this.max, this.logo1, this.logo2, this.logo3, this.logo4, this.logo5).subscribe(response => {

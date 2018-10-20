@@ -192,7 +192,7 @@
               </div>
               <div class="radio">
                 <label class="checkbox-font">
-                  <input type="radio" name="planmin" id="chckbx" [(ngModel)]=planmin  [value]="planmin" (change)="checked13($event,i)">
+                  <input type="radio" name="planmin" id="chckbx" [(ngModel)]="planmin"  [value]="planmin" (change)="checked13($event,i)">
                   Plans without minimum usage Fee/Credits
                 </label>
               </div>
@@ -221,21 +221,21 @@
                     <!-- [(ngModel)]=fixed value="fixed" -->
                     <!-- checked="true" -->
 
-                  <input type="checkbox" name="fixed" [checked]='true' value="fixed"   (change)="checked8($event,i)">
+                  <input type="checkbox" name="fixed" [checked]="true" value="fixed"   (change)="checked8($event,i)">
                   Fixed Rate
 
                 </label>
               </div>
               <div class="checkbox">
                 <label class="checkbox-font">
-                  <input type="checkbox" name="vari" [(ngModel)]=vari value="vari" (change)="checked9($event,i)">
+                  <input type="checkbox" name="vari" [(ngModel)]="vari" value="vari" (change)="checked9($event,i)">
                   Variable
                   <small>(changing rate)</small>
                 </label>
               </div>
               <div class="checkbox">
                 <label class="checkbox-font">
-                  <input type="checkbox" [(ngModel)]=market name="market" value="market" (change)="checked10($event,i)">
+                  <input type="checkbox" [(ngModel)]="market" name="market" value="market" (change)="checked10($event,i)">
                   Indexed
                   <small>(market rate)</small>
                 </label>
@@ -257,13 +257,13 @@
               </div>
               <div class="radio">
                 <label class="checkbox-font">
-                  <input type="radio" (change)="checked12($event,i)" [(ngModel)]=prepaid name="prepaid" value="prepaid">
+                  <input type="radio" (change)="checked12($event,i)" [(ngModel)]="prepaid" name="prepaid" value="prepaid">
                   Show only Prepaid Plans
                 </label>
               </div>
               <div class="radio">
                 <label class="checkbox-font">
-                  <input type="radio" [(ngModel)]=notprepaid name="prepaid" value="notprepaid" (change)="checked11($event,i)">
+                  <input type="radio" [(ngModel)]="notprepaid" name="prepaid" value="notprepaid" (change)="checked11($event)">
                   Do not show Prepaid Plans
                 </label>
               </div>
@@ -284,7 +284,7 @@
               </div>
               <div class="radio">
                 <label class="checkbox-font">
-                  <input type="radio" [(ngModel)]=time name="time" value="time" (change)="checked14($event,i)"> Show
+                  <input type="radio" [(ngModel)]="time" name="time" value="time" (change)="checked14($event,i)"> Show
                   only Time Of Use Plans
                 </label>
               </div>
@@ -594,7 +594,7 @@
                   <button class="print btn-fill" title="Export results to Excel" (click)="exportAsXLSX()">
                     <i class="far fa-file-excel" style="color:white"></i>
                   </button>
-                  <button class="Compare btn-fill" (click)="Comapreproduct(1)">Compare</button>
+                  <button class="Compare btn-fill"   (click)="Comapreproduct(1)" disabled id ="btn" >Compare</button>
 
 
 
@@ -680,7 +680,7 @@
 
                     <div class="col-md-3  col-sm-6 col-xs-6 plan-detail text-center logo-div">
                       <div class="check-box mob-view-hide">
-                        <input type="checkbox" (change)="checked($event,data.id,i);hits($event)">
+                        <input type="checkbox" (change)="checked($event,data.id,i);hits($event)" id="number">
 
                       </div>
                       <!-- <input type="checkbox" value="{{data.id}}" name="comp"  > -->
@@ -1192,7 +1192,7 @@
                 <button class="print btn-fill" title="Export results to Excel" (click)="exportAsXLSX()">
                   <i class="far fa-file-excel" style="color:white"></i>
                 </button>
-                <button class="Compare btn-fill" (click)="Comapreproduct(1)">Compare</button>
+                <button class="Compare btn-fill" (click)="Comapreproduct(1)" id="chkdemo">Compare</button>
 
 
 
