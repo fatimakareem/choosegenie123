@@ -1612,7 +1612,7 @@ h3 {
   left: -4.7%;
   z-index: 1;
   position: absolute;
-  background: none;
+  background: #fff;
   border: 1px solid #000000;
   font-size: 28px;
   color: #000000;
@@ -1629,7 +1629,7 @@ h3 {
   right: -4%;
   z-index: 1;
   position: absolute;
-  background: none;
+  background: #fff;
   border: 1px solid #000000;
   font-size: 28px;
   color: #000000;
@@ -6346,6 +6346,27 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 .mob-v-call-no{
   display: none !important;
 }
+
+.color-black[title] {
+  position: relative;
+}
+.color-black[title]:hover:after {
+  content: attr(title);
+  position: absolute;
+  top: 0.5em;
+  right: 17px;
+  width: 11em;
+  padding: 10px;
+  font-size: smaller;
+  border: 1px solid;
+  background: #fff;
+  border-radius: 5px;
+  z-index: 2;
+  }
+
+
+
+  
 /* End Products */
 
 /* Start user Sidebar */
