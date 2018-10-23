@@ -399,33 +399,35 @@
                 </div>
                 <ul class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
 
-                  <li [ngClass]="{hide:pager.currentPage === 1}">
-                    <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
-                      <i class="fa fa-angle-left"></i>
-                    </a>
-                  </li>
-                  <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                    <a (click)="setPage(page)" class="view-plan-details">{{page}}</a>
-                  </li>
+                    <li [ngClass]="{hide:pager.currentPage === 1}">
+                        <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
+                          <i class="fa fa-angle-left"></i>
+                        </a>
+                      </li>
+                      <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                        <a (click)="setPage(page)" class="view-plan-details">{{page}}</a>
+                      </li>
+    
+                      <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+                        <a (click)="setPage(pager.currentPage + 3)">...</a>
+                      </li>
+                      <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>OF</a></li>
+                      <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                        <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+                      </li>
+                      <li *ngIf="pager.currentPage === pager.totalPages"> <a>OF</a></li>
+                      <li *ngIf="pager.currentPage === pager.totalPages">
+                        <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+                      </li>
+                      <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                        <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
+                          <i class="fa fa-angle-right top-set"></i>
+                        </a>
+                      </li>
+    
+                    </ul>
 
-                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
-                    <a (click)="setPage(pager.currentPage + 3)">OF</a>
-                  </li>
-                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">  </li>
-                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
-                  </li>
-                  <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
-                  <li *ngIf="pager.currentPage === pager.totalPages">
-                    <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
-                  </li>
-                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
-                      <i class="fa fa-angle-right top-set"></i>
-                    </a>
-                  </li>
-
-                </ul>
+                <!-- </ul> -->
                 <!-- <ul class="col-lg-3 col-md-3 col-sm-12 pagination" *ngIf="pager.pages && pager.pages.length">
                   <li [ngClass]="{hide:pager.currentPage === 1}">
                     <a (click)="setPage(pager.currentPage - 1)" class="view-plan-details" class="btn bd-color">
@@ -562,9 +564,15 @@
             <!-- We found <strong>{{noresult}}</strong> residential plans for “
             <strong>{{city?.City}} </strong>, &nbsp;&nbsp;<strong>{{city?.State}} </strong>, &nbsp;&nbsp;<strong>{{zip_code}}</strong>”
             <small *ngIf="name"> for </small><strong> {{name}}</strong> -->
+            <!-- We found <strong>{{noresult}}</strong> residential plans for 
+            <strong>{{city?.City}},&nbsp;{{city?.State}}&nbsp;{{city?.Res.zipcode}}</strong>
+            <small *ngIf="name"> for </small><strong> {{name}}</strong> -->
             We found <strong>{{noresult}}</strong> residential plans for 
-            <strong>{{city?.City}}</strong>,<strong>{{city?.State}} </strong>&nbsp;<strong>{{zip_code}}</strong>
+            <strong>{{city?.City}},&nbsp;{{city?.State}}&nbsp;{{city?.Res.zipcode}}</strong>
             <small *ngIf="name"> for </small><strong> {{name}}</strong>
+            <!-- We found <strong>{{noresult}}</strong> residential plans for 
+            <strong>{{city?.City}}</strong>,<strong>{{city?.State}} </strong>&nbsp;<strong>{{zip_code}}</strong>
+            <small *ngIf="name"> for </small><strong> {{name}}</strong> -->
           <!-- We found <strong >{{noresult}}</strong> residential plans for “
           <strong>{{zip_code}}</strong>, &nbsp;&nbsp;<strong>{{city}}</strong>, &nbsp;&nbsp;<strong>{{country}}</strong>” <small *ngIf="name"> for </small><strong> {{name}}</strong>
  -->

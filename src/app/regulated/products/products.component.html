@@ -192,14 +192,17 @@
               </div>
               <div class="radio">
                 <label class="checkbox-font">
-                  <input type="radio" name="planmin" id="chckbx" [(ngModel)]="planmin"  [value]="planmin" (change)="checked13($event,i)">
+                    
+                  <input type="radio" (change)="checked13($event,i)"   [(ngModel)]="planmin"  name="planmin1" [value]="planmin" >
                   Plans without minimum usage Fee/Credits
                 </label>
               </div>
               <div class="radio">
                 <label class="checkbox-font">
                   <!-- checked8 -->
-                  <input type="radio" name="planmin" id="chckbx" checked="true"  value="allplan"   (change)="checkshowallplan($event,i)">Show
+                  <!-- id="chckbx" -->
+                  <!-- <input type="radio" (change)="checked12($event,i)" [(ngModel)]="prepaid" name="prepaid" value="prepaid"> -->
+                  <input type="radio"   (change)="checkedall($event,i)"  [(ngModel)]="plashowallplanPBnmin" name="planmin1"  value="showallplanPB">Show
                   All Plans
                 </label>
               </div>
@@ -253,8 +256,9 @@
               <div class="radio">
                 <label class="checkbox-font">
                     <!-- checkedpre -->
+                    <!-- prepaidall -->
                     <!-- (change)="checkedpre($event,i) -->
-                  <input type="radio" name="prepaid" checked="true" (change)="checkshowallplan($event,i,1)"> Show All Plans
+                  <input type="radio"  name="prepaid"  [(ngModel)]="prepaidall"  [value]="prepaidall" (change)="checkedpre($event,i)"> Show All Plans
                 </label>
               </div>
               <div class="radio">
@@ -282,18 +286,20 @@
               <div class="radio">
                 <label class="checkbox-font">
                   <!-- checkedtime -->
-                  <input type="radio" name="time" checked="true" (change)="checkshowallplan($event,i,1)"> Show All Plans
+                  <!-- timeall -->
+                  <input type="radio"  name="time" [(ngModel)]="timeall" [value]="timeall" (change)="checkedtime($event,i)"> Show All Plans
                 </label>
               </div>
               <div class="radio">
                 <label class="checkbox-font">
-                  <input type="radio" [(ngModel)]="time" name="time" value="time" (change)="checked14($event,i)"> Show
+                    <!-- <input type="radio" (change)="checked12($event,i)" [(ngModel)]="prepaid" name="prepaid" value="prepaid"> -->
+                  <input type="radio" (change)="checked14($event,i)" [(ngModel)]="time" name="time" value="time" > Show
                   only Time Of Use Plans
                 </label>
               </div>
               <div class="radio">
                 <label class="checkbox-font">
-                  <input type="radio" [(ngModel)]=nottime name="time" value="nottime" (change)="checked15($event,i)">
+                  <input type="radio"  (change)="checked15($event,i)" [(ngModel)]="nottime" name="time" value="nottime">
                   Do not show Time Of Use Plans
                 </label>
               </div>
@@ -522,6 +528,7 @@
                 </div>
                 <ul class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
 
+              
                   <li [ngClass]="{hide:pager.currentPage === 1}">
                     <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
                       <i class="fa fa-angle-left"></i>
@@ -532,13 +539,13 @@
                   </li>
 
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
-                    <a (click)="setPage(pager.currentPage + 3)">OF</a>
+                    <a (click)="setPage(pager.currentPage + 3)">...</a>
                   </li>
-                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> </li>
+                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>OF</a></li>
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
                     <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
                   </li>
-                  <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
+                  <li *ngIf="pager.currentPage === pager.totalPages"> <a>OF</a></li>
                   <li *ngIf="pager.currentPage === pager.totalPages">
                     <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
                   </li>
@@ -660,7 +667,7 @@
           </div>
           <div class="found-div sh-products-fix" *ngIf="product">
             We found <strong>{{noresult}}</strong> residential plans for 
-            <strong>{{city?.City}} </strong>,<strong>{{city?.State}} </strong>&nbsp;<strong>{{city?.Res.zipcode}}</strong>
+            <strong>{{city?.City}},&nbsp;{{city?.State}}&nbsp;{{city?.Res.zipcode}}</strong>
             <small *ngIf="name"> for </small><strong> {{name}}</strong>
 
 
@@ -1022,12 +1029,13 @@
                             <div class="plan-description__heading">Plan Information</div>
                             <div class="plan-description__content">
                               <ul>
-                                <li *ngFor="let data of plan_information">{{data}}</li>
+                                <li *ngFor="let data of plan_information">{{data.split(',,', 3000)}}</li>
                               </ul>
 
                             </div>
                           </div>
                         </div>
+                        <!-- <div class="row"> -->
                         <div class="col-lg-12">
                             <div class="plan-description">
                               <div class="plan-description__heading" >Special Terms</div>
@@ -1044,6 +1052,7 @@
                               </div>
                             </div>
                           </div>
+                        <!-- </div> -->
                      
                         <div class="col-lg-12">
                           <div class="plan-description">
@@ -1052,7 +1061,7 @@
                             <div class="plan-description__content">
 
                               <ng-template #no_data_temp2>
-                                <h4>&nbsp;&nbsp;&nbsp;&nbsp; ---</h4>
+                                <h4>&nbsp;&nbsp;&nbsp;&nbsp;-  </h4>
                               </ng-template>
                               <!-- <p class="ng-binding">A great low rate with guaranteed price protection for 1 full year. Exclusive online offer available to new customers.</p> -->
                             </div>
@@ -1101,17 +1110,17 @@
 
               <div class="col-lg-4 col-md-6 col-sm-5 col-xs-12 align padding">
                 <label class="product-label ">SORT BY:</label>
-                <button class="sort-btn " [(ngModel)]=sort name="sort" value="sort" type="button" (click)="checked20($event,i)">
+                <button class="sort-btn " [(ngModel)]="sort" name="sort" value="sort" type="button" (click)="checked20($event,i)">
                   RENEWABLE
                   <i class="fa fa-sort-down down-icon"></i>
 
                 </button>
-                <button class="sort-btn " [(ngModel)]=sort name="sort" value="sort" type="button" (click)="checked20($event,i)">
+                <button class="sort-btn " [(ngModel)]="sort" name="sort" value="sort" type="button" (click)="checked20($event,i)">
                   Price KW/h
                   <i class="fa fa-sort-down down-icon"></i>
 
                 </button>
-                <button class="sort-btn " [(ngModel)]=sort name="sort" value="sort" type="button" (click)="checked20($event,i)">
+                <button class="sort-btn " [(ngModel)]="sort" name="sort" value="sort" type="button" (click)="checked20($event,i)">
                   Company
                   <i class="fa fa-sort-down down-icon"></i>
 
@@ -1119,33 +1128,31 @@
               </div>
               <ul class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
 
-                <li [ngClass]="{hide:pager.currentPage === 1}">
-                  <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
-                    <i class="fa fa-angle-left"></i>
-                  </a>
-                </li>
-                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                  <a (click)="setPage(page)" class="view-plan-details">{{page}}</a>
-                </li>
+               <li [ngClass]="{hide:pager.currentPage === 1}">
+                    <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
+                      <i class="fa fa-angle-left"></i>
+                    </a>
+                  </li>
+                  <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                    <a (click)="setPage(page)" class="view-plan-details">{{page}}</a>
+                  </li>
 
-                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
-                  <a (click)="setPage(pager.currentPage + 3)">OF</a>
-                </li>
-                <!-- <a > Of</a> -->
-                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> </li>
-                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                  <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
-                </li>
-                <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
-                <li *ngIf="pager.currentPage === pager.totalPages">
-                  <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
-                </li>
-                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                  <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
-                    <i class="fa fa-angle-right top-set"></i>
-                  </a>
-                </li>
-
+                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+                    <a (click)="setPage(pager.currentPage + 3)"></a>
+                  </li>
+                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
+                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+                  </li>
+                  <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
+                  <li *ngIf="pager.currentPage === pager.totalPages">
+                    <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+                  </li>
+                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
+                      <i class="fa fa-angle-right top-set"></i>
+                    </a>
+                  </li>
               </ul>
               <!-- <ul class="col-lg-3 col-md-3 col-sm-12 pagination" *ngIf="pager.pages && pager.pages.length">
               <li [ngClass]="{hide:pager.currentPage === 1}">

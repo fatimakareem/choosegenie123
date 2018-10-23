@@ -603,7 +603,7 @@ checkprice(min, max) {
         }
         else {
             console.log()
-            this.item = "10";
+            this.item = "20";
 
             console.log(this.item)
         }
