@@ -186,7 +186,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     allplan;
     showallplan: any[];
     time;
-    timeall ="both";
+    timeall = "both";
     nottime;
     renewablerate;
     renewable;
@@ -216,7 +216,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
         this.item = "20";
         this.myID = document.getElementById("myID");
-        
+
         var myScrollFunc = function () {
             var y = window.scrollY;
             if (y >= 500) {
@@ -261,17 +261,15 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
             $('body').removeClass('noScroll');
             $(formSearch).removeClass('flipInX');
         });
-        $( "#number" ).on( "click", function() {
-            if($( ".number:checked" ))
-            {
+        $("#number").on("click", function () {
+            if ($(".number:checked")) {
                 $('#btn').prop('disabled', false);
             }
-            else
-            {
+            else {
                 $('#btn').prop('disabled', true);
-            }  
-          });
-          
+            }
+        });
+
         console.log(this.today = Date.now())
         this.state = localStorage.getItem('state')
         this.name = localStorage.getItem('name')
@@ -305,6 +303,19 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     exportAsXLSX() {
         this.excelService.exportAsExcelFile(this.product, 'ChoiceGenie Vendor Detail');
     }
+    print(){
+        window.print();
+    }
+    printComponent(cmpName) {
+        let printContents = document.getElementById(cmpName).innerHTML;
+        let originalContents = document.body.innerHTML;
+   
+        document.body.innerHTML = printContents;
+   
+        window.print();
+   
+        document.body.innerHTML = originalContents;
+   }
     w3_open() {
         document.getElementById("mySidebar").style.display = "block";
     }
@@ -348,8 +359,8 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
             .subscribe(Res => {
                 this.city = Res.json();
-                
-// this.usman=Res.json()[0].zipcode;
+
+                // this.usman=Res.json()[0].zipcode;
                 console.log(this.city);
 
                 // this.city = Res.json()[0].city;
@@ -798,13 +809,16 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         }
         console.log(this.market)
     }
+
     checked11(event) {
+        delete this.prepaid ;
+        delete this.prepaidall ;
         if (event.target.checked == true) {
             console.log(event.target.checked)
             this.notprepaid = "noprepaid";
-            delete this.prepaid;
-            delete this.notprepaid;
-            // delete this.planmin;
+            delete this.prepaid ;
+            
+           
             this.setPage(1);
 
             console.log(this.notprepaid);
@@ -813,11 +827,13 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         console.log(this.notprepaid)
     }
     checked12(event, i) {
+        delete this.prepaidall;
         if (event.target.checked == true) {
-            console.log(event.target.checked);
-            this.prepaid = "prepaid";
-            // delete this.prepaidall;
+            console.log(event.target.checked ==true);     
+            this.prepaid = "Prepaid";
+            alert(this.prepaid);
             delete this.notprepaid;
+            // delete this.prepaidall;
             this.setPage(1);
         }
 
@@ -826,75 +842,63 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     checkedpre(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked);
-            this.prepaidall="both"
-            //this.prepaid=event.target.checked==false
-            //alert(delete this.prepaid)
-            delete this.notprepaid;
-            delete this.prepaid;
+            this.prepaidall = "both";
+            delete this.notprepaid ;
+            delete this.prepaid ;
             this.setPage(1);
         }
 
-        console.log(this.prepaid, this.notprepaid)
+        console.log(this.prepaidall)
     }
+
     checked13(event, i) {
-        delete this.showallplanPB;
+        // delete this.showallplanPB;;
         if (event.target.checked == true) {
             console.log(event.target.checked);
-           
             this.planmin = "NULL";
+            delete this.showallplanPB;
             this.setPage(1);
 
         }
 
         console.log(this.planmin)
     }
-    // checkshowallplan(event, i, page: number) {
-    //     delete this.planmin;
-    //     this.obj.searchProducts(this.zip_code, page).subscribe(response => {
 
-    //         this.product = response['Results'];
-    //         this.noresult = response['Total Result'];
-    //         for (let prod of this.product) {
-    //             prod["plan_information"] = prod["plan_information"].split(',,', 3000);
-    //             prod["price_rate"] = prod["price_rate"].split('..', 3000);
-
-    //         }
-
-
-    //         this.pager = this.pagerService.getPager(response['Total Result'], page, this.item);
-
-    //     }
-
-
-    //     );
-    // }
     checkedall(event, i) {
-        // delete this.planmin;
-        if (event.target.checked =true) {
+        delete this.planmin;
+        if (event.target.checked == true) {
             // console.log(event.target.checked == true);
             // delete this.planmin;
-            this.showallplanPB="both";
-            delete this.planmin;
+            // this.planmin = event.target.checked == fail; 
+            // this.planmin = null;
+            this.showallplanPB = "both";
+            
             //  this.planmin = this.fixed;
             this.setPage(1);
         }
         console.log(this.showallplanPB, "checkallremove ni howa ", this.planmin)
     }
     checked14(event, i) {
+        delete this.timeall;
+        delete this.nottime;
         if (event.target.checked == true) {
             console.log(event.target.checked);
+           
             this.time = "Time Of Use";
             delete this.timeall;
+            // delete this.time;
             this.setPage(1);
         }
 
         console.log(this.time)
     }
     checkedtime(event, i) {
+        // delete this.timeall;
+        delete this.nottime; 
         if (event.target.checked == true) {
             console.log(event.target.checked);
-            this.timeall="both";
-            // delete this.time;
+            this.timeall = "both";
+            delete this.time;
             // delete this.nottime;
             this.setPage(1);
         }
@@ -902,11 +906,12 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     }
     checked15(event, i) {
         delete this.time;
+        delete this.timeall;
         if (event.target.checked == true) {
             console.log(event.target.checked);
             this.nottime = "notime";
-            
-            // delete this.timeall;
+
+            delete this.timeall;
             this.setPage(1);
         }
 
@@ -1155,10 +1160,10 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
         const Results = {}
 
-        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.prepaidall=="both" ||this.showallplanPB =="both"|| this.timeall =="both" || this.planmin == "NULL"|| this.notprepaid == "noprepaid" || this.prepaid == "prepaid"  || this.time == "Time Of Use" || this.nottime == "notime" || this.renewable || this.name || this.sort  || this.item || this.min || this.max || this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5 =="StarRating5.png") {
+        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.prepaidall == "both" || this.showallplanPB == "both" || this.timeall == "both" || this.planmin == "NULL" || this.notprepaid == "noprepaid" || this.prepaid == "Prepaid" || this.time == "Time Of Use" || this.nottime == "notime" || this.renewable || this.name || this.sort || this.item || this.min || this.max || this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5 == "StarRating5.png") {
 
-            console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.price, this.item,this.timeall,this.prepaidall,this.showallplanPB, 'multifilter');
-            this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.item, this.min, this.max, this.logo1, this.logo2, this.logo3, this.logo4, this.logo5,this.prepaidall,this.timeall,this.showallplanPB).subscribe(response => {
+            console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.price, this.item, this.timeall, this.prepaidall, this.showallplanPB, 'multifilter');
+            this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.item, this.min, this.max, this.logo1, this.logo2, this.logo3, this.logo4, this.logo5, this.prepaidall, this.timeall, this.showallplanPB).subscribe(response => {
 
                 this.product = response['Results'];
                 this.noresult = response['Total Result'];

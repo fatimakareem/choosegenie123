@@ -190,19 +190,19 @@
                   </h5>
                 </a>
               </div>
-              <div class="radio">
+              <div class="checkbox">
                 <label class="checkbox-font">
                     
-                  <input type="radio" (change)="checked13($event,i)"   [(ngModel)]="planmin"  name="planmin1" [value]="planmin" >
+                  <input type="checkbox" (change)="checked13($event,i)"   [(ngModel)]="planmin"  name="planmin" [value]="planmin" >
                   Plans without minimum usage Fee/Credits
                 </label>
               </div>
-              <div class="radio">
+              <div class="checkbox">
                 <label class="checkbox-font">
                   <!-- checked8 -->
                   <!-- id="chckbx" -->
                   <!-- <input type="radio" (change)="checked12($event,i)" [(ngModel)]="prepaid" name="prepaid" value="prepaid"> -->
-                  <input type="radio"   (change)="checkedall($event,i)"  [(ngModel)]="plashowallplanPBnmin" name="planmin1"  value="showallplanPB">Show
+                  <input type="checkbox"   (change)="checkedall($event,i)"  [(ngModel)]="showallplanPB" name="planmin"  value="showallplanPB">Show
                   All Plans
                 </label>
               </div>
@@ -253,23 +253,23 @@
                   </h5>
                 </a>
               </div>
-              <div class="radio">
+              <div class="checkbox">
                 <label class="checkbox-font">
                     <!-- checkedpre -->
                     <!-- prepaidall -->
                     <!-- (change)="checkedpre($event,i) -->
-                  <input type="radio"  name="prepaid"  [(ngModel)]="prepaidall"  [value]="prepaidall" (change)="checkedpre($event,i)"> Show All Plans
+                  <input type="checkbox"  name="prepaid"  [(ngModel)]="prepaidall"  [value]="prepaidall" (change)="checkedpre($event,i)"> Show All Plans
                 </label>
               </div>
-              <div class="radio">
+              <div class="checkbox">
                 <label class="checkbox-font">
-                  <input type="radio" (change)="checked12($event,i)" [(ngModel)]="prepaid" name="prepaid" value="prepaid">
+                  <input type="checkbox" (change)="checked12($event,i)" [(ngModel)]="prepaid" name="prepaid" value="prepaid">
                   Show only Prepaid Plans
                 </label>
               </div>
-              <div class="radio">
+              <div class="checkbox">
                 <label class="checkbox-font">
-                  <input type="radio" [(ngModel)]="notprepaid" name="prepaid" value="notprepaid" (change)="checked11($event)">
+                  <input type="checkbox" [(ngModel)]="notprepaid" name="prepaid" value="notprepaid" (change)="checked11($event,i)">
                   Do not show Prepaid Plans
                 </label>
               </div>
@@ -283,23 +283,23 @@
                   </h5>
                 </a>
               </div>
-              <div class="radio">
+              <div class="checkbox">
                 <label class="checkbox-font">
                   <!-- checkedtime -->
                   <!-- timeall -->
-                  <input type="radio"  name="time" [(ngModel)]="timeall" [value]="timeall" (change)="checkedtime($event,i)"> Show All Plans
+                  <input type="checkbox"  name="time" [(ngModel)]="timeall" [value]="timeall" (change)="checkedtime($event,i)"> Show All Plans
                 </label>
               </div>
-              <div class="radio">
+              <div class="checkbox">
                 <label class="checkbox-font">
                     <!-- <input type="radio" (change)="checked12($event,i)" [(ngModel)]="prepaid" name="prepaid" value="prepaid"> -->
-                  <input type="radio" (change)="checked14($event,i)" [(ngModel)]="time" name="time" value="time" > Show
+                  <input type="checkbox" (change)="checked14($event,i)" [(ngModel)]="time" name="time" value="time" > Show
                   only Time Of Use Plans
                 </label>
               </div>
-              <div class="radio">
+              <div class="checkbox">
                 <label class="checkbox-font">
-                  <input type="radio"  (change)="checked15($event,i)" [(ngModel)]="nottime" name="time" value="nottime">
+                  <input type="checkbox"  (change)="checked15($event,i)" [(ngModel)]="nottime" name="time" value="nottime">
                   Do not show Time Of Use Plans
                 </label>
               </div>
@@ -535,22 +535,22 @@
                     </a>
                   </li>
                   <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                    <a (click)="setPage(page)" class="view-plan-details">{{page}}</a>
+                    <a onclick="topFunction()" (click)="setPage(page)" class="view-plan-details">{{page}}</a>
                   </li>
 
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
-                    <a (click)="setPage(pager.currentPage + 3)">...</a>
+                    <a onclick="topFunction()" (click)="setPage(pager.currentPage + 3)">...</a>
                   </li>
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>OF</a></li>
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+                    <a onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
                   </li>
                   <li *ngIf="pager.currentPage === pager.totalPages"> <a>OF</a></li>
                   <li *ngIf="pager.currentPage === pager.totalPages">
-                    <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+                    <a onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
                   </li>
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
+                    <a onclick="topFunction()" (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
                       <i class="fa fa-angle-right top-set"></i>
                     </a>
                   </li>
@@ -598,7 +598,7 @@
                 </div>
 
                 <div class="col-lg-2 col-md-6 col-sm-2 col-xs-6 compare-print">
-                  <button class="print btn-fill">
+                  <button class="print btn-fill" (click)="print()">
                     <i class="fas fa-print"></i>
                   </button>
                   <button class="print btn-fill" title="Export results to Excel" (click)="exportAsXLSX()">
@@ -739,8 +739,8 @@
                                 </div>
                                 <div style="width: 100%;">
 
-                                  <h4 class="modal-title body-heading">Based on what you've seen so far, how would you
-                                    rate this Company?</h4>
+                                  <h4 class="modal-title body-heading">Help others make good choices.<br/>
+                                      Based on your experience, how would you rate this company? </h4>
 
 
                                   <div class="rating-starts">
@@ -776,7 +776,7 @@
                                 </div>
 
                                 <mat-form-field class="padding-L-R txt-area">
-                                  <textarea matInput placeholder="Share your Opinion about this company."
+                                  <textarea matInput placeholder="Write a review"
                                     matAutosizeMinRows="10" matAutosizeMaxRows="5" style="height: 130px !important;width:100% !important;"
                                     name="comt" [(ngModel)]="comt">
 
@@ -1134,22 +1134,22 @@
                     </a>
                   </li>
                   <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                    <a (click)="setPage(page)" class="view-plan-details">{{page}}</a>
+                    <a onclick="topFunction()" (click)="setPage(page)" class="view-plan-details">{{page}}</a>
                   </li>
 
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
-                    <a (click)="setPage(pager.currentPage + 3)"></a>
+                    <a onclick="topFunction()" (click)="setPage(pager.currentPage + 3)"></a>
                   </li>
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+                    <a  onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
                   </li>
                   <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
                   <li *ngIf="pager.currentPage === pager.totalPages">
-                    <a (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+                    <a  onclick="topFunction()"(click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
                   </li>
                   <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
+                    <a onclick="topFunction()" (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
                       <i class="fa fa-angle-right top-set"></i>
                     </a>
                   </li>
@@ -1196,7 +1196,7 @@
               </div>
 
               <div class="col-lg-2 col-md-6 col-sm-2 col-xs-6 compare-print">
-                <button class="print btn-fill">
+                <button class="print btn-fill" (click)="print()">
                   <i class="fa fa-print"></i>
                 </button>
                 <button class="print btn-fill" title="Export results to Excel" (click)="exportAsXLSX()">
