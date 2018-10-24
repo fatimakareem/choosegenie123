@@ -453,7 +453,17 @@
                 </ul> -->
 
                 <div class="col-lg-2 col-md-6 col-sm-4 col-xs-6 prod-select-list sec-list">
-                  <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
+                  
+                    <label class="product-label" style="margin: 11px 10px 0px 0px;">View:</label>
+                    <select class="view-drop" placeholder="" selected="10" (change)="checked18($event,i,items)"
+                    value="item" required [(ngModel)]="items" name="items" aria-labelledby="dropdownMenuButton">
+                        
+                        <option value="20">20 PER PAGE</option>
+                        <option value="40">40 PER PAGE</option>
+                        <option value="50">50 PER PAGE</option>
+                      </select>
+                  
+                  <!-- <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
                   <mat-form-field>
 
                     <mat-select class="width-sec" placeholder="" selected="10" (change)="checked18($event,i,items)" value="item" required [(ngModel)]="items"
@@ -462,8 +472,8 @@
                       <mat-option value="20">20 PER PAGE</mat-option>
                       <mat-option value="40">40 PER PAGE</mat-option>
                       <!-- <mat-option value="556">SEE ALL</mat-option> -->
-                    </mat-select>
-                  </mat-form-field>
+                     <!-- </mat-select> -->
+                  </mat-form-field> -->
 
 
 
@@ -973,7 +983,19 @@
             </ul> -->
 
             <div class="col-lg-2 col-md-6 col-sm-4 col-xs-6 prod-select-list sec-list">
-              <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
+
+
+                <label class="product-label" style="margin: 11px 10px 0px 0px;">View:</label>
+                <select class="view-drop" placeholder="" selected="10" (change)="checked18($event,i,items)"
+                value="item" required [(ngModel)]="items" name="items" aria-labelledby="dropdownMenuButton">
+                    
+                    <option value="20">20 PER PAGE</option>
+                    <option value="40">40 PER PAGE</option>
+                    <option value="50">50 PER PAGE</option>
+                  </select>
+
+
+              <!-- <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
               <mat-form-field>
 
                 <mat-select class="width-sec" placeholder="" selected="10" (change)="checked18($event,i,items)" value="item" required [(ngModel)]="items"
@@ -982,8 +1004,8 @@
                   <mat-option value="20">20 PER PAGE</mat-option>
                   <mat-option value="40">40 PER PAGE</mat-option>
                   <!-- <mat-option value="556">SEE ALL</mat-option> -->
-                </mat-select>
-              </mat-form-field>
+               <!-- </mat-select>
+              </mat-form-field> -->
 
 
 
