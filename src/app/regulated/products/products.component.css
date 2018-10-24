@@ -106,10 +106,16 @@ body {
 
 
 
-
-
-
-
+@media (min-width: 1368px) {
+  .w3-sidebar {
+    height: 87%;
+  }
+}
+@media (max-width:1367px) {
+  .w3-sidebar {
+    height: 84%;
+  }
+}
 @media (max-width: 426px) {
   .w3-sidebar{
     width: 55% !important;
@@ -120,8 +126,4 @@ body {
     width: 68% !important;
   }
 }
-@media (min-width: 1368px) {
-  .w3-sidebar {
-    height: 90%;
-  }
-}
+
