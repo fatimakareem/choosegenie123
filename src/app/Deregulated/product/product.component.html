@@ -333,11 +333,13 @@
           </a>
         </div>
         <mat-form-field class="margin-up">
-          <mat-select class="" placeholder="" selected="10" (change)="checked18($event,i,items)" value="item" required [(ngModel)]="items"
+          <mat-select class="" placeholder="20 per page" selected="20" (change)="checked18($event,i,items)"
+           value="item" [(ngModel)]="items"
                       name="items">
-            <mat-option value="10" selected="true">10 PER PAGE</mat-option>
-            <mat-option value="20">20 PER PAGE</mat-option>
-            <mat-option value="40">40 PER PAGE</mat-option>
+            <!-- <mat-option value="10" selected="true">10 PER PAGE</mat-option> -->
+            <mat-option value="30">30 per page</mat-option>
+            <mat-option value="40">40 per page</mat-option>
+            <mat-option value="50">50 per page</mat-option>
             <!-- <mat-option value="556">SEE ALL</mat-option> -->
           </mat-select>
         </mat-form-field>
@@ -454,26 +456,25 @@
 
                 <div class="col-lg-2 col-md-6 col-sm-4 col-xs-6 prod-select-list sec-list">
                   
-                    <label class="product-label" style="margin: 11px 10px 0px 0px;">View:</label>
-                    <select class="view-drop" placeholder="" selected="10" (change)="checked18($event,i,items)"
-                    value="item" required [(ngModel)]="items" name="items" aria-labelledby="dropdownMenuButton">
+                    <!-- <label class="product-label" style="margin: 11px 10px 0px 0px;">View:</label>
+                    <select class="view-drop" placeholder="20 Per Page" selected="20" (change)="checked18($event,i,items)"
+                    value="item"  [(ngModel)]="items" name="items" aria-labelledby="dropdownMenuButton">
                         
                         <option value="20">20 PER PAGE</option>
                         <option value="40">40 PER PAGE</option>
                         <option value="50">50 PER PAGE</option>
-                      </select>
+                      </select> -->
                   
-                  <!-- <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
+                <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label> 
                   <mat-form-field>
 
-                    <mat-select class="width-sec" placeholder="" selected="10" (change)="checked18($event,i,items)" value="item" required [(ngModel)]="items"
-                                name="items">
-                      <mat-option value="10" selected="true">10 PER PAGE</mat-option>
-                      <mat-option value="20">20 PER PAGE</mat-option>
-                      <mat-option value="40">40 PER PAGE</mat-option>
-                      <!-- <mat-option value="556">SEE ALL</mat-option> -->
-                     <!-- </mat-select> -->
-               <!--    </mat-form-field> -->
+                    <mat-select class="width-sec" placeholder=" 20 Per Page" selected="20" 
+                    (change)="checked18($event,i,items)" value="item"  [(ngModel)]="items"  name="items">
+                    <mat-option value="30" selected="true">30 Per Page</mat-option>
+                    <mat-option value="40">40 Per Page</mat-option>
+                    <mat-option value="50">50 Per Page</mat-option>
+                     </mat-select>
+                  </mat-form-field>
 
 
 
@@ -860,7 +861,7 @@
                       </div>
                       <div class="col-lg-12">
                         <div class="plan-description">
-                          <div class="plan-description__heading" *ngIf="cancelation_fee;else no_data_temp2">Cancellation Fee :{{cancelation_fee}}</div>
+                          <div class="plan-description__heading" *ngIf="cancelation_fee;else no_data_temp2">Cancellation Fee :{{cancelation_fee.split(' ',3000)[2]}}</div>
                           <div class="plan-description__content">
 
                             <!-- <h4 >
@@ -868,9 +869,10 @@
                             </h4> -->
 
                             <ng-template #no_data_temp2>
+                              <h4>cancellation Fee:None </h4>
 
-                              <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
-                              <h4>---</h4>
+                                <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
+                              <!-- <h4>---</h4> -->
                             </ng-template>
                             <!-- <p class="ng-binding">A great low rate with guaranteed price protection for 1 full year. Exclusive online offer available to new customers.</p> -->
                           </div>
@@ -986,27 +988,29 @@
             <div class="col-lg-2 col-md-6 col-sm-4 col-xs-6 prod-select-list sec-list">
 
 
-                <label class="product-label" style="margin: 11px 10px 0px 0px;">View:</label>
+                <!-- <label class="product-label" style="margin: 11px 10px 0px 0px;">View:</label>
                 <select class="view-drop" placeholder="" selected="10" (change)="checked18($event,i,items)"
                 value="item" required [(ngModel)]="items" name="items" aria-labelledby="dropdownMenuButton">
                     
                     <option value="20">20 PER PAGE</option>
                     <option value="40">40 PER PAGE</option>
                     <option value="50">50 PER PAGE</option>
-                  </select>
+                  </select> -->
 
 
-              <!-- <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
+              <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label> 
               <mat-form-field>
 
-                <mat-select class="width-sec" placeholder="" selected="10" (change)="checked18($event,i,items)" value="item" required [(ngModel)]="items"
+                <mat-select class="width-sec" placeholder="20 per page" selected="20" (change)="checked18($event,i,items)"
+                 value="item"  [(ngModel)]="items"
                             name="items">
-                  <mat-option value="10" selected="true">10 PER PAGE</mat-option>
-                  <mat-option value="20">20 PER PAGE</mat-option>
-                  <mat-option value="40">40 PER PAGE</mat-option>
-                  <!-- <mat-option value="556">SEE ALL</mat-option> -->
-               <!-- </mat-select>
-              </mat-form-field> -->
+                  <!-- <mat-option value="10" selected="true">10 PER PAGE</mat-option> -->
+                  <mat-option value="30">30 per page</mat-option>
+                  <mat-option value="40">40 per page</mat-option>
+                  <mat-option value="50">50 per page</mat-option>
+                  
+               </mat-select>
+              </mat-form-field>
 
 
 
