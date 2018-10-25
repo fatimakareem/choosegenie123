@@ -189,83 +189,45 @@
         <!-- </a> -->
 
         <!-- </li> -->
-        <li class="vanders" *ngIf="check_login()">
-          <a (click)="moving()">
-            <i class="material-icons">account_circle</i> {{username}}
-          </a>
-          <div class="drop-downs right-drop">
-            <ul class="nav-vanders  why-choiegenie-sublist">
-              <!-- <li>
-                      <a (click)=" move()">
-                        <i class="material-icons">unarchive</i> My Profile
-                      </a>
-                    </li> -->
-              <!-- <li *ngIf="log()">
-                      <a>
-                       <input style="font-size: 20px; margin-left: 5px;" type="text" [value]="user" readonly>
-                      </a>
-                    </li> -->
-              <!-- <li>
-                <a>
-                  Dashboard
-                </a>
-              </li> -->
-              <!-- <li>
-                      <a routerLink="/ChangePassword">
-                        <i class=" fa fa-group"></i>Change Password
-                      </a>
-                    </li> -->
-              <li>
-                <a (click)="logout()">
-                  <i class="material-icons">lock</i>Logout
-                </a>
-              </li>
 
-              <!-- <li>
-                  <a routerLink="/mycourses">
-                    <i class="material-icons">library_books</i> My Library
-                  </a>
-                </li> -->
-            </ul>
-          </div>
-        </li>
-        <li class="vanders" *ngIf="check_login1()">
-            <a (click)="moving1()">
-              <i class="material-icons">account_circle</i> {{admin}}
-            </a>
+
+        <li class="vanders"  *ngIf="check_login()">
+
+            <a routerLink="/">
+                <i class="material-icons">account_circle</i> {{username}}
+              </a>
             <div class="drop-downs right-drop">
               <ul class="nav-vanders  why-choiegenie-sublist">
-                <!-- <li>
-                          <a (click)=" move()">
-                            <i class="material-icons">unarchive</i> My Profile
-                          </a>
-                        </li> -->
-                <!-- <li>
-                  <a style="display: flex;">
-                    <i class="material-icons" style="margin-top: 3px">account_circle</i>
-
-                  </a>
-                </li> -->
-
-                <!-- <li>
-                          <a routerLink="/ChangePassword">
-                            <i class=" fa fa-group"></i>Change Password
-                          </a>
-                        </li> -->
                 <li>
-                  <a (click)="logout()">
-                    <i class="fas fa-lock"></i>Logout
-                  </a>
-                </li>
-
-                <!-- <li>
-                      <a routerLink="/mycourses">
-                        <i class="material-icons">library_books</i> My Library
+                    <a (click)="logout()">
+                        <i class="material-icons">lock</i>Logout
                       </a>
-                    </li> -->
+                </li>
               </ul>
             </div>
           </li>
+
+
+
+          <li class="vanders" *ngIf="check_login1()">
+
+              <a routerLink="/">
+                  <i class="material-icons">account_circle</i> {{admin}}
+                </a>
+              <div class="drop-downs right-drop">
+                <ul class="nav-vanders  why-choiegenie-sublist">
+                    <li>
+                        <a (click)="logout()">
+                          <i class="fas fa-lock"></i>Logout
+                        </a>
+                      </li>
+                </ul>
+              </div>
+            </li>
+
+
+
+        
 
       </ul>
     </div>

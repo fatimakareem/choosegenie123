@@ -203,28 +203,35 @@
           <!-- </ul> -->
           <!-- </div> -->
         </li>
+        
+
+
+
         <li class="vanders" *ngIf="!checked_login() && !check_login1()">
-          <a>
+
+          <a routerLink="/">
             <i class="fas fa-unlock-alt"></i>
             Sign up
             <!-- <i class="fa fa-caret-down"></i> -->
           </a>
-          <div class="drop-downs-l right-drop">
-            <ul class="nav-vanders">
-              <li class="/userlogin">
+          <div class="drop-downs right-drop">
+            <ul class="nav-vanders  why-choiegenie-sublist">
+              <li>
                 <a onclick="topFunction()" routerLink="/register">
                   <i class="far fa-smile"></i> Vendor
                 </a>
               </li>
-              <li class="">
+              <li>
                 <a onclick="topFunction()" routerLink="/usersignup">
                   <i class="far fa-smile"></i> User
                 </a>
-
               </li>
             </ul>
           </div>
         </li>
+
+
+
 
         <li class="info-box-02__box-02">
           <a href="javascript:void(0)" class="search-block search-icon" id="searchIcon">
@@ -265,46 +272,56 @@
           </div>
         </li> -->
         <li class="vanders" *ngIf="check_login1()">
-          <a>
-            <i class="material-icons">account_circle</i>{{admin}}
-            <!-- <input style="cursor: pointer;font-size: 20px; margin-left: 5px;" type="text" [value]="username" readonly> -->
-          </a>
-          <div class="drop-downs right-drop">
-            <ul class="nav-vanders  why-choiegenie-sublist">
-              <li>
-                <a (click)="moving1()" style="cursor: pointer;">
-                  Dashboard
-                </a>
-              </li>
-              <li>
-                <a (click)="logout()">
-                  <i class="fas fa-lock"></i>Logout
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="vanders" *ngIf="checked_login()">
-          <a>
-            <i class="material-icons">account_circle</i>{{username}}
-            <!-- <input style="cursor: pointer;font-size: 20px; margin-left: 5px;" type="text" [value]="customer" readonly> -->
-          </a>
-          <div class="drop-downs right-drop">
-            <ul class="nav-vanders  why-choiegenie-sublist">
-              <li>
-                <a (click)="moving()" style="cursor: pointer;">
-                  Dashboard
-                </a>
-              </li>
 
+          <a routerLink="/">
+            <i class="material-icons">
+              account_circle</i>{{admin}}
+            <!-- <i class="fa fa-caret-down"></i> -->
+          </a>
+          <div class="drop-downs right-drop">
+            <ul class="nav-vanders  why-choiegenie-sublist">
               <li>
-                <a (click)="logout()">
-                  <i class="fas fa-lock"></i>Logout
-                </a>
+                  <a (click)="moving1()" style="cursor: pointer;">
+                      Dashboard
+                    </a>
+              </li>
+              <li>
+                  <a (click)="logout()">
+                      <i class="fas fa-lock"></i>Logout
+                    </a>
               </li>
             </ul>
           </div>
         </li>
+
+
+
+        <li class="vanders" *ngIf="checked_login()">
+
+            <a routerLink="/">
+              <i class="material-icons">
+                account_circle</i>{{username}}
+              <!-- <i class="fa fa-caret-down"></i> -->
+            </a>
+            <div class="drop-downs right-drop">
+              <ul class="nav-vanders  why-choiegenie-sublist">
+                <li>
+                    <a (click)="moving()" style="cursor: pointer;">
+                        Dashboard
+                      </a>
+                </li>
+                <li>
+                    <a (click)="logout()">
+                        <i class="fas fa-lock"></i>Logout
+                      </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+
+
+
       </ul>
     </div>
   </nav>

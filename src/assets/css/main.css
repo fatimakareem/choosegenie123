@@ -1650,9 +1650,6 @@ h3 {
   position: relative;
   /* transition: ease-in-out 0.5s; */
 }
-.vanders:hover{
-  color: #c00;
-}
 .drop-downs{
     height: auto;
     top: 20px;
@@ -1710,6 +1707,9 @@ transform: translate3d(0, -20px, 0);
     display: block !important;
     border-top: 1px solid #ccc;
     padding: 5px 10px;
+}
+.nav-vanders li:hover{
+  color: #c00;
 }
 .dashbord-custom{
   font-weight: 500;
@@ -3475,10 +3475,11 @@ li.pinterest:hover {
 .navbar-nav > li > a {
   font-size:17px;
 }
-.nav-home ul li :hover {
+.navbar-nav > li > a:hover {
   color: #c00;
   text-decoration: none;
 }
+
 .nav-home ul li a:hover {
   color: #c00;
   text-decoration: none;
