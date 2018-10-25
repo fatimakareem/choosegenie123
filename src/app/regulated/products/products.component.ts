@@ -810,8 +810,8 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         console.log(this.market)
     }
 
-    checked11(event) {
-        delete this.prepaid ;
+    checked11(event,i) {
+        // delete this.prepaid ;
         delete this.prepaidall ;
         if (event.target.checked == true) {
             console.log(event.target.checked)
@@ -831,7 +831,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         if (event.target.checked == true) {
             console.log(event.target.checked ==true);     
             this.prepaid = "Prepaid";
-            alert(this.prepaid);
+            // alert(this.prepaid);
             delete this.notprepaid;
             // delete this.prepaidall;
             this.setPage(1);
