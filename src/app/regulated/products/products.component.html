@@ -603,17 +603,42 @@
 
                 <div class="col-lg-2 col-md-6 col-sm-4 col-xs-6 prod-select-list sec-list">
 
-                    
-                      <label class="product-label" style="margin: 11px 10px 0px 0px;">View:</label>
+                    <div class="dropdown view-drop">
+                        <!-- <h4>native html select</h4>
+                        <mat-form-field>
+                          <mat-label>Select your car (required)</mat-label>
+                          <select matNativeControl required [formControl]="selectFormControl" selected="10" (change)="checked18($event,i,items)"
+                          value="item" required [(ngModel)]="items" name="items">
+                            <option label="--select something --"></option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                          </select>
+                          <mat-error *ngIf="selectFormControl.hasError('required')">
+                            This field is required
+                          </mat-error>
+                          <mat-hint>You can pick up your favorite car here</mat-hint>
+                        </mat-form-field> -->
+                        <!-- <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         View
+                        </button>
+                        <div class="dropdown-menu" placeholder="" selected="10" (change)="checked18($event,i,items)"
+                        value="item" required [(ngModel)]="items" name="items" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" value="20" selected="true">20 PER PAGE</a>
+                          <a class="dropdown-item" value="40">40 PER PAGE</a>
+                          <a class="dropdown-item" value="50">50 PER PAGE</a>
+                        </div> -->
+                      </div>
+                      <!-- <label class="product-label" style="margin: 11px 10px 0px 0px;">View:</label>
                       <select class="view-drop" placeholder="" selected="10" (change)="checked18($event,i,items)"
                       value="item" required [(ngModel)]="items" name="items" aria-labelledby="dropdownMenuButton">
                           
                           <option value="20">20 PER PAGE</option>
                           <option value="40">40 PER PAGE</option>
                           <option value="50">50 PER PAGE</option>
-                        </select>
+                        </select> -->
 
-                  <!-- <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
+                   <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
                   <mat-form-field>
 
                     <mat-select class="width-sec" placeholder="" selected="10" (change)="checked18($event,i,items)"
@@ -621,9 +646,9 @@
                       <mat-option value="10" selected="true">10 PER PAGE</mat-option>
                       <mat-option value="20">20 PER PAGE</mat-option>
                       <mat-option value="40">40 PER PAGE</mat-option>
-                      <!-- <mat-option value="556">SEE ALL</mat-option> -->
-                  <!--  </mat-select>
-                  </mat-form-field> -->
+                      <mat-option value="556">SEE ALL</mat-option>
+                  </mat-select>
+                  </mat-form-field>
 
 
 
