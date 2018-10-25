@@ -231,6 +231,10 @@ this.zipwithcity();
         // document.getElementById("myID").style.display = "none";
         this.status=false;
       }
+      print(){
+        window.print();
+    }
+    
     featuredplan() {
 
         let headers = new Headers();
