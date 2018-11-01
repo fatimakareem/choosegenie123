@@ -27,13 +27,46 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #cc0000;
 }
-/*Form*/
+
+/*Start From custome */
+.sh-signup-form-fix .mat-input-infix {
+  border-top: 0 solid transparent
+}
 .sh-signup-form-fix .mat-input-underline {
-  bottom: 21px;
+  bottom: 18px
 }
-.sh-signup-form-fix  .mat-input-wrapper {
-  padding-bottom: 12px;
+.sh-signup-form-fix .mat-input-wrapper {
+  padding-bottom: 8px
 }
+.sh-signup-form-fix .mat-error {
+  font-size: 14px;
+  padding-top: 0
+}
+.sh-signup-form-fix .card .card-header.card-header-icon+.card-content .card-title {
+  padding-bottom: 25px
+}
+.sh-signup-form-fix .mat-input-element {
+  font-size: 18px
+}
+.sh-signup-form-fix .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
+  font-size: 16px!important
+}
+.sh-signup-form-fix.edit-profile .form-group {
+  padding-bottom: 0!important;
+  margin: 0!important
+}
+.sh-signup-form-fix .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder {
+  transform: translateY(-10px) scale(.75) perspective(100px) translateZ(0)!important;
+  -ms-transform: translateY(5px) scale(.75)!important
+}
+.sh-signup-form-fix .mat-form-field-prefix .mat-icon {
+  font-size: 125%!important
+}
+.sh-signup-form-fix.edit-profile .mat-input-placeholder.mat-empty {
+  top: 1.28125em!important
+}
+
+/* End From Custom */
 
 
 
@@ -57,8 +90,8 @@
   margin-top: -100px;
 }
 .body-margin{
-  /*margin-top: 70px;*/
-  margin-top: 100px;
+  margin-top: 70px;
+  /* margin-top: 100px; */
 }
 .margin-auto{
   margin: 0 auto;
@@ -4015,7 +4048,7 @@ h1, .entry-title-2 {
 /*vanders signup css start*/
 .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-placeholder, .mat-form-field-empty.mat-form-field-placeholder, mat-form-field.mat-form-field {
   /* font-size: 27px; */
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: #333;
   /*margin-top: 10px !important;*/
