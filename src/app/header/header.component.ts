@@ -25,6 +25,7 @@ declare var $: any;
   templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
+  @ViewChild('openModal') openModal: ElementRef;
   public customer;
   public username;
   model: any = {};
@@ -92,7 +93,10 @@ googleTranslateElementInit() {
     document.getElementById("mySidenav").style.width = "0";
 }
   ngOnInit() {
-    
+    setTimeout(() => {
+      this.openModal.nativeElement.click();
+  },
+  3000);
     const mainSearch = $('.main-search');
     const formSearch = $('.form-search');
 
