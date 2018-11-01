@@ -17,6 +17,7 @@ import { HomeService } from '../../home/home.service';
 import { SimpleGlobal } from 'ng2-simple-global';
 import { SlickModule } from 'ngx-slick';
 import { LoaderModule } from '../../loader/loader.module';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
@@ -47,7 +48,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     providers: [
         PagerService,
         SimpleGlobal,
-        HomeService
+        HomeService,
+        // CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR
     ],
     entryComponents: [PremiseDialog]
  

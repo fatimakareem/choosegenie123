@@ -29,7 +29,7 @@
         <div class="card-content">
 
           <div  class="signin-form-1-header">
-            <h3>User Registration Form </h3>
+            <h3>User Registration  </h3>
 
           </div>
 
@@ -56,7 +56,7 @@
               <div class="margin-t">
 
                 <mat-form-field>
-                  <input matInput placeholder="Service ZipCode" maxlength="5" (ngModelChange)="states(zip.value)" #zip [formControl]="signupForm.controls['service_zip']"
+                  <input matInput placeholder="Service Zip Code" maxlength="5" (ngModelChange)="states(zip.value)" #zip [formControl]="signupForm.controls['service_zip']"
                     required [(ngModel)]="model.service_zip">
                   <mat-icon matSuffix (click)="hide = !hide">code</mat-icon>
                   <mat-error *ngIf="signupForm.controls['service_zip'].value == '' || !signupForm.controls['service_zip'].value"><strong>This Field cannot be empty</strong></mat-error>

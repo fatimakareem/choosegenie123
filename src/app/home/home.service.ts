@@ -46,10 +46,10 @@ public username;
    return this.http.get(Config.api+'deregulated_inactive_product/' + this.username +'?page='+page +'/',{ headers: headers }).map((response: Response) => response);
 
   }
-  filter(page,id,months1,months2,months3,months4,months5,months6,months7,fixed,vari,market,notprepaid,prepaid,planmin,time,nottime,renewable,name,sort,item,min,max,logo1,logo2,logo3,logo4,logo5,prepaidall,timeall,showallplanPB) {
+  filter(page,id,months1,months2,months3,months4,months5,months6,months7,fixed,vari,market,notprepaid,prepaid,planmin,time,nottime,renewable,name,sort,item,min500,max500,min1000,max1000,min2000,max2000,logo1,logo2,logo3,logo4,logo5,prepaidall,timeall,showallplanPB) {
 if(name){
     this.com=name.trim();}
-    console.log(page,id,months1,months2,months3,months4,months5,months6,months7,fixed,vari,market,prepaidall,notprepaid,prepaid,planmin,timeall,time,nottime,renewable,name,sort,item,min,max,showallplanPB)
+    // console.log(page,id,months1,months2,months3,months4,months5,months6,months7,fixed,vari,market,prepaidall,notprepaid,prepaid,planmin,timeall,time,nottime,renewable,name,sort,item,min500,max500,min1000,max1000,min2000,max2000,showallplanPB)
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     return this.http.post(Config.api+'multifilter/'+id +'?page='+page, JSON.stringify({
@@ -74,9 +74,18 @@ if(name){
       "renewablerate":renewable,
       "company":this.com,
       "itemsperpage":item,
+
+      "price_500_kwh_min_price":min500, 
+      "price_500_kwh_max_price":max500,
+
+      "price_1000_kwh_min_price": min1000,
+      "price_1000_kwh_max_price": max1000,      
+
+      "price_2000_kwh_min_price": min2000,
+      "price_2000_kwh_max_price": max2000,
+
       // "itemsperpage":this.items,
-      "min_price": min,
-      "max_price": max,
+
       "dsc":sort,
       "logo1":logo1,
       "logo2":logo2,

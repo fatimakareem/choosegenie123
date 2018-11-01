@@ -27,6 +27,7 @@ import { error } from 'util';
 import { delay } from 'rxjs/operator/delay';
 import { HttpService } from '../../serv/http-service';
 import { ExcelService } from '../../excel.service';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 
 
@@ -53,7 +54,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
     selector: 'app-data-table-cmp',
     templateUrl: 'products.component.html',
-    styleUrls: ['products.component.css']
+    styleUrls: ['products.component.css'],
+    // providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 
 })
 
@@ -175,7 +177,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     months5;
     months7;
     months6;
-    fixed;
+    fixed ="Fixed Rate";
     vari;
     index;
     prepaidall = "both";
@@ -216,7 +218,8 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
         this.item = "20";
         this.myID = document.getElementById("myID");
-
+        // this.checked8(event, i);
+        
         var myScrollFunc = function () {
             var y = window.scrollY;
             if (y >= 500) {
@@ -261,15 +264,30 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
             $('body').removeClass('noScroll');
             $(formSearch).removeClass('flipInX');
         });
-        $("#number").on("click", function () {
-            if ($(".number:checked")) {
-                $('#btn').prop('disabled', false);
-            }
-            else {
-                $('#btn').prop('disabled', true);
-            }
-        });
+        // $("#number").on("click", function () {
+        //     if ($(".number:checked")) {
+        //         $('#btn').prop('disabled', false);
+        //     }
+        //     else {
+        //         $('#btn').prop('disabled', true);
+        //     }
+        // });
+        window.onscroll=function(){scrollFunction()};function scrollFunction()
+        {if(document.body.scrollTop>20||document.documentElement.scrollTop>20)
+            {document.getElementById("myBtn").style.display="block";}else
+            {document.getElementById("myBtn").style.display="none";}}
+            function topFunction(){$('html, body').animate({scrollTop:0},800);}
+            var clicks=0;function changeColorFav(id){++clicks;if(clicks%2)
+                {id.style.color='red';}else{id.style.color='gray';}}
 
+        $(document).ready(function(){
+            // $("#mySelect").change(function(){
+            //     alert($(this).val());
+            // });
+          // new WOW().init();
+        });
+        
+        
         console.log(this.today = Date.now())
         this.state = localStorage.getItem('state')
         this.name = localStorage.getItem('name')
@@ -329,6 +347,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
 
     }
 
+    
 
     btnDeleteClick(id, title, profileurl, profile_logo, servicearea) {
         this.id = id;
@@ -772,6 +791,8 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
             console.log(event.target.checked)
             this.fixed = "Fixed Rate";
             this.setPage(1);
+            alert(this.fixed)
+            console.log(this.fixed,"fixed rate");
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
@@ -978,22 +999,38 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     }
     pricerate(min, max) {
-        console.log(min, max)
-        if (min && max) {
-            this.min = min;
-            this.max = max;
+        
+        if (this.value1== "500") {
 
+            this.min_price_500=min; 
+           
+           this.max_price_500 =max;
+            console.log(this.min_price_500)
             this.setPage(1);
         }
-        else {
-            localStorage.removeItem('min');
-            localStorage.removeItem('max');
-            localStorage.removeItem('price');
-            delete this.min;
-            delete this.max;
-            // delete this.price;
-            this.setPage(1);
+        else if(this.value1=="1000")
+        {
+            this.min_price_1000=min; 
+           
+           this.max_price_1000 =max;
+           this.setPage(1);
         }
+        else if (this.value1=="2000"){
+            
+            this.min_price_2000=min; 
+           
+           this.max_price_2000 =max;
+           this.setPage(1);
+        }
+        // else {
+        //     localStorage.removeItem('min');
+        //     localStorage.removeItem('max');
+        //     localStorage.removeItem('price');
+        //     delete this.min;
+        //     delete this.max;
+        //     // delete this.price;
+        //     this.setPage(1);
+        // }
 
         console.log(this.min, this.max)
     }
@@ -1157,19 +1194,23 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         // if (this.planmin == null) {
         //     delete this.planmin;
         // }
-
+        // this.min_price_500,this.max_price_500,this.min_price_1000,this.max_price_1000, this.min_price_2000,this.max_price_2000,
         const Results = {}
 
-        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.prepaidall == "both" || this.showallplanPB == "both" || this.timeall == "both" || this.planmin == "NULL" || this.notprepaid == "noprepaid" || this.prepaid == "Prepaid" || this.time == "Time Of Use" || this.nottime == "notime" || this.renewable || this.name || this.sort || this.item || this.min || this.max || this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5 == "StarRating5.png") {
+        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.prepaidall == "both" || this.showallplanPB == "both" || this.timeall == "both" || this.planmin == "NULL" || this.notprepaid == "noprepaid" || this.prepaid == "Prepaid" || this.time == "Time Of Use" || this.nottime == "notime" || this.renewable || this.name || this.sort || this.item || this.min_price_500||this.max_price_500||this.min_price_1000||this.max_price_1000||this.min_price_2000||this.max_price_2000|| this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5 == "StarRating5.png") {
 
-            console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.price, this.item, this.timeall, this.prepaidall, this.showallplanPB, 'multifilter');
-            this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.item, this.min, this.max, this.logo1, this.logo2, this.logo3, this.logo4, this.logo5, this.prepaidall, this.timeall, this.showallplanPB).subscribe(response => {
+            console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort,  this.item,this.min_price_500,this.max_price_500,this.min_price_1000,this.max_price_1000, this.min_price_2000,this.max_price_2000, this.timeall, this.prepaidall, this.showallplanPB, 'multifilter');
+            this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.item, this.min_price_500,this.max_price_500,this.min_price_1000,this.max_price_1000, this.min_price_2000,this.max_price_2000, this.logo1, this.logo2, this.logo3, this.logo4, this.logo5, this.prepaidall, this.timeall, this.showallplanPB).subscribe(response => {
 
+
+                // alert(this.min_price_500);
                 this.product = response['Results'];
                 this.noresult = response['Total Result'];
                 this.zipdet = localStorage.getItem('zip');
                 for (let prod of this.product) {
+                    var re = /\s*(?:;|$)\s*/;
                     prod["plan_information"] = prod["plan_information"].split(',,', 3000);
+                    // prod["plan_information"] = prod["plan_information"].split(',,,,,', 3000);
                     prod["price_rate"] = prod["price_rate"].split('..', 3000);
 
                 }

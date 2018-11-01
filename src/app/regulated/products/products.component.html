@@ -73,11 +73,19 @@
                   </h5>
                 </a>
               </div>
-
+              <!-- <mat-form-field>
+                <mat-select [(value)]="selected">
+                  <mat-option>None</mat-option>
+                  <mat-option value="option1">Option 1</mat-option>
+                  <mat-option value="option2">Option 2</mat-option>
+                  <mat-option value="option3">Option 3</mat-option>
+                </mat-select>
+              </mat-form-field> -->
 
               <mat-form-field>
-                <mat-select required [(ngModel)]="price" name="price" (change)="price1(price)" disableRipple>
-                  <mat-option value="500" style="font-size: 20px" selected="true" >500 kWh</mat-option>
+                <mat-select  [(ngModel)]="price" name="price"  value="price"  (change)="price1(price)"
+                 disableRipple>
+                  <mat-option value1="500"  style="font-size: 20px" >500 kWh</mat-option>
                   <mat-option value="1000" style="font-size: 20px">1000 kWh</mat-option>
                   <mat-option value="2000" style="font-size: 20px">2000 kWh</mat-option>
                 </mat-select>
@@ -188,25 +196,25 @@
               <div class="panel-title">
                 <a>
                   <h5 class="color-red">Pricing and Billing &nbsp;
-                    <i class="color-black fa fa-info-circle float" aria-hidden="true" title="This filter allows you to view plans that do not have any recurring fees or credits included in the average per kWh price.  Plans where the energy charge for each kWh changes depending on the amount of kWh consumed are also excluded.If you choose to view these plan types (“Show All Plans”), you need to be aware that the average per kWh price may vary significantly from your actual billed price per kWh.<br><br>Please review the fact sheets for these plans carefully before enrolling in a product.
+                    <i class="color-black fa fa-info-circle float" aria-hidden="true" title="This filter allows you to view plans that do not have any recurring fees or credits included in the average per kWh price.  Plans where the energy charge for each kWh changes depending on the amount of kWh consumed are also excluded.If you choose to view these plan types (“Show All Plans”), you need to be aware that the average per kWh price may vary significantly from your actual billed price per kWh.Please review the fact sheets for these plans carefully before enrolling in a product.
                  "></i>
 
                   </h5>
                 </a>
               </div>
-              <div class="checkbox">
+              <div class="radio">
                 <label class="checkbox-font">
                     
-                  <input type="checkbox" (change)="checked13($event,i)"   [(ngModel)]="planmin"  name="planmin" [value]="planmin" >
+                  <input type="radio" (change)="checked13($event,i)" checked="true"  ng-Model="planmin"  name="planmin" [value]="planmin" >
                   Plans without minimum usage Fee/Credits
                 </label>
               </div>
-              <div class="checkbox">
+              <div class="radio">
                 <label class="checkbox-font">
                   <!-- checked8 -->
                   <!-- id="chckbx" -->
                   <!-- <input type="radio" (change)="checked12($event,i)" [(ngModel)]="prepaid" name="prepaid" value="prepaid"> -->
-                  <input type="checkbox"   (change)="checkedall($event,i)"  [(ngModel)]="showallplanPB" name="planmin"  value="showallplanPB">Show
+                  <input type="radio"   (change)="checkedall($event,i)"  ng-Model="showallplanPB" name="planmin"  value="showallplanPB">Show
                   All Plans
                 </label>
               </div>
@@ -232,7 +240,7 @@
                     <!-- [(ngModel)]=fixed value="fixed" -->
                     <!-- checked="true" -->
 
-                  <input type="checkbox" name="fixed" [checked]="true" value="fixed"   (change)="checked8($event,i)">
+                  <input type="checkbox" name="fixed"  ng-Model="fixed" checked="true" [value]="fixed"   (change)="checked8($event,i)">
                   Fixed Rate
 
                 </label>
@@ -261,23 +269,23 @@
                   </h5>
                 </a>
               </div>
-              <div class="checkbox">
+              <div class="radio">
                 <label class="checkbox-font">
                     <!-- checkedpre -->
                     <!-- prepaidall -->
                     <!-- (change)="checkedpre($event,i) -->
-                  <input type="checkbox"  name="prepaid"  [(ngModel)]="prepaidall"  [value]="prepaidall" (change)="checkedpre($event,i)"> Show All Plans
+                  <input type="radio"  name="prepaid"  ng-Model="prepaidall" checked="true"  [value]="prepaidall" (change)="checkedpre($event,i)"> Show All Plans
                 </label>
               </div>
-              <div class="checkbox">
+              <div class="radio">
                 <label class="checkbox-font">
-                  <input type="checkbox" (change)="checked12($event,i)" [(ngModel)]="prepaid" name="prepaid" value="prepaid">
+                  <input type="radio" (change)="checked12($event,i)" ng-Model="prepaid" name="prepaid" value="prepaid">
                   Show only Prepaid Plans
                 </label>
               </div>
-              <div class="checkbox">
+              <div class="radio">
                 <label class="checkbox-font">
-                  <input type="checkbox" [(ngModel)]="notprepaid" name="prepaid" value="notprepaid"  (change)="checked11($event,i)">
+                  <input type="radio" ng-Model="notprepaid" name="prepaid" value="notprepaid"  (change)="checked11($event,i)">
                   Do not show Prepaid Plans
                 </label>
               </div>
@@ -292,23 +300,23 @@
                   </h5>
                 </a>
               </div>
-              <div class="checkbox">
+              <div class="radio">
                 <label class="checkbox-font">
                   <!-- checkedtime -->
                   <!-- timeall -->
-                  <input type="checkbox"  name="time" [(ngModel)]="timeall" [value]="timeall" (change)="checkedtime($event,i)"> Show All Plans
+                  <input type="radio"  name="time" checked="true"  ng-Model="timeall" [value]="timeall" (change)="checkedtime($event,i)"> Show All Plans
                 </label>
               </div>
-              <div class="checkbox">
+              <div class="radio">
                 <label class="checkbox-font">
                     <!-- <input type="radio" (change)="checked12($event,i)" [(ngModel)]="prepaid" name="prepaid" value="prepaid"> -->
-                  <input type="checkbox" (change)="checked14($event,i)" [(ngModel)]="time" name="time" value="time" > Show
+                  <input type="radio" (change)="checked14($event,i)" ng-Model="time" name="time" value="time" > Show
                   only Time Of Use Plans
                 </label>
               </div>
-              <div class="checkbox">
+              <div class="radio">
                 <label class="checkbox-font">
-                  <input type="checkbox"  (change)="checked15($event,i)" [(ngModel)]="nottime" name="time" value="nottime">
+                  <input type="radio"  (change)="checked15($event,i)" ng-Model="nottime" name="time" value="nottime">
                   Do not show Time Of Use Plans
                 </label>
               </div>
@@ -521,17 +529,17 @@
 
                 <div class="col-lg-4 col-md-6 col-sm-5 col-xs-12 align padding">
                   <label class="product-label ">SORT BY:</label>
-                  <button class="sort-btn " [(ngModel)]=sort name="sort" value="sort" type="button" (click)="checked20($event,i)">
+                  <button class="sort-btn " [(ngModel)]="sort" name="sort" value="sort" type="button" (click)="checked20($event,i)">
                     RENEWABLE
                     <i class="fa fa-sort-down down-icon"></i>
 
                   </button>
-                  <button class="sort-btn " [(ngModel)]=sort name="sort" value="sort" type="button" (click)="checked20($event,i)">
+                  <button class="sort-btn " [(ngModel)]="sort" name="sort" value="sort" type="button" (click)="checked20($event,i)">
                     Price KW/h
                     <i class="fa fa-sort-down down-icon"></i>
 
                   </button>
-                  <button class="sort-btn " [(ngModel)]=sort name="sort" value="sort" type="button" (click)="checked20($event,i)">
+                  <button class="sort-btn " [(ngModel)]="sort" name="sort" value="sort" type="button" (click)="checked20($event,i)">
                     Company
                     <i class="fa fa-sort-down down-icon"></i>
 
@@ -633,18 +641,10 @@
 
                     <mat-select class="width-sec" placeholder="20 Per Page" selected="20" (change)="checked18($event,i,items)"
                       value="item"  [(ngModel)]="items" name="items">
-<<<<<<< HEAD
                       <mat-option value="30" selected="true">30 Per Page</mat-option>
                       <mat-option value="40">40 Per Page</mat-option>
                       <mat-option value="50">50 Per Page</mat-option>
                   </mat-select>
-=======
-                      <mat-option value="30" selected="true">30 PER PAGE</mat-option>
-                      <mat-option value="40">40 PER PAGE</mat-option>
-                      <mat-option value="50">50 PER PAGE</mat-option>
-                    
-                   </mat-select>
->>>>>>> fcd7fd7f0263e4e6b57a2fac6703c4f451f2f8bc
                   </mat-form-field>
 
 
@@ -1037,20 +1037,20 @@
                           </div>
                         </div>
                         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                          <div class="plan-information__heading">Price Rate</div>
+                          <div class="plan-information__heading">Price/KWh</div>
                           <table>
                             <tbody>
                               <tr class="plan-information__row">
-                                <td class="plan-information__cell">Price 1000 kwh</td>
-                                <td class="plan-information__cell plan-information__cell--last ">{{price_1000_kwh}}¢</td>
+                                <td class="plan-information__cell">Price 500 kwh</td>
+                                <td class="plan-information__cell plan-information__cell--last ">{{price_500_kwh | slice:0:-1}}¢</td>
                               </tr>
                               <tr class="plan-information__row">
-                                <td class="plan-information__cell">Price 500 kwh</td>
-                                <td class="plan-information__cell plan-information__cell--last ">{{price_500_kwh}}¢</td>
+                                <td class="plan-information__cell">Price 1000 kwh</td>
+                                <td class="plan-information__cell plan-information__cell--last ">{{price_1000_kwh | slice:0:-1}}¢</td>
                               </tr>
                               <tr class="plan-information__row">
                                 <td class="plan-information__cell">Price 2000 kwh</td>
-                                <td class="plan-information__cell plan-information__cell--last ">{{price_2000_kwh}}¢</td>
+                                <td class="plan-information__cell plan-information__cell--last ">{{price_2000_kwh | slice:0:-1}}¢</td>
                               </tr>
                             </tbody>
                           </table>
@@ -1062,12 +1062,12 @@
                                 <td class="plan-information__cell">Documents</td>
                                 <td class="plan-information__cell plan-information__cell--last">
                                   <a style="color:rgba(0,0,0, 0.87)" href="{{fact_sheet}}" target="_blank">
-                                    <i style="color:#25B7D3" class="material-icons">picture_as_pdf</i>
+                                    <i style="color:#c00" class="material-icons">picture_as_pdf</i>
                                     <a>Fact Sheet</a>
                                     <br>
                                   </a>
                                   <a style="color:rgba(0,0,0, 0.87)" href="{{terms_of_service}}" target="_blank">
-                                    <i style="color:#25B7D3" class="material-icons">picture_as_pdf</i>
+                                    <i style="color:#c00" class="material-icons">picture_as_pdf</i>
                                     Terms of service
                                   </a>
 
@@ -1080,10 +1080,11 @@
                         </div>
                         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                           <div class="plan-description">
-                            <div class="plan-description__heading">Plan Information</div>
+                            <div class="plan-description__heading">Plan Details</div>
                             <div class="plan-description__content">
                               <ul>
-                                <li *ngFor="let data of plan_information">{{data.split(',,', 3000)}}</li>
+                                <li *ngFor="let data of plan_information">{{data}}</li>
+                                <!-- {{temp.split(',')[0]}} -->
                               </ul>
 
                             </div>
@@ -1164,6 +1165,7 @@
 
               <div class="col-lg-4 col-md-6 col-sm-5 col-xs-12 align padding">
                 <label class="product-label ">SORT BY:</label>
+                
                 <button class="sort-btn " [(ngModel)]="sort" name="sort" value="sort" type="button" (click)="checked20($event,i)">
                   RENEWABLE
                   <i class="fa fa-sort-down down-icon"></i>
@@ -1182,31 +1184,31 @@
               </div>
               <ul class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
 
-               <li [ngClass]="{hide:pager.currentPage === 1}">
-                    <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
-                      <i class="fa fa-angle-left"></i>
-                    </a>
-                  </li>
-                  <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-                    <a onclick="topFunction()" (click)="setPage(page)" class="view-plan-details">{{page}}</a>
-                  </li>
+                <li [ngClass]="{hide:pager.currentPage === 1}">
+                  <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
+                    <i class="fa fa-angle-left"></i>
+                  </a>
+                </li>
+                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                  <a onclick="topFunction()" (click)="setPage(page)" class="view-plan-details">{{page}}</a>
+                </li>
 
-                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
-                    <a onclick="topFunction()" (click)="setPage(pager.currentPage + 3)"></a>
-                  </li>
-                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>Of</a></li>
-                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                    <a  onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
-                  </li>
-                  <li *ngIf="pager.currentPage === pager.totalPages"> <a>Of</a></li>
-                  <li *ngIf="pager.currentPage === pager.totalPages">
-                    <a  onclick="topFunction()"(click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
-                  </li>
-                  <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
-                    <a onclick="topFunction()" (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
-                      <i class="fa fa-angle-right top-set"></i>
-                    </a>
-                  </li>
+                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}" *ngIf="(pager.startPage  + 3) <= pager.totalPages">
+                  <a onclick="topFunction()" (click)="setPage(pager.currentPage + 3)">...</a>
+                </li>
+                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}"> <a>OF</a></li>
+                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                  <a onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+                </li>
+                <li *ngIf="pager.currentPage === pager.totalPages"> <a>OF</a></li>
+                <li *ngIf="pager.currentPage === pager.totalPages">
+                  <a onclick="topFunction()" (click)="setPage(pager.totalPages)" class="view-plan-details" type="Last">{{pager.totalPages}}</a>
+                </li>
+                <li [ngClass]="{hide:pager.currentPage === pager.totalPages}">
+                  <a onclick="topFunction()" (click)="setPage(pager.currentPage + 1)" class="view-plan-details" class="btn bd-color" type="Next">
+                    <i class="fa fa-angle-right top-set"></i>
+                  </a>
+                </li>
               </ul>
               <!-- <ul class="col-lg-3 col-md-3 col-sm-12 pagination" *ngIf="pager.pages && pager.pages.length">
               <li [ngClass]="{hide:pager.currentPage === 1}">
@@ -1234,29 +1236,28 @@
 
               <div class="col-lg-2 col-md-6 col-sm-4 col-xs-6 prod-select-list sec-list">
 
-                  <label class="product-label" style="margin: 11px 10px 0px 0px;">View:</label>
-                  <select class="view-drop" placeholder="" selected="10" (change)="checked18($event,i,items)"
+                  <!-- <label class="product-label" style="margin: 11px 10px 0px 0px;">View:</label>
+                  <select class="view-drop" placeholder="20 Per page" selected="20" (change)="checked18($event,i,items)"
                   value="item" required [(ngModel)]="items" name="items" aria-labelledby="dropdownMenuButton">
                       
                       <option value="20">20 PER PAGE</option>
                       <option value="40">40 PER PAGE</option>
                       <option value="50">50 PER PAGE</option>
-                    </select>
+                    </select> -->
+                    <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
+                    <mat-form-field>
+  
+                      <mat-select class="width-sec" placeholder="20 Per Page" selected="20" (change)="checked18($event,i,items)"
+                        value="item"  [(ngModel)]="items" name="items">
+                        <mat-option value="30" selected="true">30 Per Page</mat-option>
+                        <mat-option value="40">40 Per Page</mat-option>
+                        <mat-option value="50">50 Per Page</mat-option>
+                    </mat-select>
+                    </mat-form-field>
 
 
 
-                <!-- <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
-                <mat-form-field>
-
-                  <mat-select class="width-sec" placeholder="" selected="10" (change)="checked18($event,i,items)" value="item"
-                    required [(ngModel)]="items" name="items">
-                    <mat-option value="10" selected="true">10 PER PAGE</mat-option>
-                    <mat-option value="20">20 PER PAGE</mat-option>
-                    <mat-option value="40">40 PER PAGE</mat-option>
-                    <!-- <mat-option value="556">SEE ALL</mat-option> -->
-                  <!--  </mat-select>
-                </mat-form-field> -->
-
+        
 
 
               </div>
@@ -1281,7 +1282,10 @@
         </div>
 
       </div>
+
+      
     </div>
 
   </div>
 </div>
+
