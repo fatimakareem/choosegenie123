@@ -194,7 +194,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     renewable;
     com;
     item;
-    price;
+    price ;
     min;
     max;
     min_price_500;
@@ -791,7 +791,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
             console.log(event.target.checked)
             this.fixed = "Fixed Rate";
             this.setPage(1);
-            alert(this.fixed)
+            // alert(this.fixed)
             console.log(this.fixed,"fixed rate");
         }
         else if (event.target.checked == false) {
@@ -1000,16 +1000,28 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     }
     pricerate(min, max) {
         
-        if (this.value1== "500") {
+        if ( this.value1== "500") {
 
             this.min_price_500=min; 
            
            this.max_price_500 =max;
+
+
+           this.min_price_1000=undefined;
+           this.max_price_1000 =undefined;
+           this.max_price_2000 =undefined;
+           this.max_price_2000 =undefined;
             console.log(this.min_price_500)
             this.setPage(1);
         }
-        else if(this.value1=="1000")
+
+       else if(this.value1=="1000")
         {
+            this.min_price_500=undefined;
+            this.max_price_500 =undefined;
+            this.max_price_2000 =undefined;
+            this.max_price_2000 =undefined;
+
             this.min_price_1000=min; 
            
            this.max_price_1000 =max;
@@ -1017,6 +1029,10 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         }
         else if (this.value1=="2000"){
             
+            this.min_price_1000=undefined;
+            this.max_price_1000 =undefined;
+            this.max_price_500 =undefined;
+            this.max_price_500 =undefined;
             this.min_price_2000=min; 
            
            this.max_price_2000 =max;
