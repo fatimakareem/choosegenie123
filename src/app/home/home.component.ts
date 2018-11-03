@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
   dataa;
   Items: any = [];
   slideConfig = {
-    "slidesToShow": 5,
+    "slidesToShow": 7,
     "slidesToScroll": 5,
     autoplay: 'true',
     prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
