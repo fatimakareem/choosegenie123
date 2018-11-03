@@ -10,6 +10,7 @@ import { GetreviewComponent } from './getreview.component';
 import { GetreviewRoutes } from './getreview.routing';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import { NeutronRatingModule } from 'neutron-star-rating';
+import { LoaderModule } from '../loader/loader.module';
 
 @NgModule({
     imports: [
@@ -19,6 +20,7 @@ import { NeutronRatingModule } from 'neutron-star-rating';
         // MdModule,
         MaterialModule,
         FormsModule,
+        LoaderModule,
         ReactiveFormsModule,
         MatDatepickerModule,
         HttpClientModule,

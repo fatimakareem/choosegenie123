@@ -15,7 +15,7 @@ declare const $: any;
 export class Blog1Component implements OnInit {
 
   data: any = [];
-  constructor(private route: ActivatedRoute, private http: Http) { }
+  constructor(private route: ActivatedRoute, private http: Http,private https: HttpService) { }
   private Sub: Subscription;
   public heading1;
 
@@ -36,7 +36,7 @@ export class Blog1Component implements OnInit {
     this.heading = localStorage.getItem('heading');
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    this.http.get(Config.api +'gettingblog_html/'+this.heading+'/', { headers: headers })
+    this.https.get(Config.api +'gettingblog_html/'+this.heading+'/', { headers: headers })
       .subscribe(Res => {
         this.data = Res.json()[0].content1;
         this.image=Res.json()[0].blog_image;
