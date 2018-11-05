@@ -28,6 +28,32 @@
   background: #cc0000;
 }
 
+
+/*Start Sweet alerts*/
+.swal2-show{
+  width: 48em !important;
+}
+.swal2-popup .swal2-title{
+  font-size: 36px !important;
+}
+
+.swal2-icon {
+  width: 7em !important;
+  height: 7em !important;
+}
+.swal2-icon.swal2-success [class^='swal2-success-line'][class$='tip'] {
+  top: 3.875em !important;
+  left: .875em !important;
+  width: 2.5625em !important;
+}
+.swal2-icon.swal2-success [class^='swal2-success-line'][class$='long'] {
+  top: 3.375em !important;
+  right: 8px !important;
+  width: 3.9375em !important;
+}     
+/*End Sweet alerts*/
+
+
 /*Start From custome */
 .sh-signup-form-fix .mat-input-infix {
   border-top: 0 solid transparent
@@ -3110,11 +3136,13 @@ section {
 }
 .login-form-1-body > div label{
   float: left;
-  margin-top: 20px;
-  font-size: 18px;
+  margin-top: 5px;
+  font-size: 20px;
 }
 .login-form-1-body > div label input{
   margin-right: 5px;
+  margin-top: 1px;
+  zoom: 2;
 }
 blackgeeks-recaptcha p{
   font-size: 25px !important;
@@ -3123,7 +3151,7 @@ blackgeeks-recaptcha p{
   color: #CC0000;
 }
 .margin-right-bottom{
-  margin: 0 20px 20px 0;
+  margin: 0 0 20px 0;
 }
 .login-form-1-body > div > a:hover{
   /*color: #25B7D3;*/
@@ -5979,6 +6007,8 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 }
 .float-left{
   float: left;
+  width: 50%;
+  text-align: left !important;
 }
 .position{
   position: fixed !important;

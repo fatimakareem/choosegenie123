@@ -167,12 +167,22 @@ export class UserloginComponent implements OnInit {
     
                     }
                   });
-
+                  // swal({
+                  //   text: "Please Enter Valid Zipcode",
+                  //   title: "Choice Genie",
+                  //   type: "success",
+                  //   showConfirmButton: false,
+                  //   timer: 200000,
+                  //   width: '512px',
+                  //   //confirmButtonText: "OK",
+        
+                  // })
                 swal({
                   type: 'success',
                   title: 'Successfully Logged in',
                   showConfirmButton: false,
-                  timer: 1500
+                  // height:'300px',
+                  timer: 1500000
                 });
               
               },
