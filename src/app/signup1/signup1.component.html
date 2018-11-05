@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="container" style="padding:36px 0px 22px 0px">
+  <div class="container" style="padding:12px 0px 15px 0px">
 
 
 
@@ -26,10 +26,14 @@
     <div class="card-content">
 
 
-      <div  class="signin-form-1-header">
+      <!-- <div  class="signin-form-1-header">
         <h3>Vendor Registration Form </h3>
 
-      </div>
+      </div> -->
+      
+      <h1 class="signup-heading">VENDOR INFORMATION</h1>
+      <p class="signup-tagline">Okay, lets get started!  First, tell us about yourself and the address we're going to help you with.</p>
+      
       <!--<h4 class="title-05"> Vendor Registration Form </h4>-->
       <ng-template matStepLabel>About</ng-template>
 
@@ -37,7 +41,7 @@
 
       <div class="row sh-signup-form-fix">
 
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="margin-t">
             <mat-form-field>
               <input matInput placeholder="REP Name" [formControl]="signupForm.controls['repname']" #repname required [(ngModel)]="model.repname" class="text-transform">
@@ -48,7 +52,7 @@
           </div>
         </div>
         <br class="clearfix" />
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="margin-t">
             <mat-form-field>
               <input matInput placeholder="REP Certificate #" [formControl]="signupForm.controls['repid']" #REP_certificate_id1 (ngModelChange)="Checkzipcode(REP_certificate_id1.value)" required [(ngModel)]="model.repid">
@@ -61,7 +65,7 @@
           </div>
         </div>
         <br class="clearfix" />
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="form-group margin-t">
 
             <mat-form-field>
@@ -80,7 +84,7 @@
         </div>
 
         <br class="clearfix" />
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="form-group margin-t">
 
             <mat-form-field>
@@ -98,7 +102,7 @@
         </div>
 
         <br class="clearfix" />
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="form-group margin-t ">
             <mat-form-field>
               <input matInput [textMask]="{mask: phoneMask}" placeholder="Contact No." [formControl]="signupForm.controls['contactphone']" required [(ngModel)]="model.contactphone">
@@ -110,7 +114,7 @@
         </div>
 
         <br class="clearfix" />
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="form-group margin-t ">
             <mat-form-field>
               <input matInput placeholder="Contact Name" [formControl]="signupForm.controls['contactname']" required [(ngModel)]="model.contactname">
@@ -122,7 +126,7 @@
         </div>
 
         <br class="clearfix" />
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="form-group margin-t ">
             <mat-form-field>
 
@@ -145,7 +149,7 @@
           </div>
         </div>
         <br class="clearfix" />
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="form-group margin-t ">
             <mat-form-field>
               <input matInput placeholder="Password" type="password" [type]="hide ? 'password' : 'text'"  [formControl]="signupForm.controls['password']" required [(ngModel)]="model.password">
@@ -159,7 +163,7 @@
           </div>
         </div>
         <br class="clearfix" />
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <div class="form-group margin-t ">
             <mat-form-field>
               <input matInput placeholder="Confirm Password" type="password"[type]="hide ? 'password' : 'text'" [formControl]="signupForm.controls['confirmpassword']" [(ngModel)]="model.confirmpassword" required>
@@ -180,7 +184,13 @@
         </div>
 
         <div class="col-lg-6 form-footer text-center">
-
+            <div class="">
+                <label class="acknowladge" for="AcknowledgeTerms">
+                    <input data-val="true" data-val-required="The AcknowledgeTerms field is required." id="AcknowledgeTerms" name="AcknowledgeTerms" tabindex="11" type="checkbox" value="true">
+                    <input name="AcknowledgeTerms" type="hidden" value="false">
+                    I authorize Energy Ogre to request historical usage data for <span id="blockProperty">my property</span>, and affirm that I agree to the <a href="javascript:showTerms();">ChoiceGenie Terms of Use</a>
+                </label>
+            </div>
           <div class="form-group">
             <button class="btn btn-fill" style="width:100%; border-radius:50px;font-size:24px !important;" type="submit"
               (click)="signupuserdata()">Register</button>
