@@ -183,7 +183,7 @@ export class UserloginComponent implements OnInit {
                   title: 'Successfully Logged in',
                   showConfirmButton: false,
                   // height:'300px',
-                  timer: 1500000
+                  timer: 1000
                 });
               
               },
