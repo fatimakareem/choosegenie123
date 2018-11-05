@@ -2,21 +2,19 @@
   <div style="padding: 25px 0px">
 
 
-      <div  class="page-title">
+      <!-- <div  class="page-title">
 
           <h3 _ngcontent-c0="" class="text-center choiecegenie-offers wow fadeInLeft">Tell Us About Yourself</h3>
 
-        </div>
+        </div> -->
 
 
-    <div class="vander-signup-heading" data-notify="container">
+    <!-- <div class="vander-signup-heading" data-notify="container">
       <span data-notify="message">Any Enrollment Request including move-in or a switch can only be made by service applicant or the applicant's authorized
       agent.
       <br> If you are not an authorized individual, please do not submit your request using this portal.
     </span>
-    </div>
-
-
+    </div> -->
 
 <div class="card-content card-content-fixed card-content-dash" style="margin-top: 20px; padding-top: 4px;">
   <form [formGroup]="signupForm" *ngIf="signupForm">
@@ -29,7 +27,7 @@
       <ng-template matStepLabel>About</ng-template>
 
       <input matInput placeholder="id"  value = "{{data.id}}"  #updateid hidden="true" required >
-
+      <h1 class="signup-heading">Edit Profile</h1>
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group">

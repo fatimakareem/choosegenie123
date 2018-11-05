@@ -119,12 +119,12 @@
 
 
 <section id="body" class="width">
-  <aside id="sidebar sticky" class="column-left" style="padding: 20px 0px">
+  <aside id="sidebar sticky" class="column-left" style="padding:0px">
     <div class="admin-heding text-center">
       <!-- <h2>Vendor Panel</h2> -->
     </div>
 
-    <header style="padding: 0px;">
+    <header class="con-sidebar">
       <ng-container class="card" *ngFor="let data of sg['products']; let i = index">
         <div *ngIf="i<1" class="sidebar-profile-img">
           <a (click)="moving()">

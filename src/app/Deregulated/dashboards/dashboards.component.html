@@ -223,12 +223,12 @@
     <div class="modal fade" id="myModal2" role="dialog">
             <div class="modal-dialog">
               <!-- Modal content-->
-              <div class="modal-content popupmodel">
-                <div class="modal-header">
-                </div>
+              <div class="modal-content popupmodel1">
+                <!-- <div class="modal-header">
+                </div> -->
                 <div class="modal-body" style="font-size: 18px;
                                           background: #ffffff;
-                                          padding: 20px;
+                                          padding: 0px;
                                           margin: 15px;
                                           position: relative;">
                   <div class="popup-close-button" data-dismiss="modal">X</div>
@@ -248,7 +248,7 @@
                         <input mdInput placeholder="Title" [ngModel]="date | date:'yyyy-MM-dd'" >
                     </md-input-container>
 <input type="date" required name="date" [(ngModel)]="date" hidden="true">
-                    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                    <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="sh-signup-form-fix">
                         <!-- <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate"> -->
 
 <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate">
@@ -395,19 +395,19 @@
                     </form>
                   </div>
                 </div>
-                <div style="display:inline-block; text-align:center;">
+                <!-- <div style="display:inline-block; text-align:center;">
                   <a href="{{data.sign_up}}" target="_blank">
                     <button class="btn btn-fill">Order Online</button>
                   </a>
                   <div style="display:inline-block; padding:24px;">
                     <span style="font-size:24px; font-weight:600px">OR CALL
-                        <a href="tel:{{data.phone}}">
+                        <a href="tel:{{data.phone}}"> -->
                             <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
-                            {{data.phone}}</a>
+                            <!-- {{data.phone}}</a> -->
                       <!-- <b> {{data.phone}} </b> -->
-                    </span>
+                    <!-- </span>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
