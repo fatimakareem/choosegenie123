@@ -84,7 +84,9 @@ export class NavbarComponent implements OnInit {
       moving1() {
         this.router.navigate(['/supermaindashboard']);
       }
-    
+      profilelink(){
+        this.router.navigate(['/company-profile']);
+    }
       moving() {
         if (localStorage.getItem('role') == "Not Deregulatedstate Vendor") {
           this.router.navigate(['/dashboard/' + this.username]);
@@ -94,6 +96,17 @@ export class NavbarComponent implements OnInit {
         }
         else if(localStorage.getItem('role') =="USER"){
           this.router.navigate(['/consumerdashboard/']);
+        }
+      }
+      getprofile() {
+        if (localStorage.getItem('role') == "Not Deregulatedstate Vendor") {
+          this.router.navigate(['/company-profile']);
+        }
+        else if (localStorage.getItem('role') == "Deregulatedstate Vendor") {
+          this.router.navigate(['/company-profile']);
+        }
+        else if(localStorage.getItem('role') =="USER"){
+          this.router.navigate(['/userprofile']);
         }
       }
       move(){

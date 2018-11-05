@@ -209,25 +209,25 @@
 
         <li class="vanders" *ngIf="!checked_login() && !check_login1()">
 
-          <a routerLink="/">
+          <a routerLink="/usersignup">
             <i class="fas fa-unlock-alt"></i>
             Sign up
             <!-- <i class="fa fa-caret-down"></i> -->
           </a>
-          <div class="drop-downs right-drop">
-            <ul class="nav-vanders  why-choiegenie-sublist">
-              <li>
+          <!-- <div class="drop-downs right-drop"> -->
+            <!-- <ul class="nav-vanders  why-choiegenie-sublist"> -->
+              <!-- <li>
                 <a onclick="topFunction()" routerLink="/register">
                   <i class="far fa-smile"></i> Vendor
                 </a>
-              </li>
-              <li>
+              </li> -->
+              <!-- <li>
                 <a onclick="topFunction()" routerLink="/usersignup">
                   <i class="far fa-smile"></i> User
                 </a>
-              </li>
-            </ul>
-          </div>
+              </li> -->
+            <!-- </ul> -->
+          <!-- </div> -->
         </li>
 
 
@@ -273,7 +273,7 @@
         </li> -->
         <li class="vanders" *ngIf="check_login1()">
 
-          <a routerLink="/">
+          <a (click)="moving1()">
             <i class="material-icons">
               account_circle</i>{{admin}}
             <!-- <i class="fa fa-caret-down"></i> -->
@@ -298,14 +298,35 @@
 
         <li class="vanders" *ngIf="checked_login()">
 
-            <a routerLink="/">
+            <a (click)="moving()">
               <i class="material-icons">
                 account_circle</i>{{username}}
               <!-- <i class="fa fa-caret-down"></i> -->
             </a>
             <div class="drop-downs right-drop">
               <ul class="nav-vanders  why-choiegenie-sublist">
-                <li>
+                  <li>
+                      <a (click)="getprofile()">
+                          <i class="material-icons">lock</i>My Profile
+                        </a>
+                  </li>
+                  <li>
+                      <a routerLink="/ChangePassword1">
+                          <i class="material-icons">lock</i>Change Password
+                        </a>
+                  </li>
+                  <li>
+                      <a routerLink="/contactus">
+                          <i class="material-icons">lock</i>Feed back
+                        </a>
+                  </li>
+  
+                  <li>
+                      <a (click)="logout()">
+                          <i class="material-icons">lock</i>Logout
+                        </a>
+                  </li>
+                <!-- <li>
                     <a (click)="moving()" style="cursor: pointer;">
                         Dashboard
                       </a>
@@ -314,7 +335,7 @@
                     <a (click)="logout()">
                         <i class="fas fa-lock"></i>Logout
                       </a>
-                </li>
+                </li> -->
               </ul>
             </div>
           </li>

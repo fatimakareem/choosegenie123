@@ -8,12 +8,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { NgForm } from "@angular/forms";
 import { Config } from '../../Config';
-//import { HttpService } from './../serv/http-service';
+import { HttpService } from '../../serv/http-service';
 import * as JWT from 'jwt-decode';
 @Injectable()
 export class UserLoginService {
 
-    constructor(private _http5: Http) { }
+    constructor(private _http5: HttpService) { }
 
     loaded: boolean = false;
     login(username: string, password: string) {
