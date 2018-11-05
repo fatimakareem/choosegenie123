@@ -193,11 +193,27 @@
 
         <li class="vanders"  *ngIf="check_login()">
 
-            <a routerLink="/">
+            <a >
                 <i class="material-icons">account_circle</i> {{username}}
               </a>
             <div class="drop-downs right-drop">
               <ul class="nav-vanders  why-choiegenie-sublist">
+                <li>
+                    <a (click)="getprofile()">
+                        <i class="material-icons">lock</i>My Profile
+                      </a>
+                </li>
+                <li>
+                    <a routerLink="/ChangePassword1">
+                        <i class="material-icons">lock</i>Change Password
+                      </a>
+                </li>
+                <li>
+                    <a routerLink="/contactus">
+                        <i class="material-icons">lock</i>Feed back
+                      </a>
+                </li>
+
                 <li>
                     <a (click)="logout()">
                         <i class="material-icons">lock</i>Logout
@@ -211,7 +227,7 @@
 
           <li class="vanders" *ngIf="check_login1()">
 
-              <a routerLink="/">
+              <a >
                   <i class="material-icons">account_circle</i> {{admin}}
                 </a>
               <div class="drop-downs right-drop">

@@ -13,6 +13,7 @@ import swal from 'sweetalert2';
 import { TOUCHEND_HIDE_DELAY } from '@angular/material';
 // import { HomeRoutes } from '../../home/home.routing';
 import { RecaptchaComponent } from 'recaptcha-blackgeeks';
+import { HttpService } from '../../serv/http-service';
 
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { PasswordValidation } from './password-validator.component';
@@ -69,7 +70,7 @@ export class UserloginComponent implements OnInit {
   massage;
     tit: any = [];
   constructor(public router: Router, private element: ElementRef, private http: Http, private route: ActivatedRoute,
-    private sg: SimpleGlobal, private _nav: Router, private _serv: UserLoginService, private formBuilder: FormBuilder, private https: HttpClient) {
+    private sg: SimpleGlobal, private _nav: Router, private _serv: UserLoginService, private formBuilder: FormBuilder, private https: HttpClient,private _http5: HttpService) {
     this.nativeElement = element.nativeElement;
     this.sidebarVisible = false;
 
@@ -120,7 +121,7 @@ export class UserloginComponent implements OnInit {
                headers.append('Authorization', 'JWT ' +  localStorage.getItem('token'));
                 // headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
                 console.log('user_profile', localStorage.getItem('token'));
-                this.http.get(Config.api + 'check_role/' + this.username + '/', { headers: headers })
+                this._http5.get(Config.api + 'check_role/' + this.username + '/', { headers: headers })
             
                   .subscribe(Res => {
                     this.Datarole = Res.json();

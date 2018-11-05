@@ -70,6 +70,17 @@ googleTranslateElementInit() {
     }
    
   }
+  getprofile() {
+    if (localStorage.getItem('role') == "Not Deregulatedstate Vendor") {
+      this.router.navigate(['/company-profile']);
+    }
+    else if (localStorage.getItem('role') == "Deregulatedstate Vendor") {
+      this.router.navigate(['/company-profile']);
+    }
+    else if(localStorage.getItem('role') =="USER"){
+      this.router.navigate(['/userprofile']);
+    }
+  }
   
   moving() {
     if (localStorage.getItem('role') == "Not Deregulatedstate Vendor") {
