@@ -81,10 +81,10 @@ export const AppRoutes: Routes = [
             path: 'pricing',
             loadChildren: './price/price.module#PrivacyModule'
         },
-        // {
-        //     path: 'changepassword',
-        //     loadChildren: './change-password/change-password.module#ChangePasswordModule'
-        // },
+        {
+            path: 'enrollment',
+            loadChildren: './webenrollment/webenrollment.module#PrivacyModule'
+        },
         {
             path: 'blog',
             loadChildren: './Blogchoicegenie/blog/blog.module#BlogModule'

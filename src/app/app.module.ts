@@ -111,6 +111,7 @@ import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { MyfilterPipe } from './myfilter.pipe';
 import { UserguideComponent } from './userguide/userguide.component';
 import { PriceComponent } from './price/price.component';
+import { WebenrollmentComponent } from './webenrollment/webenrollment.component';
 const customNotifierOptions: NotifierOptions = {
   position: {
 		horizontal: {
