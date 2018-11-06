@@ -41,7 +41,7 @@ body {
   font-size: 36px !important;
 }
 
-.swal2-icon {
+/* .swal2-icon {
   width: 7em !important;
   height: 7em !important;
 }
@@ -54,7 +54,7 @@ body {
   top: 3.375em !important;
   right: 8px !important;
   width: 3.9375em !important;
-}     
+}      */
 /*End Sweet alerts*/
 
 
@@ -7090,6 +7090,98 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   margin-bottom: 3px !important;
 }
 
+/* Start Pricing */
+.pricing-table2 {
+  padding: 15px 30px;
+}
+.single-pricing-2 {
+  border: 1px solid #dedede;
+  background-color: #fff;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+  min-height: 650px;
+  position: relative;
+}
+.pricing-p{
+  font-weight: 500;
+  line-height: 24px;
+  font-size: 19px;
+}
+.single-pricing-2 .plan-name {
+  color: #282828;
+  display: block;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 30px;
+  padding: 20px 0;
+  text-transform: uppercase;
+}
+.single-pricing-2 .plan-price {
+  font-size: 48px;
+  margin-bottom: 30px;
+  padding: 0 0;
+  text-align: center;
+}
+.featured .plan-price {
+  color: #fff!important;
+  background: #c51414;
+}
+.single-pricing-2 .plan-price .currency {
+  font-size: 50%;
+  font-weight: 700;
+  left: -.01em;
+  top: -.9em;
+}
+.single-pricing-2 ul {
+  background: #fff;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0;
+}
+.list-pricing i {
+  color: #00cd00;
+  vertical-align: top;
+  top: 0;
+}
+.home-list-pricing {
+  list-style: none;
+}
+.list-pricing {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
+}
+.single-pricing-2 ul li:first-child {
+  border-top: 0;
+}
+
+.single-pricing-2 ul li {
+  border-top: 1px dashed #dedede;
+  font-weight: 500;
+  padding: 12px 29px;
+  font-size: 22px;
+  text-align: center;
+}
+.home-list-pricing li {
+  color: #000;
+  text-align: left;
+}
+.list-pricing li {
+  border-bottom: none!important;
+}
+.pricing2-button {
+  padding: 20px 10px;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+}
+.premium .plan-price {
+  background: #3498db!important;
+  color: #fff!important;
+}
+/* End Pricing */
+
+
+
 /*
  * --------------------------------------------------
  * 3. Responsiveness/media queries
@@ -8246,7 +8338,8 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     margin-left: 15px !important;
   }
   .body-margin {
-    margin-top: 89px;
+    /* margin-top: 89px; */
+    margin-top: 59px;
   }
   .margin-nav70{
     margin-top: -89px;
@@ -8427,7 +8520,8 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
     font-size: 14px;
   }
   .body-margin {
-    margin-top: 89px;
+    /* margin-top: 89px; */
+    margin-top: 59px;
   }
 
 
@@ -8760,6 +8854,22 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 481px) and (max-width: 768px) {
+  .single-pricing-2 .plan-name {
+    font-size: 24px;
+  }
+  .single-pricing-2 ul li {
+    padding: 5px 5px;
+    font-size: 17px;
+  }
+  .single-pricing-2 .plan-price .currency {
+    font-size: 36%;
+    font-weight: 700;
+    left: -0.01em;
+    top: -1.9em;
+}   
+.pricing-pkg{
+font-size: 33px;
+}
   .login-form-1-body > .invalid-ans{
     float: left;
     width: 100%;
