@@ -38,6 +38,8 @@ export class HeaderComponent implements OnInit {
   record: any = []
   zipCode;
   admin;
+  uname;
+  local;
   // google:any = []
   constructor(private router: Router, private _serv: HeaderService, private data: DataService, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
 
@@ -162,6 +164,17 @@ this.admin=localStorage.getItem('currentadmin')
   logout() {
     localStorage.clear();
     this.router.navigate(['/']);
+
+  }
+  check_login() {
+    if (localStorage.getItem('username')) {
+      this.local = localStorage.getItem('username');
+      // let pars = JSON.parse(this.local);
+      this.uname = this.local.username;
+      return true;
+    } else {
+      return false;
+    }
 
   }
  
