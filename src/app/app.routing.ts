@@ -77,10 +77,10 @@ export const AppRoutes: Routes = [
             path: 'Faqs',
             loadChildren: './faqs/faqs.module#FaqsModule'
         },
-        // {
-        //     path: 'ChangePassword',
-        //     loadChildren: './changepassword/changepassword.module#ChangePasswordModule'
-        // },
+        {
+            path: 'pricing',
+            loadChildren: './price/price.module#PrivacyModule'
+        },
         // {
         //     path: 'changepassword',
         //     loadChildren: './change-password/change-password.module#ChangePasswordModule'

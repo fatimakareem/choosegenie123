@@ -129,7 +129,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
             }
             this.allItems = this.sg['products'];
-            this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 10);
+            this.pager = this.pagerService.getPager(Res.json()['Total Result'], page, 20);
         });
     }
 
@@ -160,7 +160,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
             this.prods_loaded = true;
             this.allItems = this.sg['products'];
             console.log(Response.json()['Total Result']);
-            this.pager = this.pagerService.getPager(Response.json()['Total Result'], page, 10);
+            this.pager = this.pagerService.getPager(Response.json()['Total Result'], page, 20);
         });
 
     }

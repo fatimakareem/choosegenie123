@@ -129,9 +129,9 @@ export class SidebarComponent implements OnInit {
         headers.append('Content-Type', 'application/json');
         // headers.append('Authorization', 'JWT ' +  this.authentication.toString());
         headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
-
+        this.username = localStorage.getItem('username')
         
-        this.http.get(Config.api +'mydata/'+ this.username.trim() +'/' ,{ headers: headers })
+        this.http.get(Config.api +'check_role/'+ this.username.trim() +'/' ,{ headers: headers })
         .subscribe(Res => {
         this.sg['products'] = Res.json()['Results'];
         

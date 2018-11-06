@@ -110,6 +110,7 @@ import { NotifierService } from 'angular-notifier';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { MyfilterPipe } from './myfilter.pipe';
 import { UserguideComponent } from './userguide/userguide.component';
+import { PriceComponent } from './price/price.component';
 const customNotifierOptions: NotifierOptions = {
   position: {
 		horizontal: {
