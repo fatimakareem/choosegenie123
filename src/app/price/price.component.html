@@ -1,17 +1,18 @@
 <!-- <app-loader></app-loader> -->
 
 
-<section *ngIf="!pkgsub" class="section pricing2-section" style="padding: 50px;">
+<section *ngIf="!pkgsub" class="section pricing2-section" style="padding: 0px;">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: center; padding-bottom: 20px;">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
                 <h2>Our Unbeatable Pricing Model </h2>
-                <p style="font-weight: 500;">Unbeatable Pricing. One-Package-Includes-All Features & RFPs Nationwide. Subscribe to Monthly or Yearly democratized
+                <p class="pricing-p">Unbeatable Pricing. One-Package-Includes-All Features & RFPs Nationwide. Subscribe to Monthly or Yearly democratized
                     pricing packages. With a transparent and democratized pricing model, RFPGurus is the most affordable
                     and comprehensive sources of Government Contracts, Bids, RFPs, RFIs, RFQs, RFBs and RFTs from over thousands
                     and thousands of Government Agencies, States, Cities, Municipalities, Counties, Special District and
                     other Agencies.</p>
             </div>
+            <div class="col-lg-2"></div>
             <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s">
                 <div class="single-pricing-2">
                     <span class="plan-name text-center">
@@ -70,7 +71,7 @@
                 </div>
             </div> -->
             <!---->
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 premium wow animated bounceInUp" data-wow-delay="0.6s">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pricing-table2 premium wow animated bounceInUp" data-wow-delay="0.6s">
                 <div class="single-pricing-2">
                     <span class="plan-name text-center">
                         Yearly Plan
@@ -119,15 +120,15 @@
                     </ul>
 
                     <div class="pricing2-button">
-                        <a *ngIf="check_login(); else pkg4" routerLink='/usersignup' class="btn btn-rose" title="Subscribe Package">Register Now</a>
+                        <a *ngIf="check_login(); else pkg4" routerLink='/usersignup' class="btn btn-fill" title="Subscribe Package">Register Now</a>
                         <ng-template #pkg4>
-                            <a (click)="firststep('PY')" class="btn  btn-rose " title="Select Plan">Select Plan</a>
+                            <a (click)="firststep('PY')" class="btn btn-fill" title="Select Plan">Select Plan</a>
                         </ng-template>
                     </div>
                 </div>
             </div>
             <!---->
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 premium wow animated bounceInRight" data-wow-delay="0.6s">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pricing-table2 premium wow animated bounceInRight" data-wow-delay="0.6s">
                 <div class="single-pricing-2 custom-package">
                     <span class="plan-name text-center">
                         Free Plan                    </span>
@@ -146,8 +147,8 @@
                         <li>requirements and needs</li>
                     </ul>
                     <div class="pricing2-button">
-                        <a class="btn btn-common" routerLink="/contact-us">
-                            <i class="fa fa-phone"></i>Establish Contact</a>
+                        <a class="btn btn-fill" routerLink="/contact-us">
+                            <i class="fa fa-phone" style="margin-right: 5px; top: 1px;"></i>Establish Contact</a>
                     </div>
                 </div>
             </div>
@@ -253,7 +254,7 @@
             </fieldset>
             <fieldset>
                 <label for="card-holder" style="font-size:20px;">Card holder</label>
-                <input type="text" name="cardholdername" [(ngModel)]="cardholdername" id="card-holder" />
+                <input type="text" name="cardholdername" [(ngModel)]="cardholdername" id="card-holder" style="    height: 19px;"/>
             </fieldset>
             <fieldset class="fieldset-expiration">
                 <label for="card-expiration-month" style="font-size:20px;">Expiration date</label>
@@ -292,9 +293,9 @@
             </fieldset>
             <fieldset class="fieldset-ccv">
                 <label for="card-ccv" style="font-size:20px;">CCV</label>
-                <input type="text" id="card-ccv" maxlength="3" name="ccv" (focusout)="flipagain()" (focus)="flip()" [(ngModel)]="ccv" />
+                <input type="text" id="card-ccv" maxlength="3" name="ccv" (focusout)="flipagain()" (focus)="flip()" [(ngModel)]="ccv" style="height: 19px;"/>
             </fieldset>
-            <button class="btn" (click)="proceed()">
+            <button class="btn btn-fill" (click)="proceed()">
                 <i class="fa fa-lock"></i> submit</button>
         </form>
     </div>
