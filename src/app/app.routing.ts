@@ -79,7 +79,7 @@ export const AppRoutes: Routes = [
         },
         {
             path: 'pricing',
-            loadChildren: './price/price.module#PrivacyModule'
+            loadChildren: './price/price.module#priceModule'
         },
         {
             path: 'enrollment',

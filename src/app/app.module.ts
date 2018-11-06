@@ -112,6 +112,7 @@ import { MyfilterPipe } from './myfilter.pipe';
 import { UserguideComponent } from './userguide/userguide.component';
 import { PriceComponent } from './price/price.component';
 import { WebenrollmentComponent } from './webenrollment/webenrollment.component';
+import { PricingService } from './price/pricing.service';
 const customNotifierOptions: NotifierOptions = {
   position: {
 		horizontal: {
@@ -250,6 +251,7 @@ export class MaterialModule { }
   providers: [
     // CookieService
     Authgaurd4Service,
+    PricingService,
     NotifierService,
     ExcelService,
     HomeService,

@@ -32,9 +32,10 @@ import { PriceComponent } from './price.component';
     declarations: [PriceComponent],
     providers: [
         // SweetAlertService,
-        DataService
+        //DataService
+        
     ]
 })
 
-export class PrivacyModule {}
+export class priceModule {}
 
