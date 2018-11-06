@@ -251,7 +251,7 @@ export class UsersignupComponent implements OnInit {
           // alert('hello');
           console.log(this.model);
           swal({
-            text: "Register Successflluy!",
+            text: "Register Successflluy! Please go to Your email to active your account",
             title: "Choice Genie",
             type: "success",
             showConfirmButton: false,
