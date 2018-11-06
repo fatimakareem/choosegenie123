@@ -113,6 +113,7 @@ import { UserguideComponent } from './userguide/userguide.component';
 import { PriceComponent } from './price/price.component';
 import { WebenrollmentComponent } from './webenrollment/webenrollment.component';
 import { PricingService } from './price/pricing.service';
+import { TextMaskModule } from 'angular2-text-mask';
 const customNotifierOptions: NotifierOptions = {
   position: {
 		horizontal: {
@@ -219,6 +220,7 @@ export class MaterialModule { }
     // CarouselModule.forRoot(),
     BrowserModule,
     LoaderModule,
+    TextMaskModule,
     // MyfilterPipe,
     //IonicModule.forRoot(AppRoutes),
     //  HttpClientModule

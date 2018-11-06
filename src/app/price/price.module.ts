@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 // import { MdModule } from '../md/md.module';
 import { MaterialModule } from '../app.module';
+import { TextMaskModule } from 'angular2-text-mask';
 
  
 // import {SignupRoutes} from "./login.routing";
@@ -27,6 +28,7 @@ import { PriceComponent } from './price.component';
         ReactiveFormsModule,
         MatDatepickerModule,
         HttpClientModule,
+        TextMaskModule
             
     ],
     declarations: [PriceComponent],

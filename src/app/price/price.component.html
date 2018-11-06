@@ -12,7 +12,7 @@
                     and thousands of Government Agencies, States, Cities, Municipalities, Counties, Special District and
                     other Agencies.</p>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s">
+            <!-- <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s">
                 <div class="single-pricing-2">
                     <span class="plan-name text-center">
                         Monthly Plan
@@ -68,7 +68,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!---->
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 premium wow animated bounceInUp" data-wow-delay="0.6s">
                 <div class="single-pricing-2">
@@ -77,23 +77,23 @@
                     </span>
                     <p class="plan-price">
                         <sup class="currency">$</sup>
-                        <strong>199.99</strong>
+                        <strong>999.00</strong>
                     </p>
                     <ul class="list-pricing home-list-pricing">
                         <li>
-                            <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
+                            <i class="fa fa-check"></i> Best Plan Matching Artificial Intelligence (AI)
                         </li>
                         <li>
-                            <i class="fa fa-check"></i> Upcoming Bids
+                            <i class="fa fa-check"></i> Upcoming Best Plan
                         </li>
-                        <li>
+                        <!-- <li>
                             <i class="fa fa-check"></i> State &amp; Local Agency Bids
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <i class="fa fa-check"></i> Federal Agency Bids
-                        </li>
+                        </li> -->
                         <li>
-                            <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
+                            <i class="fa fa-check"></i> Daily Email  Alerts &amp; Notifications
                         </li>
                         <li>
                             <i class="fa fa-check"></i> Search Engine
@@ -104,9 +104,9 @@
                         <li>
                             <i class="fa fa-check"></i> iOS Mobile App
                         </li>
-                        <li>
+                        <!-- <li>
                             <i class="fa fa-check"></i> Electronic Bid Submission
-                        </li>
+                        </li> -->
                         <li>
                             <i class="fa fa-check"></i> Winning Bidder Insight
                         </li>
@@ -114,12 +114,12 @@
                             <i class="fa fa-check"></i> Technical Support Chat
                         </li>
                         <li>
-                            <i class="fa fa-check"></i> RFP as a Service*
+                            <i class="fa fa-check"></i> Choice Genie as a Service*
                         </li>
                     </ul>
 
                     <div class="pricing2-button">
-                        <a *ngIf="check_login(); else pkg4" routerLink='/sign-up' class="btn btn-rose" title="Subscribe Package">Register Now</a>
+                        <a *ngIf="check_login(); else pkg4" routerLink='/usersignup' class="btn btn-rose" title="Subscribe Package">Register Now</a>
                         <ng-template #pkg4>
                             <a (click)="firststep('PY')" class="btn  btn-rose " title="Select Plan">Select Plan</a>
                         </ng-template>
@@ -130,8 +130,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 premium wow animated bounceInRight" data-wow-delay="0.6s">
                 <div class="single-pricing-2 custom-package">
                     <span class="plan-name text-center">
-                        Custom
-                    </span>
+                        Free Plan                    </span>
                     <p class="plan-price custome-price" style="background-color: black !important;">
                         <sup class="currency">For You</sup>
                         <strong>Package</strong>
@@ -161,7 +160,7 @@
 <!--3rd step-->
 <div *ngIf="pkgsub" data-wow-delay=".5s" >
     <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container">
+        <!-- <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container">
 
             <div class="dropdown mydropdown">
 
@@ -194,8 +193,8 @@
                 </table>
             </div>
 
-        </div>
-        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+        </div> -->
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="checkout">
         <div [className]="flipclass">
             <div class="flip">

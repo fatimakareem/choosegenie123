@@ -3,6 +3,7 @@ import {Http, Headers, Response} from '@angular/http';
 import { PricingService} from './pricing.service';
 import swal from 'sweetalert2';
 import { Router} from '@angular/router';
+import { TextMaskModule } from 'angular2-text-mask';
 @Component({
   selector: 'app-price',
   templateUrl: './price.component.html',
@@ -139,9 +140,9 @@ export class PriceComponent implements OnInit {
     this.cardnumber3 + this.cardnumber4
     this.pkg_detail['ccv']=this.ccv
     this.pkg_detail['expdate']= this.expmonth + '/' + this.expyear
-    this.local = localStorage.getItem('currentUser');
-    let pars = JSON.parse(this.local) ;
-    this.uname = pars.username
+    this.local = localStorage.getItem('username');
+    // let pars = JSON.parse(this.local) ;
+    this.uname = this.local.username;
     this._serv.package_free(this.uname,this.pkg_detail).subscribe(
       data =>{
              
@@ -252,10 +253,10 @@ export class PriceComponent implements OnInit {
   
   ///////////////////////////////////END//////////////////////////////////////////
   check_login() {
-    if (localStorage.getItem('currentUser')) {
-      this.local = localStorage.getItem('currentUser');
-     let pars = JSON.parse(this.local) ;
-     this.uname = pars.username
+    if (localStorage.getItem('username')) {
+      this.local = localStorage.getItem('username');
+    //  let pars = JSON.parse(this.local) ;
+     this.uname = this.local.username
     
       return false
     }
