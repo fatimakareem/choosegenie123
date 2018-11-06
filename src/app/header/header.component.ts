@@ -24,8 +24,11 @@ declare var $: any;
   selector: 'app-header',
   templateUrl: './header.component.html'
 })
-export class HeaderComponent implements OnInit {
-  @ViewChild('openModal') openModal: ElementRef;
+// export class HeaderComponent implements OnInit {
+//   @ViewChild('openModal') openModal: ElementRef;
+
+  export class HeaderComponent implements OnInit {
+    @ViewChild('openModal') openModal: ElementRef;
   public customer;
   public username;
   model: any = {};
@@ -129,7 +132,7 @@ googleTranslateElementInit() {
       $('body').removeClass('noScroll');
       $(formSearch).removeClass('flipInX');
     });
-this.admin=localStorage.getItem('currentadmin')
+    this.admin=localStorage.getItem('currentadmin')
     this.username = localStorage.getItem('username')
     console.log(this.username);
     // <script>
@@ -162,10 +165,28 @@ this.admin=localStorage.getItem('currentadmin')
 
   }
   logout() {
+    // this.authService.signOut().then( success =>{
+    // console.log("true",success)
+    // },error =>{
+    // console.log("error",error)
+    // });
     localStorage.clear();
-    this.router.navigate(['/']);
+    sessionStorage.clear();
 
+    swal({
+      type: 'success',
+      title: 'Successfully Logged out',
+      showConfirmButton: false,
+      timer: 1500
+      });
+  this.router.navigate(['/']);
+   //this._nav.navigate(['/']);
   }
+  // logout() {
+  //   localStorage.clear();
+  //   this.router.navigate(['/']);
+
+  // }
   check_login() {
     if (localStorage.getItem('username')) {
       this.local = localStorage.getItem('username');
