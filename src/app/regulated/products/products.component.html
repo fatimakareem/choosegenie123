@@ -757,12 +757,25 @@
                       </a>
                       <img src="{{data.rating_logo}}" alt="{{data.title}}" class="rating-stars" />
 
+<<<<<<< HEAD
                       <a class="sh-pos-abso sh-pos-abso-logo" >
                         <label class="view-plan-details mob-view-hide"  (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
+=======
+
+
+
+
+
+
+                      <a>
+
+                        <!-- *ngIf="check_login();" -->
+                        <label class="view-plan-details mob-view-hide" style="padding-bottom: 0px; margin-bottom: 0px;" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
+>>>>>>> 85d97a680b429d8d37581410a7d984ca1e4d091a
                           data-toggle="modal" data-target="#myModal3"> Leave a Review
                         </label>
                       </a>
-                      <div class="modal fade" id="myModal3" role="dialog">
+                      <div  class="modal fade" id="myModal3" role="dialog">
                         <div class="modal-dialog">
 
                           <!-- Modal content-->
@@ -771,7 +784,7 @@
 
 
     </div> -->
-                            <div class="modal-body model-box">
+                            <div  class="modal-body model-box">
                               <div class="popup-close-button" data-dismiss="modal">X</div>
                               <div class="row">
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-8 " style="border-bottom: 1px #4f4f4f solid;">
@@ -823,7 +836,7 @@
     font-size: 30px;">Why Did You Leaving This Review?</h3> -->
                                 </div>
 
-                                <mat-form-field class="padding-L-R txt-area">
+                                <mat-form-field  class="padding-L-R txt-area">
                                   <textarea matInput placeholder="Write a review"
                                     matAutosizeMinRows="10" matAutosizeMaxRows="5" style="height: 130px !important;width:100% !important;"
                                     name="comt" [(ngModel)]="comt">
@@ -902,9 +915,9 @@
                       <h3 class="text-center font " style="margin: 0px;">
                         <!-- <a href="tel:1-832-975-1000"> -->
 
-                        <a href="tel:+1-{{data.phone}}" class="mob-v-call-no">
+                        <a href="tel:+1{{data.phone}}" class="mob-v-call-no">
                           <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
-                          +1-{{data.phone}}
+                          +1{{data.phone}}
                         </a>
                       </h3>
                       <a class="sh-pos-abso">
@@ -956,9 +969,9 @@
                       <h3 class="text-center font" style="margin: 0px;">
                         <!-- <a href="tel:1-832-975-1000"> -->
 
-                        <a href="tel:+1-{{data.phone}}" style="display: block">
+                        <a href="tel:+1{{data.phone}}" style="display: block">
                           <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
-                          +1-{{data.phone}}
+                          +1{{data.phone}}
                         </a>
 
                         <span>OR</span>

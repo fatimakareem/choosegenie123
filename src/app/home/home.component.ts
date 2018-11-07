@@ -1,11 +1,12 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+// import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, HostListener,ElementRef } from '@angular/core';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { HomeService } from "./home.service";
 import { Subscription } from 'rxjs/Subscription';
 import { Http, Response, Headers } from '@angular/http';
 import { Router } from "@angular/router";
-
+import { ViewChild } from '@angular/core';
 import { Config } from "../Config";
 import { ActivatedRoute, RouterModule } from "@angular/router";
 import swal from 'sweetalert2';
@@ -33,6 +34,7 @@ export class errorMatcher implements ErrorStateMatcher {
 })
 
 export class HomeComponent implements OnInit {
+  @ViewChild('openModal') openModal: ElementRef;
   zipCode = '';
   product_id;
   premiseID;
@@ -75,7 +77,8 @@ export class HomeComponent implements OnInit {
       }
     ]
   }
-  constructor(private obj: HomeService, private router: Router, private route: ActivatedRoute,  private http: HttpClient, public sg: SimpleGlobal, private data: DataService, private Http: Http,private https: HttpService) {
+  constructor(private obj: HomeService, private router: Router, private route: ActivatedRoute,  
+    private http: HttpClient, public sg: SimpleGlobal, private data: DataService, private Http: Http,private https: HttpService) {
 
   }
 

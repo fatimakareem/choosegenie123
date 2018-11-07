@@ -44,7 +44,7 @@ export class PriceComponent implements OnInit {
   retypepass = '';
   passnotequal = false;
   email;
-  pricepackage = [];
+  pricepackage ;
   user_id;
   payment_result;
   showresponse = false;
@@ -59,32 +59,37 @@ export class PriceComponent implements OnInit {
   pkg;
   local;
   uname;
+  month;
   /////////////////////////////end///////////////////////////
   
     constructor( private _nav:Router,private _serv: PricingService,private http: Http) {}
       //
       next_stepdetail(event: any){
           if (event.target.value == "BM") {
-              this.prv_stepdetail("B", "M")
+              this.prv_stepdetail("699")
   
           } else if (event.target.value == "PY") {
-              this.prv_stepdetail("P", "Y")
+              this.prv_stepdetail("64");
           }
   
       }
   firststep(value){
         console.log(value)
       if (value == "BM") {
-          this.prv_stepdetail("B", "M")
+        this.pricepackage="699"
+        this.month="monthly"
+         this.prv_stepdetail("699")
   
       } else if (value == "PY") {
-          this.prv_stepdetail("P", "Y")
+        this.pricepackage="64"
+        this.month="yearly"
+          this.prv_stepdetail("64")
       }
   }
   
-      prv_stepdetail(type,dur) {
+      prv_stepdetail(type) {
           this.pkg_detail['type']=type
-          this.pkg_detail['dur']=dur
+          //  this.pkg_detail['dur']=dur
           this.pkgsub = true;
   
       }
@@ -139,19 +144,36 @@ export class PriceComponent implements OnInit {
     this.pkg_detail['credit']=this.cardnumber1 + this.cardnumber2 +
     this.cardnumber3 + this.cardnumber4
     this.pkg_detail['ccv']=this.ccv
+    this.pkg_detail['price']=this.pricepackage
+
+    console.log(this.pricepackage,"price package")
+    this.pkg_detail['type']=this.month
+console.log(this.month,"month")
     this.pkg_detail['expdate']= this.expmonth + '/' + this.expyear
     this.local = localStorage.getItem('username');
+    // let pars = this.local ;
+    this.uname =this.local.username
+    // alert(this.uname)
+    // this.local = localStorage.getItem('');
     // let pars = JSON.parse(this.local) ;
-    this.uname = this.local.username;
-    this._serv.package_free(this.uname,this.pkg_detail).subscribe(
+    // this.local.username = this.uname ;
+    // localStorage.getItem('username') =this.username;
+    // 'user': username,  
+    // 'price': pkgdetail.price,
+ 
+    // 'creditno': pkgdetail.credit ,
+    // 'exp':pkgdetail.expdate,
+    // 'ccv':pkgdetail.ccv  
+    this._serv.package_free(this.local,this.pkg_detail).subscribe(
       data =>{
-             
+        
+             console.log(this.uname,this.pkg_detail,'usmancard')
               swal(
                 'Your payment has been transferred',
                 '',
                 'success'
               )
-              let url = 'find-bids';
+              let url = '/';
               this._nav.navigate([url]);
                
       },
