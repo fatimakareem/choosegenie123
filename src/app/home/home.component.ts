@@ -77,8 +77,15 @@ export class HomeComponent implements OnInit {
       }
     ]
   }
+<<<<<<< HEAD
+
+
+  
+  constructor(private obj: HomeService, private router: Router, private route: ActivatedRoute,  private http: HttpClient, public sg: SimpleGlobal, private data: DataService, private Http: Http,private https: HttpService) {
+=======
   constructor(private obj: HomeService, private router: Router, private route: ActivatedRoute,  
     private http: HttpClient, public sg: SimpleGlobal, private data: DataService, private Http: Http,private https: HttpService) {
+>>>>>>> c02da7024338b9d54063ea66e376ea2bbbfd4431
 
   }
 
@@ -149,6 +156,15 @@ export class HomeComponent implements OnInit {
     this.premiseIdData();
     // this.featuredplan();
 
+    $('.home-slider').slick({
+      infinite: true,
+      speed: 500,
+      fade: true,
+      autoplay: true,
+      cssEase: 'linear',
+      prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+      nextArrow: '<button type="button" class="slick-next">Next</button>'
+    });
 
   }
 
