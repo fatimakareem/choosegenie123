@@ -184,6 +184,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     notprepaid;
     prepaid;
     planmin = "NULL";
+    pkgsub = false;
     showallplanPB;
     allplan;
     showallplan: any[];
@@ -318,6 +319,7 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         // this.featuredplan();
 
     }
+
     exportAsXLSX() {
         this.excelService.exportAsExcelFile(this.product, 'ChoiceGenie Vendor Detail');
     }
@@ -350,6 +352,8 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
     
 
     btnDeleteClick(id, title, profileurl, profile_logo, servicearea) {
+        if (localStorage.getItem('username')) {
+            let local = localStorage.getItem('username');
         this.id = id;
         this.comtitle = title.trim();
         this.profileurl = profileurl;
@@ -358,6 +362,26 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
         console.log(this.servicearea);
         // alert(this.servicearea)
         console.log('id : ' + this.id, this.title);
+        return true;
+        }
+        else {
+            swal(
+                'User must login First!',
+                '',
+                'error',
+              )
+              let url = 'userlogin';
+              this.router.navigate([url]);
+               
+            // swal(
+            //     'Invalid',
+            //     'User must login First!',
+            //     'error',
+            // )
+            // this.router.navigate(['/userlogin/']);
+            // return false;
+            
+        }
     }
 
     checked_login() {
@@ -366,7 +390,14 @@ export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
             return true;
         }
         else {
+            // swal(
+            //     'Invalid',
+            //     'User must login First!',
+            //     'error'
+            // )
+            // this.router.navigate(['/userlogin']);
             return false;
+            
         }
     }
     usman;

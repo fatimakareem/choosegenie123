@@ -207,10 +207,10 @@ export const AppRoutes: Routes = [
                 path: 'ChangePassword',canActivate: [AuthguardService],
                 loadChildren: './changepassword/changepassword.module#ChangePasswordModule'
             },
-            // {
-            //     path: 'SuperChangePassword',
-            //     loadChildren: './superchangepassword/superchangepassword.module#ChangePasswordModule'
-            // },
+            {
+                path: 'purchase-history',canActivate: [AuthguardService],
+                loadChildren: './historypurchase/historypurchase.module#purchaseModule'
+            },
             // {
             //     path: 'superviewcontact',
             //     loadChildren: './superviewcontact/superviewcontact.module#superviewcontactModule'

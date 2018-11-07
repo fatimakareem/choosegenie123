@@ -47,9 +47,8 @@
 /*}*/
 .prod-slide > h2{
   padding-bottom: 0px;
-  margin-bottom: 0px;
-    margin:-5px 0px;
-    text-align: center;
+  margin:0;
+  text-align: center;
 }
 
 
@@ -127,3 +126,59 @@ body {
   }
 }
 
+.checkbox .checkbox-material .check{
+  margin-left: 10px;
+}
+.checkbox .checkbox-material{
+  top: 7px;
+}
+.featured-plan-text {
+  background-color: #154b62;
+  font-size: .9em;
+  text-transform: none;
+  color: #fff;
+  padding: 3px;
+  margin: auto;
+  font-weight: 400;
+  text-align: left;
+  padding-left: 10px;
+  padding: 5px;
+  text-align: center;
+  border-bottom-right-radius: 1px;
+  -moz-border-bottom-right-radius: 1px;
+  -webkit-border-bottom-right-radius: 1px;
+  -webkit-transition: background-color .25s ease 0s;
+  -moz-transition: background-color .25s ease 0s;
+  -o-transition: background-color .25s ease 0s;
+  -ms-transition: background-color .25s ease 0s;
+  transition: background-color .25s ease 0s;
+}
+.popup-image a{
+  max-width: 80px;
+}
+.sort-bar-height {
+  margin: 22px 0;
+}
+.sh-popular-plan{
+  padding: 0px;
+  margin-top: 27px;
+  text-align: center;
+}
+.card-header.sh{
+  padding: 2px 8px !important;
+
+}
+.card-header.sh h4{
+  font-size: 14px;
+}
+.sh-pos-rel{
+  position: relative;
+}
+.sh-pos-abso{
+  position: absolute;
+  bottom: 0;
+  left: 38%;
+}
+.sh-pos-abso-logo{
+  left: 31%;
+}
