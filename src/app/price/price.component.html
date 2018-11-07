@@ -8,7 +8,6 @@
                 <h2>Our Unbeatable Pricing Model </h2>
                 <p class="pricing-p">Unbeatable Pricing. One-Package-Includes-All Features. Subscribe to our Yearly and Custom pricing packages. With a transparent pricing model, ChoiceGenie helps the consumer to purchase the desired energy plan with the best reviews at the lowest price possible. We propel our customers to the next level up in Energy Automation & Efficiency.</p>
             </div>
-            <div class="col-lg-2"></div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 pricing-table2 featured " data-wow-delay="0.5s">
                 <div class="single-pricing-2">
                     <span class="plan-name text-center">
@@ -58,9 +57,9 @@
                     </ul>
 
                     <div class="pricing2-button">
-                        <a *ngIf="check_login(); else pkg1" routerLink='/sign-up' class="btn btn-rose" title="Subscribe Package">Register Now</a>
+                        <a *ngIf="check_login(); else pkg1" routerLink='/sign-up' class="btn btn-fill" title="Subscribe Package">Register Now</a>
                         <ng-template #pkg1>
-                            <a (click)=" firststep('BM')" class="btn btn-rose" title="Select Plan">Select Plan</a>
+                            <a (click)=" firststep('BM')" class="btn btn-fill" title="Select Plan">Select Plan</a>
                         </ng-template>
 
                     </div>
