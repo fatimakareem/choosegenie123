@@ -1,16 +1,18 @@
 <app-loader></app-loader>
-<div id="myID" *ngIf="status !=false" class="bottomMenu hide">
-  <button id="ID" class="w3-button pop-up-close" (click)="pop_close()">&times;</button>
-  <a href="#" class="popo-up-logo">
-    <img alt="ChoiceGenie" src="../../assets/img/ChoiceGenie-logo2.png">
-  </a>
-  <p>
-      Welcome to ChoiceGenie.com  <br/>ChoiceGenie is available for all electric providers to list their offers for free. <br/>  Compare offers and Choose the right electric plan.
-  </p>
-  <a href="/usersignup" class="signup-popup btn-fill">
-    <h1 class="btn-fill">Sign Up Now</h1>
-  </a>
-</div>
+
+<!--<div id="myID" *ngIf="status !=false" class="bottomMenu hide">-->
+  <!--<button id="ID" class="w3-button pop-up-close" (click)="pop_close()">&times;</button>-->
+  <!--<a href="#" class="popo-up-logo">-->
+    <!--<img alt="ChoiceGenie" src="../../assets/img/ChoiceGenie-logo2.png">-->
+  <!--</a>-->
+  <!--<p>-->
+      <!--Welcome to ChoiceGenie.com  <br/>ChoiceGenie is available for all electric providers to list their offers for free. <br/>  Compare offers and Choose the right electric plan.-->
+  <!--</p>-->
+  <!--<a href="/usersignup" class="signup-popup btn-fill">-->
+    <!--<h1 class="btn-fill">Sign Up Now</h1>-->
+  <!--</a>-->
+<!--</div>-->
+
 <div class="container-fluid sh-pd-0">
   <div class="row product-body">
     <div id="mySidebar" class="col-lg-2 col-md-4 position-fixed w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left"
@@ -67,7 +69,7 @@
               <div class="panel-title">
                 <a>
                   <h5 class="color-red">Estimated Usage
-                    <i class="color-black fa fa-info-circle float" aria-hidden="true" 
+                    <i class="color-black fa fa-info-circle float" aria-hidden="true"
                     title="Your average estimated monthly electricity use. The amount of electricity you use each month can be found on your electric bill. To find your average for the last six months, add the total kWh used each month and divide that number by six. Or you can just use 1,000 kWh as your monthly average."></i>
 
                   </h5>
@@ -93,7 +95,7 @@
 
 
 
-              
+
             </li>
             <li>
               <div class="panel-title">
@@ -116,7 +118,7 @@
                 <span>¢</span>
 
                 <button class="price-range-submit btn-fill" (click)="pricerate(min,max)">
-                  <i class="fa fa-chevron-right" style="color: #ffffff"></i>
+                  <i class="fa fa-chevron-right" style="color: #000"></i>
                 </button>
 
               </div>
@@ -204,7 +206,7 @@
               </div>
               <div class="radio">
                 <label class="checkbox-font">
-                    
+
                   <input type="radio" (change)="checked13($event,i)" checked="true"  ng-Model="planmin"  name="planmin" [value]="planmin" >
                   Plans without minimum usage Fee/Credits
                 </label>
@@ -227,9 +229,9 @@
                   <h5 class="color-red">Plan Type
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <i class="color-black fa fa-info-circle float" aria-hidden="true" title="Fixed Rate Plans have a set rate per kWh that does not change throughout your contract, except for exceptions beyond the provider’s control.
-                 
-                    Changing Rate (Variable) Plans have rates per kWh that can vary according to a method determined solely by the provider and may be dependent on market changes and other exceptions beyond the provider’s control 
-                 
+
+                    Changing Rate (Variable) Plans have rates per kWh that can vary according to a method determined solely by the provider and may be dependent on market changes and other exceptions beyond the provider’s control
+
                     Market Rate (Indexed) Plans have rates per kWh that can vary according to pre-defined publicly available indices or information and other exceptions beyond the provider’s control."></i>
                   </h5>
                 </a>
@@ -295,7 +297,7 @@
               <div class="panel-title">
                 <a>
                   <h5 class="color-red">Time of Use Plans &nbsp;
-                    <i class="color-black fa fa-info-circle float" aria-hidden="true" 
+                    <i class="color-black fa fa-info-circle float" aria-hidden="true"
                     title="Time-of-Use plans include incentives to use power during certain periods such as nights or weekends.  The average prices shown for Time-of-Use Plans are based on the REP’s estimate of energy used during discounted and non-discounted times.  Please note that the average price you pay will vary depending on your actual usage of energy during the discounted and non-discounted times.  See the glossary for details."></i>
                   </h5>
                 </a>
@@ -466,7 +468,7 @@
               <div class="panel-title" style="margin-top: 0px;">
                 <a>
                   <h5 class="color-red">Product per Page
-                    <i class="color-black fa fa-info-circle float" aria-hidden="true" 
+                    <i class="color-black fa fa-info-circle float" aria-hidden="true"
                     title="How many rows of products should be shown per page?"></i>
 
                   </h5>
@@ -547,7 +549,7 @@
                 </div>
                 <ul class="col-lg-4 col-md-6 col-sm-12 col-xs-12 pagination" *ngIf="pager.pages && pager.pages.length">
 
-              
+
                   <li [ngClass]="{hide:pager.currentPage === 1}">
                     <a (click)="setPage(pager.currentPage - 1)" class="view-1s" class="btn btn-fill">
                       <i class="fa fa-angle-left"></i>
@@ -630,7 +632,7 @@
                       <!-- <label class="product-label" style="margin: 11px 10px 0px 0px;">View:</label>
                       <select class="view-drop" placeholder="20 Per Page" selected="10" (change)="checked18($event,i,items)"
                       value="item" required [(ngModel)]="items" name="items" aria-labelledby="dropdownMenuButton">
-                          
+
                           <option value="20">20 PER PAGE</option>
                           <option value="40">40 PER PAGE</option>
                           <option value="50">50 PER PAGE</option>
@@ -669,15 +671,15 @@
 
             </div>
           </div>
-
+          <div class="sh-popular-plan">
+            <h1 class="hd-most-popular-plans">Most Popular Plans</h1>
+          </div>
           <div *ngIf="sg['plan']" class="slidr-m sh-fix">
-            <div style="padding: 0px; text-align:center;">
-              <h1 class="hd-most-popular-plans">Most Popular Plans</h1>
-            </div>
             <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
               <div class="mustafa" style="width:1100px;border-radius:20px" ngxSlickItem *ngFor="let data of sg['plan']; let i = index"
                 class="slide">
                 <div class="prod-slide">
+                  <div class="featured-plan-text">{{data.title}}</div>
                   <div class="slider-img">
                     <a (click)="move(data.title)">
                       <img class="img2" src="{{data.profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"
@@ -689,11 +691,11 @@
                     <p><strong>{{data.price_500_kwh }}¢</strong></p>
                   </div>
                   <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl,data.specialterms); getreview(data.id); avereview(data.id)"
-                    data-toggle="modal" data-target="#myModal2">Plan Information
+                    data-toggle="modal" data-target="#myModal2">Plan Details
                   </h2>
-                  <h2 class="view-plan-details" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo)"
-                    data-toggle="modal" data-target="#myModal3"> Leave a Review
-                  </h2>
+                  <!--<h2 class="view-plan-details" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo)"-->
+                    <!--data-toggle="modal" data-target="#myModal3"> Leave a Review-->
+                  <!--</h2>-->
                 </div>
               </div>
             </ngx-slick>
@@ -720,7 +722,7 @@
             <!-- <h1 style="margin:-7px 0px; font-size: 45px;">Search Plans</h1> -->
           </div>
           <div class="found-div sh-products-fix" *ngIf="product">
-            We found <strong>{{noresult}}</strong> residential plans for 
+            We found <strong>{{noresult}}</strong> residential plans for
             <strong>{{city?.City}},&nbsp;{{city?.State}}&nbsp;{{city?.Res.zipcode}}</strong>
             <small *ngIf="name"> for </small><strong> {{name}}</strong>
 
@@ -734,9 +736,9 @@
               <div class="row">
 
                 <div class="col-sm-12" style="padding: 0px 10px 11px 10px;">
-                  <div class="card-header card-header-text position-abs cards-itme" data-background-color="rose">
+                  <div class="card-header sh card-header-text position-abs cards-itme" data-background-color="rose">
                     <!-- {{data.id}}  -->
-                    <h4 class="card-title" style="margin-bottom: 8px !important">{{data.title}} </h4>
+                    <h4 class="card-title">{{data.title}} </h4>
 
                   </div>
                   <!-- <input type="checkbox" name="comp"  #comp (change)="checked(data.id,i)">{{data.id}} -->
@@ -1094,12 +1096,12 @@
                         <div class="col-lg-12">
                             <div class="plan-description">
                               <div class="plan-description__heading" >Special Terms</div>
-                              
+
                               <div class="plan-description__content" *ngIf="specialterms;else no_data_temp2">
                                   {{specialterms}}
-                            
+
                                 <ng-template #no_data_temp2>
-  
+
                                   <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
                                   <h4>&nbsp;&nbsp;&nbsp;&nbsp; There is no Special Term in this plan</h4>
                                 </ng-template>
@@ -1108,11 +1110,11 @@
                             </div>
                           </div>
                         <!-- </div> -->
-                     
+
                         <div class="col-lg-12">
                           <div class="plan-description">
                             <div class="plan-description__heading" *ngIf="cancelation;else no_data_temp2">Cancellation Fee: {{cancelation.split(' ',3000)[2]}}</div>
-                            
+
                             <div class="plan-description__content">
 
                               <ng-template #no_data_temp2>
@@ -1165,7 +1167,7 @@
 
               <div class="col-lg-4 col-md-6 col-sm-5 col-xs-12 align padding">
                 <label class="product-label ">SORT BY:</label>
-                
+
                 <button class="sort-btn " [(ngModel)]="sort" name="sort" value="sort" type="button" (click)="checked20($event,i)">
                   RENEWABLE
                   <i class="fa fa-sort-down down-icon"></i>
@@ -1239,14 +1241,14 @@
                   <!-- <label class="product-label" style="margin: 11px 10px 0px 0px;">View:</label>
                   <select class="view-drop" placeholder="20 Per page" selected="20" (change)="checked18($event,i,items)"
                   value="item" required [(ngModel)]="items" name="items" aria-labelledby="dropdownMenuButton">
-                      
+
                       <option value="20">20 PER PAGE</option>
                       <option value="40">40 PER PAGE</option>
                       <option value="50">50 PER PAGE</option>
                     </select> -->
                     <label class="product-label" style="margin: 9px 10px 0px 0px;">View:</label>
                     <mat-form-field>
-  
+
                       <mat-select class="width-sec" placeholder="20 Per Page" selected="20" (change)="checked18($event,i,items)"
                         value="item"  [(ngModel)]="items" name="items">
                         <mat-option value="30" selected="true">30 Per Page</mat-option>
@@ -1257,7 +1259,7 @@
 
 
 
-        
+
 
 
               </div>
@@ -1283,7 +1285,7 @@
 
       </div>
 
-      
+
     </div>
 
   </div>
