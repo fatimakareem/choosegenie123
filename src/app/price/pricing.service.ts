@@ -4,10 +4,12 @@ import {Injectable} from '@angular/core';
 import {Headers , Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { HttpService } from './../serv/http-service';
+import { Config } from '../Config';
 
 @Injectable()
 export class PricingService {
     currentUser;
+    username;
     
 constructor(private _http5: HttpService ) {
     this.currentUser=(localStorage.getItem('username'));
@@ -97,18 +99,33 @@ package_free(username,pkgdetail)
     //     {headers: headers}).map((res: Response) => res.json())
     // }
     // else{
-        return this._http5.post("https://apis.rfpgurus.com/package/",
+        //this.username=(localStorage.getItem('username'));
+        return this._http5.post('http://192.168.30.164:8000/paid_subscription/',
         JSON.stringify({            
-            'username': username,  
-            'pricepackage': pkgdetail.type,
-            'duration': pkgdetail.dur,
+            'user': username,  
+            'price': pkgdetail.price,
+            'pkg_type': pkgdetail.type,
             'creditno': pkgdetail.credit ,
             'exp':pkgdetail.expdate,
-            'ccv':pkgdetail.ccv     
+            'ccv':pkgdetail.ccv  
+            
+            // 'username': username,  
+            // 'pricepackage': pkgdetail.type,
+            // 'duration': pkgdetail.dur,
+            // 'creditno': pkgdetail.credit ,
+            // 'exp':pkgdetail.expdate,
+            // 'ccv':pkgdetail.ccv    
         }),
         {headers: headers}).map((res: Response) => res.json())
         
     //}
+    // {
+    //     "user":"hasni",
+    //     "creditno":"4111111111111111",
+    //     "exp":"12/21",
+    //     "ccv":"123",
+    //     "price":999
+    //     }
 
 }
 }

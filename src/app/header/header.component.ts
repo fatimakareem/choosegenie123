@@ -24,8 +24,7 @@ declare var $: any;
   selector: 'app-header',
   templateUrl: './header.component.html'
 })
-// export class HeaderComponent implements OnInit {
-//   @ViewChild('openModal') openModal: ElementRef;
+
 
   export class HeaderComponent implements OnInit {
     @ViewChild('openModal') openModal: ElementRef;

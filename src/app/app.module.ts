@@ -114,6 +114,7 @@ import { PriceComponent } from './price/price.component';
 import { WebenrollmentComponent } from './webenrollment/webenrollment.component';
 import { PricingService } from './price/pricing.service';
 import { TextMaskModule } from 'angular2-text-mask';
+import { HistorypurchaseComponent } from './historypurchase/historypurchase.component';
 const customNotifierOptions: NotifierOptions = {
   position: {
 		horizontal: {
