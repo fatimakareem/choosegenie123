@@ -171,3 +171,14 @@ body {
 .card-header.sh h4{
   font-size: 14px;
 }
+.sh-pos-rel{
+  position: relative;
+}
+.sh-pos-abso{
+  position: absolute;
+  bottom: 0;
+  left: 38%;
+}
+.sh-pos-abso-logo{
+  left: 31%;
+}
