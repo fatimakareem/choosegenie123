@@ -5949,7 +5949,7 @@ background: linear-gradient(to bottom, #ededed 0%,#c1bfbf 100%); /* W3C, IE10+, 
 .product-icons{
   width: 54% !important;
   /* height: 60px !important; */
-  margin-top: 30px !important;
+  margin-top: 10px !important;
 }
 .cards-itme{
   padding: 10px 15px 0 15px !important;
