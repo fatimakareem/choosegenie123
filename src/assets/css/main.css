@@ -4494,6 +4494,9 @@ nav#mainnav li.selected-item a:hover {
   font-weight:bold;
   background: #D20000;
 }
+nav#mainnav li a i{
+  color: #c00;
+}
 nav#mainnav li a:hover {
   /* background:#d20000;
   color: #ffffff;
