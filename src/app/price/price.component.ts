@@ -84,8 +84,14 @@ export class PriceComponent implements OnInit {
         this.pricepackage="64"
         this.month="yearly"
           this.prv_stepdetail("64")
+      } else if (value == "free") {
+        // this.pricepackage="free"
+          this.month="free"       
+          this.prv_stepdetail("free")
+
       }
-  }
+    }
+  
   
       prv_stepdetail(type) {
           this.pkg_detail['type']=type
@@ -107,7 +113,43 @@ export class PriceComponent implements OnInit {
   flipagain() {
     this.flipclass = 'credit-card-box';
   }
-  
+  Totalfreepackage() {
+
+    // this.pkg_detail['ccv']=this.ccv
+    // this.pkg_detail['price']=this.pricepackage
+
+    // console.log(this.pricepackage,"price package")
+    this.month= 'free';
+    this.pkg_detail['type']=this.month;
+    
+    console.log(this.month,"month")
+    // this.pkg_detail['expdate']= this.expmonth + '/' + this.expyear
+    this.local = localStorage.getItem('username');
+    // let pars = this.local ;
+    this.uname =this.local.username
+    this._serv.Toatlpakkage_free(this.local,this.pkg_detail).subscribe(
+      data =>{
+        
+             console.log(this.uname,this.pkg_detail,'usmancard')
+              swal(
+                'Your payment has been transferred',
+                '',
+                'success'
+              )
+              //let url = '/';
+              // this._nav.navigate([url]);
+               
+      },
+      error => {
+              // console.log(error);
+              swal(
+                'Oops...',
+                'Something went wrong!',
+                'error'
+              )
+      });
+   
+  }
   
   pay() {
     if (this.free) {
@@ -153,17 +195,6 @@ console.log(this.month,"month")
     this.local = localStorage.getItem('username');
     // let pars = this.local ;
     this.uname =this.local.username
-    // alert(this.uname)
-    // this.local = localStorage.getItem('');
-    // let pars = JSON.parse(this.local) ;
-    // this.local.username = this.uname ;
-    // localStorage.getItem('username') =this.username;
-    // 'user': username,  
-    // 'price': pkgdetail.price,
- 
-    // 'creditno': pkgdetail.credit ,
-    // 'exp':pkgdetail.expdate,
-    // 'ccv':pkgdetail.ccv  
     this._serv.package_free(this.local,this.pkg_detail).subscribe(
       data =>{
         
@@ -275,16 +306,16 @@ console.log(this.month,"month")
   
   ///////////////////////////////////END//////////////////////////////////////////
   check_login() {
-    if (localStorage.getItem('username')) {
-      this.local = localStorage.getItem('username');
-    //  let pars = JSON.parse(this.local) ;
-     this.uname = this.local.username
+    if (localStorage.getItem('role') =='USER' ) {
+    //   this.local = localStorage.getItem('username');
+
+    // //  let pars = JSON.parse(this.local) ;
+    //  this.uname = this.local.username
     
-      return false
-    }
+      return true    }
     else {
-      return true
-    }
+      return false
+        }
   }
     ngOnInit() {
     

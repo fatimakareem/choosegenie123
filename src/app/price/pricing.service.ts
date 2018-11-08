@@ -81,7 +81,23 @@ constructor(private _http5: HttpService ) {
 //     }).map((res: Response) => res.json() ) 
 // }
 
-
+Toatlpakkage_free(username,pkgdetail){
+    let headers = new Headers();
+    headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
+    console.log('pofile', localStorage.getItem('token'));
+    // let headers = new Headers({'Authorization': 'JWT ' + this.currentUser.token});
+    headers.append('Content-Type', 'application/json');
+   // if(pkgdetail.type == 'F') {
+        return this._http5.post("http://192.168.30.164:8000/paid_subscription/",
+        JSON.stringify({            
+            'user': username,  
+            'pkg_type': pkgdetail.type,
+            // console.log()
+            // 'duaration': pkgdetail.dur     
+        }),
+        {headers: headers}).map((res: Response) => res.json())
+   
+}
 package_free(username,pkgdetail)
 {
     let headers = new Headers();
@@ -118,14 +134,7 @@ package_free(username,pkgdetail)
         }),
         {headers: headers}).map((res: Response) => res.json())
         
-    //}
-    // {
-    //     "user":"hasni",
-    //     "creditno":"4111111111111111",
-    //     "exp":"12/21",
-    //     "ccv":"123",
-    //     "price":999
-    //     }
+    
 
 }
 }

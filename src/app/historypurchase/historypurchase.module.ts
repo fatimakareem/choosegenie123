@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
  
 import { DataService } from '../data.service';
 import { PrivacRoutes } from './historypurchase.routing';
+import { TextMaskModule } from 'angular2-text-mask';
 
 import { HistorypurchaseComponent } from './historypurchase.component';
 
@@ -24,6 +25,7 @@ import { HistorypurchaseComponent } from './historypurchase.component';
         RouterModule.forChild(PrivacRoutes),
         MaterialModule,
         FormsModule,
+        TextMaskModule,
         ReactiveFormsModule,
         MatDatepickerModule,
         HttpClientModule,

@@ -15,23 +15,23 @@
                     </span>
                     <p class="plan-price">
                         <sup class="currency">$</sup>
-                        <strong>999</strong>
+                        <strong>699.00</strong>
                     </p>
                     <ul class="list-pricing home-list-pricing">
                         <li>
-                            <i class="fa fa-check"></i> Bid Matching Artificial Intelligence (AI)
+                            <i class="fa fa-check"></i> Best Plan Matching Artificial Intelligence (AI)
                         </li>
                         <li>
-                            <i class="fa fa-check"></i> Upcoming Bids
+                            <i class="fa fa-check"></i> Upcoming Best Plan
                         </li>
-                        <li>
+                        <!-- <li>
                             <i class="fa fa-check"></i> State &amp; Local Agency Bids
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <i class="fa fa-check"></i> Federal Agency Bids
-                        </li>
+                        </li> -->
                         <li>
-                            <i class="fa fa-check"></i> Daily Email Bid Alerts &amp; Notifications
+                            <i class="fa fa-check"></i> Daily Email  Alerts &amp; Notifications
                         </li>
                         <li>
                             <i class="fa fa-check"></i> Search Engine
@@ -42,17 +42,17 @@
                         <li>
                             <i class="fa fa-check"></i> iOS Mobile App
                         </li>
-                        <li>
+                        <!-- <li>
                             <i class="fa fa-check"></i> Electronic Bid Submission
-                        </li>
+                        </li> -->
                         <li>
-                            <i class="fa fa-check"></i> Winning Bidder Insight
+                            <!-- <i class="fa fa-check"></i> Winning Bidder Insight -->
                         </li>
                         <li>
                             <i class="fa fa-check"></i> Technical Support Chat
                         </li>
                         <li>
-                            <i class="fa fa-check"></i> RFP as a Service*
+                            <i class="fa fa-check"></i> Choice Genie as a Service*
                         </li>
                     </ul>
 
@@ -104,7 +104,7 @@
                             <i class="fa fa-check"></i> Electronic Bid Submission
                         </li> -->
                         <li>
-                            <i class="fa fa-check"></i> Winning Bidder Insight
+                            <!-- <i class="fa fa-check"></i> Winning Bidder Insight -->
                         </li>
                         <li>
                             <i class="fa fa-check"></i> Technical Support Chat
@@ -128,23 +128,37 @@
                     <span class="plan-name text-center">
                         Free Plan                    </span>
                     <p class="plan-price custome-price" style="background-color: black !important;">
-                        <sup class="currency">For You</sup>
-                        <strong>Package</strong>
+                        <sup class="currency">Chocie Genie </sup>
+                        <strong>Offers</strong>
                     </p>
                     <ul class="list-unstyled">
-                        <li>
-                            <strong>Solution</strong> &amp; pricing</li>
-                        <li>based on
-                            <strong> your</strong>
-                        </li>
-                        <li>
-                            <strong>organization's </strong> specific</li>
-                        <li>requirements and needs</li>
+                        <!-- <li> -->
+                            <!-- <strong>Anio</strong> &amp; pricing</li> -->
+                           
+                            <li>
+                                <i class="fa fa-check"></i> Android Mobile App
+                            </li>
+                            <li>
+                                <i class="fa fa-check"></i> iOS Mobile App
+                            </li>
+                            <li>
+                                <i class="fa fa-check"></i> New Plans
+                            </li>
+                            
+                        <!-- <li> -->
+                            <!-- <strong>organization's </strong> specific</li> -->
+                        <!-- <li>requirements and needs</li> -->
                     </ul>
                     <div class="pricing2-button">
+                        <a *ngIf="check_login(); else pkg4" routerLink='/usersignup' class="btn btn-fill" title="Subscribe Package">Register Now</a>
+                        <ng-template #pkg4>
+                            <a (click)="Totalfreepackage();" class="btn btn-fill" title="Select Plan">Select Plan</a>
+                        </ng-template>
+                    </div>
+                    <!-- <div class="pricing2-button">
                         <a class="btn btn-fill" routerLink="/contact-us">
                             <i class="fa fa-phone" style="margin-right: 5px; top: 1px;"></i>Establish Contact</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 

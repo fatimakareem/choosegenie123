@@ -115,6 +115,7 @@ import { WebenrollmentComponent } from './webenrollment/webenrollment.component'
 import { PricingService } from './price/pricing.service';
 import { TextMaskModule } from 'angular2-text-mask';
 import { HistorypurchaseComponent } from './historypurchase/historypurchase.component';
+import { HistorypurchaseService } from './historypurchase/historypurchase.service';
 const customNotifierOptions: NotifierOptions = {
   position: {
 		horizontal: {
@@ -290,6 +291,7 @@ export class MaterialModule { }
     RandomService,
     DeletegetuserService,
     UpdategetuserService,
+    HistorypurchaseService
     // MyfilterPipe,
   ],
   bootstrap: [AppComponent],
