@@ -413,6 +413,9 @@
         <a onclick="topFunction()" routerLink="/residential">
           <i class="fa fa-th-large"></i> Residential
         </a>
+        <a onclick="topFunction()" routerLink="/pricing">
+          <i class="fa fa-shopping-cart"></i> Pricing
+        </a>
         <a onclick="topFunction()" routerLink="/commercial">
           <i class="fa fa-users"></i> Commercial
         </a>
@@ -427,7 +430,12 @@
         <a onclick="topFunction()" routerLink="/userlogin">
           <i class="fas fa-fingerprint"></i> Sign in
         </a>
-        <li class="dropdown vanders" *ngIf="!checked_login() && !check_login1()">
+        <a onclick="topFunction()" routerLink="/usersignup">
+          <i class="fas fa-unlock-alt"></i>
+          Sign up
+          <!-- <i class="fa fa-caret-down"></i> -->
+        </a>
+        <!-- <li class="dropdown vanders" *ngIf="!checked_login() && !check_login1()">
             <button class="" type="button" data-toggle="dropdown">
                <i class="fas fa-unlock-alt"></i>
               Sign up
@@ -444,7 +452,7 @@
                   </a>
                 </li>
             </ul>
-          </li>
+          </li> -->
           <a href="javascript:void(0)" class="search-block search-icon" id="searchIcon">
               <i class="fa fa-search"></i>
             </a>

@@ -1,5 +1,5 @@
 body {
-  background-color: #eceff4 !important;
+  background-color: #f4f4f4 !important;
 }
 
 /*.nav-home ul a i:lang(es){*/
@@ -98,6 +98,18 @@ body {
 }
 
 /* End From Custom */
+
+.sh-pos-rel{
+  position: relative;
+}
+.sh-pos-abso{
+  position: absolute;
+  bottom: 0;
+  left: 38%;
+}
+.sh-pos-abso-logo{
+  left: 31%;
+}
 
 .signup-heading{
   margin: 0;
@@ -5169,6 +5181,7 @@ canvas {
   -o-transition: 0.5s;
   transition: 0.5s;
   border-radius: 25px !important;
+  cursor: pointer !important;
 }
 .btn-fill:hover{
   background: #c00 !important;
@@ -5338,12 +5351,16 @@ section#boody{
   /*height: 32px;*/
   margin: 38px auto;
 }
-#mainnav >ul >li >input{
-  font-size: 25px;
-    font-weight: bold;
-    text-align: center;
-    padding: 5% 0%;
-    color: #000;
+.sidebar-input{
+padding: 0 10px;
+}
+.sidebar-input input{
+  font-size: 25px !important;
+  font-weight: bold;
+  text-align: center;
+  padding: 5% 0%;
+  color: #c00;
+  border-bottom: 2px solid #000 !important;
 }
 .ng-star-inserted{
   margin: 0 auto;
@@ -8390,6 +8407,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 */
 @media (min-width: 1368px) {
+  .sidenav{
+    width: 0px !important;
+  }
   .popo-up-logo img {
     margin-top: 0;
   }
@@ -8420,6 +8440,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 /* ##Screen = 1281px to higher resolution desktops */
 
 @media (min-width: 1281px) and (max-width: 1366px){
+  .sidenav{
+    width: 0px !important;
+  }
   .sort-btn {
     font-size: 13px;
   }
@@ -8454,6 +8477,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
+  .sidenav{
+    width: 0px !important;
+  }
   .pric-range-box input{
     width: 39px !important;
   }
@@ -8603,6 +8629,9 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
 
 @media (min-width: 992px) and (max-width: 1024px) {
   /* Large devices (maximam width 1024px and minimum width 768px) */
+  .sidenav{
+    width: 0px !important;
+  }
   .login-form-1-body > .invalid-ans{
     float: left;
     width: 100%;
@@ -8635,9 +8664,7 @@ background: linear-gradient(to bottom, #eaeaea 0%,#c6c6c6 50%,#999a9b 100%); /* 
   .sidebar-profile-img {
     width: 69%;
   }
-  .product-body {
-    /*margin-top: 60px !important;*/
-  }
+
   .custom-padding {
     padding: 0 0 10px !important;
   }

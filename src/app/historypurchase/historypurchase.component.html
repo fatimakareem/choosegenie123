@@ -40,22 +40,21 @@
 
           </mat-sidenav> -->
 
-          <mat-sidenav-content [formGroup]="options">
+          <mat-sidenav-content [formGroup]="options" class="main-bg">
               <!-- <div><p id="click_advance" class="dp-inline "><button class="cstm-toggle-button btn btn-rose"  (click)="sidenav.toggle()"><i class="fa fa-arrow-left arw-toggle " aria-hidden="true"></i>
               </button></p>
               </div> -->
 
               <div class="row margin-0">
-                  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 center-admin-form" id="display_advance" style="min-height: 500px;">
-
+                  <div class="col-lg-10 col-md-12 col-xs-12 center-admin-form" id="display_advance" style="min-height: 500px;">
+                    <div class="history-header text-center">
+                        <h2>Subscription History</h2>
+                        <!-- {{record.activeplan }} -->
+                    </div>
                       <div  *ngIf ="!pkgsub"  class=" history-heading">
-                          <div class="history-header">
-                              <h2>Subscription History</h2>
-                              <!-- {{record.activeplan }} -->
-                          </div>
-
-                          <table class="table table-striped history-table">
-                                            <thead *ngIf="!nofound">
+                          
+                          <table class="table table-striped history-table purchase-table">
+                                            <thead *ngIf="!nofound" class="">
                                               <tr>
                                                   <th> Subscription Name</th>
                                                   <th>Price</th>
@@ -73,11 +72,11 @@
                                                   <td><span>$</span>{{record.pkg_price}} </td>
                                                   <td>{{record.log_pay_date }}</td>
                                                   <td>{{record.log_end_date }}</td>
-                                                  <td *ngIf="record.is_subscribe == true"><button style="cursor:text" class="btn btn-primary" title="Active">Active </button></td>
-                                                  <td *ngIf="record.is_subscribe == false" ><button (click)=" prv_stepdetail( pkgList.pkg_type,pkgList.duration)" title="Subscribe Package" class="btn btn-primary">Subscribe Now <i class="fa fa-thumbtack"></i></button></td>
+                                                  <td *ngIf="record.is_subscribe == true"><button style="cursor:text" class="btn btn-fill" title="Active">Active </button></td>
+                                                  <td *ngIf="record.is_subscribe == false" ><button (click)=" prv_stepdetail( pkgList.pkg_type,pkgList.duration)" title="Subscribe Package" class="btn btn-fill">Subscribe Now <i class="fa fa-thumbtack"></i></button></td>
                                               </tr>
-                                              <tr *ngIf="nofound" style="text-align:center;font-size:24px">
-                                                  <td  colspan="4"> <h2><span class="no-pkg">Plans</span> you subscribe appear here.</h2></td>
+                                              <tr *ngIf="nofound">
+                                                  <td  colspan="4"> <h3><span class="no-pkg">Plans</span> you subscribe appear here.</h3></td>
                                               </tr>
                                               </tbody>
                                           </table>

@@ -124,7 +124,7 @@
       <!-- <h2>Vendor Panel</h2> -->
     </div>
 
-    <header class="con-sidebar">
+    <!-- <header class="con-sidebar">
       <ng-container class="card" *ngFor="let data of sg['products']; let i = index">
         <div *ngIf="i<1" class="sidebar-profile-img">
           <a (click)="moving()">
@@ -133,13 +133,15 @@
           </a>
         </div>
       </ng-container>
-    </header>
-
+    </header> -->
+    <div class="sidebar-input">
+      <input type="text" [value]="user" readonly>
+    </div>
     <nav id="mainnav">
       <ul class="super-sidebar-list">
-        <li>
-          <input type="text" [value]="user" readonly>
-        </li>
+        <!-- <li>
+          <input type="text" [value]="user" readonly> 
+        </li> -->
         <li>
           <a (click)="moving()">
             <i class="material-icons">
@@ -189,7 +191,7 @@
             <i _ngcontent-c6="" class="material-icons dash-icons">
               arrow_back
             </i>
-            logout
+            Signout
           </a>
 
         </li>

@@ -188,7 +188,7 @@
             </div>
           </div>
 
-          <div class="col-md-3  col-sm-6 col-xs-12 plan-detail text-center margin-up">
+          <div class="col-md-3  col-sm-6 col-xs-12 plan-detail text-center margin-up sh-pos-rel">
               <h3 style=" text-align: center;">
                 <b> Price Rate</b>
               </h3>
@@ -201,13 +201,13 @@
 
               </div>
 
-              <a>
+              <a class="sh-pos-abso sh-pos-abso-logo">
                 <label class="view-plan-details" (click)="btnderagulateClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_rate,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                   data-toggle="modal" data-target="#myModal6" style="    padding-bottom: 0px; margin-bottom: 0px;">Plan Information</label>
               </a>
             </div>
 
-          <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail margin-up" style="text-align:center">
+          <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail margin-up sh-pos-rel" style="text-align:center">
             <h3 style=" text-align: center;">
               <b>Plan Details</b>
             </h3>
@@ -216,7 +216,7 @@
               {{data.plan_information}}
               </p>
             </div>
-            <a (click)="submit(data.id, data.title)" style="color:white;text-align: center;">
+            <a (click)="submit(data.id, data.title)" style="color:white;text-align: center;" class="sh-pos-abso">
               <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;">Reviews</label>
             </a>
           </div>
@@ -550,7 +550,7 @@
                 <button class="btn btn-fill">Signup Now</button>
               </a>
               <div *ngIf="phone" style="display:inline-block; padding:24px;">
-                <span style="font-size:24px; font-weight:600px">OR CALL                   <b> <a href="tel:{{phone}}" style="display: block">
+                <span style="font-size:24px; font-weight:600px">OR CALL                   <b> <a href="tel:{{phone}}">
                         <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
                         {{phone}}</a></b>
                   <!-- <b> {{phone}} </b> -->

@@ -1,3 +1,24 @@
+.purchase-table thead tr th{
+    font-weight: bold;
+    text-align: center;
+    border-left: 1px solid #fff;
+}
+.purchase-table tbody tr td{
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+}
+.purchase-table tbody tr td h3{
+margin: 0 !important;
+padding: 10px;
+}
+.history-heading{
+    overflow-y: scroll;
+}
+
+
+
 .rfp-cat {
     max-height: 200px;
     overflow-y: auto;
