@@ -186,7 +186,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-3 col-sm-5 col-xs-12 rate margin-up" style="text-align:center">
+                <div class="col-md-3 col-sm-5 col-xs-12 rate margin-up sh-pos-rel" style="text-align:center">
                   <h3 style=" text-align: center">
                     <b> Price Detail</b>
                   </h3>
@@ -205,7 +205,7 @@
                     </div>
 
                   </div>
-                  <a style="margin-top: 10px;">
+                  <a style="margin-top: 10px;" class="sh-pos-abso">
                     <label class="view-plan-details" (click)="btnshowClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                       data-toggle="modal" data-target="#myModal4">Plan Information</label>
                   </a>
@@ -214,7 +214,7 @@
 
                 </div>
 
-                <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail margin-up" style="text-align:center">
+                <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail margin-up sh-pos-rel" style="text-align:center">
                   <h3 style=" text-align: center;">
                     <b>Plan Details</b>
                   </h3>
@@ -223,7 +223,7 @@
                     {{item}}
                     </p>
                   </div>
-                  <a (click)="submit(data.id,data.title)" style="color:white;text-align: center;">
+                  <a (click)="submit(data.id,data.title)" style="color:white;text-align: center;" class="sh-pos-abso">
                     <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;">Reviews</label>
                   </a>
                 </div>
