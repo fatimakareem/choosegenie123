@@ -16,8 +16,8 @@ editTodoList(id,updatedheading,updatedcontent1,updatedblog_image) {
   return this.http.put(Config.api+'blog_editordelete/'+ id +'/' , JSON.stringify({
    
     "heading": updatedheading,
-    "content1": updatedcontent1,
-    "Ch_image": updatedblog_image,
+    "content": updatedcontent1,
+    // "Ch_image": updatedblog_image,
     
   }), 
   {headers: headers}).map((response: Response) => response.json());

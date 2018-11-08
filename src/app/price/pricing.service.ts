@@ -100,7 +100,7 @@ package_free(username,pkgdetail)
     // }
     // else{
         //this.username=(localStorage.getItem('username'));
-        return this._http5.post('http://192.168.30.164:8000/paid_subscription/',
+        return this._http5.post(Config.api+"paid_subscription/",
         JSON.stringify({            
             'user': username,  
             'price': pkgdetail.price,
