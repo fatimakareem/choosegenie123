@@ -147,7 +147,7 @@
             <i class="fa fa-users"></i> Commercial
           </a>
         </li>
-        <li>
+        <li *ngIf="checked_price()">
           <a onclick="topFunction()" routerLink="/pricing">
             <i class="fa fa-shopping-cart"></i> Pricing
           </a>

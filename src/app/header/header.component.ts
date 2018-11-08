@@ -66,6 +66,25 @@ googleTranslateElementInit() {
     }
     
   }
+    
+  checked_price() {
+    if (localStorage.getItem('role')=='Deregulatedstate Vendor') {
+      // let local = localStorage.getItem('role');
+      return false;
+    }
+    else if(localStorage.getItem('role')=='Not Deregulatedstate Vendor'){
+      return false;
+    }
+    else if(localStorage.getItem('role')=='USER')
+    {
+      return true;
+    }
+    else if(!localStorage.getItem('role')){
+      return true;
+    }
+
+    
+  }
   
   check_login1() {
     if (localStorage.getItem('currentadmin')) {

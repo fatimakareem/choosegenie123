@@ -113,12 +113,14 @@ export class PriceComponent implements OnInit {
   flipagain() {
     this.flipclass = 'credit-card-box';
   }
+  hide;
+  checkfree(){
+    console.log(localStorage.getItem('package_type'))
+   
+      this.hide=localStorage.getItem('package_type')
+   
+  }
   Totalfreepackage() {
-
-    // this.pkg_detail['ccv']=this.ccv
-    // this.pkg_detail['price']=this.pricepackage
-
-    // console.log(this.pricepackage,"price package")
     this.month= 'free';
     this.pkg_detail['type']=this.month;
     
@@ -306,19 +308,20 @@ console.log(this.month,"month")
   
   ///////////////////////////////////END//////////////////////////////////////////
   check_login() {
-    if (localStorage.getItem('role') =='USER' ) {
-    //   this.local = localStorage.getItem('username');
-
-    // //  let pars = JSON.parse(this.local) ;
-    //  this.uname = this.local.username
+    if (localStorage.getItem('username')) {
+      this.local = localStorage.getItem('username');
+      
+    //  let pars = JSON.parse(this.local) ;
+     this.uname = this.local.username
     
-      return true    }
-    else {
       return false
-        }
+    }
+    else {
+      return true
+    }
   }
     ngOnInit() {
-    
+    this.checkfree()
     }
   
   

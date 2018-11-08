@@ -2,10 +2,8 @@ import { Component, OnInit, AfterViewInit, Inject } from '@angular/core';
 import { Config } from "../Config";
 import { Subscription } from 'rxjs/Subscription';
 import { CompanyService } from "../company.service";
-import { ErrorStateMatcher, MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@angular/material";
-import { NgForm, FormControl, Validators, FormGroupDirective } from "@angular/forms";
-import { Pipe, PipeTransform } from "@angular/core";
-// import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { MatDialog, MatDialogRef } from "@angular/material";
+
 import { Headers, Http, Response } from '@angular/http';
 import { HomeService } from "../home/home.service";
 import { PagerService } from '../pager.service';
@@ -23,6 +21,20 @@ import { DeleteService } from '../regulated/dashboard/delete.service';
 import { DataService } from '../data.service';
 import { EditService } from '../regulated/dashboard/edit.service';
 import { Location } from '@angular/common';
+
+
+// import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
+// import {Http, Headers, Response} from '@angular/http';
+// import { PricingService} from './pricing.service';
+import swal from 'sweetalert2';
+// import { Router} from '@angular/router';
+import { TextMaskModule } from 'angular2-text-mask';
+// import {DatePipe} from '@angular/common';
+
+import {FormBuilder, FormGroup} from '@angular/forms';
+import { HistorypurchaseService } from '../historypurchase/historypurchase.service';
+// import { HistorypurchaseService } from './historypurchase.service';
 declare const $: any;
 
 //Metadata
@@ -60,9 +72,12 @@ export const ROUTES: RouteInfo[] = [{
 })
 export class ConsumersidebarComponent implements OnInit {
   public menuItems: any[];
-  constructor(private route: ActivatedRoute, private https: HttpClient, private newService: DeleteService,private serve:EditService,
-      private location: Location, private router: Router, private http: Http, private pagerService: PagerService, private homeService: HomeService, private sg: SimpleGlobal, private obj: HomeService, private dialog: MatDialog, private dataa: DataService, private companyService: CompanyService) {
+  constructor(private route: ActivatedRoute,  private newService: DeleteService,private serve:EditService,
+      private location: Location, private router: Router, private http: Http, private pagerService: PagerService,private _nav:Router,private formBuilder: FormBuilder ,private _serv: HistorypurchaseService,private https: Http,
+       private homeService: HomeService, private sg: SimpleGlobal, private obj: HomeService, private dialog: MatDialog, private dataa: DataService, private companyService: CompanyService) {
   }
+//   constructor(private _nav:Router,private formBuilder: FormBuilder ,private _serv: HistorypurchaseService,private https: Http){
+
   backClicked() {
       this.location.back();
   }
@@ -84,6 +99,9 @@ export class ConsumersidebarComponent implements OnInit {
   public user;
   public username;
   private Sub: Subscription;
+  record;
+  nofound : boolean = false;
+  module;
   isMobileMenu() {
       if ($(window).width() > 991) {
           return false;
@@ -96,7 +114,27 @@ export class ConsumersidebarComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  mainFunction(){
+    this._serv.purchaseHistory().subscribe(
+        data => {
+            // this.record = data.json();
+            // this.records= data[0];
+            this.record= data[0].package_type;
+            localStorage.setItem('package_type',this.record)
+            localStorage.getItem('package_type');
+            console.log('Hello there dasds'+localStorage.getItem('package_type'));
+
+        },
+        error => {
+            // alert(error.status)
+            if(error.status = 404){
+                this.nofound = true;
+            }
+            console.log(error)
+        })
+}
   ngOnInit() {
+     this.mainFunction();
      
           this.user = localStorage.getItem('username')
        

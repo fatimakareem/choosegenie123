@@ -81,6 +81,21 @@ export class NavbarComponent implements OnInit {
           return false;
         }
       }
+         
+  checked_price() {
+    if (localStorage.getItem('role')=='Deregulatedstate Vendor') {
+      let local = localStorage.getItem('role');
+      return false;
+    }
+    else if(localStorage.getItem('role')=='Not Deregulatedstate Vendor'){
+      return false;
+    }
+    else if(localStorage.getItem('role')=='USER')
+    {
+      return true;
+    }
+}
+
       moving1() {
         this.router.navigate(['/supermaindashboard']);
       }

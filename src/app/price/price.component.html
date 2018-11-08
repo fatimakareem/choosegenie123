@@ -149,12 +149,13 @@
                             <!-- <strong>organization's </strong> specific</li> -->
                         <!-- <li>requirements and needs</li> -->
                     </ul>
-                    <div class="pricing2-button">
-                        <a *ngIf="check_login(); else pkg4" routerLink='/usersignup' class="btn btn-fill" title="Subscribe Package">Register Now</a>
+                    <div class="pricing2-button" *ngIf="hide != 'free'" >
+                        <a *ngIf="check_login();else pkg4" routerLink='/usersignup' class="btn btn-fill" title="Subscribe Package">Register Now</a>
                         <ng-template #pkg4>
                             <a (click)="Totalfreepackage();" class="btn btn-fill" title="Select Plan">Select Plan</a>
                         </ng-template>
                     </div>
+                   
                     <!-- <div class="pricing2-button">
                         <a class="btn btn-fill" routerLink="/contact-us">
                             <i class="fa fa-phone" style="margin-right: 5px; top: 1px;"></i>Establish Contact</a>
