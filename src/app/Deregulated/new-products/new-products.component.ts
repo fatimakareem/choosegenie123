@@ -128,8 +128,14 @@ console.log(this.tit)
     }
   signupuserdata(utilityarea,contact_email,title,profileurl,profile_logo,plan_information,price_rate,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh) {
     console.log(utilityarea,contact_email,title,profileurl,profile_logo,plan_information,price_rate,cancelation_fee,fact_sheet,terms_of_service,phone,sign_up,minimum_usage_fee,renewable,specialterms,price_1000_kwh,price_500_kwh,price_2000_kwh);
+   
     let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');    
+    headers.append('Content-Type', 'application/json');
+    // headers.append('Authorization', 'JWT ' +  this.authentication);
+    headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
+    console.log('pofile', localStorage.getItem('token'));
+   
+      
     this.http.post(Config.api+'deregulated_add_product/', {
       "serviceareaname":utilityarea,
       "title":title,

@@ -132,9 +132,9 @@ export class PriceComponent implements OnInit {
     this._serv.Toatlpakkage_free(this.local,this.pkg_detail).subscribe(
       data =>{
         
-             console.log(this.uname,this.pkg_detail,'usmancard')
+             console.log(this.local,this.pkg_detail,'usmancard')
               swal(
-                'Your payment has been transferred',
+                'Your package has been Start',
                 '',
                 'success'
               )

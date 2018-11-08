@@ -219,7 +219,7 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <mat-form-field class="margin">
-                        <input matInput currencyMask placeholder="minimum_usage_fee" [(ngModel)]="minimum_usage_fee" formControlName="minimum_usage_fee">
+                        <input matInput currencyMask placeholder="Minimum Usage Fee" [(ngModel)]="minimum_usage_fee" formControlName="minimum_usage_fee">
                         <mat-error *ngIf="thirdFormGroup.controls['minimum_usage_fee'].value == '' || !thirdFormGroup.controls['minimum_usage_fee'].value"><strong>This Field cannot be empty</strong></mat-error>
 
                       </mat-form-field>
