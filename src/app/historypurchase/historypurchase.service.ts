@@ -5,6 +5,7 @@ import {Http ,Headers , Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { HttpService } from './../serv/http-service';
+import { Config } from '../Config';
 
 @Injectable()
 export class HistorypurchaseService {
@@ -22,7 +23,7 @@ export class HistorypurchaseService {
       headers.append('Content-Type', 'application/json');
 
 
-        return this._http5.get('http://192.168.30.164:8000/user_history/'+this.currentUser,
+        return this._http5.get(Config.api+'user_history/'+this.currentUser,
             {headers: headers}).map((response: Response) => response.json());
 
     }
