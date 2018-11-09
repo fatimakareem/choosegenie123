@@ -47,7 +47,7 @@ private authentication
     headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('pro', localStorage.getItem('token'));
     
-    this.https.get(Config.api +'mydata/'+ this.username +'/' ,{ headers: headers })
+    this.https.get(Config.api +'check_role/'+ this.username +'/' ,{ headers: headers })
     .subscribe(Res => {
     this.sg['products'] = Res.json()['Results'];
     
@@ -62,7 +62,7 @@ private authentication
     headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('pofile', localStorage.getItem('token'));
 
-    this.https.get(Config.api + 'comprofile/' + this.title.trim() + '/', { headers: headers })
+    this.https.get(Config.api + 'comprofile/' + this.title + '/', { headers: headers })
     
     .subscribe(Res => {
     this.data=Res.json();

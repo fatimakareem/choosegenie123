@@ -65,6 +65,7 @@ export class NewProductComponent implements OnInit {
     this.fetchProducts()
     console.log(this.username)
     this.signupForm = this.fb.group({
+      'zipcode': ['', Validators.compose([Validators.required])],
       'utilityarea': ['', Validators.compose([Validators.required])],
       'contact_email': ['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
 
@@ -105,24 +106,24 @@ export class NewProductComponent implements OnInit {
     // headers.append('Authorization', 'JWT ' +  this.authentication);
     headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('new product', localStorage.getItem('token'));
-    this.https.get(Config.api + 'mydata/' + this.username + '/', { headers: headers })
+    this.https.get(Config.api + 'check_role/' + this.username + '/', { headers: headers })
       .subscribe(Res => {
         this.sg['products'] = Res.json()['Results'];
         this.data = this.sg['products'];
         console.log(this.data);
         this.word = this.data[0];
         this.prourl = this.word.profileurl;
-        console.log(this.prourl)
+        console.log(this.prourl,'url')
 
         this.prologo = this.word.profile_logo;
-        console.log(this.prologo)
+        console.log(this.prologo,'profile ')
 
         this.sign = this.word.sign_up;
-        console.log(this.sign)
+        console.log(this.sign,'company sign in ')
 
         this.tit = this.word.title;
         this.only = this.tit.trim()
-        console.log(this.tit)
+        console.log(this.tit,'company name')
       });
 
   }
@@ -130,20 +131,15 @@ export class NewProductComponent implements OnInit {
   onSubmit(f) {
     f.resetForm();
   }
-  signupuserdata(utilityarea, contact_email, title, profileurl, profile_logo, plan_information, price_rate, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh) {
+  signupuserdata(zipcode,utilityarea, contact_email, title, profileurl, profile_logo, plan_information, price_rate, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh) {
     console.log(utilityarea, title, profileurl, profile_logo, plan_information, price_rate, cancelation_fee, fact_sheet, terms_of_service, phone, sign_up, minimum_usage_fee, renewable, specialterms, price_1000_kwh, price_500_kwh, price_2000_kwh);
-    let headers = new HttpHeaders();
+    let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     // headers.append('Authorization', 'JWT ' +  this.authentication);
     headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
-    console.log('pofile', localStorage.getItem('token'));
-
-
-
-    // let headers = new HttpHeaders();
-
-    // headers.append('Content-Type', 'application/json');    
-    this.http.post(Config.api + 'addproduct/', {
+    console.log('pofile', localStorage.getItem('token'));  
+    this.https.post(Config.api + 'addproduct/',JSON.stringify( {
+      'zipcode':zipcode,
       "serviceareaname": utilityarea,
       "title": title,
       "profileurl": profileurl,
@@ -162,7 +158,7 @@ export class NewProductComponent implements OnInit {
       "price_500_kwh": price_500_kwh,
       "price_2000_kwh": price_2000_kwh,
       "contact_email": contact_email
-    }, { headers: headers })
+    }), { headers: headers })
       .subscribe(Res => {
         console.log(Res);
         console.log(this.model);
