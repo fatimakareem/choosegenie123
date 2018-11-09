@@ -10,7 +10,9 @@ public username;
   product;
   items;
   com;
+  title;
   constructor(private http: Http) {this.username = localStorage.getItem('username');
+  this.title=localStorage.getItem('title');
                this.product = localStorage.getItem('PRO');
 }
 
@@ -32,7 +34,7 @@ public username;
     headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('pofile', localStorage.getItem('token'));
    
-   return this.http.get(Config.api+'inactive/' + this.username +'?page='+page +'/',{ headers: headers }).map((response: Response) => response);
+   return this.http.get(Config.api+'inactive/' + this.title.trim() +'?page='+page +'/',{ headers: headers }).map((response: Response) => response);
 
   }
   deregulatedinactivepro(title,page){
@@ -43,7 +45,7 @@ public username;
     // headers.append('Authorization', 'JWT ' +  this.authentication);
     headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('pofile', localStorage.getItem('token'));
-   return this.http.get(Config.api+'deregulated_inactive_product/' + this.username +'?page='+page +'/',{ headers: headers }).map((response: Response) => response);
+   return this.http.get(Config.api+'deregulated_inactive_product/' + this.title +'?page='+page +'/',{ headers: headers }).map((response: Response) => response);
 
   }
   filter(page,id,months1,months2,months3,months4,months5,months6,months7,fixed,vari,market,notprepaid,prepaid,planmin,time,nottime,renewable,name,sort,item,min500,max500,min1000,max1000,min2000,max2000,logo1,logo2,logo3,logo4,logo5,prepaidall,timeall,showallplanPB) {

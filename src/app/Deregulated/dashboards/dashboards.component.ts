@@ -51,7 +51,7 @@ export class DashboardsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private https: HttpClient, private newService: DeleteService, private serve: EditService,
     private formBuilder: FormBuilder, private router: Router, private http: Http, private pagerService: PagerService, private homeService: HomeService, private sg: SimpleGlobal, private dialog: MatDialog, private dataa: DataService, private companyService: CompanyService) {
 
-    this.title = localStorage.getItem('username');
+    this.title = localStorage.getItem('title');
 
   }
   date;

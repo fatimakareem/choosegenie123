@@ -62,7 +62,7 @@ private authentication
     headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('pofile', localStorage.getItem('token'));
 
-    this.https.get(Config.api + 'comprofile/' + this.title + '/', { headers: headers })
+    this.https.get(Config.api + 'comprofile/' + this.title.trim() + '/', { headers: headers })
     
     .subscribe(Res => {
     this.data=Res.json();

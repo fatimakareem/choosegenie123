@@ -78,7 +78,7 @@ export class InactiveProductComponent implements OnInit {
     price_500_kwh = '';
     price_2000_kwh = '';
     ngOnInit() {
-        this.title = localStorage.getItem('username')
+        this.title = localStorage.getItem('title')
         console.log(this.title, 'gggggggggggggggg')
         this.username = localStorage.getItem('username');
         this.zip_code = localStorage.getItem('zip');
@@ -134,7 +134,7 @@ export class InactiveProductComponent implements OnInit {
     }
     noresult;
     search(page:number) {
-        this.title = localStorage.getItem('username');
+        this.title = localStorage.getItem('title');
         let headers = new Headers();
         // headers.append('Content-Type', 'application/json');
         headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
@@ -190,7 +190,7 @@ export class InactiveProductComponent implements OnInit {
             return;
         }
         const Results = {}
-        this.title = localStorage.getItem('username');
+        this.title = localStorage.getItem('title');
         this.obj.inactiveproduct(title, page).subscribe(response => {
             this.sg['products'] = response.json()['Results'];
             this.noresult = response.json()['Total Result'];

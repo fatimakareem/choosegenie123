@@ -165,7 +165,7 @@ export class UserloginComponent implements OnInit {
                       localStorage.setItem('username', this.username);
                       localStorage.setItem('title', this.tit.title);
   
-                      localStorage.setItem('username', this.word);
+                      // localStorage.setItem('username', this.word);
     
                     }
                   });
