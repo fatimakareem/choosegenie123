@@ -1,5 +1,5 @@
 <app-loader></app-loader>
-<div id="myID" *ngIf="status !=false" class="bottomMenu hide">
+<!-- <div id="myID" *ngIf="status !=false" class="bottomMenu hide">
     <button class="w3-button pop-up-close" (click)="pop_close()">&times;</button>
   <a href="#" class="popo-up-logo">
       <img alt="ChoiceGenie" src="../../assets/img/ChoiceGenie-logo2.png">
@@ -9,7 +9,7 @@
   <a href="/usersignup" class="signup-popup btn-fill">
       <h1 class="btn-fill">Sign Up Now</h1>
   </a>
-</div>
+</div> -->
 
 <div class="container-fluid sh-pd-0">
 <div class="row product-body">
@@ -604,7 +604,7 @@
                 <!-- <input type="checkbox" name="comp"  #comp (change)="checked(data.id,i)">{{data.id}} -->
                 <div class="card-content" style="padding: 0px;">
 
-                  <div class="col-md-3  col-sm-6 col-xs-6 plan-detail min-hight text-center logo-div">
+                  <div class="col-md-3  col-sm-6 col-xs-6 plan-detail min-hight text-center logo-div sh-pos-rel">
                     <div class="check-box mob-view-hide">
                       <input type="checkbox" (change)="checked($event,data.id,i);hits($event)">
                     </div>
@@ -614,7 +614,7 @@
                       <img class="product-icons" src="{{data.profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" alt="{{data.title}}"  />
                     </a>
 
-                    <a>
+                    <a class="sh-pos-abso sh-pos-abso-logo">
 
 
                       <label class="view-plan-details mob-view-hide" style="padding-bottom: 0px; margin-bottom: 0px;" (click)="btnratingClick(data.id,data.title,data.profileurl,data.profile_logo,data.serviceareaname)"
@@ -630,17 +630,17 @@
                           <div class="modal-body model-box">
                             <div class="popup-close-button" data-dismiss="modal">X</div>
                             <div class="row">
-                              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-8 " style="border-bottom: 1px #4f4f4f solid;">
+                              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="border-bottom: 1px #4f4f4f solid;">
                                 <p class=" modal-v2__main-heading"> {{comtitle}}</p>
 
                               </div>
-                              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4" style="border-bottom: 1px #4f4f4f solid;">
+                              <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4" style="border-bottom: 1px #4f4f4f solid;">
                                 <div class="popup-image">
                                   <a href="{{sign_up}}" target="_blank" class="display-b margin-top">
                                     <img src="{{profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" />
                                   </a>
                                 </div>
-                              </div>
+                              </div> -->
                               <div style="width: 100%">
 
                                 <h4 class="modal-title body-heading">Based on what you've seen so far, how would you rate this Company?</h4>
@@ -698,7 +698,7 @@
                     </div>
 
                   </div>
-                  <div class="col-md-3  col-sm-6 col-xs-16 plan-detail min-hight text-center margin-up">
+                  <div class="col-md-3  col-sm-6 col-xs-16 plan-detail min-hight text-center margin-up sh-pos-rel">
                     <h3 style=" text-align: center" class="mob-view-hide">
                       <b>Price/KWh</b>
                     </h3>
@@ -715,9 +715,9 @@
                         +1-(844) 463-8732
                       </a>
                     </h3>
-                    <a>
-                      <label class="view-plan-details mob-view-hide" (click)="btnderagulateClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_rate,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
-                             data-toggle="modal" data-target="#myModal6" style="    padding-bottom: 0px; margin-bottom: 0px;">Plan Information</label>
+                    <a class="sh-pos-abso sh-pos-abso-logo">
+                      <label class="view-plan-details mob-view-hide margin-l" (click)="btnderagulateClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_rate,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
+                             data-toggle="modal" data-target="#myModal6" style="    padding-bottom: 0px; margin-bottom: 0px;">Plan Details</label>
                     </a>
                   </div>
                   <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail min-hight margin-up mob-view-hide" style="text-align:center">
@@ -741,12 +741,12 @@
                         {{data.plan_information | slice:26:2000}}
                       </p>
                     </div>
-                    <a (click)="submit(data.id,data.title)">
+                    <a (click)="submit(data.id,data.title)" class="sh-pos-abso">
                       <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;">Reviews</label>
                     </a>
 
                   </div>
-                  <div class="col-md-3 col-sm-6 col-xs-12 term text-center mob-view-hide">
+                  <div class="col-md-3 col-sm-6 col-xs-12 term text-center mob-view-hide sh-pos-rel">
 
                     <h3 class="text-center" style="margin-top: -11px !important;">
                       <b> Call Now</b>
@@ -801,17 +801,17 @@
                   <div class="modal-body model-box">
                     <div class="popup-close-button" data-dismiss="modal">X</div>
                     <div class="row">
-                      <div class="col-lg-9 col-md-9 col-sm-9 col-xs-8 " style="border-bottom: 1px #4f4f4f solid;">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="border-bottom: 1px #4f4f4f solid;">
                         <p class=" modal-v2__main-heading"> {{comtitle}}</p>
 
                       </div>
-                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4" style="border-bottom: 1px #4f4f4f solid;">
+                      <!-- <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4" style="border-bottom: 1px #4f4f4f solid;">
                         <div class="popup-image">
                           <a href="{{sign_up}}" target="_blank" class="display-b margin-top">
                             <img src="{{profile_logo}}" />
                           </a>
                         </div>
-                      </div>
+                      </div> -->
                       <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div class="plan-information__heading">Price Rate</div>
                         <table>
