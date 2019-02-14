@@ -15,6 +15,7 @@ import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
 import { jsonpCallbackContext } from '@angular/common/http/src/module';
 import { NeutronRatingModule } from 'neutron-star-rating';
 import { PageEvent } from '@angular/material';
+import { HttpService } from '../serv/http-service';
 import swal from 'sweetalert2';
 @Component({
     selector: 'app-getreview',
@@ -42,11 +43,11 @@ export class GetreviewComponent implements OnInit {
     avrage: any = [];
     score: any = [];
     ave: any = [];
-    constructor(private router: Router, private route: ActivatedRoute, private http: Http) { }
+    constructor(private router: Router, private route: ActivatedRoute, private http: Http, private https: HttpService) { }
 
     ngOnInit() {
         this.title = localStorage.getItem('company');
-        this.customer = localStorage.getItem('custum')
+        this.customer = localStorage.getItem('username')
         this.zip_code = localStorage.getItem('zip');
         this.getreview()
         this.totalreview()
@@ -64,8 +65,8 @@ export class GetreviewComponent implements OnInit {
         });
     }
     checked_login() {
-        if (localStorage.getItem('custum')) {
-            let local = localStorage.getItem('custum');
+        if (localStorage.getItem('username')) {
+            let local = localStorage.getItem('username');
             return true;
         }
         else {
@@ -118,7 +119,9 @@ export class GetreviewComponent implements OnInit {
             .subscribe(Res => {
                 this.data = Res.json();
                 console.log(this.data);
-                this.user = this.data['user']
+                this.user = this.customer;
+                
+                // this.user = this.data['user']
             });
 
     }
@@ -129,7 +132,7 @@ export class GetreviewComponent implements OnInit {
         console.log(this.title, 'jjjjjjjjj')
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        this.http.get(Config.api + 'getallreviews/' + this.title, { headers: headers })
+        this.https.get(Config.api + 'getallreviews/' + this.title, { headers: headers })
             .subscribe(Res => {
                 this.rev = Res.json()['Results'];
                 this.total = Res.json()['Total Result'];
@@ -145,7 +148,7 @@ export class GetreviewComponent implements OnInit {
 
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        this.http.get(Config.api + 'dataup/' + id, { headers: headers })
+        this.https.get(Config.api + 'dataup/' + id, { headers: headers })
             .subscribe(Res => {
                 this.pro = Res.json();
                 console.log(this.pro)
@@ -172,7 +175,7 @@ export class GetreviewComponent implements OnInit {
 
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        this.http.get(Config.api + 'totalreviews/' + this.title, { headers: headers })
+        this.https.get(Config.api + 'totalreviews/' + this.title, { headers: headers })
 
             .subscribe(Res => {
                 this.totalrev = Res.json()['Total Reviews'];
@@ -202,7 +205,7 @@ export class GetreviewComponent implements OnInit {
         this.ratee = rating;
     }
     reviews(ratee, comt, id) {
-        if (localStorage.getItem('custum')) {
+        if (localStorage.getItem('username')) {
             console.log(id)
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');

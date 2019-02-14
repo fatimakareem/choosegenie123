@@ -16,6 +16,10 @@ import { NeutronRatingModule } from 'neutron-star-rating';
 import { HomeService } from '../../home/home.service';
 import { SimpleGlobal } from 'ng2-simple-global';
 import { SlickModule } from 'ngx-slick';
+import { LoaderModule } from '../../loader/loader.module';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 
 // import { Pipe, PipeTransform } from "@angular/core";
 // import { HttpClientModule } from '@angular/common/http'
@@ -26,6 +30,8 @@ import { SlickModule } from 'ngx-slick';
         CommonModule,
         RouterModule.forChild(ProductsRoutes),
         FormsModule,
+        LoaderModule,
+        MatSlideToggleModule,
         AngularcliStarRatingModule,
         // MdModule,
         MaterialModule,
@@ -42,7 +48,8 @@ import { SlickModule } from 'ngx-slick';
     providers: [
         PagerService,
         SimpleGlobal,
-        HomeService
+        HomeService,
+        // CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR
     ],
     entryComponents: [PremiseDialog]
  

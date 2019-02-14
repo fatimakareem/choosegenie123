@@ -13,6 +13,7 @@ import swal from 'sweetalert2';
 import { TOUCHEND_HIDE_DELAY } from '@angular/material';
 // import { HomeRoutes } from '../../home/home.routing';
 import { RecaptchaComponent } from 'recaptcha-blackgeeks';
+import { HttpService } from '../../serv/http-service';
 
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { PasswordValidation } from './password-validator.component';
@@ -68,8 +69,9 @@ export class UserloginComponent implements OnInit {
   currentUser;
   massage;
     tit: any = [];
+    title;
   constructor(public router: Router, private element: ElementRef, private http: Http, private route: ActivatedRoute,
-    private sg: SimpleGlobal, private _nav: Router, private _serv: UserLoginService, private formBuilder: FormBuilder, private https: HttpClient) {
+    private sg: SimpleGlobal, private _nav: Router, private _serv: UserLoginService, private formBuilder: FormBuilder, private https: HttpClient,private _http5: HttpService) {
     this.nativeElement = element.nativeElement;
     this.sidebarVisible = false;
 
@@ -89,7 +91,7 @@ export class UserloginComponent implements OnInit {
     console.log(this.username, "checl_role", localStorage.getItem('token'))
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('user_profile', localStorage.getItem('token'));
     this.http.get(Config.api + 'check_role/' + this.username + '/', { headers: headers })
 
@@ -117,9 +119,10 @@ export class UserloginComponent implements OnInit {
                 console.log(this.username, "checl_role", localStorage.getItem('token'))
                 let headers = new Headers();
                 headers.append('Content-Type', 'application/json');
-                headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+               headers.append('Authorization', 'JWT ' +  localStorage.getItem('token'));
+                // headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
                 console.log('user_profile', localStorage.getItem('token'));
-                this.http.get(Config.api + 'check_role/' + this.username + '/', { headers: headers })
+                this._http5.get(Config.api + 'check_role/' + this.username + '/', { headers: headers })
             
                   .subscribe(Res => {
                     this.Datarole = Res.json();
@@ -131,11 +134,7 @@ export class UserloginComponent implements OnInit {
                 this.hel = Res.json()['Results'];
                 // this.massage = Res.json()['Message'];
                 // localStorage.setItem('massage', this.massage);
-                console.log(this.massage);
-                this.tit = this.hel[0];
-                console.log(this.tit);
-                this.word = this.tit.title;
-                console.log(this.word);
+              
                 // localStorage.setItem('user', this.word);
                 // localStorage.setItem('username', this.word.trim());
                 // localStorage.setItem('token', Res.json()['token']);
@@ -144,6 +143,11 @@ export class UserloginComponent implements OnInit {
                       localStorage.setItem('username', this.username);
                     }
                     else if(this.role=="Not Deregulatedstate Vendor"){
+                      console.log(this.massage);
+                      this.tit = this.hel[0];
+                      console.log(this.tit);
+                      this.word = this.tit.title;
+                      console.log(this.word);
                       // dashboard/:username
                       // this.router.navigate(['/dashboard/:username']);
                       this.router.navigate(['/dashboard/' + this.username]);
@@ -152,20 +156,35 @@ export class UserloginComponent implements OnInit {
                       localStorage.setItem('title', this.tit.title);
                     }
                     else if(this.role=="Deregulatedstate Vendor"){
+                      console.log(this.massage);
+                      this.tit = this.hel[0];
+                      console.log(this.tit);
+                      this.word = this.tit.title;
+                      console.log(this.word);
                       this.router.navigate(['/dashboards/' + this.username]);
                       localStorage.setItem('username', this.username);
                       localStorage.setItem('title', this.tit.title);
   
-                      localStorage.setItem('username', this.word);
+                      // localStorage.setItem('username', this.word);
     
                     }
                   });
-
+                  // swal({
+                  //   text: "Please Enter Valid Zipcode",
+                  //   title: "Choice Genie",
+                  //   type: "success",
+                  //   showConfirmButton: false,
+                  //   timer: 200000,
+                  //   width: '512px',
+                  //   //confirmButtonText: "OK",
+        
+                  // })
                 swal({
                   type: 'success',
                   title: 'Successfully Logged in',
                   showConfirmButton: false,
-                  timer: 1500
+                  // height:'300px',
+                  timer: 1000
                 });
               
               },

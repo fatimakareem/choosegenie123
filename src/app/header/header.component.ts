@@ -24,7 +24,10 @@ declare var $: any;
   selector: 'app-header',
   templateUrl: './header.component.html'
 })
-export class HeaderComponent implements OnInit {
+
+
+  export class HeaderComponent implements OnInit {
+    @ViewChild('openModal') openModal: ElementRef;
   public customer;
   public username;
   model: any = {};
@@ -37,6 +40,8 @@ export class HeaderComponent implements OnInit {
   record: any = []
   zipCode;
   admin;
+  uname;
+  local;
   // google:any = []
   constructor(private router: Router, private _serv: HeaderService, private data: DataService, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { }
 
@@ -61,6 +66,25 @@ googleTranslateElementInit() {
     }
     
   }
+    
+  checked_price() {
+    if (localStorage.getItem('role')=='Deregulatedstate Vendor') {
+      // let local = localStorage.getItem('role');
+      return false;
+    }
+    else if(localStorage.getItem('role')=='Not Deregulatedstate Vendor'){
+      return false;
+    }
+    else if(localStorage.getItem('role')=='USER')
+    {
+      return true;
+    }
+    else if(!localStorage.getItem('role')){
+      return true;
+    }
+
+    
+  }
   
   check_login1() {
     if (localStorage.getItem('currentadmin')) {
@@ -68,6 +92,17 @@ googleTranslateElementInit() {
       return true;
     }
    
+  }
+  getprofile() {
+    if (localStorage.getItem('role') == "Not Deregulatedstate Vendor") {
+      this.router.navigate(['/company-profile']);
+    }
+    else if (localStorage.getItem('role') == "Deregulatedstate Vendor") {
+      this.router.navigate(['/company-profile']);
+    }
+    else if(localStorage.getItem('role') =="USER"){
+      this.router.navigate(['/userprofile']);
+    }
   }
   
   moving() {
@@ -78,12 +113,19 @@ googleTranslateElementInit() {
       this.router.navigate(['/dashboards/' + this.username]);
     }
     else if(localStorage.getItem('role') =="USER"){
-      this.router.navigate(['/consumerdashboard/']);
+      this.router.navigate(['/userprofile/']);
     }
   }
   moving1() {
     this.router.navigate(['/supermaindashboard']);
   }
+  openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+ closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
   ngOnInit() {
     alert('helllo')
     const mainSearch = $('.main-search');
@@ -105,14 +147,70 @@ googleTranslateElementInit() {
       $('body').removeClass('noScroll');
       $(formSearch).removeClass('flipInX');
     });
-this.admin=localStorage.getItem('currentadmin')
+    this.admin=localStorage.getItem('currentadmin')
     this.username = localStorage.getItem('username')
     console.log(this.username);
+    // <script>
+      $("#showmenu").click(function(e){
+        e.preventDefault();
+        $("#menu").toggleClass("show");
+      });
+      $("#menu a").click(function(event){
+        event.preventDefault();
+        if($(this).next('ul').length){
+          $(this).next().toggle('fast');
+          $(this).children('i:last-child').toggleClass('fa-caret-down fa-caret-left');
+        }
+      });
+    // </script>
+    // <script type="text/javascript">
+
+      // var _gaq = _gaq || [];
+      // _gaq.push(['_setAccount', 'UA-36251023-1']);
+      // _gaq.push(['_setDomainName', 'jqueryscript.net']);
+      // _gaq.push(['_trackPageview']);
+
+      // (function() {
+      //   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      //   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      //   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      // })();
+
+    // </script>
 
   }
   logout() {
+    // this.authService.signOut().then( success =>{
+    // console.log("true",success)
+    // },error =>{
+    // console.log("error",error)
+    // });
     localStorage.clear();
-    this.router.navigate(['/']);
+    sessionStorage.clear();
+
+    swal({
+      type: 'success',
+      title: 'Successfully Logged out',
+      showConfirmButton: false,
+      timer: 1500
+      });
+  this.router.navigate(['/']);
+   //this._nav.navigate(['/']);
+  }
+  // logout() {
+  //   localStorage.clear();
+  //   this.router.navigate(['/']);
+
+  // }
+  check_login() {
+    if (localStorage.getItem('username')) {
+      this.local = localStorage.getItem('username');
+      // let pars = JSON.parse(this.local);
+      this.uname = this.local.username;
+      return true;
+    } else {
+      return false;
+    }
 
   }
  
@@ -160,18 +258,42 @@ this.admin=localStorage.getItem('currentadmin')
   }
   searchuserdata(query) {
     console.log(query)
-    this._serv.searchrecord(query).subscribe(data => {
-      this.record = data
+    this._serv.searchrecord(query).subscribe(response => {
+      this.record = response;
 
       // this.sg['zip'] = Res.json()['Results'];
       // this.data.changezip(this.sg['zip']);
       console.log(this.record)
-    }, error => {
-
     })
 
   }
+//   setPage(page: number) {
+        
+  
 
+
+//         this.obj.searchProducts(this.zip_code, page).subscribe(response => {
+
+//             this.product = response['Results'];
+//             this.noresult = response['Total Result'];
+//             for (let prod of this.product) {
+//                 prod["plan_information"] = prod["plan_information"].split(',,', 3000);
+//                 prod["price_rate"] = prod["price_rate"].split('..', 3000);
+
+//             }
+
+
+//             this.pager = this.pagerService.getPager(response['Total Result'], page, this.item);
+
+//         }
+
+
+//         );
+
+    
+
+
+// }
   singlerfp(zipcode) {
     this.zipcode=zipcode;
     let headers = new HttpHeaders();

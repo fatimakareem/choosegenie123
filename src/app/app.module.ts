@@ -102,8 +102,7 @@ import { HeaderService } from './header/header.service';
 import { UnsubscribeService } from './unsubscribe/unsubscribe.service';
 import { DeletegetuserService } from './ChoiceSuperAdmin/supergetusers/deletegetuser.service';
 import { UpdategetuserService } from './ChoiceSuperAdmin/supergetusers/updategetuser.service';
-// import { CookieService } from 'ngx-cookie-service';
-import { BlogssComponent } from './blogss/blogss.component';
+
 import {ProductsComponent} from './regulated/products/products.component'
 import { DataTableModule } from 'angular4-smart-table';
 import { ExcelService } from './excel.service';
@@ -241,6 +240,7 @@ export class MaterialModule { }
     ConsumeradminComponent,
     // ChangePasswordComponent,
     StepperOverviewExample,
+    
     // UsersdashboardComponent
     // ProductsComponent
     // MyfilterPipe,
@@ -252,6 +252,7 @@ DataTableDemo1
   providers: [
     // CookieService
     Authgaurd4Service,
+    PricingService,
     NotifierService,
     ExcelService,
     HomeService,
@@ -287,6 +288,7 @@ DataTableDemo1
     RandomService,
     DeletegetuserService,
     UpdategetuserService,
+    HistorypurchaseService
     // MyfilterPipe,
   ],
   bootstrap: [AppComponent],

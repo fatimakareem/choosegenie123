@@ -27,7 +27,8 @@ export class BlogComponent implements OnInit {
   profile() {
 
     const headers = new Headers();
-    headers.append('Authorization', 'JWT ' +  this.authentication);
+    // headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
+    // console.log('blog', localStorage.getItem('token'));
     headers.append('Content-Type', 'application/json');
     this.https.get(Config.api + 'gettingblog_all/', { headers: headers })
       .subscribe(Res => {

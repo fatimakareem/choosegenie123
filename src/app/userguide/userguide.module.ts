@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+// import { MdModule } from '../md/md.module';
 import { MaterialModule } from '../app.module';
+
+
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDatepickerModule} from "@angular/material";
 import { HttpClientModule } from '@angular/common/http';
-import {BlogssRoutes } from './blogss.routing';
-import { BlogssComponent } from './blogss.component';
+import { UserguideComponent } from './userguide.component';
+import { UserguideRoutes } from './userguide.routing';
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forChild(BlogssRoutes),
+        RouterModule.forChild(UserguideRoutes),
+        // MdModule,
         MaterialModule,
         FormsModule,
         ReactiveFormsModule,
@@ -19,11 +24,11 @@ import { BlogssComponent } from './blogss.component';
         HttpClientModule
     ],
     declarations: [
-        BlogssComponent
+        UserguideComponent,
     ],
     providers: [
 
     ]
 })
+export class termsModule{}
 
-export class BecomeapartnerModule {}

@@ -5,7 +5,7 @@
         <hr /> -->
         <!--Plans will show here...-->
         <div class="bg-white residential-main">
-          <h2 class="text-center"><strong style="color: #c00">WHY CHOOSE</strong> ChocieGenie</h2>
+          <h2 class="text-center">Why Choose<strong style="color: #c00"> ChoiceGenie</strong> </h2>
           <hr />
           <div class="cm-detail">
             <p class="align-txt">
@@ -14,7 +14,7 @@
             </p>
             <p class="align-txt">
               <strong>Hire us and we’ll help you save money.</strong>
-              ChocieGenie specializes on helping Texas businesses reduce their energy rates over the long term. Tired of looking for TX energy services in all of the wrong places?  Frustrated by the one size fits all mentality of most electric companies in Texas?  Stop wasting money on fly by night electric providers. Get a proven commercial electricity solution for a change!  Choose Our Energy, the best Texas Electric Company to help your business prosper and grow!
+              ChoiceGenie specializes on helping Texas businesses reduce their energy rates over the long term. Tired of looking for TX energy services in all of the wrong places?  Frustrated by the one size fits all mentality of most electric companies in Texas?  Stop wasting money on fly by night electric providers. Get a proven commercial electricity solution for a change!  Choose Our Energy, the best Texas Electric Company to help your business prosper and grow!
             </p>
           </div>
         </div>
@@ -36,20 +36,24 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group label-floating is-empty">
-                        <label class="control-label">Your Name <span class="required">(required)</span></label>
+                        <label class="control-label">Your Name 
+                          <!-- <span class="required">(required)</span> -->
+                        </label>
                         <input class="form-control" type="text">
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group label-floating is-empty">
-                        <label class="control-label">Business Name <span class="required">(required)</span></label>
+                        <label class="control-label">Business Name
+                           <!-- <span class="required">(required)</span> -->
+                          </label>
                         <input class="form-control" type="text">
                       </div>
                     </div>
                     <br class="clearfix" />
                     <div class="col-sm-6">
                       <mat-form-field>
-                        <mat-select placeholder="Select Business Type">
+                        <mat-select class="business-input" placeholder="Select Business Type">
                           <mat-option *ngFor="let food of foods" [value]="food.value">
                             {{ food.viewValue }}
                           </mat-option>
@@ -58,7 +62,9 @@
                     </div>
                     <div class="col-sm-6">
                       <div class="form-group label-floating is-empty">
-                        <label class="control-label">Email <span class="required">(required)</span></label>
+                        <label class="control-label">Email 
+                          <!-- <span class="required">(required)</span> -->
+                        </label>
                         <input class="form-control" type="email">
                       </div>
                     </div>
@@ -102,7 +108,7 @@
       </section>
     </div>
   </div>
-  
+
   <!-- <div class="member-special">
     <div class="container">
       <h3 class="title">Looking For an Excellent Residential Plan?</h3>

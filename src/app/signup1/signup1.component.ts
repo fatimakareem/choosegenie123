@@ -50,6 +50,7 @@ export class Signup1Component implements OnInit {
       'repid': ['', Validators.compose([Validators.required, Validators.pattern(this.digitsOnly)])],
       'repname': ['', Validators.compose([Validators.required])],
       'email': ['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
+      'contact_email': ['', Validators.compose([Validators.required, Validators.pattern(this.email)])],
       'username': ['', Validators.compose([Validators.required, Validators.pattern(this.useronly)])],
       'contactphone': ['', Validators.compose([Validators.required])],
       //  'Market': ['', Validators.compose([Validators.required])],
@@ -147,8 +148,15 @@ export class Signup1Component implements OnInit {
    
       .subscribe(Res => {
         console.log(Res);
-        
-        this.router.navigate(['/login/'])
+        swal({
+          type: 'success',
+          title: 'Successfully Logged in',
+          showConfirmButton: false,
+          // height:'300px',
+          timer: 1000
+        });
+      
+       // this.router.navigate(['/login/'])
       },
         error => {
           console.log(error);

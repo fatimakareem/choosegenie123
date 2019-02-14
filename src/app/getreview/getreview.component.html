@@ -1,13 +1,14 @@
+<app-loader></app-loader>
 <div class="" style="background: #fff" *ngIf="deproduct || pro">
-  <div class="container-fluid header-bar">
-    <div class="container">
-      <div class="row title-bar">
-        <div class="col-lg-12 text-center">
-          <h2>{{title}}</h2>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!--<div class="container-fluid header-bar">-->
+    <!--<div class="container">-->
+      <!--<div class="row title-bar">-->
+        <!--<div class="col-lg-12 text-center">-->
+          <!--<h2>{{title}}</h2>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-sm-12">
@@ -159,7 +160,7 @@
               <br>
               <br>
               <hr/>
-              <h3 style="margin-bottom: 0px !important; color: #c00;">
+              <h3 style="margin-bottom: 0px !important; color: #c00; padding: 0;">
                 <strong>Plan Details:</strong>
               </h3>
               <p class="items-detail" *ngFor="let item of plan">
@@ -184,14 +185,14 @@
                 <p class="course-time" *ngIf="pro.cancelation_fee;else no_data_temp2">
                   <span style="color: #c00;"> Cancelation Fee:</span> {{pro.cancelation_fee.split(' ',3000)[2]}}
                 </p>
-                <hr>
+                <!-- <hr>
                 <p class="course-time" *ngIf="hit;else no_data_temp2">
                   <span style="color: #c00;"> No of Hits:</span> {{hit}}
                 </p>
                 <ng-template #no_data_temp2>
 
                   <h4>&nbsp;&nbsp;&nbsp;&nbsp; ---</h4>
-                </ng-template>
+                </ng-template> -->
                 <hr>
                 <p>
                   <span style="color: #c00;">Call Now:</span> &nbsp;
@@ -229,9 +230,9 @@
                 <div style="text-align:center;">
 
                     <b class="price-style"> {{deproduct.price_rate}}¢</b>
-  
+
                   </div>
-                
+
               </div>
 
               <h4 class="text-center"></h4>
@@ -321,14 +322,14 @@
       <h3>{{item.username}}</h3>
       <div class="rating-star">
           <neutron-rating [rating]=item.rate [starColour]="'#FDD835'" [readOnly]="true" [starSize]="2"></neutron-rating>
-        
+
       </div>
       <p>{{item.comment}}</p>
       <hr>
     </div>
     <div *ngIf="rev == 0" class="reviews-img">
-
-      <img src="../../assets/img/review.gif" class="reviews-animation">
+      <p>No Reviews have been posted yet</p>
+      <!-- <img src="../../assets/img/review.gif" class="reviews-animation"> -->
 
     </div>
   </div>

@@ -15,6 +15,7 @@ import { DataService } from '../../data.service';
 import { UserloginComponent } from './userlogin.component';
 import { BlackgeeksRecaptchaModule } from 'recaptcha-blackgeeks';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { LoaderModule } from '../../loader/loader.module';
 
 
 
@@ -24,7 +25,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
         RecaptchaModule.forRoot(),
         RouterModule.forChild(LoginRoutes),
         BlackgeeksRecaptchaModule,
-
+        LoaderModule,
         MaterialModule,
         FormsModule,
         ReactiveFormsModule,

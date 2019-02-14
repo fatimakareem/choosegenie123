@@ -113,6 +113,9 @@ export class SidebarComponent implements OnInit {
               this.router.navigate(['/dashboards/' + this.username]);
           }
       }
+      profilelink(){
+          this.router.navigate(['/company-profile']);
+      }
       move(){
         if(localStorage.getItem('role') == "Not Deregulatedstate Vendor"){
             this.router.navigate(['/inactive-product']);}
@@ -125,10 +128,10 @@ export class SidebarComponent implements OnInit {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         // headers.append('Authorization', 'JWT ' +  this.authentication.toString());
-        headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
-
+        headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
+        this.username = localStorage.getItem('username')
         
-        this.http.get(Config.api +'mydata/'+ this.username.trim() +'/' ,{ headers: headers })
+        this.http.get(Config.api +'check_role/'+ this.username.trim() +'/' ,{ headers: headers })
         .subscribe(Res => {
         this.sg['products'] = Res.json()['Results'];
         
@@ -145,7 +148,7 @@ export class SidebarComponent implements OnInit {
     ngOnInit() {
         this.massage = localStorage.getItem('role')
        
-        this.user = localStorage.getItem('user')
+        this.user = localStorage.getItem('username')
         this.username = localStorage.getItem('username')
         console.log(this.username)
        this. fetchProducts()

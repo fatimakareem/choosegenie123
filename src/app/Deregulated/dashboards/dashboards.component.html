@@ -2,33 +2,33 @@
 
 
   <div class="row" style="width: 100%; margin: 0 auto;">
-    <div class="search-bar1 col-lg-12">
+    <div class="search-bar1 col-lg-12 sh-signup-form-fix">
 
         <!-- <md-input-container class="block" >
             <input mdInput placeholder="Title" [ngModel]="Inactivedate | date:'yyyy-MM-dd'" >
         </md-input-container> -->
 
 
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-xs-12">
           <!--<label class="date-lable">Effective from Date</label>-->
-          <mat-form-field>
+          <mat-form-field class="margin-t-15">
               <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Effective from Date"/>
               <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>               <mat-datepicker #startPicker></mat-datepicker>
             </mat-form-field>
 
         </div>
 
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-xs-12">
               <!--<label class="date-lable">Effective to Date</label>-->
-            <mat-form-field >
+            <mat-form-field class="margin-t-15">
               <input matInput [matDatepicker]="startPicker1"  [(ngModel)]="publishdate" placeholder="Effective to Date"/>
               <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
             </mat-form-field>
           </div>
 
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-xs-12">
                 <!--<label class="date-lable">Service Area Name</label>-->
-              <mat-form-field>
+              <mat-form-field class="margin-t-15">
 
                 <mat-select class="search-select" placeholder="Service Area Name"  required [(ngModel)]="name" name="name">
                     <mat-option *ngFor="let data of states" [value]="data.serviceareaname">
@@ -41,7 +41,7 @@
             </div>
 
 
-            <button class="col-lg-3 search-btn btn-fill" (click)="search(1)">Search</button>
+            <button class="col-lg-3 search-btn btn-fill col-xs-12" (click)="search(1)">Search</button>
     </div>
   </div>
   <div class="found-div" style="margin-bottom: 9px; width: 100%;">
@@ -54,7 +54,7 @@
   <ng-template #no_data_temp2>
 
       <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
-      <h1 style="height:1000px;width:1000px;padding:200px">
+      <h1 class="result-not-found">
 
         <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Record Found</b>
       </h1>
@@ -67,7 +67,7 @@
           <h4 class="card-title" style="padding: 0px;">{{data.title}} </h4>
         </div>
         <div class="card-content">
-          <div class="col-md-3  col-sm-3 col-xs-5 plan-detail text-center display">
+          <div class="col-md-3  col-sm-3 col-xs-12 plan-detail text-center display">
             <a href="{{data.sign_up}}" target="_blank" class="margin-top">
 
               <img src="{{data.profile_logo}}"   onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" />
@@ -160,7 +160,7 @@
                       <input matInput placeholder="price 2000 kwh" name="price_2000_kwh" value="{{price_2000_kwh}}" [hidden]="true" #updatedprice2000kwh/> -->
 
 
-                      <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" value="{{cancelation_fee}}" #updatedcancelation_fee/>
+                      <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" value="{{cancelation_fee}}" [hidden]="true" #updatedcancelation_fee/>
 
                       <input matInput placeholder="Fact Sheet" readonly name="fact_sheet" value="{{fact_sheet}}" [hidden]="true" #updatedfact_sheet/>
 
@@ -188,7 +188,7 @@
             </div>
           </div>
 
-          <div class="col-md-3  col-sm-6 col-xs-12 plan-detail text-center margin-up">
+          <div class="col-md-3  col-sm-6 col-xs-12 plan-detail text-center margin-up sh-pos-rel">
               <h3 style=" text-align: center;">
                 <b> Price Rate</b>
               </h3>
@@ -201,13 +201,13 @@
 
               </div>
 
-              <a>
+              <a class="sh-pos-abso sh-pos-abso-logo">
                 <label class="view-plan-details" (click)="btnderagulateClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_rate,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                   data-toggle="modal" data-target="#myModal6" style="    padding-bottom: 0px; margin-bottom: 0px;">Plan Information</label>
               </a>
             </div>
 
-          <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail margin-up" style="text-align:center">
+          <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail margin-up sh-pos-rel" style="text-align:center">
             <h3 style=" text-align: center;">
               <b>Plan Details</b>
             </h3>
@@ -216,19 +216,19 @@
               {{data.plan_information}}
               </p>
             </div>
-            <a (click)="submit(data.id, data.title)" style="color:white;text-align: center;">
+            <a (click)="submit(data.id, data.title)" style="color:white;text-align: center;" class="sh-pos-abso">
               <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;">Reviews</label>
             </a>
           </div>
     <div class="modal fade" id="myModal2" role="dialog">
             <div class="modal-dialog">
               <!-- Modal content-->
-              <div class="modal-content popupmodel">
-                <div class="modal-header">
-                </div>
+              <div class="modal-content popupmodel1">
+                <!-- <div class="modal-header">
+                </div> -->
                 <div class="modal-body" style="font-size: 18px;
                                           background: #ffffff;
-                                          padding: 20px;
+                                          padding: 0px;
                                           margin: 15px;
                                           position: relative;">
                   <div class="popup-close-button" data-dismiss="modal">X</div>
@@ -248,7 +248,7 @@
                         <input mdInput placeholder="Title" [ngModel]="date | date:'yyyy-MM-dd'" >
                     </md-input-container>
 <input type="date" required name="date" [(ngModel)]="date" hidden="true">
-                    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                    <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="sh-signup-form-fix">
                         <!-- <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate"> -->
 
 <input matInput placeholder="date" hidden="true" [value]="today | date: 'yyyy-MM-dd'" #mydate name="mydate">
@@ -395,25 +395,25 @@
                     </form>
                   </div>
                 </div>
-                <div style="display:inline-block; text-align:center;">
+                <!-- <div style="display:inline-block; text-align:center;">
                   <a href="{{data.sign_up}}" target="_blank">
                     <button class="btn btn-fill">Order Online</button>
                   </a>
                   <div style="display:inline-block; padding:24px;">
                     <span style="font-size:24px; font-weight:600px">OR CALL
-                        <a href="tel:{{data.phone}}" style="display: block">
+                        <a href="tel:{{data.phone}}"> -->
                             <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
-                            {{data.phone}}</a>
+                            <!-- {{data.phone}}</a> -->
                       <!-- <b> {{data.phone}} </b> -->
-                    </span>
+                    <!-- </span>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
 
           <br>
-          <div class="col-md-3 col-sm-3 col-xs-7 term text-center">
+          <div class="col-md-3 col-sm-3 col-xs-12 term text-center">
 
             <h3 class="text-center">
               <b> Call now</b>
@@ -524,12 +524,14 @@
                 </div>
                 <div class="col-lg-12">
                   <div class="plan-description">
-                    <div class="plan-description__heading">Cancelation Fee</div>
+                      <div class="plan-description__heading"  *ngIf="cancelation_fee;else no_data_temp2">Cancellation Fee:  {{cancelation_fee}}</div>
+                          
+                     
                     <div class="plan-description__content">
-
+<!-- 
                       <h4 *ngIf="cancelation_fee;else no_data_temp2">
                         &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee}}
-                      </h4>
+                      </h4> -->
 
                       <ng-template #no_data_temp2>
 
@@ -548,7 +550,7 @@
                 <button class="btn btn-fill">Signup Now</button>
               </a>
               <div *ngIf="phone" style="display:inline-block; padding:24px;">
-                <span style="font-size:24px; font-weight:600px">OR CALL                   <b> <a href="tel:{{phone}}" style="display: block">
+                <span style="font-size:24px; font-weight:600px">OR CALL                   <b> <a href="tel:{{phone}}">
                         <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
                         {{phone}}</a></b>
                   <!-- <b> {{phone}} </b> -->

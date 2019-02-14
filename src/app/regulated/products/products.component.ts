@@ -1,5 +1,5 @@
 // IMPORTANT: this is a plugin which requires jQuery for initialisation and data manipulation
-import { Component, OnInit, AfterViewInit, Inject,OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Inject, OnDestroy } from '@angular/core';
 import { Config } from "../../Config";
 import { Subscription } from 'rxjs/Subscription';
 import { HomeService } from "../../home/home.service";
@@ -25,7 +25,9 @@ import { PageEvent } from '@angular/material';
 import swal from 'sweetalert2';
 import { error } from 'util';
 import { delay } from 'rxjs/operator/delay';
-import {ExcelService} from '../../excel.service';
+import { HttpService } from '../../serv/http-service';
+import { ExcelService } from '../../excel.service';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 
 
@@ -52,11 +54,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
     selector: 'app-data-table-cmp',
     templateUrl: 'products.component.html',
-    styleUrls: ['products.component.css']
+    styleUrls: ['products.component.css'],
+    // providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 
 })
 
-export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
+export class ProductsComponent implements OnInit, AfterViewInit, OnDestroy {
+    [x: string]: any;
     today = Date.now();
     value1 = "500";
     date;
@@ -80,8 +84,9 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
     market;
     zipcodeexist;
     keyPress;
+
     //    setPage;
-    constructor(private excelService:ExcelService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService) {
+    constructor(private excelService: ExcelService, private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, public router: Router, private dialog: MatDialog, private data: DataService, private https: HttpService) {
 
     }
     ngOnDestroy() {
@@ -100,36 +105,36 @@ export class ProductsComponent implements OnInit, AfterViewInit,OnDestroy {
         localStorage.removeItem('months6');
         localStorage.removeItem('months7');
         localStorage.removeItem('name');
-      }
+    }
     slideConfig = {
-      "slidesToShow": 4,
-      "slidesToScroll": 4,
-      prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
-      nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
-      responsive: [
-        {
-          breakpoint: 778,
-          settings: {
-            arrows: true,
-            // centerMode: true,
-            slidesToShow: 3
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            arrows: true,
-            // centerMode: true,
-            slidesToShow: 1
-          }
-        }
-      ]
+        "slidesToShow": 5,
+        "slidesToScroll": 1,
+        prevArrow: '<button class="leftRs slick-arrow leftArrow btn-slider btn-slider-left" style="display: block;"><i class="fa fa-chevron-left"></i></button>',
+        nextArrow: '<button class="rightRs slick-arrow leftArrow btn-slider btn-slider-right" style="display: block;"><i class="fa fa-chevron-right"></i></button>',
+        responsive: [
+            {
+                breakpoint: 778,
+                settings: {
+                    arrows: true,
+                    // centerMode: true,
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: true,
+                    // centerMode: true,
+                    slidesToShow: 1
+                }
+            }
+        ]
     };
     // array of all items to be paged
     // pager object
     private allItems: any[];
-city;
-country;
+    city;
+    country;
     home: any = {};
     private id: any[];
     page: any[];
@@ -155,6 +160,7 @@ country;
     profileurl = '';
     rating_logo = '';
     sign_up = '';
+    className;
     terms_of_service = '';
     price_1000_kwh = '';
     price_500_kwh = '';
@@ -163,7 +169,7 @@ country;
     items;
     Items: any = [];
     comp = '';
-  
+
     months1;
     months2;
     months3;
@@ -171,19 +177,25 @@ country;
     months5;
     months7;
     months6;
-    fixed;
+    fixed ="Fixed Rate";
     vari;
     index;
+    prepaidall = "both";
     notprepaid;
     prepaid;
-    planmin;
+    planmin = "NULL";
+    pkgsub = false;
+    showallplanPB;
+    allplan;
+    showallplan: any[];
     time;
+    timeall = "both";
     nottime;
     renewablerate;
     renewable;
     com;
     item;
-    price;
+    price ;
     min;
     max;
     min_price_500;
@@ -199,12 +211,16 @@ country;
     modal: any = [];
     myID;
     close;
-    status:any=true;
+    status: any = true;
     slider;
     model: any = {};
-   
+
     ngOnInit() {
-  this.myID = document.getElementById("myID");
+
+        this.item = "20";
+        this.myID = document.getElementById("myID");
+        // this.checked8(event, i);
+        
         var myScrollFunc = function () {
             var y = window.scrollY;
             if (y >= 500) {
@@ -249,6 +265,30 @@ country;
             $('body').removeClass('noScroll');
             $(formSearch).removeClass('flipInX');
         });
+        // $("#number").on("click", function () {
+        //     if ($(".number:checked")) {
+        //         $('#btn').prop('disabled', false);
+        //     }
+        //     else {
+        //         $('#btn').prop('disabled', true);
+        //     }
+        // });
+        window.onscroll=function(){scrollFunction()};function scrollFunction()
+        {if(document.body.scrollTop>20||document.documentElement.scrollTop>20)
+            {document.getElementById("myBtn").style.display="block";}else
+            {document.getElementById("myBtn").style.display="none";}}
+            function topFunction(){$('html, body').animate({scrollTop:0},800);}
+            var clicks=0;function changeColorFav(id){++clicks;if(clicks%2)
+                {id.style.color='red';}else{id.style.color='gray';}}
+
+        $(document).ready(function(){
+            // $("#mySelect").change(function(){
+            //     alert($(this).val());
+            // });
+          // new WOW().init();
+        });
+        
+        
         console.log(this.today = Date.now())
         this.state = localStorage.getItem('state')
         this.name = localStorage.getItem('name')
@@ -273,96 +313,108 @@ country;
         const Results = {};
         this.val = "methodName($event[0])"
         this.companytitle();
-       this.zipwithcity();
+        this.zipwithcity();
+
 
         // this.featuredplan();
 
     }
-    exportAsXLSX(){
-        this.excelService.exportAsExcelFile(  this.product, 'ChoiceGenie Vendor Detail');
-     }
+
+    exportAsXLSX() {
+        this.excelService.exportAsExcelFile(this.product, 'ChoiceGenie Vendor Detail');
+    }
+    print(){
+        window.print();
+    }
+    printComponent(cmpName) {
+        let printContents = document.getElementById(cmpName).innerHTML;
+        let originalContents = document.body.innerHTML;
+   
+        document.body.innerHTML = printContents;
+   
+        window.print();
+   
+        document.body.innerHTML = originalContents;
+   }
     w3_open() {
         document.getElementById("mySidebar").style.display = "block";
-      }
-     w3_close() {
+    }
+    w3_close() {
         document.getElementById("mySidebar").style.display = "none";
-      }
+    }
     pop_close() {
 
-        // this.myID.className = "bottomMenu hide";
-       this.status=false;
+
+        this.status = false;
 
     }
 
     
-  states() {
-    //alert('hello');
-    console.log("CHOICE GENIE",this.zip_code);
-    alert("REP_certificate_id1"+this.zip_code);
-
-    let headers = new Headers();
-
-
-    headers.append('Content-Type', 'application/json');
-    // this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),http://192.168.30.237:9000/choice/
-    this.http.get(Config.api + 'zipcodewith_country_city/' + this.zip_code, { headers: headers })
-
-      .subscribe(data => {
-        console.log(data);
-        // this.next = Res[0].next;
-        console.log(data['zipcode'], 'hhhhhhhhhhhhhhh')
-        console.log(data['country'], 'hhhhhhhhhhhhhhh')
-        console.log(data['city'], 'hhhhhhhhhhhhhhh')
-        // if ( this.usernameexist=false){
-        // this.model['zip'] = data['zipcode']
-        this.country = data[0]['country'];
-                // this.noresult = data['Total country'];
-               // this.zipdet = localStorage.getItem('zip');
-        // this.model['service_state'] = data[0]['country']
-        // this.model['service_city'] = data[0]['city']
-        // }
-        //  console.log(this.usernameexist);
-
-      },
-        error => {
-          //   this.usernameexist=error['status']
-          console.log(error);
-
-          //   f.resetForm();
-        });
-
-
-
-  }
 
     btnDeleteClick(id, title, profileurl, profile_logo, servicearea) {
+        if (localStorage.getItem('username')) {
+            let local = localStorage.getItem('username');
         this.id = id;
         this.comtitle = title.trim();
         this.profileurl = profileurl;
         this.profile_logo = profile_logo;
         this.servicearea = servicearea;
+        console.log(this.servicearea);
+        // alert(this.servicearea)
         console.log('id : ' + this.id, this.title);
+        return true;
+        }
+        else {
+            swal(
+                'User must login First!',
+                '',
+                'error',
+              )
+              let url = 'userlogin';
+              this.router.navigate([url]);
+               
+            // swal(
+            //     'Invalid',
+            //     'User must login First!',
+            //     'error',
+            // )
+            // this.router.navigate(['/userlogin/']);
+            // return false;
+            
+        }
     }
 
     checked_login() {
-        if (localStorage.getItem('custum')) {
-            let local = localStorage.getItem('custum');
+        if (localStorage.getItem('username')) {
+            let local = localStorage.getItem('username');
             return true;
         }
         else {
+            // swal(
+            //     'Invalid',
+            //     'User must login First!',
+            //     'error'
+            // )
+            // this.router.navigate(['/userlogin']);
             return false;
+            
         }
     }
+    usman;
     zipwithcity() {
 
         let headers = new Headers();
         headers.append('Content-Type', 'application/json')
-        this.http.get(Config.api + 'zipcodewith_country_city/'+ this.zip_code, { headers: headers })
+        this.http.get(Config.api + 'zipcodewith_country_city/' + this.zip_code, { headers: headers })
 
             .subscribe(Res => {
+                this.city = Res.json();
 
-                this.city = Res.json()[0].city;
-                this.country = Res.json()[0].country;
+                // this.usman=Res.json()[0].zipcode;
+                console.log(this.city);
+
+                // this.city = Res.json()[0].city;
+                // this.country = Res.json()[0].country;
                 // this.data.changeProducts(this.sg['plan']);
                 this.Items = this.sg['plan'];
 
@@ -371,13 +423,17 @@ country;
     }
     profile() {
         let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        this.http.get(Config.api + 'user_profile/' + this.customer + '/', { headers: headers })
+        // headers.append('Content-Type', 'application/json');
+        headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
+        console.log("userupdate", localStorage.getItem('token'));
+        this.http.get(Config.api + 'user_profile/' + this.username + '/', { headers: headers })
 
             .subscribe(Res => {
                 this.data = Res.json();
                 console.log(this.data);
-                this.user = this.data['user'].id;
+                // this.user = this.data['Name'];
+                this.user = this.username;
+                // this.user=localStorage.getItem('username');
                 console.log(this.user)
             });
     }
@@ -396,21 +452,28 @@ country;
 
     }
     reviews(rate, comt, id) {
+
+
         console.log(this.servicearea)
 
         console.log(this.title);
-        if (localStorage.getItem('custum')) {
+        if (localStorage.getItem('username')) {
+            console.log(localStorage.getItem('username'))
             console.log(id)
+            // console.log(localStorage.getItem('Name'))
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
             // this.http.get(Config.api + 'data_against_zipcode/' + this.zip_code + '', { headers: headers }),
             this.http.post(Config.api + 'reviews/' + this.comtitle, JSON.stringify({
-                "rate": this.rate,
+                // {
                 "company_name": this.comtitle,
-                "comment": comt,
-                "user": this.user,
                 "servicearea": this.servicearea,
-                // "profile": this.profile_logo
+                "rate": this.rate,
+                "comment": comt,
+                "user": this.username,
+                // "user": localStorage.getItem('username') 
+                // }
+
             }
 
             ), { headers: headers })
@@ -433,13 +496,13 @@ country;
                 'User must login First!',
                 'error'
             )
-            this.router.navigate(['/userlogin/']);
+            this.router.navigate(['/userlogin']);
         }
     }
 
     //Event Binding of Delete Buttons
 
-    btnEditClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl) {
+    btnEditClick(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl, specialterms) {
         this.catagoryId = id;
 
         console.log(this.plan_information)
@@ -452,12 +515,13 @@ country;
         this.price_1000_kwh = price_1000_kwh;
         this.plan_information = plan_information;
         this.rating_logo = rating_logo;
+        this.specialterms = specialterms;
 
         this.profile_logo = profile_logo;
         this.profileurl = profileurl;
         this.price_500_kwh = price_500_kwh;
         this.price_2000_kwh = price_2000_kwh;
-        console.log(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl)
+        console.log(id, title, sign_up, phone, terms_of_service, fact_sheet, cancelation_fee, price_1000_kwh, price_500_kwh, price_2000_kwh, plan_information, rating_logo, profile_logo, profileurl, specialterms)
         console.log('id : ' + this.catagoryId);
     }
 
@@ -470,7 +534,7 @@ country;
             .subscribe(Res => {
 
                 this.sg['plan'] = Res.json()['Results'];
-            
+
                 this.Items = this.sg['plan'];
                 for (let prod of this.sg['plan']) {
                     console.log(prod["plan_information"])
@@ -541,42 +605,42 @@ country;
             this.setPage(1);
         });
 
-        $('#datatables').DataTable({
-            'pagingType': 'full_numbers',
-            'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, 'All']],
-            responsive: true,
-            language: {
-                search: '_INPUT_',
-                searchPlaceholder: 'Search records',
-            }
-        });
+        // $('#datatables').DataTable({
+        //     'pagingType': 'full_numbers',
+        //     'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, 'All']],
+        //     responsive: true,
+        //     language: {
+        //         search: '_INPUT_',
+        //         searchPlaceholder: 'Search records',
+        //     }
+        // });
 
-        const table = $('#datatables').DataTable();
+        // const table = $('#datatables').DataTable();
 
-        // Edit record
-        table.on('click', '.edit', function () {
-            const $tr = $(this).closest('tr');
+        // // Edit record
+        // table.on('click', '.edit', function () {
+        //     const $tr = $(this).closest('tr');
 
-            const data = table.row($tr).data();
-            alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
-        });
+        //     const data = table.row($tr).data();
+        //     alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
+        // });
 
-        // Delete a record
-        table.on('click', '.remove', function (e: any) {
-            const $tr = $(this).closest('tr');
-            table.row($tr).remove().draw();
-            e.preventDefault();
-        });
+        // // Delete a record
+        // table.on('click', '.remove', function (e: any) {
+        //     const $tr = $(this).closest('tr');
+        //     table.row($tr).remove().draw();
+        //     e.preventDefault();
+        // });
 
-        // Like record
-        table.on('click', '.like', function () {
-            alert('You clicked on Like button');
-        });
+        // // Like record
+        // table.on('click', '.like', function () {
+        //     alert('You clicked on Like button');
+        // });
     }
     companytitle() {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        this.http.get(Config.api + 'companytitle/', { headers: headers })
+        this.https.get(Config.api + 'companytitle/', { headers: headers })
 
             .subscribe(Res => {
 
@@ -592,7 +656,7 @@ country;
     logo3;
     logo2;
     logo1;
-    star5(event,i){
+    star5(event, i) {
         if (event.target.checked == true) {
             this.logo5 = "StarRating5.png";
             this.setPage(1);
@@ -604,7 +668,7 @@ country;
         }
         console.log(this.logo5)
     }
-    star4(event,i){
+    star4(event, i) {
         if (event.target.checked == true) {
             this.logo4 = "StarRating4.png";
             this.setPage(1);
@@ -616,7 +680,7 @@ country;
         }
         console.log(this.logo4)
     }
-    star3(event,i){
+    star3(event, i) {
         if (event.target.checked == true) {
             this.logo3 = "StarRating3.png";
             this.setPage(1);
@@ -628,7 +692,7 @@ country;
         }
         console.log(this.logo3)
     }
-    star2(event,i){
+    star2(event, i) {
         if (event.target.checked == true) {
             this.logo2 = "StarRating2.png";
             this.setPage(1);
@@ -640,7 +704,7 @@ country;
         }
         console.log(this.logo2)
     }
-    star1(event,i){
+    star1(event, i) {
         if (event.target.checked == true) {
             this.logo1 = "StarRating1.png";
             this.setPage(1);
@@ -681,7 +745,7 @@ country;
         }
         console.log(this.months2)
     }
-    
+
     checked3(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
@@ -727,6 +791,7 @@ country;
     checked6(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked)
+            //  alert(this.months6)
             this.months6 = "6 Months";
             this.setPage(1);
         }
@@ -757,6 +822,8 @@ country;
             console.log(event.target.checked)
             this.fixed = "Fixed Rate";
             this.setPage(1);
+            // alert(this.fixed)
+            console.log(this.fixed,"fixed rate");
         }
         else if (event.target.checked == false) {
             console.log(event.target.checked)
@@ -794,11 +861,16 @@ country;
         }
         console.log(this.market)
     }
-    checked11(event, i) {
+
+    checked11(event,i) {
+        // delete this.prepaid ;
+        delete this.prepaidall ;
         if (event.target.checked == true) {
             console.log(event.target.checked)
-            this.notprepaid = "prepaid";
-            delete this.prepaid;
+            this.notprepaid = "noprepaid";
+            delete this.prepaid ;
+            
+           
             this.setPage(1);
 
             console.log(this.notprepaid);
@@ -807,10 +879,13 @@ country;
         console.log(this.notprepaid)
     }
     checked12(event, i) {
+        delete this.prepaidall;
         if (event.target.checked == true) {
-            console.log(event.target.checked);
-            this.prepaid = "prepaid";
+            console.log(event.target.checked ==true);     
+            this.prepaid = "Prepaid";
+            // alert(this.prepaid);
             delete this.notprepaid;
+            // delete this.prepaidall;
             this.setPage(1);
         }
 
@@ -819,57 +894,76 @@ country;
     checkedpre(event, i) {
         if (event.target.checked == true) {
             console.log(event.target.checked);
-
-            delete this.notprepaid;
-            delete this.prepaid;
+            this.prepaidall = "both";
+            delete this.notprepaid ;
+            delete this.prepaid ;
             this.setPage(1);
         }
 
-        console.log(this.prepaid, this.notprepaid)
+        console.log(this.prepaidall)
     }
+
     checked13(event, i) {
+        // delete this.showallplanPB;;
         if (event.target.checked == true) {
             console.log(event.target.checked);
             this.planmin = "NULL";
+            delete this.showallplanPB;
             this.setPage(1);
 
         }
 
         console.log(this.planmin)
     }
+
     checkedall(event, i) {
+        delete this.planmin;
         if (event.target.checked == true) {
-            console.log(event.target.checked);
-            delete this.planmin;
+            // console.log(event.target.checked == true);
+            // delete this.planmin;
+            // this.planmin = event.target.checked == fail; 
+            // this.planmin = null;
+            this.showallplanPB = "both";
+            
+            //  this.planmin = this.fixed;
             this.setPage(1);
         }
-
-        console.log(this.planmin)
+        console.log(this.showallplanPB, "checkallremove ni howa ", this.planmin)
     }
     checked14(event, i) {
+        delete this.timeall;
+        delete this.nottime;
         if (event.target.checked == true) {
             console.log(event.target.checked);
+           
             this.time = "Time Of Use";
-            delete this.nottime;
+            delete this.timeall;
+            // delete this.time;
             this.setPage(1);
         }
 
         console.log(this.time)
     }
     checkedtime(event, i) {
+        // delete this.timeall;
+        delete this.nottime; 
         if (event.target.checked == true) {
             console.log(event.target.checked);
+            this.timeall = "both";
             delete this.time;
-            delete this.nottime;
+            // delete this.nottime;
             this.setPage(1);
         }
-        console.log(this.time)
+        console.log(this.timeall)
     }
     checked15(event, i) {
+        delete this.time;
+        delete this.timeall;
         if (event.target.checked == true) {
             console.log(event.target.checked);
-            this.nottime = "Time Of Use";
-            delete this.time;
+            this.nottime = "notime";
+
+            delete this.timeall;
             this.setPage(1);
         }
 
@@ -907,16 +1001,25 @@ country;
             this.setPage(1);
         }
         else {
+            // alert("usamn")
             console.log()
             delete this.name;
             localStorage.removeItem('name');
+            this.refresh();
+            this.setPage(1);
 
         }
         console.log(this.name)
     }
+    refresh(): void {
+        // this.setPage(1);
+        window.location.reload();
+    }
+
     checked18(event, i, item) {
         if (item) {
             console.log(item);
+            // alert(item)
             this.item = item;
             this.setPage(1);
         }
@@ -927,28 +1030,60 @@ country;
         }
     }
     pricerate(min, max) {
-        console.log(min,max)
-        if (min && max ) {
-            this.min = min;
-            this.max = max;
+        
+        if ( this.value1== "500") {
+
+            this.min_price_500=min; 
            
-            this.setPage(1);
-        }
-        else {
-            localStorage.removeItem('min');
-            localStorage.removeItem('max');
-            localStorage.removeItem('price');
-            delete this.min;
-            delete this.max;
-            // delete this.price;
+           this.max_price_500 =max;
+
+
+           this.min_price_1000=undefined;
+           this.max_price_1000 =undefined;
+           this.max_price_2000 =undefined;
+           this.max_price_2000 =undefined;
+            console.log(this.min_price_500)
             this.setPage(1);
         }
 
-        console.log(this.min,this.max)
+       else if(this.value1=="1000")
+        {
+            this.min_price_500=undefined;
+            this.max_price_500 =undefined;
+            this.max_price_2000 =undefined;
+            this.max_price_2000 =undefined;
+
+            this.min_price_1000=min; 
+           
+           this.max_price_1000 =max;
+           this.setPage(1);
+        }
+        else if (this.value1=="2000"){
+            
+            this.min_price_1000=undefined;
+            this.max_price_1000 =undefined;
+            this.max_price_500 =undefined;
+            this.max_price_500 =undefined;
+            this.min_price_2000=min; 
+           
+           this.max_price_2000 =max;
+           this.setPage(1);
+        }
+        // else {
+        //     localStorage.removeItem('min');
+        //     localStorage.removeItem('max');
+        //     localStorage.removeItem('price');
+        //     delete this.min;
+        //     delete this.max;
+        //     // delete this.price;
+        //     this.setPage(1);
+        // }
+
+        console.log(this.min, this.max)
     }
 
     checked20(event, i) {
-        this.sort = "dsc";
+        this.sort = "Renewable";
         this.setPage(1);
     }
     checked21(event, i) {
@@ -960,10 +1095,10 @@ country;
         this.setPage(1);
     }
     move(name) {
-       
+
         this.name = name;
         console.log(this.name)
-       
+
         //   this.router.navigate(['/products/' + this.zip_code]);
         //   localStorage.setItem('zip', this.zip_code);
         //   localStorage.setItem('name', name.trim());
@@ -1044,21 +1179,23 @@ country;
                 }
 
             },
-            error => {
-                swal({
-                    text: "Zipcode Dose Not Exist",
-                    title: "Choice Genie",
-                    type: "error",
-                    showConfirmButton: false,
-                    timer: 1200,
-                    confirmButtonText: "OK",
+                error => {
+                    swal({
+                        text: "Zipcode Dose Not Exist",
+                        title: "Choice Genie",
+                        type: "error",
+                        showConfirmButton: false,
+                        timer: 1200,
+                        confirmButtonText: "OK",
 
-                })
-            }
+                    })
+                }
             );
     }
 
     setPage(page: number) {
+
+
         if (this.months1 == null) {
             delete this.months1;
         }
@@ -1101,23 +1238,31 @@ country;
         if (this.max == null) {
             delete this.max;
         }
-
+        // if (this.planmin == null) {
+        //     delete this.planmin;
+        // }
+        // this.min_price_500,this.max_price_500,this.min_price_1000,this.max_price_1000, this.min_price_2000,this.max_price_2000,
         const Results = {}
-        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "6 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.notprepaid == "prepaid" || this.prepaid == "prepaid" || this.planmin == "NULL" || this.time == "Time Of Use" || this.nottime == "Time Of Use" || this.renewable || this.name || this.sort == "dsc" || this.item || this.min || this.max || this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5 ) {
 
-            console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.price, 'tttttttttttt');
-            this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.item, this.min, this.max,this.logo1,this.logo2,this.logo3,this.logo4,this.logo5).subscribe(response => {
+        if (this.months1 == "36 Months" || this.months2 == "24 Months" || this.months3 == "18 Months" || this.months4 == "14 Months" || this.months5 == "12 Months" || this.months6 == "12 Months" || this.months7 == "5 Months" || this.fixed == "Fixed Rate" || this.vari == "Variable (Changing Rate)" || this.market == "Indexed (Market Rate)" || this.prepaidall == "both" || this.showallplanPB == "both" || this.timeall == "both" || this.planmin == "NULL" || this.notprepaid == "noprepaid" || this.prepaid == "Prepaid" || this.time == "Time Of Use" || this.nottime == "notime" || this.renewable || this.name || this.sort || this.item || this.min_price_500||this.max_price_500||this.min_price_1000||this.max_price_1000||this.min_price_2000||this.max_price_2000|| this.logo1 || this.logo2 || this.logo3 || this.logo4 || this.logo5 == "StarRating5.png") {
 
+            console.log(this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.prepaid, this.notprepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort,  this.item,this.min_price_500,this.max_price_500,this.min_price_1000,this.max_price_1000, this.min_price_2000,this.max_price_2000, this.timeall, this.prepaidall, this.showallplanPB, 'multifilter');
+            this.obj.filter(page, this.zip_code, this.months1, this.months2, this.months3, this.months4, this.months5, this.months6, this.months7, this.fixed, this.vari, this.market, this.notprepaid, this.prepaid, this.planmin, this.time, this.nottime, this.renewable, this.name, this.sort, this.item, this.min_price_500,this.max_price_500,this.min_price_1000,this.max_price_1000, this.min_price_2000,this.max_price_2000, this.logo1, this.logo2, this.logo3, this.logo4, this.logo5, this.prepaidall, this.timeall, this.showallplanPB).subscribe(response => {
+
+
+                // alert(this.min_price_500);
                 this.product = response['Results'];
                 this.noresult = response['Total Result'];
                 this.zipdet = localStorage.getItem('zip');
                 for (let prod of this.product) {
+                    var re = /\s*(?:;|$)\s*/;
                     prod["plan_information"] = prod["plan_information"].split(',,', 3000);
+                    // prod["plan_information"] = prod["plan_information"].split(',,,,,', 3000);
                     prod["price_rate"] = prod["price_rate"].split('..', 3000);
 
                 }
 
-                this.pager = this.pagerService.getPager(response['Total Result'], page);
+                this.pager = this.pagerService.getPager(response['Total Result'], page, this.item);
 
             }
 
@@ -1129,8 +1274,12 @@ country;
 
 
         else {
-            this.obj.searchProducts(this.zip_code, page).subscribe(response => {
 
+
+
+
+            this.obj.searchProducts(this.zip_code, page).subscribe(response => {
+                console.log(this.product = response['Results'])
                 this.product = response['Results'];
                 this.noresult = response['Total Result'];
                 for (let prod of this.product) {
@@ -1140,7 +1289,7 @@ country;
                 }
 
 
-                this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
+                this.pager = this.pagerService.getPager(response['Total Result'], page, this.item);
 
             }
 

@@ -19,7 +19,7 @@
   background-image:url('../../assets/images/spinner.svg');
   background-repeat: no-repeat;
   background-position: 22px 30px;
-  background-size: 96px 96px;
+  background-size: 96px 97px;
   animation: spin 5s ease-in-out infinite, delay 2s ease-in-out 1 ;
   text-align:center;
 }
@@ -30,7 +30,7 @@
   100% { transform: rotate(360deg); transition:ease-in-out}
 
 }
-@-webkit-keyframes spin {
+@-webkit-keyframes delay {
 
   0% { opacity: 0;}
   50% { opacity: 0;}

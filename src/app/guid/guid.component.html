@@ -1,20 +1,20 @@
 <div class="new-product-holder">
     <div class="page-title">
-  
-      <h3 class="text-center choiecegenie-offers" style="margin: 0px !important;">Narrow Your Search</h3>
-  
+
+      <h3 class="text-center" style="margin: 0px !important;">Narrow Your Search</h3>
+
     </div>
-  
+
     <!--<h3 class="text-center">ADD NEW PRODUCT</h3>-->
     <!--<hr />-->
-  
+
     <div class="row">
       <!-- <form   *ngif="signupForm"> -->
-  
+
       <form method="" action="" (ngSubmit)="onSubmit(f)" #f="ngForm" novalidate>
         <mat-horizontal-stepper [linear]="isLinear" class="mat-tabs-bar" style="background: none">
           <mat-step [stepControl]="signupForm">
-            <div [formGroup]="signupForm" style="padding: 10px;">
+            <div [formGroup]="signupForm" style="padding: 3px;">
               <ng-template matStepLabel>Average Monthly Use</ng-template>
               <ng-template matStepLabel></ng-template>
               <div class="card tabs-content-box" style="padding: 15px;">
@@ -47,24 +47,24 @@
                             <!-- <label class="control-label"style="font-size: 18px">KWh</label> -->
                             <!-- placeholder="Kwh" -->
                             <mat-select required [(ngModel)]="price" formControlName="price">
-  
+
                               <mat-option value="500" style="font-size: 20px">500 kWh</mat-option>
                               <mat-option value="1000" style="font-size: 20px">1000 kWh</mat-option>
                               <mat-option value="2000" style="font-size: 20px">2000 kWh</mat-option>
                             </mat-select>
                           </mat-form-field>
-  
+
                         <!--</li>-->
                       </div>
-  
+
                       <div class="">
                         <button mat-button matStepperNext class="btn btn-fill">Next
                           <i class="fa fa-angle-right" style="font-size: 26px; margin: -9px 0px 0px 3px;"></i>
                         </button>
                       </div>
-                      <a (click)="submit()" class="view-plans">
+                      <!-- <a (click)="submit()" class="view-plans">
                         View Plans
-                      </a>
+                      </a> -->
                       <!-- <mat-error *ngIf="firstFormGroup.controls['serviceType'].invalid"><strong>One statement must be selected</strong></mat-error> -->
                     </div>
                     <div class="col-sm-6 col-right">
@@ -80,13 +80,13 @@
                       </div>
                     </div>
                   </div>
-  
-  
+
+
                 </div>
-  
+
               </div>
             </div>
-  
+
           </mat-step>
           <mat-step [stepControl]="secondFormGroup">
             <div [formGroup]="secondFormGroup" style="padding: 10px;">
@@ -118,9 +118,9 @@
                         </div>
                         <div class="checkbox">
                           <label class="checkbox-font">
-  
+
                             <input type="checkbox" formControlName="fixed" [(ngModel)]=fixed value="fixed" (change)="checked8($event,i)"> Fixed Rate
-  
+
                           </label>
                         </div>
                         <div class="checkbox">
@@ -137,8 +137,8 @@
                         </div>
                         <!--<hr style="background: #000000">-->
                       <!--</li>-->
-  
-  
+
+
                     </div>
                       <div class="">
                         <button mat-button matStepperPrevious class="btn btn-fill">
@@ -149,11 +149,11 @@
                           <i class="fa fa-angle-right" style="font-size: 26px; margin: -9px 0px 0px 3px;"></i>
                         </button>
                       </div>
-                      <a (click)="submit()" class="view-plans">
+                      <!-- <a (click)="submit()" class="view-plans">
                         View Plans
-                      </a>
+                      </a> -->
                     </div>
-  
+
                     <div class="col-sm-6 col-right">
                       <div class="">
                         <h3 class="f-sackers-heavy color-red"><span>DID YOU KNOW?</span></h3>
@@ -201,25 +201,25 @@
                             </h5>
                           </a>
                         </div>
-  
-  
-  
+
+
+
                         <div class="pric-range-box" style="margin-bottom: 20px;">
                           <span class="f-size">¢</span>
                           <input type="text" class="ng-valid ng-dirty ng-touched" required formControlName="min" [(ngModel)]="min" style="text-align: left; font-size: 20px;border-radius: 5px;">
                           <span class="f-size">to</span>
                           <span class="f-size">¢</span>
                           <input type="text" class="ng-valid ng-dirty ng-touched" required formControlName="max" [(ngModel)]="max" style="text-align: left; font-size:20px;border-radius: 5px;">
-  
+
                           <!--<button class="price-range-submit btn-fill" (click)="pricerate(min,max,price)">-->
                             <!--<i class="fa fa-chevron-right" style="color: #ffffff"></i>-->
                           <!--</button>-->
-  
+
                         </div>
                         <!--<hr style="margin-top: 20px !important; background: #000000">-->
                       <!--</li>-->
                     </div>
-  
+
                       <div class=""     >
                         <button mat-button matStepperPrevious class="btn btn-fill">
                           <i class="fa fa-angle-left" style="font-size: 26px; margin: -9px 3px 0px 0px;"></i>
@@ -229,13 +229,13 @@
                           <i class="fa fa-angle-right" style="font-size: 26px; margin: -9px 0px 0px 3px;"></i>
                         </button>
                       </div>
-                      <a (click)="submit()" class="view-plans">
+                      <!-- <a (click)="submit()" class="view-plans">
                         View Plans
-                      </a>
+                      </a> -->
                     </div>
-  
+
                     <div class="col-sm-6 col-right">
-  
+
                             <div class="">
                               <h3 class="f-sackers-heavy color-red"><span>DID YOU KNOW?</span></h3>
                               <ul class="info-list">
@@ -246,11 +246,11 @@
                                 <li>Many electric companies require that you use a minimum amount of electricity each month. Our shopping tool allows you to see if a company requires a minimum usage and if there is an associated fee or credit.</li><p></p>
                               </ul>
                             </div>
-                          
+
                     </div>
-  
+
                   </div>
-  
+
                 </div>
               </div>
             </div>
@@ -283,59 +283,59 @@
                               </h5>
                             </a>
                           </div>
-  
+
                           <div class="checkbox">
                             <label class="checkbox-font">
                               <input type="checkbox" formControlName="months1" [(ngModel)]=months1 value="months1" (change)="checked1($event,i)">36 Months
                             </label>
-  
+
                           </div>
                           <!-- end ngRepeat: term in filters.terms -->
                           <div class="checkbox">
                             <label class="checkbox-font">
                               <input type="checkbox" formControlName="months2" [(ngModel)]=months2 value="months2" (change)="checked2($event,i)">24 Months
                             </label>
-  
+
                           </div>
                           <div class="checkbox">
                             <label class="checkbox-font">
                               <input type="checkbox" formControlName="months3" [(ngModel)]=months3 value="months3" (change)="checked3($event,i)">18 Months
                             </label>
-  
+
                           </div>
                           <!-- end ngRepeat: term in filters.terms -->
                           <div class="checkbox">
                             <label class="checkbox-font">
                               <input type="checkbox" formControlName="months4" [(ngModel)]=months4 value="months4" (change)="checked4($event,i)">14 Months
                             </label>
-  
+
                           </div>
-  
+
                           <div class="checkbox">
                             <label class="checkbox-font">
                               <input type="checkbox" formControlName="months5" [(ngModel)]=months5 value="months5" (change)="checked5($event,i)">12 Months
                             </label>
-  
+
                           </div>
                           <!-- end ngRepeat: term in filters.terms -->
                           <div class="checkbox">
                             <label class="checkbox-font">
                               <input type="checkbox" formControlName="months6" [(ngModel)]=months6 value="months6" (change)="checked6($event,i)">6 Months
                             </label>
-  
+
                           </div>
                           <!-- end ngRepeat: term in filters.terms -->
                           <div class="checkbox" style="margin-bottom: 20px !important;">
                             <label class="checkbox-font">
                               <input type="checkbox" formControlName="months7" [(ngModel)]=months7 value="months7" (change)="checked7($event,i)">5 Months
                             </label>
-  
-  
+
+
                           </div>
-  
+
                           <!--<hr style="background: #000000">-->
                         <!--</li>-->
-  
+
                       </div>
                       <div class="">
                         <button mat-button matStepperPrevious class="btn btn-fill">
@@ -345,7 +345,7 @@
                         <button type="submit" mat-button matStepperNext class="btn btn-fill" (click)="submit()">View Results</button>
                       </div>
                     </div>
-  
+
                     <div class="col-sm-6 col-right">
                       <div  class="">
                         <h3  class="f-sackers-heavy color-red"><span >DID YOU KNOW?</span></h3>
@@ -356,19 +356,19 @@
                         </ul>
                       </div>
                     </div>
-  
-  
+
+
                   </div>
-  
+
                 </div>
               </div>
             </div>
           </mat-step>
-  
+
         </mat-horizontal-stepper>
-  
-  
+
+
       </form>
-  
+
       </div>
     </div>

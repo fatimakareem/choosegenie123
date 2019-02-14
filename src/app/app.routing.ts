@@ -82,22 +82,22 @@ export const AppRoutes: Routes = [
             path: 'Faqs',
             loadChildren: './faqs/faqs.module#FaqsModule'
         },
-        // {
-        //     path: 'ChangePassword',
-        //     loadChildren: './changepassword/changepassword.module#ChangePasswordModule'
-        // },
-        // {
-        //     path: 'changepassword',
-        //     loadChildren: './change-password/change-password.module#ChangePasswordModule'
-        // },
+        {
+            path: 'pricing',
+            loadChildren: './price/price.module#priceModule'
+        },
+        {
+            path: 'enrollment',
+            loadChildren: './webenrollment/webenrollment.module#PrivacyModule'
+        },
         {
             path: 'blog',
             loadChildren: './Blogchoicegenie/blog/blog.module#BlogModule'
         },
-        {
-            path: 'blogss',
-            loadChildren: './blogss/blogss.module#BecomeapartnerModule'
-        },
+        // {
+        //     path: 'blogss',
+        //     loadChildren: './blogss/blogss.module#BecomeapartnerModule'
+        // },
        
     
     
@@ -159,6 +159,10 @@ export const AppRoutes: Routes = [
             loadChildren: './terms/terms.module#termsModule'
           },
           {
+            path: 'User-guide',
+            loadChildren: './userguide/userguide.module#termsModule'
+          },
+          {
             path: 'features-comparison',
             loadChildren: './features-comparison/features.module#FeatureModule'
         },
@@ -208,10 +212,10 @@ export const AppRoutes: Routes = [
                 path: 'ChangePassword',canActivate: [AuthguardService],
                 loadChildren: './changepassword/changepassword.module#ChangePasswordModule'
             },
-            // {
-            //     path: 'SuperChangePassword',
-            //     loadChildren: './superchangepassword/superchangepassword.module#ChangePasswordModule'
-            // },
+            {
+                path: 'purchase-history',canActivate: [AuthguardService],
+                loadChildren: './historypurchase/historypurchase.module#purchaseModule'
+            },
             // {
             //     path: 'superviewcontact',
             //     loadChildren: './superviewcontact/superviewcontact.module#superviewcontactModule'

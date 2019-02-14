@@ -20,6 +20,7 @@ import { SimpleGlobal } from 'ng2-simple-global';
 // import { ValueUnwrapper } from '@angular/core/src/change_detection/change_detection_util';
 //import { Http } from '@angular/http/src/http';
 import { PageEvent } from '@angular/material';
+import { google } from '@agm/core/services/google-maps-types';
  
 declare const $: any;
 const misc: any = {
@@ -56,6 +57,9 @@ export class NavbarComponent implements OnInit {
         this.sidebarVisible = false;
     }
     
+    googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.VERTICAL}, 'google_translate_element');
+      }
     check_login() {
         if (localStorage.getItem('username')) {
           let local = localStorage.getItem('username');
@@ -77,10 +81,27 @@ export class NavbarComponent implements OnInit {
           return false;
         }
       }
+         
+  checked_price() {
+    if (localStorage.getItem('role')=='Deregulatedstate Vendor') {
+      let local = localStorage.getItem('role');
+      return false;
+    }
+    else if(localStorage.getItem('role')=='Not Deregulatedstate Vendor'){
+      return false;
+    }
+    else if(localStorage.getItem('role')=='USER')
+    {
+      return true;
+    }
+}
+
       moving1() {
         this.router.navigate(['/supermaindashboard']);
       }
-    
+      profilelink(){
+        this.router.navigate(['/company-profile']);
+    }
       moving() {
         if (localStorage.getItem('role') == "Not Deregulatedstate Vendor") {
           this.router.navigate(['/dashboard/' + this.username]);
@@ -90,6 +111,17 @@ export class NavbarComponent implements OnInit {
         }
         else if(localStorage.getItem('role') =="USER"){
           this.router.navigate(['/consumerdashboard/']);
+        }
+      }
+      getprofile() {
+        if (localStorage.getItem('role') == "Not Deregulatedstate Vendor") {
+          this.router.navigate(['/company-profile']);
+        }
+        else if (localStorage.getItem('role') == "Deregulatedstate Vendor") {
+          this.router.navigate(['/company-profile']);
+        }
+        else if(localStorage.getItem('role') =="USER"){
+          this.router.navigate(['/userprofile']);
         }
       }
       move(){
@@ -102,8 +134,41 @@ export class NavbarComponent implements OnInit {
     
       }
      
-     
+      openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+    
+     closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
     ngOnInit() {
+        // <script>
+      $("#showmenu").click(function(e){
+        e.preventDefault();
+        $("#menu").toggleClass("show");
+      });
+      $("#menu a").click(function(event){
+        event.preventDefault();
+        if($(this).next('ul').length){
+          $(this).next().toggle('fast');
+          $(this).children('i:last-child').toggleClass('fa-caret-down fa-caret-left');
+        }
+      });
+    // </script>
+    // <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36251023-1']);
+      _gaq.push(['_setDomainName', 'jqueryscript.net']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    // </script>
         this.admin=localStorage.getItem('currentadmin')
 
         this.massage = localStorage.getItem('role')

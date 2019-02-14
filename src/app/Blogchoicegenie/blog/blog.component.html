@@ -49,20 +49,22 @@
 
 <app-loader></app-loader>
 
-<div class="container">
-  <div  class="page-title">
+<div class="container-fluid padding-l-r-70">
+  <div  class="">
 
-    <h3  class="text-center choiecegenie-offers l-height">The ChoiceGenie Blog <br/> Where You Save Money On Electricity Rates</h3>
+    <h3  class="text-center blog-heading">
+      <span style="color: #333;border-bottom: 3px solid #c00;padding-bottom: 3px;">ChoiceGenie Blog</span>
+      <br> <span style="border-bottom: 3px solid #c00;padding-bottom: 3px;">Where You Save Money On Electricity Rates</span></h3>
 
   </div>
 <div class="row">
-  <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 margin-b mydiv" *ngFor="let data of data;let i=index">
+  <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 margin-b mydiv" *ngFor="let data of data;let i=index">
     <div class="layer-content">
       <div>
         <img src="https://storage.choicegenie.com/images/{{data.blog_image}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"  alt="ChoiceGenie">
       </div>
       <div class="blog-layout-content">
-        <h2>{{data.heading}}</h2>
+        <a (click)="fun(data.heading)"  target="_blank"  ><h2>{{data.heading}}</h2></a>
         <div [innerHTML]="data.content1 | slice:0:130"></div>
         <a (click)="fun(data.heading)"  target="_blank"  >
         <button class="btn btn-fill margin-zero1" type="submit"  target="_blank" >Read more</button></a>

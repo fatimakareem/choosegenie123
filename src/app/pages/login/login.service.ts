@@ -68,7 +68,7 @@ export class LoginService {
                 else if (this.massage == "Successfully Login As Deregulatedstate vendor") {
                     this._nav.navigate(['/dashboards/' + username]);
                     localStorage.setItem('change', username);
-                    localStorage.setItem('custum', username);
+                    localStorage.setItem('username', username);
 
                     localStorage.setItem('username', this.word);
                 }

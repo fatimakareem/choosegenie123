@@ -332,7 +332,8 @@
    right: 0; }
 
  body.swal2-shown {
-   overflow-y: hidden; }
+   overflow-y: hidden;
+   }
 
  .swal2-container {
    display: -webkit-box;
@@ -370,7 +371,8 @@
    outline: 0; }
 
  .swal2-modal.swal2-loading {
-   overflow-y: hidden; }
+   overflow-y: hidden; 
+  }
 
  .swal2-modal .swal2-title {
    color: #595959;
@@ -5661,7 +5663,9 @@
    float: none;
    box-shadow: none;
    border-radius: 0;
-   font-weight: 400; }
+   font-weight: 400;
+   font-size: 20px;
+ }
    .form-control::-moz-placeholder,
    .form-group .form-control::-moz-placeholder {
      color: #AAAAAA;
@@ -8912,7 +8916,7 @@
      margin-top: 4px;
      width: 40px;
      height: 40px;
-     display: block !important;
+     display: none !important;
      float: right; }
 
    .bar1,

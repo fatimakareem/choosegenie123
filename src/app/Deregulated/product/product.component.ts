@@ -7,6 +7,7 @@ import { ErrorStateMatcher, MAT_DIALOG_DATA, MatDialog, MatDialogRef } from "@an
 import { NgForm, FormControl, Validators, FormGroupDirective } from "@angular/forms";
 import { SimpleGlobal } from 'ng2-simple-global';
 import { DataService } from '../../data.service';
+
 import * as _ from 'underscore';
 import { PagerService } from '../../pager.service';
 import { Pipe, PipeTransform } from "@angular/core";
@@ -23,6 +24,7 @@ import { PageEvent } from '@angular/material';
 import {ExcelService} from '../../excel.service';
 import swal from 'sweetalert2';
 import { error } from 'util';
+import { HttpService } from '../../serv/http-service';
 declare const $: any;
 @Component({
     selector: 'app-product',
@@ -53,7 +55,7 @@ export class ProductComponent implements OnInit,OnDestroy {
     max_price_1000;
     min_price_2000;
     max_price_2000;
-    constructor(private excelService:ExcelService,private http: Http, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
+    constructor(private excelService:ExcelService,private http: Http,private https: HttpService, private pagerService: PagerService, private homeService: HomeService, private route: ActivatedRoute, public sg: SimpleGlobal, private obj: HomeService, private router: Router, private dialog: MatDialog, private data: DataService) {
 
     }
 
@@ -92,7 +94,7 @@ export class ProductComponent implements OnInit,OnDestroy {
     notprepaid;
     time;
     energy;
-   
+    className;
     sort;
     checked4;
     checked9;
@@ -166,7 +168,7 @@ export class ProductComponent implements OnInit,OnDestroy {
     };
     ngOnInit() {
         this.myID = document.getElementById("myID");
-
+        this.item= "20";
         var myScrollFunc = function() {
           var y = window.scrollY;
           if (y >= 800) {
@@ -182,7 +184,7 @@ export class ProductComponent implements OnInit,OnDestroy {
       this.name=localStorage.getItem('name');
         this.username = localStorage.getItem('username');
         this.zip_code = localStorage.getItem('zip');
-        this.customer = localStorage.getItem('custum')
+        this.customer = localStorage.getItem('username')
         this.months1 = localStorage.getItem('months1')
         this.months2 = localStorage.getItem('months2')
         this.months3 = localStorage.getItem('months3')
@@ -229,11 +231,15 @@ this.zipwithcity();
         // document.getElementById("myID").style.display = "none";
         this.status=false;
       }
+      print(){
+        window.print();
+    }
+    
     featuredplan() {
 
         let headers = new Headers();
         headers.append('Content-Type', 'application/json')
-        this.http.get(Config.api + 'topproducts_deregulated/', { headers: headers })
+        this.https.get(Config.api + 'topproducts_deregulated/', { headers: headers })
 
             .subscribe(Res => {
 
@@ -251,15 +257,33 @@ this.zipwithcity();
         this.http.get(Config.api + 'zipcodewith_country_city/'+ this.zip_code, { headers: headers })
 
             .subscribe(Res => {
+                this.city= Res.json();
+                console.log(this.city);
 
-                this.city = Res.json()[0].city;
-                this.country = Res.json()[0].country;
+                // this.city = Res.json()[0].city;
+                // this.country = Res.json()[0].country;
                 // this.data.changeProducts(this.sg['plan']);
                 this.Items = this.sg['plan'];
 
 
             });
     }
+    // zipwithcity() {
+
+    //     let headers = new Headers();
+    //     headers.append('Content-Type', 'application/json')
+    //     this.http.get(Config.api + 'zipcodewith_country_city/'+ this.zip_code, { headers: headers })
+
+    //         .subscribe(Res => {
+
+    //             this.city = Res.json()[0].city;
+    //             this.country = Res.json()[0].country;
+    //             // this.data.changeProducts(this.sg['plan']);
+    //             this.Items = this.sg['plan'];
+
+
+    //         });
+    // }
     submit(id, title) {
         console.log(title.trim())
         this.router.navigate(['/Review/' + id]);
@@ -294,8 +318,8 @@ this.zipwithcity();
         console.log('id : ' + this.catagoryId);
     }
     checked_login() {
-        if (localStorage.getItem('custum')) {
-            let local = localStorage.getItem('custum');
+        if (localStorage.getItem('username')) {
+            let local = localStorage.getItem('username');
             return true;
         }
 
@@ -312,7 +336,8 @@ this.zipwithcity();
             .subscribe(Res => {
                 this.data = Res.json();
                 console.log(this.data);
-                this.user = this.data['user'].id
+                this.user=this.username;
+                // this.user = this.data['user'].id
             });
 
     }
@@ -321,8 +346,9 @@ this.zipwithcity();
         this.rate = rating;
     }
     reviews(rate, comt, id) {
-        if (localStorage.getItem('custum')) {
+        if (localStorage.getItem('username')) {
             console.log(id)
+            console.log(this.username)
             let headers = new Headers();
             headers.append('Content-Type', 'application/json');
             this.http.post(Config.api + 'reviews/' + this.comtitle , JSON.stringify({
@@ -330,7 +356,7 @@ this.zipwithcity();
                 "rate": this.rate,
                 "company_name": this.comtitle,
                 "comment": comt,
-                "user": this.user,
+                "user": this.username,
                 "servicearea": this.servicearea,
                 // "profile": this.profile_logo
             }
@@ -362,7 +388,7 @@ this.zipwithcity();
     companytitle() {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        this.http.get(Config.api + 'deregulated_companies/', { headers: headers })
+        this.https.get(Config.api + 'deregulated_companies/', { headers: headers })
 
             .subscribe(Res => {
 
@@ -581,7 +607,7 @@ checkprice(min, max) {
         }
         else {
             console.log()
-            this.item = "10";
+            this.item = "20";
 
             console.log(this.item)
         }
@@ -652,7 +678,7 @@ checkprice(min, max) {
                 console.log(this.RFP,'usman');
 
                 this.prod_loaded = true;
-                this.pager = this.pagerService.getPager(response['Total Result'], page, 10);
+                this.pager = this.pagerService.getPager(response['Total Result'], page, this.item);
 
             });
         }

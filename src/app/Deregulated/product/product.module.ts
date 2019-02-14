@@ -16,6 +16,7 @@ import { SlickModule } from 'ngx-slick';
 
 import { HomeService } from '../../home/home.service';
 import { SimpleGlobal } from 'ng2-simple-global';
+import { LoaderModule } from '../../loader/loader.module';
 // import { Pipe, PipeTransform } from "@angular/core";
 // import { HttpClientModule } from '@angular/common/http'
 const customNotifierOptions: NotifierOptions = {
@@ -66,6 +67,7 @@ const customNotifierOptions: NotifierOptions = {
         FormsModule,
         AngularcliStarRatingModule,
         NotifierModule.withConfig(customNotifierOptions),
+        LoaderModule,
       
         // MdModule,
         MaterialModule,

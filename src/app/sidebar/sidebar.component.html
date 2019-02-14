@@ -119,52 +119,80 @@
 
 
 <section id="body" class="width">
-  <aside id="sidebar sticky" class="column-left" style="padding: 20px 10px">
+  <aside id="sidebar sticky" class="column-left" style="padding:0px">
     <div class="admin-heding text-center">
       <!-- <h2>Vendor Panel</h2> -->
     </div>
 
-    <header style="padding: 0px;">
+    <!-- <header class="con-sidebar">
       <ng-container class="card" *ngFor="let data of sg['products']; let i = index">
         <div *ngIf="i<1" class="sidebar-profile-img">
           <a (click)="moving()">
-            
+
             <img src="{{data.profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'" >
           </a>
         </div>
       </ng-container>
-    </header>
-
+    </header> -->
+    <div class="sidebar-input">
+     <input type="text" [value]="user" readonly>
+    </div>
     <nav id="mainnav">
       <ul class="super-sidebar-list">
-        <li>
-          <input type="text" [value]="user" readonly>
-        </li>
+        <!-- <li>
+          <input type="text" [value]="user" readonly> 
+        </li> -->
         <li>
           <a (click)="moving()">
+            <i class="material-icons">
+              web
+            </i>
             <span class="sidebar-normal">DashBoard</span>
           </a>
         </li>
         <li>
-          <a routerLink="/company-profile">
+          <a (click)="profilelink()">
+            <i _ngcontent-c6="" class="material-icons dash-icons">
+              account_circle
+            </i>
             <span class="sidebar-normal">My Profile</span>
           </a>
         </li>
         <li>
           <a  (click)="pro()">
-            <span class="sidebar-normal">Add New Product</span>
+            <i class="material-icons">
+              exit_to_app
+            </i>
+            <span class="sidebar-normal">
+              Add New Product</span>
           </a>
         </li>
         <li>
-          <a routerLink="/ChangePassword1">Change Password</a>
+
+          <a routerLink="/ChangePassword1">
+            <i _ngcontent-c6="" class="material-icons dash-icons">
+              edit
+            </i>
+            Change Password
+          </a>
 
         </li>
         <li>
-          <a (click)="move()">Inactive Products</a>
+          <a (click)="move()">
+            <i class="material-icons">
+              pageview
+            </i>
+            Inactive Products
+          </a>
 
         </li>
         <li>
-          <a (click)="logout()">logout</a>
+          <a (click)="logout()">
+            <i _ngcontent-c6="" class="material-icons dash-icons">
+              arrow_back
+            </i>
+            Signout
+          </a>
 
         </li>
       </ul>

@@ -74,7 +74,7 @@ export class InactiveProductsComponent implements OnInit {
   status = true;
   rate = '';
   ngOnInit() {
-      this.title = localStorage.getItem('username')
+      this.title = localStorage.getItem('title')
       console.log(this.title, 'gggggggggggggggg')
       this.username = localStorage.getItem('username');
       this.zip_code = localStorage.getItem('zip');

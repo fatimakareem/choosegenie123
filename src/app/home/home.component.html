@@ -21,11 +21,11 @@
           <a href="https://play.google.com/store/apps/details?id=com.brainplow.choicegenie&hl=en" target="_blank" style="float:left;margin-right: 5px">
             <img alt="Get it on Google Play" src="../../assets/img/footer/Adroid-Badge.png" style="width: 131px; margin-top: -4px;">
           </a>
-          <a href="https://itunes.apple.com/us/app/choicegenie/id1391027521?platform=ipad&preserveScrollPosition=true&platform=ipad#platform/ipad&platform=ipad" style="float:left;" target="_blank">
+          <a href="https://itunes.apple.com/us/app/choicegenie/id1391027521?mt=8" style="float:left;" target="_blank">
             <img alt="Get it on Google Play" src="../../assets/img/footer/IOS-Badge.png" style="width:114px">
           </a>
           <br/>
-    
+
 
 
 
@@ -103,10 +103,11 @@
         </div>
       </div>
     </div>
-    <div id="google_translate_element"></div>
+
 
     <div class="content-box-02">
-      <div class="container-fluid space-up slider-pad" *ngIf="resulttaxes && resultderegulated">
+        <!-- *ngIf="resulttaxes && resultderegulated" -->
+      <div class="container-fluid space-up slider-pad"*ngIf="resulttaxes " >
         <div class="text-center">
           <h3 class="title-04 wow slideInLeft padding-zero-i" style="margin-top: 0px !important;">Top Rated Energy Vendors</h3>
         </div>
@@ -114,16 +115,17 @@
             <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
               <div class="mustafa">
                 <div class="slide" ngxSlickItem *ngFor="let data of resulttaxes; let i = index">
-                    <div class="prod-slide">
+                    <div class="prod-slide1">
+                      <div class="slider-img1">
                         <a (click)="move(data.title)">
                           <img class="img1" src="{{data.profile_logo}}" alt="{{data.title}}" alt="Card image cap" />
                         </a>
-
+                      </div>
                       </div>
                 </div>
               </div>
 
-              <div class="mustafa">
+              <!-- <div class="mustafa">
           <div class="slide" ngxSlickItem *ngFor="let data of resultderegulated; let i = index" >
               <div class="prod-slide">
                 <a (click)="move(data.title)">
@@ -134,7 +136,7 @@
 
 
             </div>
-              </div>
+              </div> -->
           </ngx-slick>
         </div>
         <!-- <div class="slick-date normal-slider owl-option-01 owl-theme-01">
@@ -196,10 +198,10 @@
           <div class="col-md-12">
             <div class="play-store-inner">
               <h4 class="margin-zero">
-                <span>Download</span> and experience our Super-Cool Next-Generation Mobile App Now.</h4>
+                <span>Download</span> and Experience our Super-Cool Next-Generation Mobile App Now.</h4>
               <ul class="play-store-img">
                 <li>
-                  <a href="#" target="_blank">
+                  <a href="https://itunes.apple.com/us/app/choicegenie/id1391027521?mt=8" target="_blank">
                     <img class="apple-button" alt="IOS" src="assets/img/IOS-Badge.png">
                   </a>
                   <a href="https://play.google.com/store/apps/details?id=com.brainplow.choicegenie" target="_blank">
@@ -215,12 +217,70 @@
         </div>
       </div>
     </div>
-    <div style="background-color: #ffffff">
+
+
+<!-- <div *ngIf="sg['plan']" class="slidr-m sh-fix">
+            <div style="padding: 0px; text-align:center;">
+              <h1 class="hd-most-popular-plans">Most Popular Plans</h1>
+            </div>
+            <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+              <div class="mustafa" style="width:1100px;border-radius:20px" ngxSlickItem *ngFor="let data of sg['plan']; let i = index"
+                class="slide">
+                <div class="prod-slide">
+                  <div class="slider-img">
+                    <a (click)="move(data.title)">
+                      <img class="img2" src="{{data.profile_logo}}" onerror="this.src='../../assets/img/ChoiceGenie-logo2.png'"
+                        alt="Card image cap" />
+                    </a>
+                  </div>
+                  <div class="text-center slider-price">
+                    500 Kwh
+                    <p><strong>{{data.price_500_kwh }}¢</strong></p>
+                  </div>
+                  <h2 class="view-plan-details" (click)="btnEditClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl); getreview(data.id); avereview(data.id)"
+                    data-toggle="modal" data-target="#myModal2">Plan Information
+                  </h2>
+                  <h2 class="view-plan-details" (click)="btnDeleteClick(data.id,data.title,data.profileurl,data.profile_logo)"
+                    data-toggle="modal" data-target="#myModal3"> Leave a Review
+                  </h2>
+                </div>
+              </div>
+            </ngx-slick>
+         
+          </div> -->
+
+    <!-- <div class="content-box-02"> -->
+      <!-- *ngIf="resulttaxes && resultderegulated" -->
+    <!-- <div class="container-fluid space-up slider-pad"*ngIf="resulttaxes " >
+      <div class="text-center">
+        <h3 class="title-04 wow slideInLeft padding-zero-i" style="margin-top: 0px !important;">Top Rated Energy Vendors</h3>
+      </div>
+      <div>
+          <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+            <div class="mustafa">
+              <div class="slide" ngxSlickItem *ngFor="let data of resulttaxes; let i = index">
+                  <div class="prod-slide">
+                    <div class="slider-img1">
+                      <a (click)="move(data.title)">
+                        <img class="img1" src="{{data.profile_logo}}" alt="{{data.title}}" alt="Card image cap" />
+                      </a>
+                    </div>
+                    </div>
+              </div>
+            </div>
+
+        
+        </ngx-slick>
+      </div>
+      
+    </div> -->
+  <!-- </div> -->
+    <!-- <div class="main-bg">
       <div>
         <header class="entry-header contatiner-fluid" style="padding-top: 0px">
           <!--<h3 class="text-center choiecegenie-offers wow fadeInLeft"><span style="color: #c00;">Comparing USA Electricity Rates Has Never Been Easier</span></h3>-->
-          <h1 class="full-width-title entry-title" itemprop="headline">
-            <span style="color: #c00;">Comparing</span> USA Electricity Rates Has Never Been Easier</h1>
+          <!-- <h1 class="full-width-title entry-title" itemprop="headline">
+            Comparing USA Electricity Rates Has Never Been Easier</h1>
           <p class="intro-subtitle">When you’re ready to shop electricity plans and providers for your home or business, we’re here to help.</p>
         </header>
         <div class="content-row home-columns">
@@ -249,29 +309,144 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="container-fluid  " style="background-color: #414142; color: white">
-      <header class="entry-header contatiner-fluid wow fadeInRight" data-wow-duration="1s">
-        <h1 class="full-width-title texas-heading margin-zero" itemprop="headline"> Electricity Companies At Your Fingertips
-        </h1>
-      </header>
-      <div class="texas-inline">
-        <div class="texas-img">
-          <img class="img-responsive wow zoomInLeft" data-wow-duration="1s" src="/assets/img/home.png" />
+    </div> -->
+    <section class="main-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 why-img">
+            <img class="" src="../assets/img/confusing_clouds.png">
+          </div>
+          <div class="col-md-6 why-heading">
+            <h2 >Why ChoiceGenie?</h2>
+            <p >
+              We, the engineers at ChoiceGenie have devised bleeding edge Machine Learning (ML) and proprietary Artificially
+              Intelligent (AI) algorithms to bring you a next generation Artificially Intelligent Comparative Shopping Marketplace
+              for Energy Vendors/Products. Our technology is bleeding edge and was engineered with a singular goal: Save consumers Time & Money!          </p>
+            <p >
+              <b >We propel our customers to the next level up in Energy Automation &amp; Efficiency.</b>
+            </p>
+          </div>
         </div>
-        <div class="texas-text  ">
-          <h3 class="texas-sub-heading  wow slideInRight" data-wow-duration="1s">Choice & Savings</h3>
-          <p class="wow slideInLeft" data-wow-duration="1s">We, the engineers at ChoiceGenie have devised bleeding edge Machine Learning (ML) and proprietary Artificially
-            Intelligent (AI) algorithms to bring you a next generation Artificially Intelligent Comparative Shopping Marketplace
-            for Energy Vendors/Products. Our technology is bleeding edge and was engineered with a singular goal: Save the
-            consumer Time n’ Money! .</p>
-          <p Class="wow slideInLeft" data-wow-duration="1s">Compare n’ Shop Energy on Mobile: Experience our next generation Artificially Intelligent Comparative Shopping
-            App on
-            <a href="https://play.google.com/store/apps/details?id=com.brainplow.choicegenie">Google Play Store </a>and Apple App Store.</p>
+    </div>
+    </section>
+
+
+    <section  class="why-our">
+      <div  class="container">
+        <div  class="mainPage">
+          
+          <h4 >Saving Money on Energy Bills like NEVER BEFORE - A Glimpse into ChoiceGenie</h4>
+        </div>
+        <div  class="content back-padding">
+          <div  class="rightSideContent-image">
+            <img  alt="logo" src="../assets/img/why1.png">
+          </div>
+          <div  class="leftSideContent">
+            <p >
+              <span >Save Hundreds of Dollars per year on ChoiceGenie Bills!</span> We keep our overhead low and pass on the savings to our customers.
+            </p>
+          </div>
+        </div>
+        <div  class="content background">
+          <div  class="leftSideContent">
+            <p >
+              <span >We leverage Cutting Edge technologies to lower costs</span> This helps our customers to save more money </p>
+          </div>
+          <div  class="rightSideContent-image">
+            <img  alt="logo" src="../assets/img/why2.png">
+          </div>
+        </div>
+        <div  class="content back-padding">
+          <div  class="rightSideContent-image">
+            <img  alt="logo" src="../assets/img/why3.png">
+          </div>
+          <div  class="leftSideContent">
+            <p >
+              <span > Lower ChoiceGenie Bills Today. Switch to ChoiceGenie Now!</span>Our Customer Service is simply exceptional. Try Us today.
+            </p>
+          </div>
+        </div>
+        <div  class="content background">
+          <div  class="leftSideContent">
+            <p >
+              <span >Powering Texas Electric Choice. One Smile at a Time!</span> </p>
+          </div>
+          <div  class="rightSideContent-image">
+            <img  alt="logo" src="../assets/img/why4.png">
+          </div>
+        </div>
+        <div  class="content background">
+          <div  class="rightSideContent-image">
+            <img  alt="logo" src="../assets/img/why5.png">
+          </div>
+          <div  class="leftSideContent">
+            <p >
+              <span >Shop and Manage Energy on Mobile</span> Experience our next generation Artificially Intelligent App on Google Play and Apple App Store.
+            </p>
+          </div>
+
         </div>
       </div>
-    </div>
+    </section>
+
+    <section class="main-bg" style="padding-bottom: 10px">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 img-box text-center">
+            <div class="hover-img1"></div>
+            <h3>Usage Based Pricing</h3>
+            <p>See true-cost pricing at YOUR usage level.</p>
+          </div>
+          <div class="col-lg-4 img-box text-center">
+              <div class="hover-img2"></div>
+              <h3>Embedded Fine Print</h3>
+            <p>Plan details are instantly accessible on-site.</p>
+            </div>
+            <div class="col-lg-4 img-box text-center">
+                <div class="hover-img3"></div>
+                <h3>Powerful Toolbox</h3>
+            <p>Apply filters & sorting to rapidly find your plan.</p>
+              </div>
+        </div>
+        <div class="silder-div">          
+            <div class="home-slider">
+                <div class="item active af-color">
+                  <img src="../../assets/img/home-s1.jpg" alt="" />
+                </div>
+                <div class="item">
+                  <img src="../../assets/img/home-s2.jpg" alt="" />
+                </div> 
+                <div class="item">
+                    <img src="../../assets/img/home-s3.jpg" alt="" />
+                  </div> 
+          </div></div>
+      </div>
+    </section>
+
+
+
+    
+    <!--<div class="container-fluid  " style="background-color: #414142; color: white">-->
+      <!--<header class="entry-header contatiner-fluid wow fadeInRight" data-wow-duration="1s">-->
+        <!--<h1 class="full-width-title texas-heading margin-zero" itemprop="headline"> Electricity Companies At Your Fingertips-->
+        <!--</h1>-->
+      <!--</header>-->
+      <!--<div class="texas-inline">-->
+        <!--<div class="texas-img">-->
+          <!--<img class="img-responsive wow zoomInLeft" data-wow-duration="1s" src="/assets/img/home.png" />-->
+        <!--</div>-->
+        <!--<div class="texas-text  ">-->
+          <!--<h3 class="texas-sub-heading  wow slideInRight" data-wow-duration="1s">Choice & Savings</h3>-->
+          <!--<p class="wow slideInLeft" data-wow-duration="1s">We, the engineers at ChoiceGenie have devised bleeding edge Machine Learning (ML) and proprietary Artificially-->
+            <!--Intelligent (AI) algorithms to bring you a next generation Artificially Intelligent Comparative Shopping Marketplace-->
+            <!--for Energy Vendors/Products. Our technology is bleeding edge and was engineered with a singular goal: Save the-->
+            <!--consumer Time n’ Money! .</p>-->
+          <!--<p Class="wow slideInLeft" data-wow-duration="1s">Compare n’ Shop Energy on Mobile: Experience our next generation Artificially Intelligent Comparative Shopping-->
+            <!--App on-->
+            <!--<a href="https://play.google.com/store/apps/details?id=com.brainplow.choicegenie">Google Play Store </a>and Apple App Store.</p>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
     <!-- <div class="content-box-02 texas-inline">
       <div class="container">
         <div class="text-center">
@@ -331,10 +506,10 @@
       </div>
     </div> -->
 
-    <section class="pw-solutions">
+    <section class="pw-solutions" style="background: #fff;">
       <div class="container">
         <h3 class="text-center choiecegenie-offers wow fadeInLeft">
-          <span style="color: #c00;">ChoiceGenie</span> Features</h3>
+          ChoiceGeni Features</h3>
         <ul class="fourcolumns">
 
           <li class="col-lg-3 col-md-12 col-sm-6 col-xs-6">
@@ -392,11 +567,11 @@
       </div>
     </section>
     <!--<hr>-->
-    <section class="pw-solutions" style="padding-top: 0px;">
+    <!-- <section class="pw-solutions" style="padding-top: 0px;">
       <div class="container">
         <div class="row">
           <h3 class="text-center choiecegenie-offers wow fadeInLeft col-lg-12 col-md-12 col-sm-12" style="visibility: visible;">How
-            <span style="color: #c00;">ChoiceGenie</span> works for Buyers?</h3>
+            ChoiceGenie works for Buyers?</h3>
           <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12  wow fadeInLeft fixed-width" data-wow-duration="1s">
             <div class="how-it-works-box height">
               <img class="img-holder" src="../assets/img/1.png" style="width: 130px;">
@@ -409,15 +584,15 @@
             <div class="how-it-works-box height">
               <img src="../../assets/img/2.png" style="width: 130px;">
               <h3 class="text-red">2. Search for Plans/Products</h3>
-              <p>Enter your Zipcode. ChoiceGenie will recommend the Top Vendors/Plans with the Best Options to SAVE you Hundreds
+              <p>By entering your Zipcode ChoiceGenie will recommend the Top Vendors/Plans with the Best Options to SAVE you Hundreds
                 of Dollars a Year! It hardly takes a few minutes.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12  wow fadeInDown  fixed-width" data-wow-duration="1s">
             <div class="how-it-works-box height">
               <img src="../../assets/img/3.png" style="width: 130px;">
-              <h3 class="text-red">3. Analyze your Energy Consumption</h3>
-              <p> Setup your profile and let our proprietary AI Crunch/Analyze your Energy Consumption. Based on these Hard-Core
+              <h3 class="text-red">3. Analyze ChoiceGenie Consumption</h3>
+              <p> Setup your profile and let our proprietary AI Crunch/Analyze ChoiceGenie Consumption. Based on these Hard-Core
                 Analytics, ChoiceGenie will alert you on Energy Saving Tips & Vendor/Plan Change Recommendations.</p>
             </div>
           </div>
@@ -426,12 +601,12 @@
               <img src="../../assets/img/4.png" style="width: 130px;">
               <h3 class="text-red">4. Enjoy the Savings</h3>
               <p>After you Signup for the best Energy Product/Pricing, leave a Review for the Energy Vendor. Elevate your comparative
-                shopping experience to a whole new level with ChoiceGenie. Signup Now.</p>
+                shopping experience to a whole new level with ChoiceGenie.<a routerLink="/usersignup"> Signup Now.</a></p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </div>
 <app-footer-cmp></app-footer-cmp>

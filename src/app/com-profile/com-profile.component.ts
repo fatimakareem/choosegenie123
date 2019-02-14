@@ -22,15 +22,18 @@ import * as JWT from 'jwt-decode';
 export class ComProfileComponent implements OnInit { 
 public username;
 data:any=[];
+public title;
 private authentication
 
   constructor(private serve:ProfileService,private https:Http,public router: Router, private fb: FormBuilder, private http: HttpClient, private route: ActivatedRoute, private sg: SimpleGlobal) { 
-     this.authentication=JSON.parse(localStorage.getItem('currentUser'));
-      console.log("token",this.authentication)
+    //  this.authentication=JSON.parse(localStorage.getItem('currentUser'));
+    //   console.log("token",this.authentication)
 
   }
 
   ngOnInit() { this.username = localStorage.getItem('username');
+  // title
+  this.title = localStorage.getItem('title');
   // this.gettoken = JSON.parse(localStorage.getItem('currentUser'));
   this.profile();
   console.log(this.username)
@@ -41,10 +44,10 @@ private authentication
     let headers = new Headers();
     // headers.append('Content-Type', 'application/json');
     // headers.append('Authorization', 'JWT ' +  this.authentication.token);
-    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('pro', localStorage.getItem('token'));
     
-    this.https.get(Config.api +'mydata/'+ this.username +'/' ,{ headers: headers })
+    this.https.get(Config.api +'check_role/'+ this.username +'/' ,{ headers: headers })
     .subscribe(Res => {
     this.sg['products'] = Res.json()['Results'];
     
@@ -56,10 +59,10 @@ private authentication
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     // headers.append('Authorization', 'JWT ' +  this.authentication);
-    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    headers.append('Authorization', 'JWT ' + localStorage.getItem('token'));
     console.log('pofile', localStorage.getItem('token'));
 
-    this.https.get(Config.api + 'comprofile/' + this.username + '/', { headers: headers })
+    this.https.get(Config.api + 'comprofile/' + this.title.trim() + '/', { headers: headers })
     
     .subscribe(Res => {
     this.data=Res.json();

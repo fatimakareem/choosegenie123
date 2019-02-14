@@ -2,12 +2,12 @@
 
 
     <div class="row">
-        <div class="search-bar1 col-lg-12">
+        <div class="search-bar1 col-lg-12 sh-signup-form-fix">
 
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-xs-12">
                 <!--<label class="date-lable">Effective from date</label>-->
 
-              <mat-form-field>
+              <mat-form-field class="margin-t-15">
                 <input matInput [matDatepicker]="startPicker" [(ngModel)]="Inactivedate" placeholder="Effective from date"/>
                 <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle> <mat-datepicker #startPicker></mat-datepicker>
               </mat-form-field>
@@ -15,20 +15,19 @@
 
             </div>
 
-              <div class="col-lg-3">
+              <div class="col-lg-3 col-xs-12">
                   <!--<label class="date-lable">Effective to date</label>-->
-                <mat-form-field >
+                <mat-form-field class="margin-t-15">
                   <input matInput [matDatepicker]="startPicker1" [(ngModel)]="publishdate" placeholder="Effective to date"/>
                   <mat-datepicker-toggle matSuffix [for]="startPicker1"></mat-datepicker-toggle><mat-datepicker #startPicker1></mat-datepicker>
                 </mat-form-field>
-
 
                 <!-- <input type="date" placeholder="Publish Date" required name="publishdate" [(ngModel)]="publishdate" style="    padding: 2px 0px; font-size: 16px; font-weight: bold;"> -->
 
               </div>
 
-                <div class="col-lg-3 cus-font">
-                  <mat-form-field >
+                <div class="col-lg-3 cus-font col-xs-12">
+                  <mat-form-field class="margin-t-15">
                       <!--<label class="date-lable">Service Area Name</label>-->
                     <mat-select class="search-select" placeholder="Service Area Name" required [(ngModel)]="name" name="name">
                       <mat-option value="AEP TEXAS NORTH DIVISION" style="font-size: 20px">AEP TEXAS NORTH DIVISION</mat-option>
@@ -41,7 +40,7 @@
                 </div>
 
 
-                <button class="col-lg-3 search-btn btn-fill" (click)="search(1)">Search</button>
+                <button class="col-lg-3 col-xs-12 search-btn btn-fill" (click)="search(1)">Search</button>
         </div>
         <div class="found-div" style="    margin-bottom: 9px; width: 100%;">
           We found <strong style="display: inline-block">{{noresult}}</strong> residential plans
@@ -53,9 +52,9 @@
         <ng-template #no_data_temp2>
 
             <!-- <img src="../../assets/img/no_Record.png" style="width: 250px;height:200px" > -->
-            <h1 style="height:1000px;width:1000px;padding:200px">
+            <h1 class="result-not-found">
 
-              <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Record Found</b>
+              <b>No Record Found</b>
             </h1>
           </ng-template>
         <div *ngIf="noresult != '0';else no_data_temp2">
@@ -66,7 +65,7 @@
                 <h4 class="card-title" style="padding: 0px;">{{data.title}} </h4>
               </div>
               <div class="card-content">
-                <div class="col-md-3  col-sm-3 col-xs-5 plan-detail text-center display">
+                <div class="col-md-3  col-sm-3 col-xs-12 plan-detail text-center display">
                   <a href="{{data.profileurl}}" target="_blank" class="margin-top">
 
                     <img src="{{data.profile_logo}}" alt="{{data.title}}" />
@@ -159,7 +158,7 @@
                             <input matInput placeholder="price 2000 kwh" name="price_2000_kwh" value="{{price_2000_kwh}}" [hidden]="true" #updatedprice2000kwh/>
 
 
-                            <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" value="{{cancelation_fee}}" #updatedcancelation_fee/>
+                            <input matInput placeholder="Cancelation Fee" readonly name="cancelation_fee" value="{{cancelation_fee}}"[hidden]="true" #updatedcancelation_fee/>
 
                             <input matInput placeholder="Fact Sheet" readonly name="fact_sheet" value="{{fact_sheet}}" [hidden]="true" #updatedfact_sheet/>
 
@@ -187,26 +186,26 @@
                   </div>
                 </div>
 
-                <div class="col-md-3 col-sm-5 col-xs-5 rate margin-up" style="text-align:center">
+                <div class="col-md-3 col-sm-5 col-xs-12 rate margin-up sh-pos-rel" style="text-align:center">
                   <h3 style=" text-align: center">
                     <b> Price Detail</b>
                   </h3>
 
                   <div class="sh-top-price">
                     Price 500 kwh
-                    <span class="price-style-1"> {{data.price_500_kwh}}</span>
+                    <span class="price-style-1"> {{data.price_500_kwh}}¢</span>
 
                   </div>
                   <div class="add-price grid-element">
                     <div class="unit">Price 1000 kwh
-                      <span class="price-style"> {{data.price_1000_kwh}} </span>
+                      <span class="price-style"> {{data.price_1000_kwh}}¢ </span>
                     </div>
                     <div class="unit">Price 2000 kwh
-                      <span class="price-style"> {{data.price_2000_kwh}} </span>
+                      <span class="price-style"> {{data.price_2000_kwh}}¢ </span>
                     </div>
 
                   </div>
-                  <a style="margin-top: 10px;">
+                  <a style="margin-top: 10px;" class="sh-pos-abso">
                     <label class="view-plan-details" (click)="btnshowClick(data.id,data.title,data.sign_up,data.phone,data.terms_of_service,data.fact_sheet,data.cancelation_fee,data.price_1000_kwh,data.price_500_kwh,data.price_2000_kwh,data.plan_information,data.rating_logo,data.profile_logo,data.profileurl)"
                       data-toggle="modal" data-target="#myModal4">Plan Information</label>
                   </a>
@@ -215,7 +214,7 @@
 
                 </div>
 
-                <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail margin-up" style="text-align:center">
+                <div class="col-md-3 col-sm-6 col-xs-12 rate plan-detail margin-up sh-pos-rel" style="text-align:center">
                   <h3 style=" text-align: center;">
                     <b>Plan Details</b>
                   </h3>
@@ -224,7 +223,7 @@
                     {{item}}
                     </p>
                   </div>
-                  <a (click)="submit(data.id,data.title)" style="color:white;text-align: center;">
+                  <a (click)="submit(data.id,data.title)" style="color:white;text-align: center;" class="sh-pos-abso">
                     <label class="view-plan-details" style="padding-bottom: 0px; margin-bottom: 0px;">Reviews</label>
                   </a>
                 </div>
@@ -409,7 +408,7 @@
                         </a>
                         <div style="display:inline-block; padding:24px;">
                           <span style="font-size:24px; font-weight:600px">OR
-                              <a href="tel:{{data.phone}}" style="display: block">
+                              <a href="tel:{{data.phone}}">
                                   <!-- <input type="text" id="phone" value="{{data.phone}}"  name="phone"  > -->
                                   {{data.phone}}</a>
                             <!-- <b> {{data.phone}} </b> -->
@@ -421,7 +420,7 @@
                 </div>
 
                 <br>
-                <div class="col-md-3 col-sm-3 col-xs-7 term text-center">
+                <div class="col-md-3 col-sm-3 col-xs-12 term text-center">
 
                   <h3 class="text-center">
                     <b> Call now</b>
@@ -488,16 +487,17 @@
                       <table>
                         <tbody>
                           <tr class="plan-information__row">
+                            
                             <td class="plan-information__cell">Price 1000 kwh</td>
-                            <td class="plan-information__cell plan-information__cell--last ">{{price_1000_kwh}}</td>
+                            <td class="plan-information__cell plan-information__cell--last ">{{price_1000_kwh}}¢</td>
                           </tr>
                           <tr class="plan-information__row">
                             <td class="plan-information__cell">Price 500 kwh</td>
-                            <td class="plan-information__cell plan-information__cell--last ">{{price_500_kwh}}</td>
+                            <td class="plan-information__cell plan-information__cell--last ">{{price_500_kwh}}¢</td>
                           </tr>
                           <tr class="plan-information__row">
                             <td class="plan-information__cell">Price 2000 kwh</td>
-                            <td class="plan-information__cell plan-information__cell--last ">{{price_2000_kwh}}</td>
+                            <td class="plan-information__cell plan-information__cell--last ">{{price_2000_kwh}}¢</td>
                           </tr>
                         </tbody>
                       </table>
@@ -537,13 +537,14 @@
 
                     <div class="col-lg-12">
                         <div class="plan-description">
-                            <div class="plan-description__heading">Cancelation Fee</div>
+                            <div class="plan-description__heading"  *ngIf="cancelation_fee;else no_data_temp2">Cancellation Fee:  {{cancelation_fee.split(' ',3000)[6]}}</div>
                             <div class="plan-description__content">
 
-                              <h4 *ngIf="cancelation_fee;else no_data_temp2">
-                                <!-- &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee.split(' ',3000)[6]}} -->
-                                &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee}}
-                              </h4>
+                              <!-- <h4 *ngIf="cancelation_fee;else no_data_temp2">
+                                &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee.split(' ',3000)[6]}}
+                                </h4> -->
+                                <!-- &nbsp;&nbsp;&nbsp;&nbsp; {{cancelation_fee.split(' ',3000)[2]}} -->
+                              <!-- </h4> -->
 
                               <ng-template #no_data_temp2>
 
