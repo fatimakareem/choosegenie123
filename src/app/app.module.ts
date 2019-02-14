@@ -12,6 +12,7 @@ import { EditBlogService } from './Blogchoicegenie/adminblog/edit-blog.service';
 import { AngularcliStarRatingModule } from 'angularcli-star-rating'
 import { LoaderModule } from './loader/loader.module';
 import { SlickModule } from 'ngx-slick';
+import { DataTableDemo1 } from './demo1/data-table-demo1';
 
 
 import {
@@ -104,12 +105,14 @@ import { UpdategetuserService } from './ChoiceSuperAdmin/supergetusers/updateget
 // import { CookieService } from 'ngx-cookie-service';
 import { BlogssComponent } from './blogss/blogss.component';
 import {ProductsComponent} from './regulated/products/products.component'
-
+import { DataTableModule } from 'angular4-smart-table';
 import { ExcelService } from './excel.service';
 // import {NotificationsService} from 'angular4-notify';
 import { NotifierService } from 'angular-notifier';
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { MyfilterPipe } from './myfilter.pipe';
+// import { WatchlistComponent } from './watchlist/watchlist.component';
+// import { AllnotificationComponent } from './allnotification/allnotification.component';
 const customNotifierOptions: NotifierOptions = {
   position: {
 		horizontal: {
@@ -193,6 +196,7 @@ export class MaterialModule { }
 
 @NgModule({
   imports: [
+    DataTableModule,
     SlickModule.forRoot(),
     BrowserModule.withServerTransition({ appId: 'PlugExp' }),
     BrowserTransferStateModule,
@@ -240,7 +244,7 @@ export class MaterialModule { }
     // UsersdashboardComponent
     // ProductsComponent
     // MyfilterPipe,
-
+DataTableDemo1
 
 
 

@@ -1,0 +1,59 @@
+<div style="margin: auto; max-width: 1000px; margin-bottom: 50px;">
+    <data-table id="persons-grid"
+        headerTitle="Reviews"
+       [pagination_limit]="true"
+        [items]="items"
+        [itemCount]="itemCount"
+        (reload)="reloadItems($event)"
+
+        (rowClick)="rowClick($event)"
+        (rowDoubleClick)="rowDoubleClick($event)"
+        [rowTooltip]="rowTooltip"
+        >
+        <data-table-column
+            [property]="'rfpkey'"
+            [header]="'Rfp #'"
+            [sortable]="true"
+            [resizable]="true"
+            [searchable]="true">
+        </data-table-column>
+        <data-table-column
+            [property]="'category'"
+            [header]="'Category'"
+            [sortable]="true"
+            [searchable]="true">
+           
+        </data-table-column>
+        <data-table-column
+            property="date_entered'"
+            header="Date entered"
+            width="150px"
+            [searchable]="true"
+            [sortable]="true">
+            <ng-template #dataTableCell let-item="item">
+                <span>{{item.date_entered | date:'yyyy-MM-dd'}}</span>
+            </ng-template>
+        </data-table-column>
+        <!-- <data-table-column
+            [property]="'jobTitle'"
+            [header]="'Job title'"
+            [visible]="true">
+        </data-table-column>
+        <data-table-column
+            [property]="'active'"
+            [header]="'Active'"
+            [width]="100"
+            [resizable]="true"
+            [searchable]="false">
+            <ng-template #dataTableHeader let-item="item">
+                <span style="color: rgb(232, 0, 0)">Active</span>
+            </ng-template>
+            <ng-template #dataTableCell let-item="item">
+                <span style="color: grey">
+                <span class="glyphicon glyphicon-ok" *ngIf="item.active"></span>
+                <span class="glyphicon glyphicon-remove" *ngIf="!item.active"></span>
+                </span>
+            </ng-template>
+        </data-table-column> -->
+    </data-table>
+</div>

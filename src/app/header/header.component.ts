@@ -85,7 +85,7 @@ googleTranslateElementInit() {
     this.router.navigate(['/supermaindashboard']);
   }
   ngOnInit() {
-    
+    alert('helllo')
     const mainSearch = $('.main-search');
     const formSearch = $('.form-search');
 

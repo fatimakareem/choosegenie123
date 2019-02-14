@@ -12,12 +12,16 @@ import { ConsumeradminComponent } from './layouts/consumeradmin/consumeradmin.co
 import { Authgaurd2Service } from './_guards/authgaurd2.service';
 import { Authgaurd3Service } from './_guards/authgaurd3.service';
 import { Authgaurd4Service } from './_guards/authgaurd4.service';
-
+import { DataTableDemo1 } from './demo1/data-table-demo1';
 import { ProductComponent } from './Deregulated/product/product.component';
 import {ProductsComponent} from './regulated/products/products.component'
 export const AppRoutes: Routes = [
    
     {path: "", component: HomeComponent},
+    {
+        path: 'demo',component:DataTableDemo1
+       
+    },
     // {
     //     path: 'products/:zipCode',
     //     component:ProductsComponent
@@ -73,6 +77,7 @@ export const AppRoutes: Routes = [
             path: 'Become-a-partner',
             loadChildren: './becomeapartner/becomeapartner.module#BecomeapartnerModule'
         },
+        
         {
             path: 'Faqs',
             loadChildren: './faqs/faqs.module#FaqsModule'

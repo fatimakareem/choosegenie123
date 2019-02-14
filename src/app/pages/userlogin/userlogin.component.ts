@@ -141,7 +141,7 @@ export class UserloginComponent implements OnInit {
                 // localStorage.setItem('token', Res.json()['token']);
                     if (this.role == "USER") {
                       this.router.navigate(['/userprofile']);
-                      localStorage.setItem('custum', this.username);
+                      localStorage.setItem('username', this.username);
                     }
                     else if(this.role=="Not Deregulatedstate Vendor"){
                       // dashboard/:username
